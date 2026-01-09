@@ -93,21 +93,68 @@
         }
 
         .back-button {
-            display: inline-block;
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            z-index: 1000;
             background: var(--card-bg);
             color: #667eea;
             padding: 0.8rem 1.5rem;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
-            margin-bottom: 2rem;
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         .back-button:hover {
-            transform: translateY(-2px);
+            transform: translateY(-2px) translateX(-3px);
             box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+        }
+
+        /* Scroll to Top Button */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 1000;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .scroll-to-top:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        .scroll-to-top.show {
+            display: flex;
+            animation: fadeInUp 0.3s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .dashboard-card {
@@ -465,13 +512,18 @@
         <span class="mode-text">Dark Mode</span>
     </button>
 
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" onclick="scrollToTop()" aria-label="Scroll to top">
+        ↑
+    </button>
+
+    <a href="index.html" class="back-button">← Back to Dashboard</a>
+
     <div class="container">
         <header>
             <h1>🔧 Change Requests (CRs)</h1>
             <p class="subtitle">Contributed Change Requests - WTS Support</p>
         </header>
-
-        <a href="index.html" class="back-button">← Back to Dashboard</a>
 
         <div class="dashboard-card">
             <div class="stats-bar">
@@ -520,16 +572,11 @@
     </div>
 
     <script>
-        // Initialize dark mode from localStorage
-        if (localStorage.getItem('darkMode') === 'enabled') {
-            document.body.classList.add('dark-mode');
-            updateDarkModeButton();
-        }
-
+        // Dark Mode Functions
         function toggleDarkMode() {
             document.body.classList.toggle('dark-mode');
             const isDark = document.body.classList.contains('dark-mode');
-            localStorage.setItem('darkMode', isDark ? 'enabled' : 'disabled');
+            localStorage.setItem('darkMode', isDark ? 'true' : 'false');
             updateDarkModeButton();
         }
 
@@ -540,6 +587,17 @@
             icon.textContent = isDark ? '☀️' : '🌙';
             text.textContent = isDark ? 'Light Mode' : 'Dark Mode';
         }
+
+        function loadDarkMode() {
+            const isDark = localStorage.getItem('darkMode') === 'true';
+            if (isDark) {
+                document.body.classList.add('dark-mode');
+            }
+            updateDarkModeButton();
+        }
+
+        // Load dark mode on page load
+        window.addEventListener('DOMContentLoaded', loadDarkMode);
 
         let currentStatusFilter = 'all';
         let currentCRs = allCRs;
@@ -605,6 +663,23 @@
         // Initialize the display
         document.getElementById('totalCRs').textContent = allCRs.length;
         displayCRs(allCRs);
+
+        // Scroll to top functionality
+        window.addEventListener('scroll', function() {
+            const scrollBtn = document.querySelector('.scroll-to-top');
+            if (window.pageYOffset > 300) {
+                scrollBtn.classList.add('show');
+            } else {
+                scrollBtn.classList.remove('show');
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
     </script>
 </body>
 </html>

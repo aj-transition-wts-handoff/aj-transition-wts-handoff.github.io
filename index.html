@@ -339,6 +339,11 @@
         <span id="darkModeText">Dark Mode</span>
     </button>
 
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" onclick="scrollToTop()" aria-label="Scroll to top">
+        ↑
+    </button>
+
     <!-- Navigation Bar -->
     <nav style="position: fixed; top: 0; left: 0; right: 0; z-index: 999; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1); transition: all 0.3s ease;">
         <div style="max-width: 1400px; margin: 0 auto; padding: 1rem 2rem; display: flex; align-items: center; justify-content: space-between;">
@@ -1505,7 +1510,18 @@
                     <div style="margin-top: 0.8rem; font-size: 0.85rem; color: #888; position: relative; z-index: 1;">Quick reference guide for MRMAC/DCMAC & 10G/25G Ethernet Subsystem debugging</div>
                 </div>
 
-                <!-- ZCU102 Ethernet Repo - Featured #4 -->
+                <!-- Device Tree Directory - Featured #4 -->
+                <div class="resource-card" style="background: var(--card-bg); border: 4px solid #00bcd4; border-radius: 15px; padding: 1.5rem; transition: all 0.3s; position: relative; overflow: hidden; box-shadow: 0 8px 30px rgba(0, 188, 212, 0.3);">
+                    <div style="position: absolute; top: 10px; right: 10px; background: linear-gradient(135deg, #00bcd4 0%, #0097a7 100%); color: white; padding: 0.4rem 0.9rem; border-radius: 20px; font-size: 0.7rem; font-weight: 700; z-index: 2; box-shadow: 0 2px 8px rgba(0, 188, 212, 0.4);">FEATURED</div>
+                    <div style="position: absolute; top: -20px; right: -20px; font-size: 4rem; opacity: 0.08;">🌲</div>
+                    <div class="resource-title" style="font-size: 1.3rem; font-weight: 700; color: #006064; margin-bottom: 1rem; position: relative; z-index: 1;">🌲 Device Tree Directory</div>
+                    <a href="ethernet-interfaces.html" class="resource-link" target="_blank" style="display: block; background: linear-gradient(135deg, rgba(0, 188, 212, 0.25) 0%, rgba(0, 151, 167, 0.25) 100%); padding: 0.8rem; border-radius: 8px; color: var(--text-color); text-decoration: none; font-weight: 600; position: relative; z-index: 1; transition: all 0.3s; border: 1px solid rgba(0, 188, 212, 0.5);">
+                        Browse Ethernet Interfaces →
+                    </a>
+                    <div style="margin-top: 0.8rem; font-size: 0.85rem; color: #888; position: relative; z-index: 1;">Interactive map of all 64 Ethernet device tree configurations across Vivado versions</div>
+                </div>
+
+                <!-- ZCU102 Ethernet Repo - Featured #5 -->
                 <div class="resource-card" style="background: var(--card-bg); border: 4px solid #ff5722; border-radius: 15px; padding: 1.5rem; transition: all 0.3s; position: relative; overflow: hidden; box-shadow: 0 8px 30px rgba(255, 87, 34, 0.3);">
                     <div style="position: absolute; top: 10px; right: 10px; background: linear-gradient(135deg, #ff5722 0%, #f44336 100%); color: white; padding: 0.4rem 0.9rem; border-radius: 20px; font-size: 0.7rem; font-weight: 700; z-index: 2; box-shadow: 0 2px 8px rgba(255, 87, 34, 0.4);">FEATURED</div>
                     <div style="position: absolute; top: -20px; right: -20px; font-size: 4rem; opacity: 0.08;">⚡</div>
@@ -1516,7 +1532,7 @@
                     <div style="margin-top: 0.8rem; font-size: 0.85rem; color: #888; position: relative; z-index: 1;">Complete ZCU102 Ethernet examples (replaces XAPP1305)</div>
                 </div>
 
-                <!-- AR Database - Featured #5 -->
+                <!-- AR Database - Featured #6 -->
                 <div class="resource-card" style="background: var(--card-bg); border: 4px solid #f44336; border-radius: 15px; padding: 1.5rem; transition: all 0.3s; position: relative; overflow: hidden; box-shadow: 0 8px 30px rgba(244, 67, 54, 0.3);">
                     <div style="position: absolute; top: 10px; right: 10px; background: linear-gradient(135deg, #f44336 0%, #e91e63 100%); color: white; padding: 0.4rem 0.9rem; border-radius: 20px; font-size: 0.7rem; font-weight: 700; z-index: 2; box-shadow: 0 2px 8px rgba(244, 67, 54, 0.4);">FEATURED</div>
                     <div style="position: absolute; top: -20px; right: -20px; font-size: 4rem; opacity: 0.08;">📄</div>
@@ -1527,7 +1543,7 @@
                     <div style="margin-top: 0.8rem; font-size: 0.85rem; color: #888; position: relative; z-index: 1;">Comprehensive collection of ARs written by AJ for Ethernet debugging and configuration</div>
                 </div>
 
-                <!-- Ethernet Training Plan - Featured #6 -->
+                <!-- Ethernet Training Plan - Featured #7 -->
                 <div class="resource-card" style="background: var(--card-bg); border: 4px solid #673ab7; border-radius: 15px; padding: 1.5rem; transition: all 0.3s; position: relative; overflow: hidden; box-shadow: 0 8px 30px rgba(103, 58, 183, 0.3);">
                     <div style="position: absolute; top: 10px; right: 10px; background: linear-gradient(135deg, #673ab7 0%, #9c27b0 100%); color: white; padding: 0.4rem 0.9rem; border-radius: 20px; font-size: 0.7rem; font-weight: 700; z-index: 2; box-shadow: 0 2px 8px rgba(103, 58, 183, 0.4);">FEATURED</div>
                     <div style="position: absolute; top: -20px; right: -20px; font-size: 4rem; opacity: 0.08;">🎓</div>
@@ -1597,6 +1613,10 @@
 
             body.dark-mode .resource-card [style*="color: #2e7d32"] {
                 color: #81c784 !important;
+            }
+
+            body.dark-mode .resource-card [style*="color: #006064"] {
+                color: #4dd0e1 !important;
             }
 
             /* Dark mode description text */
@@ -1867,15 +1887,15 @@
                 </div>
                 <div style="display: flex; gap: 1rem; align-items: center;">
                     <div style="background: linear-gradient(135deg, #51cf66 0%, #40c057 100%); color: white; padding: 0.8rem 1.5rem; border-radius: 50px; font-weight: 700; font-size: 1rem; box-shadow: 0 6px 20px rgba(81, 207, 102, 0.4);">
-                        <span id="completedCount">4</span> of 5 Done
+                        <span id="completedCount">5</span> of 5 Done
                     </div>
                     <div style="font-size: 2.5rem;">✅</div>
                 </div>
             </div>
             
             <div class="progress-bar" style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%); border: 2px solid rgba(102, 126, 234, 0.2); height: 50px; border-radius: 30px; position: relative; z-index: 1; overflow: hidden; box-shadow: inset 0 4px 10px rgba(0, 0, 0, 0.05);">
-                <div class="progress-fill" id="progressFill" style="width: 80%; background: linear-gradient(135deg, #51cf66 0%, #40c057 100%); height: 100%; display: flex; align-items: center; justify-content: center; border-radius: 30px; transition: width 0.5s ease; box-shadow: 0 4px 15px rgba(81, 207, 102, 0.4); min-width: fit-content; padding: 0 1rem;">
-                    <span id="progressText" style="font-weight: 700; font-size: 0.95rem; color: white; text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); white-space: nowrap;">4 of 5 done (80%)</span>
+                <div class="progress-fill" id="progressFill" style="width: 100%; background: linear-gradient(135deg, #51cf66 0%, #40c057 100%); height: 100%; display: flex; align-items: center; justify-content: center; border-radius: 30px; transition: width 0.5s ease; box-shadow: 0 4px 15px rgba(81, 207, 102, 0.4); min-width: fit-content; padding: 0 1rem;">
+                    <span id="progressText" style="font-weight: 700; font-size: 0.95rem; color: white; text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); white-space: nowrap;">5 of 5 done (100%)</span>
                 </div>
             </div>
 
@@ -1951,9 +1971,9 @@
             </div> <!-- End column wrapper -->
         </div> <!-- End task-item -->
                 <!-- Task 3 -->
-                <div class="task-item" onclick="toggleTask(this)" data-completed="false" data-task-id="task-3">
-                    <div style="position: absolute; top: -20px; right: -20px; font-size: 5rem; opacity: 0.05;">📍</div>
-                    <span class="done-badge" style="display: none;">DONE</span>
+                <div class="task-item completed" onclick="toggleTask(this)" data-completed="true" data-task-id="task-3">
+                    <div style="position: absolute; top: -20px; right: -20px; font-size: 5rem; opacity: 0.08;" data-original-icon="📍">✓</div>
+                    <span class="done-badge">DONE</span>
                     
                     <!-- Wrapper to force column layout -->
                     <div style="display: flex; flex-direction: column; width: 100%;">
@@ -1961,25 +1981,29 @@
                             <div class="task-number">3</div>
                             <div class="task-content" style="flex: 1;">
                                 <div style="margin-bottom: 1rem;">
-                                    <strong style="font-size: 1.2rem; color: var(--text-color);">Provide ZCU102 Ethernet Interfaces Map with PS-GEM DT Nodes</strong>
+                                    <strong style="font-size: 1.2rem; color: var(--text-color);">✓ Provide ZCU102 Ethernet Interfaces Map with PS-GEM DT Nodes</strong>
                                 </div>
-                                <div style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(118, 75, 162, 0.08) 100%); padding: 1.2rem; border-radius: 12px; border-left: 4px solid #667eea; width: 100%; box-sizing: border-box;">
-                                <ul style="margin-left: 1.5rem; margin-top: 0; color: var(--text-color);">
-                                    <li style="margin-bottom: 1rem;"><strong>PS-GEM → EMIO → PCS/PMA → SFP</strong> (1000base-x/sgmii)
-                                        <br><small style="color: #888;">Include PHY/MAC mode details, MDIO bus info, full DT nodes for 2020.1 → 2025.2</small>
-                                    </li>
-                                    <li style="margin-bottom: 1rem;"><strong>PS-GEM → MIO → RGMII → TI PHY DPxx</strong> (1000base-t)
-                                        <br><small style="color: #888;">Include MDIO bus info, full DT nodes for 2020.1 → 2025.2</small>
-                                    </li>
-                                    <li style="margin-bottom: 1rem;"><strong>PS-GEM → PS-GTR</strong> (1000base-x/sgmii)
-                                        <br><small style="color: #888;">Build BSP for multiple versions and decompile DTB</small>
-                                    </li>
-                                    <li><strong>Other dev boards:</strong> KR260 consideration</li>
-                                </ul>
+                                <div style="background: rgba(255, 255, 255, 0.5); padding: 1.2rem; border-radius: 12px; border-left: 4px solid #51cf66; width: 100%; box-sizing: border-box;">
+                                    <strong style="color: var(--text-color);">Complete Ethernet Interface Documentation:</strong>
+                                    <ul style="margin-left: 1.5rem; margin-top: 0.8rem; color: var(--text-color);">
+                                        <li style="margin-bottom: 0.5rem;">✓ PS-GEM → EMIO → PCS/PMA → SFP (1000base-x/sgmii)</li>
+                                        <li style="margin-bottom: 0.5rem;">✓ PS-GEM → MIO → RGMII → TI PHY (1000base-t)</li>
+                                        <li style="margin-bottom: 0.5rem;">✓ PS-GEM → PS-GTR (1000base-x/sgmii)</li>
+                                        <li style="margin-bottom: 0.5rem;">✓ PL Ethernet (1G/10G/25G) configurations</li>
+                                        <li style="margin-bottom: 0.5rem;">✓ Full DT nodes across versions (2020.1 → 2024.2)</li>
+                                        <li>✓ KR260 and other dev board considerations</li>
+                                    </ul>
+                                </div>
+                                
+                                <div style="margin-top: 1.2rem;">
+                                    <a href="ethernet-interfaces.html" 
+                                       style="display: inline-block; padding: 0.7rem 1.3rem; background: linear-gradient(135deg, #51cf66 0%, #40c057 100%); color: white; text-decoration: none; border-radius: 10px; font-weight: 600; font-size: 0.95rem; box-shadow: 0 4px 12px rgba(81, 207, 102, 0.3); transition: all 0.3s;" 
+                                       onclick="event.stopPropagation();" 
+                                       target="_blank">🔍 View Ethernet Interfaces Map →</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div> <!-- End column wrapper -->
+                    </div> <!-- End column wrapper -->
                 </div>
 
                 <!-- Task 4 -->
@@ -2558,7 +2582,7 @@
     <!-- Footer -->
     <footer class="page-footer">
         <div class="footer-content">
-            <p class="last-updated">Last Updated: January 7, 2026</p>
+            <p class="last-updated">Last Updated: January 8, 2026</p>
             <p class="powered-by">☕ <span id="powered-text">Powered by a big jar of coffee and AI</span> ✨</p>
         </div>
     </footer>
@@ -2593,6 +2617,27 @@
         
         // Rotate message every 4 seconds
         setInterval(rotateMessage, 4000);
+    </script>
+
+    <!-- Scroll to Top Functionality -->
+    <script>
+        // Show/hide scroll-to-top button
+        window.addEventListener('scroll', function() {
+            const scrollBtn = document.querySelector('.scroll-to-top');
+            if (window.pageYOffset > 300) {
+                scrollBtn.classList.add('show');
+            } else {
+                scrollBtn.classList.remove('show');
+            }
+        });
+
+        // Smooth scroll to top
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
     </script>
 </body>
 </html>

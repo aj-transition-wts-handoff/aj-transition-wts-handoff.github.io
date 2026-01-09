@@ -1,0 +1,3896 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZCU102 Ethernet Interface Architecture Map</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet">
+    
+    <!-- Mermaid for Diagrams -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    
+    <!-- Prism for Syntax Highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-c.min.js"></script>
+    
+    <!-- Ethernet Interfaces Styles -->
+    <link rel="stylesheet" href="css/ethernet-interfaces.css">
+</head>
+<body>
+    <!-- Embedded JSON Data (for file:// protocol support) -->
+    <script type="application/json" id="ethernet-data-embedded">
+{
+  "2020.1/pl_eth_10g": {
+    "version": "2020.1",
+    "design": "pl_eth_10g",
+    "ethernet_nodes": [
+      {
+        "name": "ethernet@ff0e0000",
+        "compatible": "cdns,zynqmp-gem\\0cdns,gem",
+        "status": "okay",
+        "interrupt-parent": "0x04",
+        "interrupts": "0x00 0x3f 0x04 0x00 0x3f 0x04",
+        "reg": "0x00 0xff0e0000 0x00 0x1000",
+        "clock-names": "pclk\\0hclk\\0tx_clk\\0rx_clk\\0tsu_clk",
+        "#address-cells": "0x01",
+        "#size-cells": "0x00",
+        "#stream-id-cells": "0x01",
+        "iommus": "0x0e 0x877",
+        "power-domains": "0x0c 0x20",
+        "clocks": "0x03 0x1f 0x03 0x6b 0x03 0x30 0x03 0x34 0x03 0x2c",
+        "phy-handle": "0x0f",
+        "pinctrl-names": "default",
+        "pinctrl-0": "0x10",
+        "phy-mode": "rgmii-id",
+        "xlnx,ptp-enet-clock": "0x00",
+        "local-mac-address": "[00 0a 35 00 22 01]",
+        "phandle": "0x71",
+        "nodeType": "PS GEM3 (EMIO)",
+        "phy_nodes": [
+          {
+            "name": "ethernet-phy@c",
+            "reg": "0x0c",
+            "ti,rx-internal-delay": "0x08",
+            "ti,tx-internal-delay": "0x0a",
+            "ti,fifo-depth": "0x01",
+            "ti,dp83867-rxctrl-strap-quirk": true,
+            "phandle": "0x0f"
+          }
+        ]
+      },
+      {
+        "name": "ethernet@a0040000",
+        "axistream-connected": "0x3a",
+        "axistream-control-connected": "0x3a",
+        "clock-frequency": "0x5f5e100",
+        "clock-names": "rx_core_clk\\0dclk\\0s_axi_aclk\\0s_axi_lite_aclk\\0m_axi_sg_aclk\\0m_axi_mm2s_aclk\\0m_axi_s2mm_aclk",
+        "clocks": "0x39 0x03 0x47 0x03 0x47 0x03 0x47 0x03 0x47 0x39 0x39",
+        "compatible": "xlnx,xxv-ethernet-3.2\\0xlnx,xxv-ethernet-1.0",
+        "device_type": "network",
+        "local-mac-address": "[00 0a 35 00 00 01]",
+        "phy-mode": "base-r",
+        "reg": "0x00 0xa0040000 0x00 0x40000",
+        "xlnx": "0x00",
+        "xlnx,add-gt-cntrl-sts-ports": "0x00",
+        "xlnx,anlt-clk-in-mhz": "0x64",
+        "xlnx,axis-tdata-width": "0x40",
+        "xlnx,axis-tkeep-width": "0x07",
+        "xlnx,base-r-kr": "BASE-R",
+        "xlnx,clocking": "Asynchronous",
+        "xlnx,cmac-core-select": "CMACE4_X0Y0",
+        "xlnx,core": "Ethernet MAC+PCS/PMA 64-bit",
+        "xlnx,data-path-interface": "AXI Stream",
+        "xlnx,enable-datapath-parity": "0x00",
+        "xlnx,enable-pipeline-reg": "0x00",
+        "xlnx,enable-preemption": "0x00",
+        "xlnx,enable-preemption-fifo": "0x00",
+        "xlnx,enable-rx-flow-control-logic": "0x00",
+        "xlnx,enable-time-stamping": "0x00",
+        "xlnx,enable-tx-flow-control-logic": "0x00",
+        "xlnx,enable-vlane-adjust-mode": "0x00",
+        "xlnx,family-chk": "zynquplus",
+        "xlnx,fast-sim-mode": "0x00",
+        "xlnx,gt-diffctrl-width": "0x04",
+        "xlnx,gt-drp-clk": "100.00",
+        "xlnx,gt-group-select": "Quad X0Y0",
+        "xlnx,gt-location": "0x01",
+        "xlnx,gt-ref-clk-freq": "156.25",
+        "xlnx,gt-type": "GTH",
+        "xlnx,gtm-group-select": "NA",
+        "xlnx,include-auto-neg-lt-logic": "None",
+        "xlnx,include-axi4-interface": "0x01",
+        "xlnx,include-dre": true,
+        "xlnx,include-fec-logic": "0x00",
+        "xlnx,include-hybrid-cmac-rsfec-logic": "0x00",
+        "xlnx,include-rsfec-logic": "0x00",
+        "xlnx,include-shared-logic": "0x01",
+        "xlnx,include-statistics-counters": "0x01",
+        "xlnx,include-user-fifo": "0x01",
+        "xlnx,ins-loss-nyq": "0x1e",
+        "xlnx,lane1-gt-loc": "X1Y14",
+        "xlnx,lane2-gt-loc": "NA",
+        "xlnx,lane3-gt-loc": "NA",
+        "xlnx,lane4-gt-loc": "NA",
+        "xlnx,line-rate": "0x0a",
+        "xlnx,mii-ctrl-width": "0x04",
+        "xlnx,mii-data-width": "0x20",
+        "xlnx,num-of-cores": "0x01",
+        "xlnx,ptp-clocking-mode": "0x00",
+        "xlnx,ptp-operation-mode": "0x02",
+        "xlnx,runtime-switch": "0x00",
+        "xlnx,rx-eq-mode": "AUTO",
+        "xlnx,rxmem": "0x40000",
+        "xlnx,statistics-regs-type": "0x00",
+        "xlnx,switch-1-10-25g": "0x00",
+        "xlnx,tx-latency-adjust": "0x00",
+        "xlnx,tx-total-bytes-width": "0x04",
+        "xlnx,xgmii-interface": "0x01",
+        "phandle": "0xa4",
+        "nodeType": "PL Ethernet (10G/25G)",
+        "status": "okay",
+        "mdio": {
+          "name": "mdio",
+          "#address-cells": "0x01",
+          "#size-cells": "0x00",
+          "phandle": "0xa5"
+        }
+      }
+    ],
+    "count": 2
+  },
+  "2020.1/pl_eth_1g": {
+    "version": "2020.1",
+    "design": "pl_eth_1g",
+    "ethernet_nodes": [
+      {
+        "name": "ethernet@a0000000",
+        "axistream-connected": "0x38",
+        "axistream-control-connected": "0x38",
+        "clock-frequency": "0x5f5e100",
+        "clock-names": "s_axi_lite_clk\\0axis_clk\\0ref_clk",
+        "clocks": "0x03 0x47 0x03 0x47 0x03 0x48",
+        "compatible": "xlnx,axi-ethernet-7.2\\0xlnx,axi-ethernet-1.00.a",
+        "device_type": "network",
+        "interrupt-names": "interrupt",
+        "interrupt-parent": "0x04",
+        "interrupts": "0x00 0x5b 0x04",
+        "local-mac-address": "[00 0a 35 00 22 01]",
+        "phy-handle": "0x39",
+        "phy-mode": "sgmii",
+        "reg": "0x00 0xa0000000 0x00 0x40000",
+        "xlnx": "0x00",
+        "xlnx,axiliteclkrate": "0x00",
+        "xlnx,axisclkrate": "0x00",
+        "xlnx,clockselection": "0x00",
+        "xlnx,enableasyncsgmii": "0x00",
+        "xlnx,gt-type": "0x00",
+        "xlnx,gtinex": "0x00",
+        "xlnx,gtlocation": "0x00",
+        "xlnx,gtrefclksrc": "0x00",
+        "xlnx,include-dre": true,
+        "xlnx,instantiatebitslice0": "0x00",
+        "xlnx,phy-type": "0x05",
+        "xlnx,phyaddr": "0x02",
+        "xlnx,phyrst-board-interface-dummy-port": "0x00",
+        "xlnx,rable": "0x00",
+        "xlnx,rxcsum": "0x02",
+        "xlnx,rxlane0-placement": "0x00",
+        "xlnx,rxlane1-placement": "0x00",
+        "xlnx,rxmem": "0x8000",
+        "xlnx,rxnibblebitslice0used": "0x00",
+        "xlnx,tx-in-upper-nibble": "0x01",
+        "xlnx,txcsum": "0x02",
+        "xlnx,txlane0-placement": "0x00",
+        "xlnx,txlane1-placement": "0x00",
+        "phandle": "0xa3",
+        "nodeType": "PL Ethernet (10G/25G)",
+        "status": "okay",
+        "mdio": {
+          "name": "mdio",
+          "#address-cells": "0x01",
+          "#size-cells": "0x00",
+          "phandle": "0xa4",
+          "phy_nodes": [
+            {
+              "name": "phy@2",
+              "device_type": "ethernet-phy",
+              "reg": "0x02",
+              "phandle": "0x39"
+            }
+          ]
+        }
+      }
+    ],
+    "count": 1
+  },
+  "2020.1/pl_eth_sgmii": {
+    "version": "2020.1",
+    "design": "pl_eth_sgmii",
+    "ethernet_nodes": [
+      {
+        "name": "ethernet@ff0e0000",
+        "compatible": "cdns,zynqmp-gem\\0cdns,gem",
+        "status": "okay",
+        "interrupt-parent": "0x04",
+        "interrupts": "0x00 0x3f 0x04 0x00 0x3f 0x04",
+        "reg": "0x00 0xff0e0000 0x00 0x1000",
+        "clock-names": "pclk\\0hclk\\0tx_clk\\0rx_clk\\0tsu_clk",
+        "#address-cells": "0x01",
+        "#size-cells": "0x00",
+        "#stream-id-cells": "0x01",
+        "iommus": "0x0e 0x877",
+        "power-domains": "0x0c 0x20",
+        "clocks": "0x03 0x1f 0x03 0x6b 0x03 0x30 0x03 0x34 0x03 0x2c",
+        "phy-handle": "0x0f",
+        "pinctrl-names": "default",
+        "pinctrl-0": "0x10",
+        "phy-mode": "rgmii-id",
+        "xlnx,ptp-enet-clock": "0x00",
+        "local-mac-address": "[00 0a 35 00 22 01]",
+        "phandle": "0x71",
+        "nodeType": "PS GEM3 (EMIO)",
+        "phy_nodes": [
+          {
+            "name": "ethernet-phy@c",
+            "reg": "0x0c",
+            "ti,rx-internal-delay": "0x08",
+            "ti,tx-internal-delay": "0x0a",
+            "ti,fifo-depth": "0x01",
+            "ti,dp83867-rxctrl-strap-quirk": true,
+            "phandle": "0x0f"
+          }
+        ]
+      },
+      {
+        "name": "ethernet@a0000000",
+        "axistream-connected": "0x39",
+        "axistream-control-connected": "0x39",
+        "clock-frequency": "0x5f5e100",
+        "clock-names": "s_axi_lite_clk\\0axis_clk\\0ref_clk",
+        "clocks": "0x03 0x47 0x03 0x47 0x03 0x48",
+        "compatible": "xlnx,axi-ethernet-7.2\\0xlnx,axi-ethernet-1.00.a",
+        "device_type": "network",
+        "interrupt-names": "interrupt",
+        "interrupt-parent": "0x04",
+        "interrupts": "0x00 0x5b 0x04",
+        "local-mac-address": "[00 0a 35 00 00 00]",
+        "phy-handle": "0x3a",
+        "phy-mode": "sgmii",
+        "reg": "0x00 0xa0000000 0x00 0x40000",
+        "xlnx": "0x00",
+        "xlnx,axiliteclkrate": "0x00",
+        "xlnx,axisclkrate": "0x00",
+        "xlnx,clockselection": "0x00",
+        "xlnx,enableasyncsgmii": "0x00",
+        "xlnx,gt-type": "0x00",
+        "xlnx,gtinex": "0x00",
+        "xlnx,gtlocation": "0x00",
+        "xlnx,gtrefclksrc": "0x00",
+        "xlnx,include-dre": true,
+        "xlnx,instantiatebitslice0": "0x00",
+        "xlnx,phy-type": "0x04",
+        "xlnx,phyaddr": "0x02",
+        "xlnx,phyrst-board-interface-dummy-port": "0x00",
+        "xlnx,rable": "0x00",
+        "xlnx,rxcsum": "0x02",
+        "xlnx,rxlane0-placement": "0x00",
+        "xlnx,rxlane1-placement": "0x00",
+        "xlnx,rxmem": "0x8000",
+        "xlnx,rxnibblebitslice0used": "0x00",
+        "xlnx,tx-in-upper-nibble": "0x01",
+        "xlnx,txcsum": "0x02",
+        "xlnx,txlane0-placement": "0x00",
+        "xlnx,txlane1-placement": "0x00",
+        "phandle": "0xa4",
+        "nodeType": "PL Ethernet (10G/25G)",
+        "status": "okay",
+        "mdio": {
+          "name": "mdio",
+          "#address-cells": "0x01",
+          "#size-cells": "0x00",
+          "phandle": "0xa5",
+          "phy_nodes": [
+            {
+              "name": "phy@2",
+              "device_type": "ethernet-phy",
+              "reg": "0x02",
+              "phandle": "0x3a"
+            }
+          ]
+        }
+      }
+    ],
+    "count": 2
+  },
+  "2020.1/ps_emio_eth_1g": {
+    "version": "2020.1",
+    "design": "ps_emio_eth_1g",
+    "ethernet_nodes": [
+      {
+        "name": "ethernet@ff0b0000",
+        "compatible": "cdns,zynqmp-gem\\0cdns,gem",
+        "status": "okay",
+        "interrupt-parent": "0x04",
+        "interrupts": "0x00 0x39 0x04 0x00 0x39 0x04",
+        "reg": "0x00 0xff0b0000 0x00 0x1000",
+        "clock-names": "pclk\\0hclk\\0tx_clk\\0rx_clk\\0tsu_clk",
+        "#address-cells": "0x01",
+        "#size-cells": "0x00",
+        "#stream-id-cells": "0x01",
+        "iommus": "0x0e 0x874",
+        "power-domains": "0x0c 0x1d",
+        "clocks": "0x03 0x1f 0x03 0x68 0x03 0x2d 0x03 0x31 0x03 0x2c",
+        "phy-handle": "0x0f",
+        "phy-mode": "gmii",
+        "xlnx,ptp-enet-clock": "0x00",
+        "local-mac-address": "[00 0a 35 00 22 01]",
+        "phandle": "0x6c",
+        "nodeType": "PS GEM0 (MIO)",
+        "phy_nodes": [
+          {
+            "name": "phy@9",
+            "reg": "0x09",
+            "xlnx,phy-type": "0x05",
+            "phandle": "0x0f"
+          }
+        ]
+      }
+    ],
+    "count": 1
+  },
+  "2020.1/ps_emio_eth_sgmii": {
+    "version": "2020.1",
+    "design": "ps_emio_eth_sgmii",
+    "ethernet_nodes": [
+      {
+        "name": "ethernet@ff0b0000",
+        "compatible": "cdns,zynqmp-gem\\0cdns,gem",
+        "status": "okay",
+        "interrupt-parent": "0x04",
+        "interrupts": "0x00 0x39 0x04 0x00 0x39 0x04",
+        "reg": "0x00 0xff0b0000 0x00 0x1000",
+        "clock-names": "pclk\\0hclk\\0tx_clk\\0rx_clk\\0tsu_clk",
+        "#address-cells": "0x01",
+        "#size-cells": "0x00",
+        "#stream-id-cells": "0x01",
+        "iommus": "0x0e 0x874",
+        "power-domains": "0x0c 0x1d",
+        "clocks": "0x03 0x1f 0x03 0x68 0x03 0x2d 0x03 0x31 0x03 0x2c",
+        "phy-handle": "0x0f",
+        "phy-mode": "gmii",
+        "xlnx,ptp-enet-clock": "0x00",
+        "local-mac-address": "[00 0a 35 00 22 01]",
+        "phandle": "0x6c",
+        "nodeType": "PS GEM0 (MIO)",
+        "phy_nodes": [
+          {
+            "name": "phy@9",
+            "reg": "0x09",
+            "xlnx,phy-type": "0x04",
+            "phandle": "0x0f"
+          }
+        ]
+      }
+    ],
+    "count": 1
+  },
+  "2020.1/ps_mio_eth_1g": {
+    "version": "2020.1",
+    "design": "ps_mio_eth_1g",
+    "ethernet_nodes": [
+      {
+        "name": "ethernet@ff0e0000",
+        "compatible": "cdns,zynqmp-gem\\0cdns,gem",
+        "status": "okay",
+        "interrupt-parent": "0x04",
+        "interrupts": "0x00 0x3f 0x04 0x00 0x3f 0x04",
+        "reg": "0x00 0xff0e0000 0x00 0x1000",
+        "clock-names": "pclk\\0hclk\\0tx_clk\\0rx_clk\\0tsu_clk",
+        "#address-cells": "0x01",
+        "#size-cells": "0x00",
+        "#stream-id-cells": "0x01",
+        "iommus": "0x0e 0x877",
+        "power-domains": "0x0c 0x20",
+        "clocks": "0x03 0x1f 0x03 0x6b 0x03 0x30 0x03 0x34 0x03 0x2c",
+        "phy-handle": "0x0f",
+        "pinctrl-names": "default",
+        "pinctrl-0": "0x10",
+        "phy-mode": "rgmii-id",
+        "xlnx,ptp-enet-clock": "0x00",
+        "local-mac-address": "[00 0a 35 00 22 01]",
+        "phandle": "0x6f",
+        "nodeType": "PS GEM3 (EMIO)",
+        "phy_nodes": [
+          {
+            "name": "ethernet-phy@c",
+            "reg": "0x0c",
+            "ti,rx-internal-delay": "0x08",
+            "ti,tx-internal-delay": "0x0a",
+            "ti,fifo-depth": "0x01",
+            "ti,dp83867-rxctrl-strap-quirk": true,
+            "phandle": "0x0f"
+          }
+        ]
+      }
+    ],
+    "count": 1
+  },
+  "2020.2/pl_eth_10g": {
+    "version": "2020.2",
+    "design": "pl_eth_10g",
+    "ethernet_nodes": [
+      {
+        "name": "ethernet@ff0e0000",
+        "compatible": "cdns,zynqmp-gem\\0cdns,gem",
+        "status": "okay",
+        "interrupt-parent": "0x04",
+        "interrupts": "0x00 0x3f 0x04 0x00 0x3f 0x04",
+        "reg": "0x00 0xff0e0000 0x00 0x1000",
+        "clock-names": "pclk\\0hclk\\0tx_clk\\0rx_clk\\0tsu_clk",
+        "#address-cells": "0x01",
+        "#size-cells": "0x00",
+        "#stream-id-cells": "0x01",
+        "iommus": "0x0e 0x877",
+        "power-domains": "0x0c 0x20",
+        "clocks": "0x03 0x1f 0x03 0x6b 0x03 0x30 0x03 0x34 0x03 0x2c",
+        "phy-handle": "0x0f",
+        "pinctrl-names": "default",
+        "pinctrl-0": "0x10",
+        "phy-mode": "rgmii-id",
+        "xlnx,ptp-enet-clock": "0x00",
+        "local-mac-address": "[00 0a 35 00 22 01]",
+        "phandle": "0x71",
+        "nodeType": "PS GEM3 (EMIO)",
+        "phy_nodes": [
+          {
+            "name": "ethernet-phy@c",
+            "reg": "0x0c",
+            "ti,rx-internal-delay": "0x08",
+            "ti,tx-internal-delay": "0x0a",
+            "ti,fifo-depth": "0x01",
+            "ti,dp83867-rxctrl-strap-quirk": true,
+            "phandle": "0x0f"
+          }
+        ]
+      },
+      {
+        "name": "ethernet@a0040000",
+        "axistream-connected": "0x3a",
+        "axistream-control-connected": "0x3a",
+        "clock-frequency": "0x5f5e100",
+        "clock-names": "rx_core_clk\\0dclk\\0s_axi_aclk\\0s_axi_lite_aclk\\0m_axi_sg_aclk\\0m_axi_mm2s_aclk\\0m_axi_s2mm_aclk",
+        "clocks": "0x39 0x03 0x47 0x03 0x47 0x03 0x47 0x03 0x47 0x39 0x39",
+        "compatible": "xlnx,xxv-ethernet-3.3\\0xlnx,xxv-ethernet-1.0",
+        "device_type": "network",
+        "local-mac-address": "[00 0a 35 00 00 01]",
+        "phy-mode": "base-r",
+        "reg": "0x00 0xa0040000 0x00 0x40000",
+        "xlnx": "0x00",
+        "xlnx,add-gt-cntrl-sts-ports": "0x00",
+        "xlnx,anlt-clk-in-mhz": "0x64",
+        "xlnx,axis-tdata-width": "0x40",
+        "xlnx,axis-tkeep-width": "0x07",
+        "xlnx,base-r-kr": "BASE-R",
+        "xlnx,channel-ids": "0x01",
+        "xlnx,clocking": "Asynchronous",
+        "xlnx,cmac-core-select": "CMACE4_X0Y0",
+        "xlnx,core": "Ethernet MAC+PCS/PMA 64-bit",
+        "xlnx,data-path-interface": "AXI Stream",
+        "xlnx,enable-datapath-parity": "0x00",
+        "xlnx,enable-pipeline-reg": "0x00",
+        "xlnx,enable-preemption": "0x00",
+        "xlnx,enable-preemption-fifo": "0x00",
+        "xlnx,enable-rx-flow-control-logic": "0x00",
+        "xlnx,enable-time-stamping": "0x00",
+        "xlnx,enable-tx-flow-control-logic": "0x00",
+        "xlnx,enable-vlane-adjust-mode": "0x00",
+        "xlnx,family-chk": "zynquplus",
+        "xlnx,fast-sim-mode": "0x00",
+        "xlnx,gt-diffctrl-width": "0x04",
+        "xlnx,gt-drp-clk": "100.00",
+        "xlnx,gt-group-select": "Quad X0Y0",
+        "xlnx,gt-location": "0x01",
+        "xlnx,gt-ref-clk-freq": "156.25",
+        "xlnx,gt-type": "GTH",
+        "xlnx,gtm-group-select": "NA",
+        "xlnx,include-auto-neg-lt-logic": "None",
+        "xlnx,include-axi4-interface": "0x01",
+        "xlnx,include-dre": true,
+        "xlnx,include-fec-logic": "0x00",
+        "xlnx,include-hybrid-cmac-rsfec-logic": "0x00",
+        "xlnx,include-rsfec-logic": "0x00",
+        "xlnx,include-shared-logic": "0x01",
+        "xlnx,include-statistics-counters": "0x01",
+        "xlnx,include-user-fifo": "0x01",
+        "xlnx,ins-loss-nyq": "0x1e",
+        "xlnx,lane1-gt-loc": "X1Y14",
+        "xlnx,lane2-gt-loc": "NA",
+        "xlnx,lane3-gt-loc": "NA",
+        "xlnx,lane4-gt-loc": "NA",
+        "xlnx,line-rate": "0x0a",
+        "xlnx,mii-ctrl-width": "0x04",
+        "xlnx,mii-data-width": "0x20",
+        "xlnx,num-of-cores": "0x01",
+        "xlnx,num-queues": "[00 01]",
+        "xlnx,ptp-clocking-mode": "0x00",
+        "xlnx,ptp-operation-mode": "0x02",
+        "xlnx,runtime-switch": "0x00",
+        "xlnx,rx-eq-mode": "AUTO",
+        "xlnx,rxmem": "0x40000",
+        "xlnx,statistics-regs-type": "0x00",
+        "xlnx,switch-1-10-25g": "0x00",
+        "xlnx,sys-clk": "0xfa0",
+        "xlnx,tx-latency-adjust": "0x00",
+        "xlnx,tx-total-bytes-width": "0x04",
+        "xlnx,xgmii-interface": "0x01",
+        "interrupt-names": "mm2s_introut\\0s2mm_introut",
+        "interrupt-parent": "0x04",
+        "interrupts": "0x00 0x59 0x04 0x00 0x5a 0x04",
+        "phandle": "0xa4",
+        "nodeType": "PL Ethernet (10G/25G)",
+        "status": "okay",
+        "mdio": {
+          "name": "mdio",
+          "#address-cells": "0x01",
+          "#size-cells": "0x00",
+          "phandle": "0xa5"
+        }
+      }
+    ],
+    "count": 2
+  },
+  "2020.2/pl_eth_1g": {
+    "version": "2020.2",
+    "design": "pl_eth_1g",
+    "ethernet_nodes": [
+      {
+        "name": "ethernet@a0000000",
+        "axistream-connected": "0x38",
+        "axistream-control-connected": "0x38",
+        "clock-frequency": "0x5f5e100",
+        "clock-names": "s_axi_lite_clk\\0axis_clk\\0ref_clk",
+        "clocks": "0x03 0x47 0x03 0x47 0x03 0x48",
+        "compatible": "xlnx,axi-ethernet-7.2\\0xlnx,axi-ethernet-1.00.a",
+        "device_type": "network",
+        "interrupt-names": "interrupt\\0mm2s_introut\\0s2mm_introut",
+        "interrupt-parent": "0x04",
+        "interrupts": "0x00 0x5b 0x04 0x00 0x59 0x04 0x00 0x5a 0x04",
+        "local-mac-address": "[00 0a 35 00 22 01]",
+        "phy-handle": "0x39",
+        "phy-mode": "sgmii",
+        "reg": "0x00 0xa0000000 0x00 0x40000",
+        "xlnx": "0x00",
+        "xlnx,axiliteclkrate": "0x00",
+        "xlnx,axisclkrate": "0x00",
+        "xlnx,channel-ids": "0x01",
+        "xlnx,clockselection": "0x00",
+        "xlnx,enableasyncsgmii": "0x00",
+        "xlnx,gt-type": "0x00",
+        "xlnx,gtinex": "0x00",
+        "xlnx,gtlocation": "0x00",
+        "xlnx,gtrefclksrc": "0x00",
+        "xlnx,include-dre": true,
+        "xlnx,instantiatebitslice0": "0x00",
+        "xlnx,num-queues": "[00 01]",
+        "xlnx,phy-type": "0x05",
+        "xlnx,phyaddr": "0x02",
+        "xlnx,phyrst-board-interface-dummy-port": "0x00",
+        "xlnx,rable": "0x00",
+        "xlnx,rxcsum": "0x02",
+        "xlnx,rxlane0-placement": "0x00",
+        "xlnx,rxlane1-placement": "0x00",
+        "xlnx,rxmem": "0x8000",
+        "xlnx,rxnibblebitslice0used": "0x00",
+        "xlnx,tx-in-upper-nibble": "0x01",
+        "xlnx,txcsum": "0x02",
+        "xlnx,txlane0-placement": "0x00",
+        "xlnx,txlane1-placement": "0x00",
+        "phandle": "0xa3",
+        "nodeType": "PL Ethernet (10G/25G)",
+        "status": "okay",
+        "mdio": {
+          "name": "mdio",
+          "#address-cells": "0x01",
+          "#size-cells": "0x00",
+          "phandle": "0xa4",
+          "phy_nodes": [
+            {
+              "name": "phy@2",
+              "device_type": "ethernet-phy",
+              "reg": "0x02",
+              "phandle": "0x39"
+            }
+          ]
+        }
+      }
+    ],
+    "count": 1
+  },
+  "2020.2/pl_eth_sgmii": {
+    "version": "2020.2",
+    "design": "pl_eth_sgmii",
+    "ethernet_nodes": [
+      {
+        "name": "ethernet@ff0e0000",
+        "compatible": "cdns,zynqmp-gem\\0cdns,gem",
+        "status": "okay",
+        "interrupt-parent": "0x04",
+        "interrupts": "0x00 0x3f 0x04 0x00 0x3f 0x04",
+        "reg": "0x00 0xff0e0000 0x00 0x1000",
+        "clock-names": "pclk\\0hclk\\0tx_clk\\0rx_clk\\0tsu_clk",
+        "#address-cells": "0x01",
+        "#size-cells": "0x00",
+        "#stream-id-cells": "0x01",
+        "iommus": "0x0e 0x877",
+        "power-domains": "0x0c 0x20",
+        "clocks": "0x03 0x1f 0x03 0x6b 0x03 0x30 0x03 0x34 0x03 0x2c",
+        "phy-handle": "0x0f",
+        "pinctrl-names": "default",
+        "pinctrl-0": "0x10",
+        "phy-mode": "rgmii-id",
+        "xlnx,ptp-enet-clock": "0x00",
+        "local-mac-address": "[00 0a 35 00 22 01]",
+        "phandle": "0x71",
+        "nodeType": "PS GEM3 (EMIO)",
+        "phy_nodes": [
+          {
+            "name": "ethernet-phy@c",
+            "reg": "0x0c",
+            "ti,rx-internal-delay": "0x08",
+            "ti,tx-internal-delay": "0x0a",
+            "ti,fifo-depth": "0x01",
+            "ti,dp83867-rxctrl-strap-quirk": true,
+            "phandle": "0x0f"
+          }
+        ]
+      },
+      {
+        "name": "ethernet@a0000000",
+        "axistream-connected": "0x39",
+        "axistream-control-connected": "0x39",
+        "clock-frequency": "0x5f5e100",
+        "clock-names": "s_axi_lite_clk\\0axis_clk\\0ref_clk",
+        "clocks": "0x03 0x47 0x03 0x47 0x03 0x48",
+        "compatible": "xlnx,axi-ethernet-7.2\\0xlnx,axi-ethernet-1.00.a",
+        "device_type": "network",
+        "interrupt-names": "interrupt\\0mm2s_introut\\0s2mm_introut",
+        "interrupt-parent": "0x04",
+        "interrupts": "0x00 0x5b 0x04 0x00 0x59 0x04 0x00 0x5a 0x04",
+        "local-mac-address": "[00 0a 35 00 00 00]",
+        "phy-handle": "0x3a",
+        "phy-mode": "sgmii",
+        "reg": "0x00 0xa0000000 0x00 0x40000",
+        "xlnx": "0x00",
+        "xlnx,axiliteclkrate": "0x00",
+        "xlnx,axisclkrate": "0x00",
+        "xlnx,channel-ids": "0x01",
+        "xlnx,clockselection": "0x00",
+        "xlnx,enableasyncsgmii": "0x00",
+        "xlnx,gt-type": "0x00",
+        "xlnx,gtinex": "0x00",
+        "xlnx,gtlocation": "0x00",
+        "xlnx,gtrefclksrc": "0x00",
+        "xlnx,include-dre": true,
+        "xlnx,instantiatebitslice0": "0x00",
+        "xlnx,num-queues": "[00 01]",
+        "xlnx,phy-type": "0x04",
+        "xlnx,phyaddr": "0x02",
+        "xlnx,phyrst-board-interface-dummy-port": "0x00",
+        "xlnx,rable": "0x00",
+        "xlnx,rxcsum": "0x02",
+        "xlnx,rxlane0-placement": "0x00",
+        "xlnx,rxlane1-placement": "0x00",
+        "xlnx,rxmem": "0x8000",
+        "xlnx,rxnibblebitslice0used": "0x00",
+        "xlnx,tx-in-upper-nibble": "0x01",
+        "xlnx,txcsum": "0x02",
+        "xlnx,txlane0-placement": "0x00",
+        "xlnx,txlane1-placement": "0x00",
+        "phandle": "0xa4",
+        "nodeType": "PL Ethernet (10G/25G)",
+        "status": "okay",
+        "mdio": {
+          "name": "mdio",
+          "#address-cells": "0x01",
+          "#size-cells": "0x00",
+          "phandle": "0xa5",
+          "phy_nodes": [
+            {
+              "name": "phy@2",
+              "device_type": "ethernet-phy",
+              "reg": "0x02",
+              "phandle": "0x3a"
+            }
+          ]
+        }
+      }
+    ],
+    "count": 2
+  },
+  "2020.2/ps_emio_eth_1g": {
+    "version": "2020.2",
+    "design": "ps_emio_eth_1g",
+    "ethernet_nodes": [
+      {
+        "name": "ethernet@ff0b0000",
+        "compatible": "cdns,zynqmp-gem\\0cdns,gem",
+        "status": "okay",
+        "interrupt-parent": "0x04",
+        "interrupts": "0x00 0x39 0x04 0x00 0x39 0x04",
+        "reg": "0x00 0xff0b0000 0x00 0x1000",
+        "clock-names": "pclk\\0hclk\\0tx_clk\\0rx_clk\\0tsu_clk",
+        "#address-cells": "0x01",
+        "#size-cells": "0x00",
+        "#stream-id-cells": "0x01",
+        "iommus": "0x0e 0x874",
+        "power-domains": "0x0c 0x1d",
+        "clocks": "0x03 0x1f 0x03 0x68 0x03 0x2d 0x03 0x31 0x03 0x2c",
+        "phy-handle": "0x0f",
+        "phy-mode": "gmii",
+        "xlnx,ptp-enet-clock": "0x00",
+        "local-mac-address": "[00 0a 35 00 22 01]",
+        "phandle": "0x6c",
+        "nodeType": "PS GEM0 (MIO)",
+        "phy_nodes": [
+          {
+            "name": "phy@9",
+            "reg": "0x09",
+            "xlnx,phy-type": "0x05",
+            "phandle": "0x0f"
+          }
+        ]
+      }
+    ],
+    "count": 1
+  },
+  "2020.2/ps_emio_eth_sgmii": {
+    "version": "2020.2",
+    "design": "ps_emio_eth_sgmii",
+    "ethernet_nodes": [
+      {
+        "name": "ethernet@ff0b0000",
+        "compatible": "cdns,zynqmp-gem\\0cdns,gem",
+        "status": "okay",
+        "interrupt-parent": "0x04",
+        "interrupts": "0x00 0x39 0x04 0x00 0x39 0x04",
+        "reg": "0x00 0xff0b0000 0x00 0x1000",
+        "clock-names": "pclk\\0hclk\\0tx_clk\\0rx_clk\\0tsu_clk",
+        "#address-cells": "0x01",
+        "#size-cells": "0x00",
+        "#stream-id-cells": "0x01",
+        "iommus": "0x0e 0x874",
+        "power-domains": "0x0c 0x1d",
+        "clocks": "0x03 0x1f 0x03 0x68 0x03 0x2d 0x03 0x31 0x03 0x2c",
+        "phy-handle": "0x0f",
+        "phy-mode": "gmii",
+        "xlnx,ptp-enet-clock": "0x00",
+        "local-mac-address": "[00 0a 35 00 22 01]",
+        "phandle": "0x6c",
+        "nodeType": "PS GEM0 (MIO)",
+        "phy_nodes": [
+          {
+            "name": "phy@9",
+            "reg": "0x09",
+            "xlnx,phy-type": "0x04",
+            "phandle": "0x0f"
+          }
+        ]
+      }
+    ],
+    "count": 1
+  },
+  "2020.2/ps_mio_eth_1g": {
+    "version": "2020.2",
+    "design": "ps_mio_eth_1g",
+    "ethernet_nodes": [
+      {
+        "name": "ethernet@ff0e0000",
+        "compatible": "cdns,zynqmp-gem\\0cdns,gem",
+        "status": "okay",
+        "interrupt-parent": "0x04",
+        "interrupts": "0x00 0x3f 0x04 0x00 0x3f 0x04",
+        "reg": "0x00 0xff0e0000 0x00 0x1000",
+        "clock-names": "pclk\\0hclk\\0tx_clk\\0rx_clk\\0tsu_clk",
+        "#address-cells": "0x01",
+        "#size-cells": "0x00",
+        "#stream-id-cells": "0x01",
+        "iommus": "0x0e 0x877",
+        "power-domains": "0x0c 0x20",
+        "clocks": "0x03 0x1f 0x03 0x6b 0x03 0x30 0x03 0x34 0x03 0x2c",
+        "phy-handle": "0x0f",
+        "pinctrl-names": "default",
+        "pinctrl-0": "0x10",
+        "phy-mode": "rgmii-id",
+        "xlnx,ptp-enet-clock": "0x00",
+        "local-mac-address": "[00 0a 35 00 22 01]",
+        "phandle": "0x6f",
+        "nodeType": "PS GEM3 (EMIO)",
+        "phy_nodes": [
+          {
+            "name": "ethernet-phy@c",
+            "reg": "0x0c",
+            "ti,rx-internal-delay": "0x08",
+            "ti,tx-internal-delay": "0x0a",
+            "ti,fifo-depth": "0x01",
+            "ti,dp83867-rxctrl-strap-quirk": true,
+            "phandle": "0x0f"
+          }
+        ]
+      }
+    ],
+    "count": 1
+  },
+  "2021.1/pl_eth_10g": {
+    "version": "2021.1",
+    "design": "pl_eth_10g",
+    "ethernet_nodes": [
+      {
+        "name": "ethernet@ff0e0000",
+        "compatible": "cdns,zynqmp-gem\\0cdns,gem",
+        "status": "okay",
+        "interrupt-parent": "0x04",
+        "interrupts": "0x00 0x3f 0x04 0x00 0x3f 0x04",
+        "reg": "0x00 0xff0e0000 0x00 0x1000",
+        "clock-names": "pclk\\0hclk\\0tx_clk\\0rx_clk\\0tsu_clk",
+        "#address-cells": "0x01",
+        "#size-cells": "0x00",
+        "#stream-id-cells": "0x01",
+        "iommus": "0x0e 0x877",
+        "power-domains": "0x0c 0x20",
+        "clocks": "0x03 0x1f 0x03 0x6b 0x03 0x30 0x03 0x34 0x03 0x2c",
+        "phy-handle": "0x0f",
+        "pinctrl-names": "default",
+        "pinctrl-0": "0x10",
+        "phy-mode": "rgmii-id",
+        "xlnx,ptp-enet-clock": "0x00",
+        "local-mac-address": "[ff ff ff ff ff ff]",
+        "phandle": "0x73",
+        "nodeType": "PS GEM3 (EMIO)",
+        "phy_nodes": [
+          {
+            "name": "ethernet-phy@c",
+            "reg": "0x0c",
+            "ti,rx-internal-delay": "0x08",
+            "ti,tx-internal-delay": "0x0a",
+            "ti,fifo-depth": "0x01",
+            "ti,dp83867-rxctrl-strap-quirk": true,
+            "phandle": "0x0f"
+          }
+        ]
+      },
+      {
+        "name": "ethernet@a0040000",
+        "axistream-connected": "0x3c",
+        "axistream-control-connected": "0x3c",
+        "clock-frequency": "0x5f5e100",
+        "clock-names": "rx_core_clk\\0dclk\\0s_axi_aclk\\0s_axi_lite_aclk\\0m_axi_sg_aclk\\0m_axi_mm2s_aclk\\0m_axi_s2mm_aclk",
+        "clocks": "0x3b 0x03 0x47 0x03 0x47 0x03 0x47 0x03 0x47 0x3b 0x3b",
+        "compatible": "xlnx,xxv-ethernet-3.3\\0xlnx,xxv-ethernet-1.0",
+        "device_type": "network",
+        "interrupt-names": "mm2s_introut\\0s2mm_introut",
+        "interrupt-parent": "0x04",
+        "interrupts": "0x00 0x59 0x04 0x00 0x5a 0x04",
+        "local-mac-address": "[00 0a 35 00 00 01]",
+        "phy-mode": "base-r",
+        "reg": "0x00 0xa0040000 0x00 0x40000",
+        "xlnx": "0x00",
+        "xlnx,add-gt-cntrl-sts-ports": "0x00",
+        "xlnx,anlt-clk-in-mhz": "0x64",
+        "xlnx,axis-tdata-width": "0x40",
+        "xlnx,axis-tkeep-width": "0x07",
+        "xlnx,base-r-kr": "BASE-R",
+        "xlnx,channel-ids": "0x01",
+        "xlnx,clocking": "Asynchronous",
+        "xlnx,cmac-core-select": "CMACE4_X0Y0",
+        "xlnx,core": "Ethernet MAC+PCS/PMA 64-bit",
+        "xlnx,data-path-interface": "AXI Stream",
+        "xlnx,enable-datapath-parity": "0x00",
+        "xlnx,enable-pipeline-reg": "0x00",
+        "xlnx,enable-preemption": "0x00",
+        "xlnx,enable-preemption-fifo": "0x00",
+        "xlnx,enable-rx-flow-control-logic": "0x00",
+        "xlnx,enable-time-stamping": "0x00",
+        "xlnx,enable-tx-flow-control-logic": "0x00",
+        "xlnx,enable-vlane-adjust-mode": "0x00",
+        "xlnx,family-chk": "zynquplus",
+        "xlnx,fast-sim-mode": "0x00",
+        "xlnx,gt-diffctrl-width": "0x04",
+        "xlnx,gt-drp-clk": "100.00",
+        "xlnx,gt-group-select": "Quad X0Y0",
+        "xlnx,gt-location": "0x01",
+        "xlnx,gt-ref-clk-freq": "156.25",
+        "xlnx,gt-type": "GTH",
+        "xlnx,gtm-group-select": "NA",
+        "xlnx,include-auto-neg-lt-logic": "None",
+        "xlnx,include-axi4-interface": "0x01",
+        "xlnx,include-dre": true,
+        "xlnx,include-fec-logic": "0x00",
+        "xlnx,include-hybrid-cmac-rsfec-logic": "0x00",
+        "xlnx,include-rsfec-logic": "0x00",
+        "xlnx,include-shared-logic": "0x01",
+        "xlnx,include-statistics-counters": "0x01",
+        "xlnx,include-user-fifo": "0x01",
+        "xlnx,ins-loss-nyq": "0x1e",
+        "xlnx,lane1-gt-loc": "X1Y14",
+        "xlnx,lane2-gt-loc": "NA",
+        "xlnx,lane3-gt-loc": "NA",
+        "xlnx,lane4-gt-loc": "NA",
+        "xlnx,line-rate": "0x0a",
+        "xlnx,mii-ctrl-width": "0x04",
+        "xlnx,mii-data-width": "0x20",
+        "xlnx,num-of-cores": "0x01",
+        "xlnx,num-queues": "[00 01]",
+        "xlnx,ptp-clocking-mode": "0x00",
+        "xlnx,ptp-operation-mode": "0x02",
+        "xlnx,runtime-switch": "0x00",
+        "xlnx,rx-eq-mode": "AUTO",
+        "xlnx,rxmem": "0x40000",
+        "xlnx,statistics-regs-type": "0x00",
+        "xlnx,switch-1-10-25g": "0x00",
+        "xlnx,sys-clk": "0xfa0",
+        "xlnx,tx-latency-adjust": "0x00",
+        "xlnx,tx-total-bytes-width": "0x04",
+        "xlnx,xgmii-interface": "0x01",
+        "zclock-names": "NULL",
+        "zclocks": "NULL",
+        "phandle": "0xac",
+        "nodeType": "PL Ethernet (10G/25G)",
+        "status": "okay",
+        "mdio": {
+          "name": "mdio",
+          "#address-cells": "0x01",
+          "#size-cells": "0x00",
+          "phandle": "0xad"
+        }
+      }
+    ],
+    "count": 2
+  },
+  "2021.1/pl_eth_1g": {
+    "version": "2021.1",
+    "design": "pl_eth_1g",
+    "ethernet_nodes": [
+      {
+        "name": "ethernet@a0000000",
+        "axistream-connected": "0x38",
+        "axistream-control-connected": "0x38",
+        "clock-frequency": "0x5f5e100",
+        "clock-names": "s_axi_lite_clk\\0axis_clk\\0ref_clk",
+        "clocks": "0x03 0x47 0x03 0x47 0x03 0x48",
+        "compatible": "xlnx,axi-ethernet-7.2\\0xlnx,axi-ethernet-1.00.a",
+        "device_type": "network",
+        "interrupt-names": "interrupt\\0mm2s_introut\\0s2mm_introut",
+        "interrupt-parent": "0x04",
+        "interrupts": "0x00 0x5b 0x04 0x00 0x59 0x04 0x00 0x5a 0x04",
+        "local-mac-address": "[00 0a 35 00 22 01]",
+        "phy-handle": "0x39",
+        "phy-mode": "sgmii",
+        "reg": "0x00 0xa0000000 0x00 0x40000",
+        "xlnx": "0x00",
+        "xlnx,axiliteclkrate": "0x00",
+        "xlnx,axisclkrate": "0x00",
+        "xlnx,channel-ids": "0x01",
+        "xlnx,clockselection": "0x00",
+        "xlnx,enableasyncsgmii": "0x00",
+        "xlnx,gt-type": "0x00",
+        "xlnx,gtinex": "0x00",
+        "xlnx,gtlocation": "0x00",
+        "xlnx,gtrefclksrc": "0x00",
+        "xlnx,include-dre": true,
+        "xlnx,instantiatebitslice0": "0x00",
+        "xlnx,num-queues": "[00 01]",
+        "xlnx,phy-type": "0x05",
+        "xlnx,phyaddr": "0x02",
+        "xlnx,phyrst-board-interface-dummy-port": "0x00",
+        "xlnx,rable": "0x00",
+        "xlnx,rxcsum": "0x02",
+        "xlnx,rxlane0-placement": "0x00",
+        "xlnx,rxlane1-placement": "0x00",
+        "xlnx,rxmem": "0x8000",
+        "xlnx,rxnibblebitslice0used": "0x00",
+        "xlnx,tx-in-upper-nibble": "0x01",
+        "xlnx,txcsum": "0x02",
+        "xlnx,txlane0-placement": "0x00",
+        "xlnx,txlane1-placement": "0x00",
+        "xlnx,versal-gt-board-flow": "0x00",
+        "phandle": "0xa3",
+        "nodeType": "PL Ethernet (10G/25G)",
+        "status": "okay",
+        "mdio": {
+          "name": "mdio",
+          "#address-cells": "0x01",
+          "#size-cells": "0x00",
+          "phandle": "0xa4",
+          "phy_nodes": [
+            {
+              "name": "phy@2",
+              "device_type": "ethernet-phy",
+              "reg": "0x02",
+              "phandle": "0x39"
+            }
+          ]
+        }
+      }
+    ],
+    "count": 1
+  },
+  "2021.1/pl_eth_sgmii": {
+    "version": "2021.1",
+    "design": "pl_eth_sgmii",
+    "ethernet_nodes": [
+      {
+        "name": "ethernet@ff0e0000",
+        "compatible": "cdns,zynqmp-gem\\0cdns,gem",
+        "status": "okay",
+        "interrupt-parent": "0x04",
+        "interrupts": "0x00 0x3f 0x04 0x00 0x3f 0x04",
+        "reg": "0x00 0xff0e0000 0x00 0x1000",
+        "clock-names": "pclk\\0hclk\\0tx_clk\\0rx_clk\\0tsu_clk",
+        "#address-cells": "0x01",
+        "#size-cells": "0x00",
+        "#stream-id-cells": "0x01",
+        "iommus": "0x0e 0x877",
+        "power-domains": "0x0c 0x20",
+        "clocks": "0x03 0x1f 0x03 0x6b 0x03 0x30 0x03 0x34 0x03 0x2c",
+        "phy-handle": "0x0f",
+        "pinctrl-names": "default",
+        "pinctrl-0": "0x10",
+        "phy-mode": "rgmii-id",
+        "xlnx,ptp-enet-clock": "0x00",
+        "local-mac-address": "[00 0a 35 00 22 01]",
+        "phandle": "0x71",
+        "nodeType": "PS GEM3 (EMIO)",
+        "phy_nodes": [
+          {
+            "name": "ethernet-phy@c",
+            "reg": "0x0c",
+            "ti,rx-internal-delay": "0x08",
+            "ti,tx-internal-delay": "0x0a",
+            "ti,fifo-depth": "0x01",
+            "ti,dp83867-rxctrl-strap-quirk": true,
+            "phandle": "0x0f"
+          }
+        ]
+      },
+      {
+        "name": "ethernet@a0000000",
+        "axistream-connected": "0x39",
+        "axistream-control-connected": "0x39",
+        "clock-frequency": "0x5f5e100",
+        "clock-names": "s_axi_lite_clk\\0axis_clk\\0ref_clk",
+        "clocks": "0x03 0x47 0x03 0x47 0x03 0x48",
+        "compatible": "xlnx,axi-ethernet-7.2\\0xlnx,axi-ethernet-1.00.a",
+        "device_type": "network",
+        "interrupt-names": "interrupt\\0mm2s_introut\\0s2mm_introut",
+        "interrupt-parent": "0x04",
+        "interrupts": "0x00 0x5b 0x04 0x00 0x59 0x04 0x00 0x5a 0x04",
+        "local-mac-address": "[00 0a 35 00 00 00]",
+        "phy-handle": "0x3a",
+        "phy-mode": "sgmii",
+        "reg": "0x00 0xa0000000 0x00 0x40000",
+        "xlnx": "0x00",
+        "xlnx,axiliteclkrate": "0x00",
+        "xlnx,axisclkrate": "0x00",
+        "xlnx,channel-ids": "0x01",
+        "xlnx,clockselection": "0x00",
+        "xlnx,enableasyncsgmii": "0x00",
+        "xlnx,gt-type": "0x00",
+        "xlnx,gtinex": "0x00",
+        "xlnx,gtlocation": "0x00",
+        "xlnx,gtrefclksrc": "0x00",
+        "xlnx,include-dre": true,
+        "xlnx,instantiatebitslice0": "0x00",
+        "xlnx,num-queues": "[00 01]",
+        "xlnx,phy-type": "0x04",
+        "xlnx,phyaddr": "0x02",
+        "xlnx,phyrst-board-interface-dummy-port": "0x00",
+        "xlnx,rable": "0x00",
+        "xlnx,rxcsum": "0x02",
+        "xlnx,rxlane0-placement": "0x00",
+        "xlnx,rxlane1-placement": "0x00",
+        "xlnx,rxmem": "0x8000",
+        "xlnx,rxnibblebitslice0used": "0x00",
+        "xlnx,tx-in-upper-nibble": "0x01",
+        "xlnx,txcsum": "0x02",
+        "xlnx,txlane0-placement": "0x00",
+        "xlnx,txlane1-placement": "0x00",
+        "xlnx,versal-gt-board-flow": "0x00",
+        "phandle": "0xa4",
+        "nodeType": "PL Ethernet (10G/25G)",
+        "status": "okay",
+        "mdio": {
+          "name": "mdio",
+          "#address-cells": "0x01",
+          "#size-cells": "0x00",
+          "phandle": "0xa5",
+          "phy_nodes": [
+            {
+              "name": "phy@2",
+              "device_type": "ethernet-phy",
+              "reg": "0x02",
+              "phandle": "0x3a"
+            }
+          ]
+        }
+      }
+    ],
+    "count": 2
+  },
+  "2021.1/ps_emio_eth_1g": {
+    "version": "2021.1",
+    "design": "ps_emio_eth_1g",
+    "ethernet_nodes": [
+      {
+        "name": "ethernet@ff0b0000",
+        "compatible": "cdns,zynqmp-gem\\0cdns,gem",
+        "status": "okay",
+        "interrupt-parent": "0x04",
+        "interrupts": "0x00 0x39 0x04 0x00 0x39 0x04",
+        "reg": "0x00 0xff0b0000 0x00 0x1000",
+        "clock-names": "pclk\\0hclk\\0tx_clk\\0rx_clk\\0tsu_clk",
+        "#address-cells": "0x01",
+        "#size-cells": "0x00",
+        "#stream-id-cells": "0x01",
+        "iommus": "0x0e 0x874",
+        "power-domains": "0x0c 0x1d",
+        "clocks": "0x03 0x1f 0x03 0x68 0x03 0x2d 0x03 0x31 0x03 0x2c",
+        "phy-handle": "0x0f",
+        "phy-mode": "gmii",
+        "xlnx,ptp-enet-clock": "0x00",
+        "local-mac-address": "[00 0a 35 00 22 01]",
+        "phandle": "0x6c",
+        "nodeType": "PS GEM0 (MIO)",
+        "phy_nodes": [
+          {
+            "name": "phy@9",
+            "reg": "0x09",
+            "xlnx,phy-type": "0x05",
+            "phandle": "0x0f"
+          }
+        ]
+      }
+    ],
+    "count": 1
+  },
+  "2021.1/ps_emio_eth_sgmii": {
+    "version": "2021.1",
+    "design": "ps_emio_eth_sgmii",
+    "ethernet_nodes": [
+      {
+        "name": "ethernet@ff0b0000",
+        "compatible": "cdns,zynqmp-gem\\0cdns,gem",
+        "status": "okay",
+        "interrupt-parent": "0x04",
+        "interrupts": "0x00 0x39 0x04 0x00 0x39 0x04",
+        "reg": "0x00 0xff0b0000 0x00 0x1000",
+        "clock-names": "pclk\\0hclk\\0tx_clk\\0rx_clk\\0tsu_clk",
+        "#address-cells": "0x01",
+        "#size-cells": "0x00",
+        "#stream-id-cells": "0x01",
+        "iommus": "0x0e 0x874",
+        "power-domains": "0x0c 0x1d",
+        "clocks": "0x03 0x1f 0x03 0x68 0x03 0x2d 0x03 0x31 0x03 0x2c",
+        "phy-handle": "0x0f",
+        "phy-mode": "gmii",
+        "xlnx,ptp-enet-clock": "0x00",
+        "local-mac-address": "[00 0a 35 00 22 01]",
+        "phandle": "0x6c",
+        "nodeType": "PS GEM0 (MIO)",
+        "phy_nodes": [
+          {
+            "name": "phy@9",
+            "reg": "0x09",
+            "xlnx,phy-type": "0x04",
+            "phandle": "0x0f"
+          }
+        ]
+      }
+    ],
+    "count": 1
+  },
+  "2021.1/ps_mio_eth_1g": {
+    "version": "2021.1",
+    "design": "ps_mio_eth_1g",
+    "ethernet_nodes": [
+      {
+        "name": "ethernet@ff0e0000",
+        "compatible": "cdns,zynqmp-gem\\0cdns,gem",
+        "status": "okay",
+        "interrupt-parent": "0x04",
+        "interrupts": "0x00 0x3f 0x04 0x00 0x3f 0x04",
+        "reg": "0x00 0xff0e0000 0x00 0x1000",
+        "clock-names": "pclk\\0hclk\\0tx_clk\\0rx_clk\\0tsu_clk",
+        "#address-cells": "0x01",
+        "#size-cells": "0x00",
+        "#stream-id-cells": "0x01",
+        "iommus": "0x0e 0x877",
+        "power-domains": "0x0c 0x20",
+        "clocks": "0x03 0x1f 0x03 0x6b 0x03 0x30 0x03 0x34 0x03 0x2c",
+        "phy-handle": "0x0f",
+        "pinctrl-names": "default",
+        "pinctrl-0": "0x10",
+        "phy-mode": "rgmii-id",
+        "xlnx,ptp-enet-clock": "0x00",
+        "local-mac-address": "[ff ff ff ff ff ff]",
+        "phandle": "0x71",
+        "nodeType": "PS GEM3 (EMIO)",
+        "phy_nodes": [
+          {
+            "name": "ethernet-phy@c",
+            "reg": "0x0c",
+            "ti,rx-internal-delay": "0x08",
+            "ti,tx-internal-delay": "0x0a",
+            "ti,fifo-depth": "0x01",
+            "ti,dp83867-rxctrl-strap-quirk": true,
+            "phandle": "0x0f"
+          }
+        ]
+      }
+    ],
+    "count": 1
+  },
+  "2021.2/pl_eth_10g": {
+    "version": "2021.2",
+    "design": "pl_eth_10g",
+    "ethernet_nodes": [
+      {
+        "name": "ethernet@ff0e0000",
+        "compatible": "cdns,zynqmp-gem\\0cdns,gem",
+        "status": "okay",
+        "interrupt-parent": "0x04",
+        "interrupts": "0x00 0x3f 0x04 0x00 0x3f 0x04",
+        "reg": "0x00 0xff0e0000 0x00 0x1000",
+        "clock-names": "pclk\\0hclk\\0tx_clk\\0rx_clk\\0tsu_clk",
+        "#address-cells": "0x01",
+        "#size-cells": "0x00",
+        "#stream-id-cells": "0x01",
+        "iommus": "0x0e 0x877",
+        "power-domains": "0x0c 0x20",
+        "clocks": "0x03 0x1f 0x03 0x6b 0x03 0x30 0x03 0x34 0x03 0x2c",
+        "phy-handle": "0x0f",
+        "pinctrl-names": "default",
+        "pinctrl-0": "0x10",
+        "phy-mode": "rgmii-id",
+        "xlnx,ptp-enet-clock": "0x00",
+        "local-mac-address": "[ff ff ff ff ff ff]",
+        "phandle": "0x73",
+        "nodeType": "PS GEM3 (EMIO)",
+        "phy_nodes": [
+          {
+            "name": "ethernet-phy@c",
+            "reg": "0x0c",
+            "ti,rx-internal-delay": "0x08",
+            "ti,tx-internal-delay": "0x0a",
+            "ti,fifo-depth": "0x01",
+            "ti,dp83867-rxctrl-strap-quirk": true,
+            "phandle": "0x0f"
+          }
+        ]
+      }
+    ],
+    "count": 1
+  },
+  "2021.2/pl_eth_1g": {
+    "version": "2021.2",
+    "design": "pl_eth_1g",
+    "ethernet_nodes": [
+      {
+        "name": "ethernet@ff0e0000",
+        "compatible": "cdns,zynqmp-gem\\0cdns,gem",
+        "status": "okay",
+        "interrupt-parent": "0x04",
+        "interrupts": "0x00 0x3f 0x04 0x00 0x3f 0x04",
+        "reg": "0x00 0xff0e0000 0x00 0x1000",
+        "clock-names": "pclk\\0hclk\\0tx_clk\\0rx_clk\\0tsu_clk",
+        "#address-cells": "0x01",
+        "#size-cells": "0x00",
+        "#stream-id-cells": "0x01",
+        "iommus": "0x0e 0x877",
+        "power-domains": "0x0c 0x20",
+        "clocks": "0x03 0x1f 0x03 0x6b 0x03 0x30 0x03 0x34 0x03 0x2c",
+        "phy-handle": "0x0f",
+        "pinctrl-names": "default",
+        "pinctrl-0": "0x10",
+        "phy-mode": "rgmii-id",
+        "xlnx,ptp-enet-clock": "0x00",
+        "local-mac-address": "[ff ff ff ff ff ff]",
+        "phandle": "0x73",
+        "nodeType": "PS GEM3 (EMIO)",
+        "phy_nodes": [
+          {
+            "name": "ethernet-phy@c",
+            "reg": "0x0c",
+            "ti,rx-internal-delay": "0x08",
+            "ti,tx-internal-delay": "0x0a",
+            "ti,fifo-depth": "0x01",
+            "ti,dp83867-rxctrl-strap-quirk": true,
+            "phandle": "0x0f"
+          }
+        ]
+      }
+    ],
+    "count": 1
+  },
+  "2021.2/pl_eth_sgmii": {
+    "version": "2021.2",
+    "design": "pl_eth_sgmii",
+    "ethernet_nodes": [
+      {
+        "name": "ethernet@ff0e0000",
+        "compatible": "cdns,zynqmp-gem\\0cdns,gem",
+        "status": "okay",
+        "interrupt-parent": "0x04",
+        "interrupts": "0x00 0x3f 0x04 0x00 0x3f 0x04",
+        "reg": "0x00 0xff0e0000 0x00 0x1000",
+        "clock-names": "pclk\\0hclk\\0tx_clk\\0rx_clk\\0tsu_clk",
+        "#address-cells": "0x01",
+        "#size-cells": "0x00",
+        "#stream-id-cells": "0x01",
+        "iommus": "0x0e 0x877",
+        "power-domains": "0x0c 0x20",
+        "clocks": "0x03 0x1f 0x03 0x6b 0x03 0x30 0x03 0x34 0x03 0x2c",
+        "phy-handle": "0x0f",
+        "pinctrl-names": "default",
+        "pinctrl-0": "0x10",
+        "phy-mode": "rgmii-id",
+        "xlnx,ptp-enet-clock": "0x00",
+        "local-mac-address": "[ff ff ff ff ff ff]",
+        "phandle": "0x73",
+        "nodeType": "PS GEM3 (EMIO)",
+        "phy_nodes": [
+          {
+            "name": "ethernet-phy@c",
+            "reg": "0x0c",
+            "ti,rx-internal-delay": "0x08",
+            "ti,tx-internal-delay": "0x0a",
+            "ti,fifo-depth": "0x01",
+            "ti,dp83867-rxctrl-strap-quirk": true,
+            "phandle": "0x0f"
+          }
+        ]
+      }
+    ],
+    "count": 1
+  },
+  "2021.2/ps_emio_eth_1g": {
+    "version": "2021.2",
+    "design": "ps_emio_eth_1g",
+    "ethernet_nodes": [
+      {
+        "name": "ethernet@ff0e0000",
+        "compatible": "cdns,zynqmp-gem\\0cdns,gem",
+        "status": "okay",
+        "interrupt-parent": "0x04",
+        "interrupts": "0x00 0x3f 0x04 0x00 0x3f 0x04",
+        "reg": "0x00 0xff0e0000 0x00 0x1000",
+        "clock-names": "pclk\\0hclk\\0tx_clk\\0rx_clk\\0tsu_clk",
+        "#address-cells": "0x01",
+        "#size-cells": "0x00",
+        "#stream-id-cells": "0x01",
+        "iommus": "0x0e 0x877",
+        "power-domains": "0x0c 0x20",
+        "clocks": "0x03 0x1f 0x03 0x6b 0x03 0x30 0x03 0x34 0x03 0x2c",
+        "phy-handle": "0x11",
+        "pinctrl-names": "default",
+        "pinctrl-0": "0x12",
+        "phy-mode": "rgmii-id",
+        "xlnx,ptp-enet-clock": "0x00",
+        "local-mac-address": "[ff ff ff ff ff ff]",
+        "phandle": "0x74",
+        "nodeType": "PS GEM3 (EMIO)",
+        "phy_nodes": [
+          {
+            "name": "ethernet-phy@c",
+            "reg": "0x0c",
+            "ti,rx-internal-delay": "0x08",
+            "ti,tx-internal-delay": "0x0a",
+            "ti,fifo-depth": "0x01",
+            "ti,dp83867-rxctrl-strap-quirk": true,
+            "phandle": "0x11"
+          }
+        ]
+      }
+    ],
+    "count": 1
+  },
+  "2021.2/ps_emio_eth_sgmii": {
+    "version": "2021.2",
+    "design": "ps_emio_eth_sgmii",
+    "ethernet_nodes": [
+      {
+        "name": "ethernet@ff0e0000",
+        "compatible": "cdns,zynqmp-gem\\0cdns,gem",
+        "status": "okay",
+        "interrupt-parent": "0x04",
+        "interrupts": "0x00 0x3f 0x04 0x00 0x3f 0x04",
+        "reg": "0x00 0xff0e0000 0x00 0x1000",
+        "clock-names": "pclk\\0hclk\\0tx_clk\\0rx_clk\\0tsu_clk",
+        "#address-cells": "0x01",
+        "#size-cells": "0x00",
+        "#stream-id-cells": "0x01",
+        "iommus": "0x0e 0x877",
+        "power-domains": "0x0c 0x20",
+        "clocks": "0x03 0x1f 0x03 0x6b 0x03 0x30 0x03 0x34 0x03 0x2c",
+        "phy-handle": "0x11",
+        "pinctrl-names": "default",
+        "pinctrl-0": "0x12",
+        "phy-mode": "rgmii-id",
+        "xlnx,ptp-enet-clock": "0x00",
+        "local-mac-address": "[ff ff ff ff ff ff]",
+        "phandle": "0x74",
+        "nodeType": "PS GEM3 (EMIO)",
+        "phy_nodes": [
+          {
+            "name": "ethernet-phy@c",
+            "reg": "0x0c",
+            "ti,rx-internal-delay": "0x08",
+            "ti,tx-internal-delay": "0x0a",
+            "ti,fifo-depth": "0x01",
+            "ti,dp83867-rxctrl-strap-quirk": true,
+            "phandle": "0x11"
+          }
+        ]
+      }
+    ],
+    "count": 1
+  },
+  "2022.1/pl_eth_1g": {
+    "version": "2022.1",
+    "design": "pl_eth_1g",
+    "ethernet_nodes": [
+      {
+        "name": "ethernet@ff0e0000",
+        "compatible": "cdns,zynqmp-gem\\0cdns,gem",
+        "status": "okay",
+        "interrupt-parent": "0x04",
+        "interrupts": "0x00 0x3f 0x04 0x00 0x3f 0x04",
+        "reg": "0x00 0xff0e0000 0x00 0x1000",
+        "clock-names": "pclk\\0hclk\\0tx_clk\\0rx_clk\\0tsu_clk",
+        "#address-cells": "0x01",
+        "#size-cells": "0x00",
+        "#stream-id-cells": "0x01",
+        "iommus": "0x0e 0x877",
+        "power-domains": "0x0c 0x20",
+        "resets": "0x0f 0x20",
+        "clocks": "0x03 0x1f 0x03 0x6b 0x03 0x30 0x03 0x34 0x03 0x2c",
+        "phy-handle": "0x10",
+        "pinctrl-names": "default",
+        "pinctrl-0": "0x11",
+        "phy-mode": "rgmii-id",
+        "xlnx,ptp-enet-clock": "0x00",
+        "local-mac-address": "[ff ff ff ff ff ff]",
+        "phandle": "0x74",
+        "nodeType": "PS GEM3 (EMIO)",
+        "phy_nodes": [
+          {
+            "name": "ethernet-phy@c",
+            "reg": "0x0c",
+            "ti,rx-internal-delay": "0x08",
+            "ti,tx-internal-delay": "0x0a",
+            "ti,fifo-depth": "0x01",
+            "ti,dp83867-rxctrl-strap-quirk": true,
+            "phandle": "0x10"
+          }
+        ]
+      }
+    ],
+    "count": 1
+  },
+  "2022.2/pl_eth_10g": {
+    "version": "2022.2",
+    "design": "pl_eth_10g",
+    "ethernet_nodes": [
+      {
+        "name": "ethernet@ff0e0000",
+        "compatible": "xlnx,zynqmp-gem\\0cdns,zynqmp-gem\\0cdns,gem",
+        "status": "okay",
+        "interrupt-parent": "0x04",
+        "interrupts": "0x00 0x3f 0x04 0x00 0x3f 0x04",
+        "reg": "0x00 0xff0e0000 0x00 0x1000",
+        "clock-names": "pclk\\0hclk\\0tx_clk\\0rx_clk\\0tsu_clk",
+        "#address-cells": "0x01",
+        "#size-cells": "0x00",
+        "iommus": "0x0e 0x877",
+        "power-domains": "0x0c 0x20",
+        "resets": "0x0f 0x20",
+        "clocks": "0x03 0x1f 0x03 0x6b 0x03 0x30 0x03 0x34 0x03 0x2c",
+        "phy-handle": "0x10",
+        "pinctrl-names": "default",
+        "pinctrl-0": "0x11",
+        "phy-mode": "rgmii-id",
+        "xlnx,ptp-enet-clock": "0x00",
+        "local-mac-address": "[ff ff ff ff ff ff]",
+        "phandle": "0x74",
+        "nodeType": "PS GEM3 (EMIO)",
+        "phy_nodes": [
+          {
+            "name": "ethernet-phy@c",
+            "reg": "0x0c",
+            "ti,rx-internal-delay": "0x08",
+            "ti,tx-internal-delay": "0x0a",
+            "ti,fifo-depth": "0x01",
+            "ti,dp83867-rxctrl-strap-quirk": true,
+            "phandle": "0x10"
+          }
+        ]
+      }
+    ],
+    "count": 1
+  },
+  "2022.2/pl_eth_1g": {
+    "version": "2022.2",
+    "design": "pl_eth_1g",
+    "ethernet_nodes": [
+      {
+        "name": "ethernet@ff0e0000",
+        "compatible": "xlnx,zynqmp-gem\\0cdns,zynqmp-gem\\0cdns,gem",
+        "status": "okay",
+        "interrupt-parent": "0x04",
+        "interrupts": "0x00 0x3f 0x04 0x00 0x3f 0x04",
+        "reg": "0x00 0xff0e0000 0x00 0x1000",
+        "clock-names": "pclk\\0hclk\\0tx_clk\\0rx_clk\\0tsu_clk",
+        "#address-cells": "0x01",
+        "#size-cells": "0x00",
+        "iommus": "0x0e 0x877",
+        "power-domains": "0x0c 0x20",
+        "resets": "0x0f 0x20",
+        "clocks": "0x03 0x1f 0x03 0x6b 0x03 0x30 0x03 0x34 0x03 0x2c",
+        "phy-handle": "0x10",
+        "pinctrl-names": "default",
+        "pinctrl-0": "0x11",
+        "phy-mode": "rgmii-id",
+        "xlnx,ptp-enet-clock": "0x00",
+        "local-mac-address": "[ff ff ff ff ff ff]",
+        "phandle": "0x74",
+        "nodeType": "PS GEM3 (EMIO)",
+        "phy_nodes": [
+          {
+            "name": "ethernet-phy@c",
+            "reg": "0x0c",
+            "ti,rx-internal-delay": "0x08",
+            "ti,tx-internal-delay": "0x0a",
+            "ti,fifo-depth": "0x01",
+            "ti,dp83867-rxctrl-strap-quirk": true,
+            "phandle": "0x10"
+          }
+        ]
+      }
+    ],
+    "count": 1
+  },
+  "2022.2/pl_eth_sgmii": {
+    "version": "2022.2",
+    "design": "pl_eth_sgmii",
+    "ethernet_nodes": [
+      {
+        "name": "ethernet@ff0e0000",
+        "compatible": "xlnx,zynqmp-gem\\0cdns,zynqmp-gem\\0cdns,gem",
+        "status": "okay",
+        "interrupt-parent": "0x04",
+        "interrupts": "0x00 0x3f 0x04 0x00 0x3f 0x04",
+        "reg": "0x00 0xff0e0000 0x00 0x1000",
+        "clock-names": "pclk\\0hclk\\0tx_clk\\0rx_clk\\0tsu_clk",
+        "#address-cells": "0x01",
+        "#size-cells": "0x00",
+        "iommus": "0x0e 0x877",
+        "power-domains": "0x0c 0x20",
+        "resets": "0x0f 0x20",
+        "clocks": "0x03 0x1f 0x03 0x6b 0x03 0x30 0x03 0x34 0x03 0x2c",
+        "phy-handle": "0x10",
+        "pinctrl-names": "default",
+        "pinctrl-0": "0x11",
+        "phy-mode": "rgmii-id",
+        "xlnx,ptp-enet-clock": "0x00",
+        "local-mac-address": "[ff ff ff ff ff ff]",
+        "phandle": "0x74",
+        "nodeType": "PS GEM3 (EMIO)",
+        "phy_nodes": [
+          {
+            "name": "ethernet-phy@c",
+            "reg": "0x0c",
+            "ti,rx-internal-delay": "0x08",
+            "ti,tx-internal-delay": "0x0a",
+            "ti,fifo-depth": "0x01",
+            "ti,dp83867-rxctrl-strap-quirk": true,
+            "phandle": "0x10"
+          }
+        ]
+      }
+    ],
+    "count": 1
+  },
+  "2022.2/ps_emio_eth_1g": {
+    "version": "2022.2",
+    "design": "ps_emio_eth_1g",
+    "ethernet_nodes": [
+      {
+        "name": "ethernet@ff0e0000",
+        "compatible": "xlnx,zynqmp-gem\\0cdns,zynqmp-gem\\0cdns,gem",
+        "status": "okay",
+        "interrupt-parent": "0x04",
+        "interrupts": "0x00 0x3f 0x04 0x00 0x3f 0x04",
+        "reg": "0x00 0xff0e0000 0x00 0x1000",
+        "clock-names": "pclk\\0hclk\\0tx_clk\\0rx_clk\\0tsu_clk",
+        "#address-cells": "0x01",
+        "#size-cells": "0x00",
+        "iommus": "0x0e 0x877",
+        "power-domains": "0x0c 0x20",
+        "resets": "0x0f 0x20",
+        "clocks": "0x03 0x1f 0x03 0x6b 0x03 0x30 0x03 0x34 0x03 0x2c",
+        "phy-handle": "0x12",
+        "pinctrl-names": "default",
+        "pinctrl-0": "0x13",
+        "phy-mode": "rgmii-id",
+        "xlnx,ptp-enet-clock": "0x00",
+        "local-mac-address": "[ff ff ff ff ff ff]",
+        "phandle": "0x75",
+        "nodeType": "PS GEM3 (EMIO)",
+        "phy_nodes": [
+          {
+            "name": "ethernet-phy@c",
+            "reg": "0x0c",
+            "ti,rx-internal-delay": "0x08",
+            "ti,tx-internal-delay": "0x0a",
+            "ti,fifo-depth": "0x01",
+            "ti,dp83867-rxctrl-strap-quirk": true,
+            "phandle": "0x12"
+          }
+        ]
+      }
+    ],
+    "count": 1
+  },
+  "2022.2/ps_emio_eth_sgmii": {
+    "version": "2022.2",
+    "design": "ps_emio_eth_sgmii",
+    "ethernet_nodes": [
+      {
+        "name": "ethernet@ff0e0000",
+        "compatible": "xlnx,zynqmp-gem\\0cdns,zynqmp-gem\\0cdns,gem",
+        "status": "okay",
+        "interrupt-parent": "0x04",
+        "interrupts": "0x00 0x3f 0x04 0x00 0x3f 0x04",
+        "reg": "0x00 0xff0e0000 0x00 0x1000",
+        "clock-names": "pclk\\0hclk\\0tx_clk\\0rx_clk\\0tsu_clk",
+        "#address-cells": "0x01",
+        "#size-cells": "0x00",
+        "iommus": "0x0e 0x877",
+        "power-domains": "0x0c 0x20",
+        "resets": "0x0f 0x20",
+        "clocks": "0x03 0x1f 0x03 0x6b 0x03 0x30 0x03 0x34 0x03 0x2c",
+        "phy-handle": "0x12",
+        "pinctrl-names": "default",
+        "pinctrl-0": "0x13",
+        "phy-mode": "rgmii-id",
+        "xlnx,ptp-enet-clock": "0x00",
+        "local-mac-address": "[ff ff ff ff ff ff]",
+        "phandle": "0x75",
+        "nodeType": "PS GEM3 (EMIO)",
+        "phy_nodes": [
+          {
+            "name": "ethernet-phy@c",
+            "reg": "0x0c",
+            "ti,rx-internal-delay": "0x08",
+            "ti,tx-internal-delay": "0x0a",
+            "ti,fifo-depth": "0x01",
+            "ti,dp83867-rxctrl-strap-quirk": true,
+            "phandle": "0x12"
+          }
+        ]
+      }
+    ],
+    "count": 1
+  },
+  "2023.1/pl_eth_10g": {
+    "version": "2023.1",
+    "design": "pl_eth_10g",
+    "ethernet_nodes": [
+      {
+        "name": "ethernet@ff0e0000",
+        "compatible": "xlnx,zynqmp-gem\\0cdns,gem",
+        "status": "okay",
+        "interrupt-parent": "0x05",
+        "interrupts": "0x00 0x3f 0x04 0x00 0x3f 0x04",
+        "reg": "0x00 0xff0e0000 0x00 0x1000",
+        "clock-names": "pclk\\0hclk\\0tx_clk\\0rx_clk\\0tsu_clk",
+        "#address-cells": "0x01",
+        "#size-cells": "0x00",
+        "iommus": "0x12 0x877",
+        "power-domains": "0x11 0x20",
+        "resets": "0x13 0x20",
+        "reset-names": "gem3_rst",
+        "clocks": "0x04 0x1f 0x04 0x6b 0x04 0x30 0x04 0x34 0x04 0x2c",
+        "phy-mode": "rgmii-id",
+        "xlnx,ptp-enet-clock": "0x00",
+        "local-mac-address": "[ff ff ff ff ff ff]",
+        "phandle": "0x50",
+        "nodeType": "PS GEM3 (EMIO)"
+      },
+      {
+        "name": "ethernet@a0040000",
+        "axistream-connected": "0x1f",
+        "axistream-control-connected": "0x1f",
+        "clock-frequency": "0x5f5e100",
+        "clock-names": "rx_core_clk\\0dclk\\0s_axi_aclk\\0s_axi_lite_aclk\\0m_axi_sg_aclk\\0m_axi_mm2s_aclk\\0m_axi_s2mm_aclk",
+        "clocks": "0x1e 0x04 0x47 0x04 0x47 0x04 0x47 0x04 0x47 0x1e 0x1e",
+        "compatible": "xlnx,xxv-ethernet-4.1\\0xlnx,xxv-ethernet-1.0",
+        "device_type": "network",
+        "interrupt-names": "mm2s_introut\\0s2mm_introut",
+        "interrupt-parent": "0x05",
+        "interrupts": "0x00 0x59 0x04 0x00 0x5a 0x04",
+        "local-mac-address": "[00 0a 35 00 00 01]",
+        "phy-mode": "base-r",
+        "reg": "0x00 0xa0040000 0x00 0x40000",
+        "xlnx": "0x00",
+        "xlnx,add-gt-cntrl-sts-ports": "0x00",
+        "xlnx,anlt-clk-in-mhz": "0x64",
+        "xlnx,axis-tdata-width": "0x40",
+        "xlnx,axis-tkeep-width": "0x07",
+        "xlnx,base-r-kr": "BASE-R",
+        "xlnx,channel-ids": "1",
+        "xlnx,clocking": "Asynchronous",
+        "xlnx,cmac-core-select": "CMACE4_X0Y0",
+        "xlnx,core": "Ethernet MAC+PCS/PMA 64-bit",
+        "xlnx,data-path-interface": "AXI Stream",
+        "xlnx,enable-datapath-parity": "0x00",
+        "xlnx,enable-gt-board-interface": "0x01",
+        "xlnx,enable-pipeline-reg": "0x00",
+        "xlnx,enable-preemption": "0x00",
+        "xlnx,enable-preemption-fifo": "0x00",
+        "xlnx,enable-rx-flow-control-logic": "0x00",
+        "xlnx,enable-time-stamping": "0x00",
+        "xlnx,enable-tx-flow-control-logic": "0x00",
+        "xlnx,enable-vlane-adjust-mode": "0x00",
+        "xlnx,family-chk": "zynquplus",
+        "xlnx,fast-sim-mode": "0x00",
+        "xlnx,gt-diffctrl-width": "0x04",
+        "xlnx,gt-drp-clk": "100.00",
+        "xlnx,gt-group-select": "Quad X0Y0",
+        "xlnx,gt-location": "0x01",
+        "xlnx,gt-ref-clk-freq": "156.25",
+        "xlnx,gt-type": "GTH",
+        "xlnx,gtm-group-select": "NA",
+        "xlnx,include-auto-neg-lt-logic": "None",
+        "xlnx,include-axi4-interface": "0x01",
+        "xlnx,include-dre": true,
+        "xlnx,include-fec-logic": "0x00",
+        "xlnx,include-hybrid-cmac-rsfec-logic": "0x00",
+        "xlnx,include-rsfec-logic": "0x00",
+        "xlnx,include-shared-logic": "0x01",
+        "xlnx,include-statistics-counters": "0x01",
+        "xlnx,include-user-fifo": "0x01",
+        "xlnx,ins-loss-nyq": "0x1e",
+        "xlnx,lane1-gt-loc": "X1Y14",
+        "xlnx,lane2-gt-loc": "NA",
+        "xlnx,lane3-gt-loc": "NA",
+        "xlnx,lane4-gt-loc": "NA",
+        "xlnx,line-rate": "0x0a",
+        "xlnx,mii-ctrl-width": "0x04",
+        "xlnx,mii-data-width": "0x20",
+        "xlnx,num-of-cores": "0x01",
+        "xlnx,num-queues": "[00 01]",
+        "xlnx,ptp-clocking-mode": "0x00",
+        "xlnx,ptp-operation-mode": "0x02",
+        "xlnx,runtime-switch": "0x00",
+        "xlnx,rx-eq-mode": "AUTO",
+        "xlnx,rxmem": "0x40000",
+        "xlnx,statistics-regs-type": "0x00",
+        "xlnx,switch-1-10-25g": "0x00",
+        "xlnx,sys-clk": "0xfa0",
+        "xlnx,tx-latency-adjust": "0x00",
+        "xlnx,tx-total-bytes-width": "0x04",
+        "xlnx,xgmii-interface": "0x01",
+        "zclock-names": "NULL",
+        "zclocks": "NULL",
+        "phandle": "0x79",
+        "nodeType": "PL Ethernet (10G/25G)",
+        "status": "okay",
+        "mdio": {
+          "name": "mdio",
+          "#address-cells": "0x01",
+          "#size-cells": "0x00",
+          "phandle": "0x7a"
+        }
+      }
+    ],
+    "count": 2
+  },
+  "2023.1/pl_eth_1g": {
+    "version": "2023.1",
+    "design": "pl_eth_1g",
+    "ethernet_nodes": [
+      {
+        "name": "ethernet@ff0e0000",
+        "compatible": "xlnx,zynqmp-gem\\0cdns,gem",
+        "status": "okay",
+        "interrupt-parent": "0x05",
+        "interrupts": "0x00 0x3f 0x04 0x00 0x3f 0x04",
+        "reg": "0x00 0xff0e0000 0x00 0x1000",
+        "clock-names": "pclk\\0hclk\\0tx_clk\\0rx_clk\\0tsu_clk",
+        "#address-cells": "0x01",
+        "#size-cells": "0x00",
+        "iommus": "0x13 0x877",
+        "power-domains": "0x11 0x20",
+        "resets": "0x14 0x20",
+        "reset-names": "gem3_rst",
+        "clocks": "0x04 0x1f 0x04 0x6b 0x04 0x30 0x04 0x34 0x04 0x2c",
+        "phy-handle": "0x15",
+        "pinctrl-names": "default",
+        "pinctrl-0": "0x16",
+        "phy-mode": "rgmii-id",
+        "xlnx,ptp-enet-clock": "0x00",
+        "local-mac-address": "[ff ff ff ff ff ff]",
+        "phandle": "0x73",
+        "nodeType": "PS GEM3 (EMIO)",
+        "mdio": {
+          "name": "mdio",
+          "#address-cells": "0x01",
+          "#size-cells": "0x00",
+          "phandle": "0x74",
+          "phy_nodes": [
+            {
+              "name": "ethernet-phy@c",
+              "#phy-cells": "0x01",
+              "compatible": "ethernet-phy-id2000.a231",
+              "reg": "0x0c",
+              "ti,rx-internal-delay": "0x08",
+              "ti,tx-internal-delay": "0x0a",
+              "ti,fifo-depth": "0x01",
+              "ti,dp83867-rxctrl-strap-quirk": true,
+              "reset-gpios": "0x17 0x06 0x01",
+              "phandle": "0x15"
+            }
+          ]
+        }
+      }
+    ],
+    "count": 1
+  },
+  "2023.1/pl_eth_sgmii": {
+    "version": "2023.1",
+    "design": "pl_eth_sgmii",
+    "ethernet_nodes": [
+      {
+        "name": "ethernet@ff0e0000",
+        "compatible": "xlnx,zynqmp-gem\\0cdns,gem",
+        "status": "okay",
+        "interrupt-parent": "0x05",
+        "interrupts": "0x00 0x3f 0x04 0x00 0x3f 0x04",
+        "reg": "0x00 0xff0e0000 0x00 0x1000",
+        "clock-names": "pclk\\0hclk\\0tx_clk\\0rx_clk\\0tsu_clk",
+        "#address-cells": "0x01",
+        "#size-cells": "0x00",
+        "iommus": "0x13 0x877",
+        "power-domains": "0x11 0x20",
+        "resets": "0x14 0x20",
+        "reset-names": "gem3_rst",
+        "clocks": "0x04 0x1f 0x04 0x6b 0x04 0x30 0x04 0x34 0x04 0x2c",
+        "phy-handle": "0x15",
+        "pinctrl-names": "default",
+        "pinctrl-0": "0x16",
+        "phy-mode": "rgmii-id",
+        "xlnx,ptp-enet-clock": "0x00",
+        "local-mac-address": "[ff ff ff ff ff ff]",
+        "phandle": "0x73",
+        "nodeType": "PS GEM3 (EMIO)",
+        "mdio": {
+          "name": "mdio",
+          "#address-cells": "0x01",
+          "#size-cells": "0x00",
+          "phandle": "0x74",
+          "phy_nodes": [
+            {
+              "name": "ethernet-phy@c",
+              "#phy-cells": "0x01",
+              "compatible": "ethernet-phy-id2000.a231",
+              "reg": "0x0c",
+              "ti,rx-internal-delay": "0x08",
+              "ti,tx-internal-delay": "0x0a",
+              "ti,fifo-depth": "0x01",
+              "ti,dp83867-rxctrl-strap-quirk": true,
+              "reset-gpios": "0x17 0x06 0x01",
+              "phandle": "0x15"
+            }
+          ]
+        }
+      }
+    ],
+    "count": 1
+  },
+  "2023.1/ps_emio_eth_1g": {
+    "version": "2023.1",
+    "design": "ps_emio_eth_1g",
+    "ethernet_nodes": [
+      {
+        "name": "ethernet@ff0e0000",
+        "compatible": "xlnx,zynqmp-gem\\0cdns,gem",
+        "status": "okay",
+        "interrupt-parent": "0x05",
+        "interrupts": "0x00 0x3f 0x04 0x00 0x3f 0x04",
+        "reg": "0x00 0xff0e0000 0x00 0x1000",
+        "clock-names": "pclk\\0hclk\\0tx_clk\\0rx_clk\\0tsu_clk",
+        "#address-cells": "0x01",
+        "#size-cells": "0x00",
+        "iommus": "0x13 0x877",
+        "power-domains": "0x11 0x20",
+        "resets": "0x14 0x20",
+        "reset-names": "gem3_rst",
+        "clocks": "0x04 0x1f 0x04 0x6b 0x04 0x30 0x04 0x34 0x04 0x2c",
+        "phy-handle": "0x17",
+        "pinctrl-names": "default",
+        "pinctrl-0": "0x18",
+        "phy-mode": "rgmii-id",
+        "xlnx,ptp-enet-clock": "0x00",
+        "local-mac-address": "[ff ff ff ff ff ff]",
+        "phandle": "0x74",
+        "nodeType": "PS GEM3 (EMIO)",
+        "mdio": {
+          "name": "mdio",
+          "#address-cells": "0x01",
+          "#size-cells": "0x00",
+          "phandle": "0x75",
+          "phy_nodes": [
+            {
+              "name": "ethernet-phy@c",
+              "#phy-cells": "0x01",
+              "compatible": "ethernet-phy-id2000.a231",
+              "reg": "0x0c",
+              "ti,rx-internal-delay": "0x08",
+              "ti,tx-internal-delay": "0x0a",
+              "ti,fifo-depth": "0x01",
+              "ti,dp83867-rxctrl-strap-quirk": true,
+              "reset-gpios": "0x19 0x06 0x01",
+              "phandle": "0x17"
+            }
+          ]
+        }
+      }
+    ],
+    "count": 1
+  },
+  "2023.1/ps_emio_eth_sgmii": {
+    "version": "2023.1",
+    "design": "ps_emio_eth_sgmii",
+    "ethernet_nodes": [
+      {
+        "name": "ethernet@ff0e0000",
+        "compatible": "xlnx,zynqmp-gem\\0cdns,gem",
+        "status": "okay",
+        "interrupt-parent": "0x05",
+        "interrupts": "0x00 0x3f 0x04 0x00 0x3f 0x04",
+        "reg": "0x00 0xff0e0000 0x00 0x1000",
+        "clock-names": "pclk\\0hclk\\0tx_clk\\0rx_clk\\0tsu_clk",
+        "#address-cells": "0x01",
+        "#size-cells": "0x00",
+        "iommus": "0x13 0x877",
+        "power-domains": "0x11 0x20",
+        "resets": "0x14 0x20",
+        "reset-names": "gem3_rst",
+        "clocks": "0x04 0x1f 0x04 0x6b 0x04 0x30 0x04 0x34 0x04 0x2c",
+        "phy-handle": "0x17",
+        "pinctrl-names": "default",
+        "pinctrl-0": "0x18",
+        "phy-mode": "rgmii-id",
+        "xlnx,ptp-enet-clock": "0x00",
+        "local-mac-address": "[ff ff ff ff ff ff]",
+        "phandle": "0x74",
+        "nodeType": "PS GEM3 (EMIO)",
+        "mdio": {
+          "name": "mdio",
+          "#address-cells": "0x01",
+          "#size-cells": "0x00",
+          "phandle": "0x75",
+          "phy_nodes": [
+            {
+              "name": "ethernet-phy@c",
+              "#phy-cells": "0x01",
+              "compatible": "ethernet-phy-id2000.a231",
+              "reg": "0x0c",
+              "ti,rx-internal-delay": "0x08",
+              "ti,tx-internal-delay": "0x0a",
+              "ti,fifo-depth": "0x01",
+              "ti,dp83867-rxctrl-strap-quirk": true,
+              "reset-gpios": "0x19 0x06 0x01",
+              "phandle": "0x17"
+            }
+          ]
+        }
+      }
+    ],
+    "count": 1
+  },
+  "2023.1/ps_mio_eth_1g": {
+    "version": "2023.1",
+    "design": "ps_mio_eth_1g",
+    "ethernet_nodes": [
+      {
+        "name": "ethernet@ff0e0000",
+        "compatible": "xlnx,zynqmp-gem\\0cdns,gem",
+        "status": "okay",
+        "interrupt-parent": "0x05",
+        "interrupts": "0x00 0x3f 0x04 0x00 0x3f 0x04",
+        "reg": "0x00 0xff0e0000 0x00 0x1000",
+        "clock-names": "pclk\\0hclk\\0tx_clk\\0rx_clk\\0tsu_clk",
+        "#address-cells": "0x01",
+        "#size-cells": "0x00",
+        "iommus": "0x13 0x877",
+        "power-domains": "0x11 0x20",
+        "resets": "0x14 0x20",
+        "reset-names": "gem3_rst",
+        "clocks": "0x04 0x1f 0x04 0x6b 0x04 0x30 0x04 0x34 0x04 0x2c",
+        "phy-handle": "0x15",
+        "pinctrl-names": "default",
+        "pinctrl-0": "0x16",
+        "phy-mode": "rgmii-id",
+        "xlnx,ptp-enet-clock": "0x00",
+        "local-mac-address": "[ff ff ff ff ff ff]",
+        "phandle": "0x73",
+        "nodeType": "PS GEM3 (EMIO)",
+        "mdio": {
+          "name": "mdio",
+          "#address-cells": "0x01",
+          "#size-cells": "0x00",
+          "phandle": "0x74",
+          "phy_nodes": [
+            {
+              "name": "ethernet-phy@c",
+              "#phy-cells": "0x01",
+              "compatible": "ethernet-phy-id2000.a231",
+              "reg": "0x0c",
+              "ti,rx-internal-delay": "0x08",
+              "ti,tx-internal-delay": "0x0a",
+              "ti,fifo-depth": "0x01",
+              "ti,dp83867-rxctrl-strap-quirk": true,
+              "reset-gpios": "0x17 0x06 0x01",
+              "phandle": "0x15"
+            }
+          ]
+        }
+      }
+    ],
+    "count": 1
+  },
+  "2023.2/pl_eth_10g": {
+    "version": "2023.2",
+    "design": "pl_eth_10g",
+    "ethernet_nodes": [
+      {
+        "name": "ethernet@ff0e0000",
+        "compatible": "xlnx,zynqmp-gem\\0cdns,gem",
+        "status": "okay",
+        "interrupt-parent": "0x05",
+        "interrupts": "0x00 0x3f 0x04 0x00 0x3f 0x04",
+        "reg": "0x00 0xff0e0000 0x00 0x1000",
+        "clock-names": "pclk\\0hclk\\0tx_clk\\0rx_clk\\0tsu_clk",
+        "#address-cells": "0x01",
+        "#size-cells": "0x00",
+        "iommus": "0x14 0x877",
+        "power-domains": "0x12 0x20",
+        "resets": "0x11 0x20",
+        "reset-names": "gem3_rst",
+        "clocks": "0x04 0x1f 0x04 0x6b 0x04 0x30 0x04 0x34 0x04 0x2c",
+        "assigned-clocks": "0x04 0x2c",
+        "phy-handle": "0x15",
+        "pinctrl-names": "default",
+        "pinctrl-0": "0x16",
+        "phy-mode": "rgmii-id",
+        "xlnx,ptp-enet-clock": "0x00",
+        "local-mac-address": "[ff ff ff ff ff ff]",
+        "phandle": "0x72",
+        "nodeType": "PS GEM3 (EMIO)",
+        "mdio": {
+          "name": "mdio",
+          "#address-cells": "0x01",
+          "#size-cells": "0x00",
+          "phandle": "0x73",
+          "phy_nodes": [
+            {
+              "name": "ethernet-phy@c",
+              "#phy-cells": "0x01",
+              "compatible": "ethernet-phy-id2000.a231",
+              "reg": "0x0c",
+              "ti,rx-internal-delay": "0x08",
+              "ti,tx-internal-delay": "0x0a",
+              "ti,fifo-depth": "0x01",
+              "ti,dp83867-rxctrl-strap-quirk": true,
+              "reset-gpios": "0x17 0x06 0x01",
+              "phandle": "0x15"
+            }
+          ]
+        }
+      }
+    ],
+    "count": 1
+  },
+  "2023.2/pl_eth_1g": {
+    "version": "2023.2",
+    "design": "pl_eth_1g",
+    "ethernet_nodes": [
+      {
+        "name": "ethernet@ff0e0000",
+        "compatible": "xlnx,zynqmp-gem\\0cdns,gem",
+        "status": "okay",
+        "interrupt-parent": "0x05",
+        "interrupts": "0x00 0x3f 0x04 0x00 0x3f 0x04",
+        "reg": "0x00 0xff0e0000 0x00 0x1000",
+        "clock-names": "pclk\\0hclk\\0tx_clk\\0rx_clk\\0tsu_clk",
+        "#address-cells": "0x01",
+        "#size-cells": "0x00",
+        "iommus": "0x14 0x877",
+        "power-domains": "0x12 0x20",
+        "resets": "0x11 0x20",
+        "reset-names": "gem3_rst",
+        "clocks": "0x04 0x1f 0x04 0x6b 0x04 0x30 0x04 0x34 0x04 0x2c",
+        "assigned-clocks": "0x04 0x2c",
+        "phy-handle": "0x15",
+        "pinctrl-names": "default",
+        "pinctrl-0": "0x16",
+        "phy-mode": "rgmii-id",
+        "xlnx,ptp-enet-clock": "0x00",
+        "local-mac-address": "[ff ff ff ff ff ff]",
+        "phandle": "0x72",
+        "nodeType": "PS GEM3 (EMIO)",
+        "mdio": {
+          "name": "mdio",
+          "#address-cells": "0x01",
+          "#size-cells": "0x00",
+          "phandle": "0x73",
+          "phy_nodes": [
+            {
+              "name": "ethernet-phy@c",
+              "#phy-cells": "0x01",
+              "compatible": "ethernet-phy-id2000.a231",
+              "reg": "0x0c",
+              "ti,rx-internal-delay": "0x08",
+              "ti,tx-internal-delay": "0x0a",
+              "ti,fifo-depth": "0x01",
+              "ti,dp83867-rxctrl-strap-quirk": true,
+              "reset-gpios": "0x17 0x06 0x01",
+              "phandle": "0x15"
+            }
+          ]
+        }
+      }
+    ],
+    "count": 1
+  },
+  "2023.2/pl_eth_sgmii": {
+    "version": "2023.2",
+    "design": "pl_eth_sgmii",
+    "ethernet_nodes": [
+      {
+        "name": "ethernet@ff0e0000",
+        "compatible": "xlnx,zynqmp-gem\\0cdns,gem",
+        "status": "okay",
+        "interrupt-parent": "0x05",
+        "interrupts": "0x00 0x3f 0x04 0x00 0x3f 0x04",
+        "reg": "0x00 0xff0e0000 0x00 0x1000",
+        "clock-names": "pclk\\0hclk\\0tx_clk\\0rx_clk\\0tsu_clk",
+        "#address-cells": "0x01",
+        "#size-cells": "0x00",
+        "iommus": "0x14 0x877",
+        "power-domains": "0x12 0x20",
+        "resets": "0x11 0x20",
+        "reset-names": "gem3_rst",
+        "clocks": "0x04 0x1f 0x04 0x6b 0x04 0x30 0x04 0x34 0x04 0x2c",
+        "assigned-clocks": "0x04 0x2c",
+        "phy-handle": "0x15",
+        "pinctrl-names": "default",
+        "pinctrl-0": "0x16",
+        "phy-mode": "rgmii-id",
+        "xlnx,ptp-enet-clock": "0x00",
+        "local-mac-address": "[ff ff ff ff ff ff]",
+        "phandle": "0x72",
+        "nodeType": "PS GEM3 (EMIO)",
+        "mdio": {
+          "name": "mdio",
+          "#address-cells": "0x01",
+          "#size-cells": "0x00",
+          "phandle": "0x73",
+          "phy_nodes": [
+            {
+              "name": "ethernet-phy@c",
+              "#phy-cells": "0x01",
+              "compatible": "ethernet-phy-id2000.a231",
+              "reg": "0x0c",
+              "ti,rx-internal-delay": "0x08",
+              "ti,tx-internal-delay": "0x0a",
+              "ti,fifo-depth": "0x01",
+              "ti,dp83867-rxctrl-strap-quirk": true,
+              "reset-gpios": "0x17 0x06 0x01",
+              "phandle": "0x15"
+            }
+          ]
+        }
+      }
+    ],
+    "count": 1
+  },
+  "2023.2/ps_emio_eth_1g": {
+    "version": "2023.2",
+    "design": "ps_emio_eth_1g",
+    "ethernet_nodes": [
+      {
+        "name": "ethernet@ff0e0000",
+        "compatible": "xlnx,zynqmp-gem\\0cdns,gem",
+        "status": "okay",
+        "interrupt-parent": "0x05",
+        "interrupts": "0x00 0x3f 0x04 0x00 0x3f 0x04",
+        "reg": "0x00 0xff0e0000 0x00 0x1000",
+        "clock-names": "pclk\\0hclk\\0tx_clk\\0rx_clk\\0tsu_clk",
+        "#address-cells": "0x01",
+        "#size-cells": "0x00",
+        "iommus": "0x14 0x877",
+        "power-domains": "0x12 0x20",
+        "resets": "0x11 0x20",
+        "reset-names": "gem3_rst",
+        "clocks": "0x04 0x1f 0x04 0x6b 0x04 0x30 0x04 0x34 0x04 0x2c",
+        "assigned-clocks": "0x04 0x2c",
+        "phy-handle": "0x17",
+        "pinctrl-names": "default",
+        "pinctrl-0": "0x18",
+        "phy-mode": "rgmii-id",
+        "xlnx,ptp-enet-clock": "0x00",
+        "local-mac-address": "[ff ff ff ff ff ff]",
+        "phandle": "0x73",
+        "nodeType": "PS GEM3 (EMIO)",
+        "mdio": {
+          "name": "mdio",
+          "#address-cells": "0x01",
+          "#size-cells": "0x00",
+          "phandle": "0x74",
+          "phy_nodes": [
+            {
+              "name": "ethernet-phy@c",
+              "#phy-cells": "0x01",
+              "compatible": "ethernet-phy-id2000.a231",
+              "reg": "0x0c",
+              "ti,rx-internal-delay": "0x08",
+              "ti,tx-internal-delay": "0x0a",
+              "ti,fifo-depth": "0x01",
+              "ti,dp83867-rxctrl-strap-quirk": true,
+              "reset-gpios": "0x19 0x06 0x01",
+              "phandle": "0x17"
+            }
+          ]
+        }
+      }
+    ],
+    "count": 1
+  },
+  "2023.2/ps_emio_eth_sgmii": {
+    "version": "2023.2",
+    "design": "ps_emio_eth_sgmii",
+    "ethernet_nodes": [
+      {
+        "name": "ethernet@ff0e0000",
+        "compatible": "xlnx,zynqmp-gem\\0cdns,gem",
+        "status": "okay",
+        "interrupt-parent": "0x05",
+        "interrupts": "0x00 0x3f 0x04 0x00 0x3f 0x04",
+        "reg": "0x00 0xff0e0000 0x00 0x1000",
+        "clock-names": "pclk\\0hclk\\0tx_clk\\0rx_clk\\0tsu_clk",
+        "#address-cells": "0x01",
+        "#size-cells": "0x00",
+        "iommus": "0x14 0x877",
+        "power-domains": "0x12 0x20",
+        "resets": "0x11 0x20",
+        "reset-names": "gem3_rst",
+        "clocks": "0x04 0x1f 0x04 0x6b 0x04 0x30 0x04 0x34 0x04 0x2c",
+        "assigned-clocks": "0x04 0x2c",
+        "phy-handle": "0x17",
+        "pinctrl-names": "default",
+        "pinctrl-0": "0x18",
+        "phy-mode": "rgmii-id",
+        "xlnx,ptp-enet-clock": "0x00",
+        "local-mac-address": "[ff ff ff ff ff ff]",
+        "phandle": "0x73",
+        "nodeType": "PS GEM3 (EMIO)",
+        "mdio": {
+          "name": "mdio",
+          "#address-cells": "0x01",
+          "#size-cells": "0x00",
+          "phandle": "0x74",
+          "phy_nodes": [
+            {
+              "name": "ethernet-phy@c",
+              "#phy-cells": "0x01",
+              "compatible": "ethernet-phy-id2000.a231",
+              "reg": "0x0c",
+              "ti,rx-internal-delay": "0x08",
+              "ti,tx-internal-delay": "0x0a",
+              "ti,fifo-depth": "0x01",
+              "ti,dp83867-rxctrl-strap-quirk": true,
+              "reset-gpios": "0x19 0x06 0x01",
+              "phandle": "0x17"
+            }
+          ]
+        }
+      }
+    ],
+    "count": 1
+  },
+  "2023.2/ps_mio_eth_1g": {
+    "version": "2023.2",
+    "design": "ps_mio_eth_1g",
+    "ethernet_nodes": [
+      {
+        "name": "ethernet@ff0e0000",
+        "compatible": "xlnx,zynqmp-gem\\0cdns,gem",
+        "status": "okay",
+        "interrupt-parent": "0x05",
+        "interrupts": "0x00 0x3f 0x04 0x00 0x3f 0x04",
+        "reg": "0x00 0xff0e0000 0x00 0x1000",
+        "clock-names": "pclk\\0hclk\\0tx_clk\\0rx_clk\\0tsu_clk",
+        "#address-cells": "0x01",
+        "#size-cells": "0x00",
+        "iommus": "0x14 0x877",
+        "power-domains": "0x12 0x20",
+        "resets": "0x11 0x20",
+        "reset-names": "gem3_rst",
+        "clocks": "0x04 0x1f 0x04 0x6b 0x04 0x30 0x04 0x34 0x04 0x2c",
+        "assigned-clocks": "0x04 0x2c",
+        "phy-handle": "0x15",
+        "pinctrl-names": "default",
+        "pinctrl-0": "0x16",
+        "phy-mode": "rgmii-id",
+        "xlnx,ptp-enet-clock": "0x00",
+        "local-mac-address": "[ff ff ff ff ff ff]",
+        "phandle": "0x72",
+        "nodeType": "PS GEM3 (EMIO)",
+        "mdio": {
+          "name": "mdio",
+          "#address-cells": "0x01",
+          "#size-cells": "0x00",
+          "phandle": "0x73",
+          "phy_nodes": [
+            {
+              "name": "ethernet-phy@c",
+              "#phy-cells": "0x01",
+              "compatible": "ethernet-phy-id2000.a231",
+              "reg": "0x0c",
+              "ti,rx-internal-delay": "0x08",
+              "ti,tx-internal-delay": "0x0a",
+              "ti,fifo-depth": "0x01",
+              "ti,dp83867-rxctrl-strap-quirk": true,
+              "reset-gpios": "0x17 0x06 0x01",
+              "phandle": "0x15"
+            }
+          ]
+        }
+      }
+    ],
+    "count": 1
+  },
+  "2024.1/pl_eth_10g": {
+    "version": "2024.1",
+    "design": "pl_eth_10g",
+    "ethernet_nodes": [
+      {
+        "name": "ethernet@ff0e0000",
+        "compatible": "xlnx,zynqmp-gem\\0cdns,gem",
+        "status": "okay",
+        "interrupt-parent": "0x05",
+        "interrupts": "0x00 0x3f 0x04 0x00 0x3f 0x04",
+        "reg": "0x00 0xff0e0000 0x00 0x1000",
+        "clock-names": "pclk\\0hclk\\0tx_clk\\0rx_clk\\0tsu_clk",
+        "#address-cells": "0x01",
+        "#size-cells": "0x00",
+        "iommus": "0x14 0x877",
+        "power-domains": "0x12 0x20",
+        "resets": "0x11 0x20",
+        "reset-names": "gem3_rst",
+        "clocks": "0x04 0x1f 0x04 0x6b 0x04 0x30 0x04 0x34 0x04 0x2c",
+        "assigned-clocks": "0x04 0x2c",
+        "phy-handle": "0x15",
+        "pinctrl-names": "default",
+        "pinctrl-0": "0x16",
+        "phy-mode": "rgmii-id",
+        "xlnx,ptp-enet-clock": "0x00",
+        "local-mac-address": "[ff ff ff ff ff ff]",
+        "phandle": "0x74",
+        "nodeType": "PS GEM3 (EMIO)",
+        "mdio": {
+          "name": "mdio",
+          "#address-cells": "0x01",
+          "#size-cells": "0x00",
+          "phandle": "0x75",
+          "phy_nodes": [
+            {
+              "name": "ethernet-phy@c",
+              "#phy-cells": "0x01",
+              "compatible": "ethernet-phy-id2000.a231",
+              "reg": "0x0c",
+              "ti,rx-internal-delay": "0x08",
+              "ti,tx-internal-delay": "0x0a",
+              "ti,fifo-depth": "0x01",
+              "ti,dp83867-rxctrl-strap-quirk": true,
+              "reset-gpios": "0x17 0x06 0x01",
+              "phandle": "0x15"
+            }
+          ]
+        }
+      },
+      {
+        "name": "ethernet@a0040000",
+        "axistream-connected": "0x41",
+        "axistream-control-connected": "0x41",
+        "clock-frequency": "0x5f5e100",
+        "clock-names": "rx_core_clk\\0dclk\\0s_axi_aclk\\0m_axi_mm2s_aclk\\0m_axi_s2mm_aclk\\0m_axi_sg_aclk\\0s_axi_lite_aclk",
+        "clocks": "0x40 0x04 0x47 0x04 0x47 0x40 0x40 0x04 0x47 0x04 0x47",
+        "compatible": "xlnx,xxv-ethernet-4.1\\0xlnx,xxv-ethernet-1.0",
+        "device_type": "network",
+        "interrupt-names": "mm2s_introut\\0s2mm_introut",
+        "interrupt-parent": "0x05",
+        "interrupts": "0x00 0x59 0x04 0x00 0x5a 0x04",
+        "local-mac-address": "[00 0a 35 00 00 01]",
+        "managed": "in-band-status",
+        "phy-mode": "10gbase-r",
+        "reg": "0x00 0xa0040000 0x00 0x40000",
+        "xlnx": "0x00",
+        "xlnx,add-gt-cntrl-sts-ports": "0x00",
+        "xlnx,anlt-clk-in-mhz": "0x64",
+        "xlnx,axis-tdata-width": "0x40",
+        "xlnx,axis-tkeep-width": "0x07",
+        "xlnx,base-r-kr": "BASE-R",
+        "xlnx,channel-ids": "1",
+        "xlnx,clocking": "Asynchronous",
+        "xlnx,cmac-core-select": "CMACE4_X0Y0",
+        "xlnx,core": "Ethernet MAC+PCS/PMA 64-bit",
+        "xlnx,data-path-interface": "AXI Stream",
+        "xlnx,enable-datapath-parity": "0x00",
+        "xlnx,enable-gt-board-interface": "0x01",
+        "xlnx,enable-pipeline-reg": "0x00",
+        "xlnx,enable-preemption": "0x00",
+        "xlnx,enable-preemption-fifo": "0x00",
+        "xlnx,enable-rx-flow-control-logic": "0x00",
+        "xlnx,enable-time-stamping": "0x00",
+        "xlnx,enable-tx-flow-control-logic": "0x00",
+        "xlnx,enable-vlane-adjust-mode": "0x00",
+        "xlnx,family-chk": "zynquplus",
+        "xlnx,fast-sim-mode": "0x00",
+        "xlnx,gt-diffctrl-width": "0x04",
+        "xlnx,gt-drp-clk": "100.00",
+        "xlnx,gt-group-select": "Quad X0Y0",
+        "xlnx,gt-location": "0x01",
+        "xlnx,gt-ref-clk-freq": "156.25",
+        "xlnx,gt-type": "GTH",
+        "xlnx,gtm-group-select": "NA",
+        "xlnx,include-auto-neg-lt-logic": "None",
+        "xlnx,include-axi4-interface": "0x01",
+        "xlnx,include-dre": true,
+        "xlnx,include-fec-logic": "0x00",
+        "xlnx,include-hybrid-cmac-rsfec-logic": "0x00",
+        "xlnx,include-rsfec-logic": "0x00",
+        "xlnx,include-shared-logic": "0x01",
+        "xlnx,include-statistics-counters": "0x01",
+        "xlnx,include-user-fifo": "0x01",
+        "xlnx,ins-loss-nyq": "0x1e",
+        "xlnx,lane1-gt-loc": "X1Y14",
+        "xlnx,lane2-gt-loc": "NA",
+        "xlnx,lane3-gt-loc": "NA",
+        "xlnx,lane4-gt-loc": "NA",
+        "xlnx,line-rate": "0x0a",
+        "xlnx,mii-ctrl-width": "0x04",
+        "xlnx,mii-data-width": "0x20",
+        "xlnx,num-of-cores": "0x01",
+        "xlnx,num-queues": "[00 01]",
+        "xlnx,ptp-clocking-mode": "0x00",
+        "xlnx,ptp-operation-mode": "0x02",
+        "xlnx,runtime-switch": "0x00",
+        "xlnx,rx-eq-mode": "AUTO",
+        "xlnx,rxmem": "0x40000",
+        "xlnx,statistics-regs-type": "0x00",
+        "xlnx,switch-1-10-25g": "0x00",
+        "xlnx,sys-clk": "0xfa0",
+        "xlnx,tx-latency-adjust": "0x00",
+        "xlnx,tx-total-bytes-width": "0x04",
+        "xlnx,xgmii-interface": "0x01",
+        "zclock-names": "NULL",
+        "zclocks": "NULL",
+        "phandle": "0xaa",
+        "nodeType": "PL Ethernet (10G/25G)",
+        "status": "okay",
+        "mdio": {
+          "name": "mdio",
+          "#address-cells": "0x01",
+          "#size-cells": "0x00",
+          "phandle": "0xab"
+        }
+      }
+    ],
+    "count": 2
+  },
+  "2024.1/pl_eth_1g": {
+    "version": "2024.1",
+    "design": "pl_eth_1g",
+    "ethernet_nodes": [
+      {
+        "name": "ethernet@a0000000",
+        "axistream-connected": "0x40",
+        "axistream-control-connected": "0x40",
+        "clock-frequency": "0x5f5e100",
+        "clock-names": "axis_clk\\0ref_clk\\0s_axi_lite_clk",
+        "clocks": "0x04 0x47 0x04 0x48 0x04 0x47",
+        "compatible": "xlnx,axi-ethernet-7.2\\0xlnx,axi-ethernet-1.00.a",
+        "device_type": "network",
+        "interrupt-names": "interrupt\\0mm2s_introut\\0s2mm_introut",
+        "interrupt-parent": "0x05",
+        "interrupts": "0x00 0x5b 0x04 0x00 0x59 0x04 0x00 0x5a 0x04",
+        "local-mac-address": "[ff ff ff ff ff ff]",
+        "managed": "in-band-status",
+        "pcs-handle": "0x41",
+        "phy-mode": "1000base-x",
+        "reg": "0x00 0xa0000000 0x00 0x40000",
+        "xlnx": "0x00",
+        "xlnx,axiliteclkrate": "0x00",
+        "xlnx,axisclkrate": "0x00",
+        "xlnx,channel-ids": "1",
+        "xlnx,clockselection": "0x00",
+        "xlnx,enableasyncsgmii": "0x00",
+        "xlnx,gt-type": "0x00",
+        "xlnx,gtinex": "0x00",
+        "xlnx,gtlocation": "0x00",
+        "xlnx,gtrefclksrc": "0x00",
+        "xlnx,include-dre": true,
+        "xlnx,instantiatebitslice0": "0x00",
+        "xlnx,num-queues": "[00 01]",
+        "xlnx,phyaddr": "0x02",
+        "xlnx,phyrst-board-interface-dummy-port": "0x00",
+        "xlnx,rable": "0x00",
+        "xlnx,rxcsum": "0x02",
+        "xlnx,rxlane0-placement": "0x00",
+        "xlnx,rxlane1-placement": "0x00",
+        "xlnx,rxmem": "0x8000",
+        "xlnx,rxnibblebitslice0used": "0x00",
+        "xlnx,switch-x-sgmii": true,
+        "xlnx,tx-in-upper-nibble": "0x01",
+        "xlnx,txcsum": "0x02",
+        "xlnx,txlane0-placement": "0x00",
+        "xlnx,txlane1-placement": "0x00",
+        "xlnx,versal-gt-board-flow": "0x00",
+        "zclock-names": "NULL",
+        "zclocks": "NULL",
+        "phandle": "0xa8",
+        "nodeType": "PL Ethernet (10G/25G)",
+        "status": "okay",
+        "mdio": {
+          "name": "mdio",
+          "#address-cells": "0x01",
+          "#size-cells": "0x00",
+          "phandle": "0xa9",
+          "phy_nodes": [
+            {
+              "name": "phy@2",
+              "device_type": "ethernet-phy",
+              "reg": "0x02",
+              "phandle": "0x41"
+            }
+          ]
+        }
+      }
+    ],
+    "count": 1
+  },
+  "2024.1/pl_eth_sgmii": {
+    "version": "2024.1",
+    "design": "pl_eth_sgmii",
+    "ethernet_nodes": [
+      {
+        "name": "ethernet@ff0e0000",
+        "compatible": "xlnx,zynqmp-gem\\0cdns,gem",
+        "status": "okay",
+        "interrupt-parent": "0x05",
+        "interrupts": "0x00 0x3f 0x04 0x00 0x3f 0x04",
+        "reg": "0x00 0xff0e0000 0x00 0x1000",
+        "clock-names": "pclk\\0hclk\\0tx_clk\\0rx_clk\\0tsu_clk",
+        "#address-cells": "0x01",
+        "#size-cells": "0x00",
+        "iommus": "0x14 0x877",
+        "power-domains": "0x12 0x20",
+        "resets": "0x11 0x20",
+        "reset-names": "gem3_rst",
+        "clocks": "0x04 0x1f 0x04 0x6b 0x04 0x30 0x04 0x34 0x04 0x2c",
+        "assigned-clocks": "0x04 0x2c",
+        "phy-handle": "0x15",
+        "pinctrl-names": "default",
+        "pinctrl-0": "0x16",
+        "phy-mode": "rgmii-id",
+        "xlnx,ptp-enet-clock": "0x00",
+        "local-mac-address": "[ff ff ff ff ff ff]",
+        "phandle": "0x74",
+        "nodeType": "PS GEM3 (EMIO)",
+        "mdio": {
+          "name": "mdio",
+          "#address-cells": "0x01",
+          "#size-cells": "0x00",
+          "phandle": "0x75",
+          "phy_nodes": [
+            {
+              "name": "ethernet-phy@c",
+              "#phy-cells": "0x01",
+              "compatible": "ethernet-phy-id2000.a231",
+              "reg": "0x0c",
+              "ti,rx-internal-delay": "0x08",
+              "ti,tx-internal-delay": "0x0a",
+              "ti,fifo-depth": "0x01",
+              "ti,dp83867-rxctrl-strap-quirk": true,
+              "reset-gpios": "0x17 0x06 0x01",
+              "phandle": "0x15"
+            }
+          ]
+        }
+      },
+      {
+        "name": "ethernet@a0000000",
+        "axistream-connected": "0x40",
+        "axistream-control-connected": "0x40",
+        "clock-frequency": "0x5f5e100",
+        "clock-names": "axis_clk\\0ref_clk\\0s_axi_lite_clk",
+        "clocks": "0x04 0x47 0x04 0x48 0x04 0x47",
+        "compatible": "xlnx,axi-ethernet-7.2\\0xlnx,axi-ethernet-1.00.a",
+        "device_type": "network",
+        "interrupt-names": "interrupt\\0mm2s_introut\\0s2mm_introut",
+        "interrupt-parent": "0x05",
+        "interrupts": "0x00 0x5b 0x04 0x00 0x59 0x04 0x00 0x5a 0x04",
+        "local-mac-address": "[00 0a 35 00 00 00]",
+        "managed": "in-band-status",
+        "pcs-handle": "0x41",
+        "phy-mode": "sgmii",
+        "reg": "0x00 0xa0000000 0x00 0x40000",
+        "xlnx": "0x00",
+        "xlnx,axiliteclkrate": "0x00",
+        "xlnx,axisclkrate": "0x00",
+        "xlnx,channel-ids": "1",
+        "xlnx,clockselection": "0x00",
+        "xlnx,enableasyncsgmii": "0x00",
+        "xlnx,gt-type": "0x00",
+        "xlnx,gtinex": "0x00",
+        "xlnx,gtlocation": "0x00",
+        "xlnx,gtrefclksrc": "0x00",
+        "xlnx,include-dre": true,
+        "xlnx,instantiatebitslice0": "0x00",
+        "xlnx,num-queues": "[00 01]",
+        "xlnx,phyaddr": "0x02",
+        "xlnx,phyrst-board-interface-dummy-port": "0x00",
+        "xlnx,rable": "0x00",
+        "xlnx,rxcsum": "0x02",
+        "xlnx,rxlane0-placement": "0x00",
+        "xlnx,rxlane1-placement": "0x00",
+        "xlnx,rxmem": "0x8000",
+        "xlnx,rxnibblebitslice0used": "0x00",
+        "xlnx,switch-x-sgmii": true,
+        "xlnx,tx-in-upper-nibble": "0x01",
+        "xlnx,txcsum": "0x02",
+        "xlnx,txlane0-placement": "0x00",
+        "xlnx,txlane1-placement": "0x00",
+        "xlnx,versal-gt-board-flow": "0x00",
+        "zclock-names": "NULL",
+        "zclocks": "NULL",
+        "phandle": "0xa9",
+        "nodeType": "PL Ethernet (10G/25G)",
+        "status": "okay",
+        "mdio": {
+          "name": "mdio",
+          "#address-cells": "0x01",
+          "#size-cells": "0x00",
+          "phandle": "0xaa",
+          "phy_nodes": [
+            {
+              "name": "phy@2",
+              "device_type": "ethernet-phy",
+              "reg": "0x02",
+              "phandle": "0x41"
+            }
+          ]
+        }
+      }
+    ],
+    "count": 2
+  },
+  "2024.1/ps_emio_eth_1g": {
+    "version": "2024.1",
+    "design": "ps_emio_eth_1g",
+    "ethernet_nodes": [
+      {
+        "name": "ethernet@ff0b0000",
+        "compatible": "xlnx,zynqmp-gem\\0cdns,gem",
+        "status": "okay",
+        "interrupt-parent": "0x05",
+        "interrupts": "0x00 0x39 0x04 0x00 0x39 0x04",
+        "reg": "0x00 0xff0b0000 0x00 0x1000",
+        "clock-names": "pclk\\0hclk\\0tx_clk\\0rx_clk\\0tsu_clk",
+        "#address-cells": "0x01",
+        "#size-cells": "0x00",
+        "iommus": "0x14 0x874",
+        "power-domains": "0x12 0x1d",
+        "resets": "0x11 0x1d",
+        "reset-names": "gem0_rst",
+        "clocks": "0x04 0x1f 0x04 0x68 0x04 0x2d 0x04 0x31 0x04 0x2c",
+        "assigned-clocks": "0x04 0x2c",
+        "phy-handle": "0x15",
+        "phy-mode": "gmii",
+        "xlnx,ptp-enet-clock": "0x00",
+        "local-mac-address": "[ff ff ff ff ff ff]",
+        "phandle": "0x70",
+        "nodeType": "PS GEM0 (MIO)",
+        "phy_nodes": [
+          {
+            "name": "phy@9",
+            "reg": "0x09",
+            "xlnx,phy-type": "0x05",
+            "phandle": "0x15"
+          }
+        ]
+      }
+    ],
+    "count": 1
+  },
+  "2024.1/ps_emio_eth_sgmii": {
+    "version": "2024.1",
+    "design": "ps_emio_eth_sgmii",
+    "ethernet_nodes": [
+      {
+        "name": "ethernet@ff0b0000",
+        "compatible": "xlnx,zynqmp-gem\\0cdns,gem",
+        "status": "okay",
+        "interrupt-parent": "0x05",
+        "interrupts": "0x00 0x39 0x04 0x00 0x39 0x04",
+        "reg": "0x00 0xff0b0000 0x00 0x1000",
+        "clock-names": "pclk\\0hclk\\0tx_clk\\0rx_clk\\0tsu_clk",
+        "#address-cells": "0x01",
+        "#size-cells": "0x00",
+        "iommus": "0x14 0x874",
+        "power-domains": "0x12 0x1d",
+        "resets": "0x11 0x1d",
+        "reset-names": "gem0_rst",
+        "clocks": "0x04 0x1f 0x04 0x68 0x04 0x2d 0x04 0x31 0x04 0x2c",
+        "assigned-clocks": "0x04 0x2c",
+        "phy-handle": "0x15",
+        "phy-mode": "gmii",
+        "xlnx,ptp-enet-clock": "0x00",
+        "local-mac-address": "[ff ff ff ff ff ff]",
+        "phandle": "0x70",
+        "nodeType": "PS GEM0 (MIO)",
+        "phy_nodes": [
+          {
+            "name": "phy@9",
+            "reg": "0x09",
+            "xlnx,phy-type": "0x04",
+            "phandle": "0x15"
+          }
+        ]
+      }
+    ],
+    "count": 1
+  },
+  "2024.1/ps_mio_eth_1g": {
+    "version": "2024.1",
+    "design": "ps_mio_eth_1g",
+    "ethernet_nodes": [
+      {
+        "name": "ethernet@ff0e0000",
+        "compatible": "xlnx,zynqmp-gem\\0cdns,gem",
+        "status": "okay",
+        "interrupt-parent": "0x05",
+        "interrupts": "0x00 0x3f 0x04 0x00 0x3f 0x04",
+        "reg": "0x00 0xff0e0000 0x00 0x1000",
+        "clock-names": "pclk\\0hclk\\0tx_clk\\0rx_clk\\0tsu_clk",
+        "#address-cells": "0x01",
+        "#size-cells": "0x00",
+        "iommus": "0x14 0x877",
+        "power-domains": "0x12 0x20",
+        "resets": "0x11 0x20",
+        "reset-names": "gem3_rst",
+        "clocks": "0x04 0x1f 0x04 0x6b 0x04 0x30 0x04 0x34 0x04 0x2c",
+        "assigned-clocks": "0x04 0x2c",
+        "phy-handle": "0x15",
+        "pinctrl-names": "default",
+        "pinctrl-0": "0x16",
+        "phy-mode": "rgmii-id",
+        "xlnx,ptp-enet-clock": "0x00",
+        "local-mac-address": "[ff ff ff ff ff ff]",
+        "phandle": "0x72",
+        "nodeType": "PS GEM3 (EMIO)",
+        "mdio": {
+          "name": "mdio",
+          "#address-cells": "0x01",
+          "#size-cells": "0x00",
+          "phandle": "0x73",
+          "phy_nodes": [
+            {
+              "name": "ethernet-phy@c",
+              "#phy-cells": "0x01",
+              "compatible": "ethernet-phy-id2000.a231",
+              "reg": "0x0c",
+              "ti,rx-internal-delay": "0x08",
+              "ti,tx-internal-delay": "0x0a",
+              "ti,fifo-depth": "0x01",
+              "ti,dp83867-rxctrl-strap-quirk": true,
+              "reset-gpios": "0x17 0x06 0x01",
+              "phandle": "0x15"
+            }
+          ]
+        }
+      }
+    ],
+    "count": 1
+  },
+  "2024.2/pl_eth_10g": {
+    "version": "2024.2",
+    "design": "pl_eth_10g",
+    "ethernet_nodes": [
+      {
+        "name": "ethernet@ff0e0000",
+        "compatible": "xlnx,zynqmp-gem\\0cdns,gem",
+        "status": "okay",
+        "interrupt-parent": "0x05",
+        "interrupts": "0x00 0x3f 0x04 0x00 0x3f 0x04",
+        "reg": "0x00 0xff0e0000 0x00 0x1000",
+        "clock-names": "pclk\\0hclk\\0tx_clk\\0rx_clk\\0tsu_clk",
+        "power-domains": "0x12 0x20",
+        "resets": "0x11 0x20",
+        "reset-names": "gem3_rst",
+        "clocks": "0x04 0x1f 0x04 0x6b 0x04 0x30 0x04 0x34 0x04 0x2c",
+        "assigned-clocks": "0x04 0x2c",
+        "phy-handle": "0x14",
+        "phy-mode": "rgmii-id",
+        "pinctrl-names": "default",
+        "pinctrl-0": "0x15",
+        "xlnx,ptp-enet-clock": "0x00",
+        "local-mac-address": "[ff ff ff ff ff ff]",
+        "phandle": "0x74",
+        "nodeType": "PS GEM3 (EMIO)",
+        "mdio": {
+          "name": "mdio",
+          "#address-cells": "0x01",
+          "#size-cells": "0x00",
+          "phandle": "0x75",
+          "phy_nodes": [
+            {
+              "name": "ethernet-phy@c",
+              "#phy-cells": "0x01",
+              "compatible": "ethernet-phy-id2000.a231",
+              "reg": "0x0c",
+              "ti,rx-internal-delay": "0x08",
+              "ti,tx-internal-delay": "0x0a",
+              "ti,fifo-depth": "0x01",
+              "ti,dp83867-rxctrl-strap-quirk": true,
+              "reset-gpios": "0x16 0x06 0x01",
+              "phandle": "0x14"
+            }
+          ]
+        }
+      },
+      {
+        "name": "ethernet@a0040000",
+        "axistream-connected": "0x40",
+        "axistream-control-connected": "0x40",
+        "clock-frequency": "0x5f5e100",
+        "clock-names": "rx_core_clk\\0dclk\\0s_axi_aclk\\0m_axi_mm2s_aclk\\0m_axi_s2mm_aclk\\0m_axi_sg_aclk\\0s_axi_lite_aclk",
+        "clocks": "0x3f 0x04 0x47 0x04 0x47 0x3f 0x3f 0x04 0x47 0x04 0x47",
+        "compatible": "xlnx,xxv-ethernet-4.1\\0xlnx,xxv-ethernet-1.0",
+        "device_type": "network",
+        "interrupt-names": "mm2s_introut\\0s2mm_introut",
+        "interrupt-parent": "0x05",
+        "interrupts": "0x00 0x59 0x04 0x00 0x5a 0x04",
+        "local-mac-address": "[00 0a 35 00 00 01]",
+        "managed": "in-band-status",
+        "phy-mode": "10gbase-r",
+        "reg": "0x00 0xa0040000 0x00 0x40000",
+        "xlnx": "0x00",
+        "xlnx,add-gt-cntrl-sts-ports": "0x00",
+        "xlnx,anlt-clk-in-mhz": "0x64",
+        "xlnx,axis-tdata-width": "0x40",
+        "xlnx,axis-tkeep-width": "0x07",
+        "xlnx,base-r-kr": "BASE-R",
+        "xlnx,channel-ids": "1",
+        "xlnx,clocking": "Asynchronous",
+        "xlnx,cmac-core-select": "CMACE4_X0Y0",
+        "xlnx,core": "Ethernet MAC+PCS/PMA 64-bit",
+        "xlnx,data-path-interface": "AXI Stream",
+        "xlnx,enable-datapath-parity": "0x00",
+        "xlnx,enable-gt-board-interface": "0x01",
+        "xlnx,enable-pipeline-reg": "0x00",
+        "xlnx,enable-preemption": "0x00",
+        "xlnx,enable-preemption-fifo": "0x00",
+        "xlnx,enable-rx-flow-control-logic": "0x00",
+        "xlnx,enable-time-stamping": "0x00",
+        "xlnx,enable-tx-flow-control-logic": "0x00",
+        "xlnx,enable-vlane-adjust-mode": "0x00",
+        "xlnx,family-chk": "zynquplus",
+        "xlnx,fast-sim-mode": "0x00",
+        "xlnx,gt-diffctrl-width": "0x04",
+        "xlnx,gt-drp-clk": "100.00",
+        "xlnx,gt-group-select": "Quad X0Y0",
+        "xlnx,gt-location": "0x01",
+        "xlnx,gt-ref-clk-freq": "156.25",
+        "xlnx,gt-type": "GTH",
+        "xlnx,gtm-group-select": "NA",
+        "xlnx,include-auto-neg-lt-logic": "None",
+        "xlnx,include-axi4-interface": "0x01",
+        "xlnx,include-dre": true,
+        "xlnx,include-fec-logic": "0x00",
+        "xlnx,include-hybrid-cmac-rsfec-logic": "0x00",
+        "xlnx,include-rsfec-logic": "0x00",
+        "xlnx,include-shared-logic": "0x01",
+        "xlnx,include-statistics-counters": "0x01",
+        "xlnx,include-user-fifo": "0x01",
+        "xlnx,ins-loss-nyq": "0x1e",
+        "xlnx,lane1-gt-loc": "X1Y14",
+        "xlnx,lane2-gt-loc": "NA",
+        "xlnx,lane3-gt-loc": "NA",
+        "xlnx,lane4-gt-loc": "NA",
+        "xlnx,line-rate": "0x0a",
+        "xlnx,mii-ctrl-width": "0x04",
+        "xlnx,mii-data-width": "0x20",
+        "xlnx,num-of-cores": "0x01",
+        "xlnx,num-queues": "[00 01]",
+        "xlnx,ptp-clocking-mode": "0x00",
+        "xlnx,ptp-operation-mode": "0x02",
+        "xlnx,runtime-switch": "0x00",
+        "xlnx,rx-eq-mode": "AUTO",
+        "xlnx,rxmem": "0x40000",
+        "xlnx,statistics-regs-type": "0x00",
+        "xlnx,switch-1-10-25g": "0x00",
+        "xlnx,sys-clk": "0xfa0",
+        "xlnx,tx-latency-adjust": "0x00",
+        "xlnx,tx-total-bytes-width": "0x04",
+        "xlnx,xgmii-interface": "0x01",
+        "zclock-names": "NULL",
+        "zclocks": "NULL",
+        "phandle": "0xab",
+        "nodeType": "PL Ethernet (10G/25G)",
+        "status": "okay",
+        "mdio": {
+          "name": "mdio",
+          "#address-cells": "0x01",
+          "#size-cells": "0x00",
+          "phandle": "0xac"
+        }
+      }
+    ],
+    "count": 2
+  },
+  "2024.2/pl_eth_1g": {
+    "version": "2024.2",
+    "design": "pl_eth_1g",
+    "ethernet_nodes": [
+      {
+        "name": "ethernet@a0000000",
+        "axistream-connected": "0x3f",
+        "axistream-control-connected": "0x3f",
+        "clock-frequency": "0x5f5e100",
+        "clock-names": "axis_clk\\0ref_clk\\0s_axi_lite_clk",
+        "clocks": "0x04 0x47 0x04 0x48 0x04 0x47",
+        "compatible": "xlnx,axi-ethernet-7.2\\0xlnx,axi-ethernet-1.00.a",
+        "device_type": "network",
+        "interrupt-names": "interrupt\\0mm2s_introut\\0s2mm_introut",
+        "interrupt-parent": "0x05",
+        "interrupts": "0x00 0x5b 0x04 0x00 0x59 0x04 0x00 0x5a 0x04",
+        "local-mac-address": "[ff ff ff ff ff ff]",
+        "managed": "in-band-status",
+        "max-speed": "0x3e8",
+        "pcs-handle": "0x40",
+        "phy-mode": "1000base-x",
+        "reg": "0x00 0xa0000000 0x00 0x40000",
+        "xlnx": "0x00",
+        "xlnx,axiliteclkrate": "0x00",
+        "xlnx,axisclkrate": "0x00",
+        "xlnx,channel-ids": "1",
+        "xlnx,clockselection": "0x00",
+        "xlnx,enableasyncsgmii": "0x00",
+        "xlnx,gt-type": "0x00",
+        "xlnx,gtinex": "0x00",
+        "xlnx,gtlocation": "0x00",
+        "xlnx,gtrefclksrc": "0x00",
+        "xlnx,include-dre": true,
+        "xlnx,instantiatebitslice0": "0x00",
+        "xlnx,num-queues": "[00 01]",
+        "xlnx,phyaddr": "0x02",
+        "xlnx,phyrst-board-interface-dummy-port": "0x00",
+        "xlnx,rable": "0x00",
+        "xlnx,rxcsum": "0x02",
+        "xlnx,rxlane0-placement": "0x00",
+        "xlnx,rxlane1-placement": "0x00",
+        "xlnx,rxmem": "0x8000",
+        "xlnx,rxnibblebitslice0used": "0x00",
+        "xlnx,switch-x-sgmii": true,
+        "xlnx,tx-in-upper-nibble": "0x01",
+        "xlnx,txcsum": "0x02",
+        "xlnx,txlane0-placement": "0x00",
+        "xlnx,txlane1-placement": "0x00",
+        "xlnx,versal-gt-board-flow": "0x00",
+        "zclock-names": "NULL",
+        "zclocks": "NULL",
+        "phandle": "0xa9",
+        "nodeType": "PL Ethernet (10G/25G)",
+        "status": "okay",
+        "mdio": {
+          "name": "mdio",
+          "#address-cells": "0x01",
+          "#size-cells": "0x00",
+          "phandle": "0xaa",
+          "phy_nodes": [
+            {
+              "name": "phy@2",
+              "device_type": "ethernet-phy",
+              "reg": "0x02",
+              "phandle": "0x40"
+            }
+          ]
+        }
+      }
+    ],
+    "count": 1
+  },
+  "2024.2/pl_eth_sgmii": {
+    "version": "2024.2",
+    "design": "pl_eth_sgmii",
+    "ethernet_nodes": [
+      {
+        "name": "ethernet@ff0e0000",
+        "compatible": "xlnx,zynqmp-gem\\0cdns,gem",
+        "status": "okay",
+        "interrupt-parent": "0x05",
+        "interrupts": "0x00 0x3f 0x04 0x00 0x3f 0x04",
+        "reg": "0x00 0xff0e0000 0x00 0x1000",
+        "clock-names": "pclk\\0hclk\\0tx_clk\\0rx_clk\\0tsu_clk",
+        "power-domains": "0x12 0x20",
+        "resets": "0x11 0x20",
+        "reset-names": "gem3_rst",
+        "clocks": "0x04 0x1f 0x04 0x6b 0x04 0x30 0x04 0x34 0x04 0x2c",
+        "assigned-clocks": "0x04 0x2c",
+        "phy-handle": "0x14",
+        "phy-mode": "rgmii-id",
+        "pinctrl-names": "default",
+        "pinctrl-0": "0x15",
+        "xlnx,ptp-enet-clock": "0x00",
+        "local-mac-address": "[ff ff ff ff ff ff]",
+        "phandle": "0x74",
+        "nodeType": "PS GEM3 (EMIO)",
+        "mdio": {
+          "name": "mdio",
+          "#address-cells": "0x01",
+          "#size-cells": "0x00",
+          "phandle": "0x75",
+          "phy_nodes": [
+            {
+              "name": "ethernet-phy@c",
+              "#phy-cells": "0x01",
+              "compatible": "ethernet-phy-id2000.a231",
+              "reg": "0x0c",
+              "ti,rx-internal-delay": "0x08",
+              "ti,tx-internal-delay": "0x0a",
+              "ti,fifo-depth": "0x01",
+              "ti,dp83867-rxctrl-strap-quirk": true,
+              "reset-gpios": "0x16 0x06 0x01",
+              "phandle": "0x14"
+            }
+          ]
+        }
+      },
+      {
+        "name": "ethernet@a0000000",
+        "axistream-connected": "0x3f",
+        "axistream-control-connected": "0x3f",
+        "clock-frequency": "0x5f5e100",
+        "clock-names": "axis_clk\\0ref_clk\\0s_axi_lite_clk",
+        "clocks": "0x04 0x47 0x04 0x48 0x04 0x47",
+        "compatible": "xlnx,axi-ethernet-7.2\\0xlnx,axi-ethernet-1.00.a",
+        "device_type": "network",
+        "interrupt-names": "interrupt\\0mm2s_introut\\0s2mm_introut",
+        "interrupt-parent": "0x05",
+        "interrupts": "0x00 0x5b 0x04 0x00 0x59 0x04 0x00 0x5a 0x04",
+        "local-mac-address": "[00 0a 35 00 00 00]",
+        "managed": "in-band-status",
+        "max-speed": "0x3e8",
+        "pcs-handle": "0x40",
+        "phy-mode": "sgmii",
+        "reg": "0x00 0xa0000000 0x00 0x40000",
+        "xlnx": "0x00",
+        "xlnx,axiliteclkrate": "0x00",
+        "xlnx,axisclkrate": "0x00",
+        "xlnx,channel-ids": "1",
+        "xlnx,clockselection": "0x00",
+        "xlnx,enableasyncsgmii": "0x00",
+        "xlnx,gt-type": "0x00",
+        "xlnx,gtinex": "0x00",
+        "xlnx,gtlocation": "0x00",
+        "xlnx,gtrefclksrc": "0x00",
+        "xlnx,include-dre": true,
+        "xlnx,instantiatebitslice0": "0x00",
+        "xlnx,num-queues": "[00 01]",
+        "xlnx,phyaddr": "0x02",
+        "xlnx,phyrst-board-interface-dummy-port": "0x00",
+        "xlnx,rable": "0x00",
+        "xlnx,rxcsum": "0x02",
+        "xlnx,rxlane0-placement": "0x00",
+        "xlnx,rxlane1-placement": "0x00",
+        "xlnx,rxmem": "0x8000",
+        "xlnx,rxnibblebitslice0used": "0x00",
+        "xlnx,switch-x-sgmii": true,
+        "xlnx,tx-in-upper-nibble": "0x01",
+        "xlnx,txcsum": "0x02",
+        "xlnx,txlane0-placement": "0x00",
+        "xlnx,txlane1-placement": "0x00",
+        "xlnx,versal-gt-board-flow": "0x00",
+        "zclock-names": "NULL",
+        "zclocks": "NULL",
+        "phandle": "0xaa",
+        "nodeType": "PL Ethernet (10G/25G)",
+        "status": "okay",
+        "mdio": {
+          "name": "mdio",
+          "#address-cells": "0x01",
+          "#size-cells": "0x00",
+          "phandle": "0xab",
+          "phy_nodes": [
+            {
+              "name": "phy@2",
+              "device_type": "ethernet-phy",
+              "reg": "0x02",
+              "phandle": "0x40"
+            }
+          ]
+        }
+      }
+    ],
+    "count": 2
+  },
+  "2024.2/ps_emio_eth_1g": {
+    "version": "2024.2",
+    "design": "ps_emio_eth_1g",
+    "ethernet_nodes": [
+      {
+        "name": "ethernet@ff0b0000",
+        "compatible": "xlnx,zynqmp-gem\\0cdns,gem",
+        "status": "okay",
+        "interrupt-parent": "0x05",
+        "interrupts": "0x00 0x39 0x04 0x00 0x39 0x04",
+        "reg": "0x00 0xff0b0000 0x00 0x1000",
+        "clock-names": "pclk\\0hclk\\0tx_clk\\0rx_clk\\0tsu_clk",
+        "power-domains": "0x12 0x1d",
+        "resets": "0x11 0x1d",
+        "reset-names": "gem0_rst",
+        "clocks": "0x04 0x1f 0x04 0x68 0x04 0x2d 0x04 0x31 0x04 0x2c",
+        "assigned-clocks": "0x04 0x2c",
+        "phy-handle": "0x14",
+        "phy-mode": "gmii",
+        "xlnx,ptp-enet-clock": "0x00",
+        "local-mac-address": "[ff ff ff ff ff ff]",
+        "phandle": "0x70",
+        "nodeType": "PS GEM0 (MIO)",
+        "phy_nodes": [
+          {
+            "name": "phy@9",
+            "reg": "0x09",
+            "xlnx,phy-type": "0x05",
+            "phandle": "0x14"
+          }
+        ]
+      }
+    ],
+    "count": 1
+  },
+  "2024.2/ps_emio_eth_sgmii": {
+    "version": "2024.2",
+    "design": "ps_emio_eth_sgmii",
+    "ethernet_nodes": [
+      {
+        "name": "ethernet@ff0b0000",
+        "compatible": "xlnx,zynqmp-gem\\0cdns,gem",
+        "status": "okay",
+        "interrupt-parent": "0x05",
+        "interrupts": "0x00 0x39 0x04 0x00 0x39 0x04",
+        "reg": "0x00 0xff0b0000 0x00 0x1000",
+        "clock-names": "pclk\\0hclk\\0tx_clk\\0rx_clk\\0tsu_clk",
+        "power-domains": "0x12 0x1d",
+        "resets": "0x11 0x1d",
+        "reset-names": "gem0_rst",
+        "clocks": "0x04 0x1f 0x04 0x68 0x04 0x2d 0x04 0x31 0x04 0x2c",
+        "assigned-clocks": "0x04 0x2c",
+        "phy-handle": "0x14",
+        "phy-mode": "gmii",
+        "xlnx,ptp-enet-clock": "0x00",
+        "local-mac-address": "[ff ff ff ff ff ff]",
+        "phandle": "0x70",
+        "nodeType": "PS GEM0 (MIO)",
+        "phy_nodes": [
+          {
+            "name": "phy@9",
+            "reg": "0x09",
+            "xlnx,phy-type": "0x04",
+            "phandle": "0x14"
+          }
+        ]
+      }
+    ],
+    "count": 1
+  },
+  "2024.2/ps_mio_eth_1g": {
+    "version": "2024.2",
+    "design": "ps_mio_eth_1g",
+    "ethernet_nodes": [
+      {
+        "name": "ethernet@ff0e0000",
+        "compatible": "xlnx,zynqmp-gem\\0cdns,gem",
+        "status": "okay",
+        "interrupt-parent": "0x05",
+        "interrupts": "0x00 0x3f 0x04 0x00 0x3f 0x04",
+        "reg": "0x00 0xff0e0000 0x00 0x1000",
+        "clock-names": "pclk\\0hclk\\0tx_clk\\0rx_clk\\0tsu_clk",
+        "power-domains": "0x12 0x20",
+        "resets": "0x11 0x20",
+        "reset-names": "gem3_rst",
+        "clocks": "0x04 0x1f 0x04 0x6b 0x04 0x30 0x04 0x34 0x04 0x2c",
+        "assigned-clocks": "0x04 0x2c",
+        "phy-handle": "0x14",
+        "phy-mode": "rgmii-id",
+        "pinctrl-names": "default",
+        "pinctrl-0": "0x15",
+        "xlnx,ptp-enet-clock": "0x00",
+        "local-mac-address": "[ff ff ff ff ff ff]",
+        "phandle": "0x72",
+        "nodeType": "PS GEM3 (EMIO)",
+        "mdio": {
+          "name": "mdio",
+          "#address-cells": "0x01",
+          "#size-cells": "0x00",
+          "phandle": "0x73",
+          "phy_nodes": [
+            {
+              "name": "ethernet-phy@c",
+              "#phy-cells": "0x01",
+              "compatible": "ethernet-phy-id2000.a231",
+              "reg": "0x0c",
+              "ti,rx-internal-delay": "0x08",
+              "ti,tx-internal-delay": "0x0a",
+              "ti,fifo-depth": "0x01",
+              "ti,dp83867-rxctrl-strap-quirk": true,
+              "reset-gpios": "0x16 0x06 0x01",
+              "phandle": "0x14"
+            }
+          ]
+        }
+      }
+    ],
+    "count": 1
+  }
+}
+    </script>
+
+    <!-- Dark Mode Toggle -->
+    <button class="dark-mode-toggle" onclick="toggleDarkMode()">
+        <span id="darkModeIcon">🌙</span>
+        <span id="darkModeText">Dark Mode</span>
+    </button>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" onclick="scrollToTop()">↑</button>
+
+    <!-- Back Button (Floating) -->
+    <a href="index.html" class="back-button-floating">
+        ← Back to Tracker
+    </a>
+
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div style="text-align: center;">
+                <h1>🔌 ZCU102 Ethernet Interface Architecture Map</h1>
+                <p class="subtitle">Interactive Guide to PS-GEM Device Tree Configurations</p>
+                <span class="version-badge">📦 Version Coverage: 2019.1 → 2024.2</span>
+            </div>
+        </header>
+
+        <!-- Main Architecture Diagram -->
+        <section class="diagram-section">
+            <h2>🏗️ Complete System Architecture</h2>
+            <div class="mermaid">
+graph TB
+    A[ZynqMP PS<br/>Processing System] --> B{GEM Controller<br/>Gigabit Ethernet MAC}
+    
+    B -->|MIO Path| C[RGMII Interface<br/>Reduced GMII]
+    B -->|EMIO Path| D[PL Logic<br/>Programmable Logic]
+    B -->|GTR Path| E[PS-GTR Serdes<br/>Transceiver]
+    
+    C --> F[TI DP83867 PHY<br/>Physical Layer IC]
+    F --> G[RJ45 Port<br/>1000BASE-T]
+    
+    D --> H[PCS/PMA IP<br/>1G/2.5G Subsystem]
+    H --> I[SFP+ Cage<br/>1000BASE-X/SGMII]
+    
+    E --> J[SFP+ Cage<br/>Direct Serdes]
+    
+    style A fill:#667eea,stroke:#764ba2,stroke-width:3px,color:#fff
+    style B fill:#764ba2,stroke:#667eea,stroke-width:3px,color:#fff
+    style F fill:#51cf66,stroke:#40c057,stroke-width:2px,color:#fff
+    style H fill:#f093fb,stroke:#f5576c,stroke-width:2px,color:#fff
+    style E fill:#4dabf7,stroke:#339af0,stroke-width:2px,color:#fff
+    style G fill:#69db7c,stroke:#51cf66,stroke-width:2px
+    style I fill:#faa2c1,stroke:#f093fb,stroke-width:2px
+    style J fill:#74c0fc,stroke:#4dabf7,stroke-width:2px
+            </div>
+        </section>
+
+        <!-- Info Callout -->
+        <div class="info-callout">
+            <h4>📘 About This Guide</h4>
+            <p>This comprehensive reference documents all PS-GEM (Processing System Gigabit Ethernet MAC) device tree configurations for the ZCU102 evaluation board across multiple Vivado/PetaLinux versions. Use the interactive sections below to explore each pathway, view actual device tree nodes, and understand the complete signal chain from software to hardware.</p>
+        </div>
+
+        <!-- Three Pathway Cards -->
+        <section class="pathway-cards">
+            <!-- Card 1: MIO Path -->
+            <article class="pathway-card mio-card">
+                <h3><span class="pathway-icon">🟢</span> MIO Pathway</h3>
+                <div class="flow-diagram">
+                    <div class="flow-path">
+                        <span class="flow-node">PS-GEM</span>
+                        <span class="flow-arrow">→</span>
+                        <span class="flow-node">MIO</span>
+                        <span class="flow-arrow">→</span>
+                        <span class="flow-node">RGMII</span>
+                        <span class="flow-arrow">→</span>
+                        <span class="flow-node">TI PHY</span>
+                        <span class="flow-arrow">→</span>
+                        <span class="flow-node">RJ45</span>
+                    </div>
+                </div>
+                <h4 style="margin-top: 1.5rem; margin-bottom: 0.5rem;">Technical Specifications</h4>
+                <ul class="specs-list">
+                    <li><strong>Interface:</strong> RGMII (Reduced Gigabit Media Independent Interface)</li>
+                    <li><strong>PHY Type:</strong> TI DP83867 (10/100/1000BASE-T)</li>
+                    <li><strong>PHY Address:</strong> 0x0C (MDIO bus)</li>
+                    <li><strong>Speed Support:</strong> 10/100/1000 Mbps auto-negotiation</li>
+                    <li><strong>Connector:</strong> RJ45 on-board jack</li>
+                    <li><strong>Use Case:</strong> Standard Ethernet, easiest to configure</li>
+                </ul>
+                <div class="expandable" id="mio-details">
+                    <div class="expand-header" onclick="toggleExpand('mio-details')">
+                        <h4>View MDIO & Clock Details</h4>
+                        <span class="expand-icon">▼</span>
+                    </div>
+                    <div class="expand-content">
+                        <div class="expand-content-inner">
+                            <p><strong>MDIO Bus Configuration:</strong></p>
+                            <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                                <li>PHY register access via GEM MDIO controller</li>
+                                <li>Management interface for PHY configuration</li>
+                                <li>Auto-negotiation advertisement registers</li>
+                                <li>Link status and speed detection</li>
+                            </ul>
+                            <p style="margin-top: 1rem;"><strong>Clock Requirements:</strong></p>
+                            <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                                <li>TX Clock: 125 MHz for 1000BASE-T</li>
+                                <li>RX Clock: Recovered from PHY</li>
+                                <li>MDIO Clock: 2.5 MHz (derived from APB clock)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 2: EMIO Path -->
+            <article class="pathway-card emio-card">
+                <h3><span class="pathway-icon">🔴</span> EMIO Pathway</h3>
+                <div class="flow-diagram">
+                    <div class="flow-path">
+                        <span class="flow-node">PS-GEM</span>
+                        <span class="flow-arrow">→</span>
+                        <span class="flow-node">EMIO</span>
+                        <span class="flow-arrow">→</span>
+                        <span class="flow-node">PCS/PMA</span>
+                        <span class="flow-arrow">→</span>
+                        <span class="flow-node">SFP+</span>
+                    </div>
+                </div>
+                <h4 style="margin-top: 1.5rem; margin-bottom: 0.5rem;">Technical Specifications</h4>
+                <ul class="specs-list">
+                    <li><strong>Interface:</strong> GMII via EMIO (Extensible MIO)</li>
+                    <li><strong>PL IP:</strong> 1G/2.5G Ethernet PCS/PMA or SGMII</li>
+                    <li><strong>PHY Mode:</strong> 1000BASE-X or SGMII</li>
+                    <li><strong>PHY Address:</strong> Typically 0x09 (internal to PL IP)</li>
+                    <li><strong>Connector:</strong> SFP cage (fiber or copper SFP)</li>
+                    <li><strong>Use Case:</strong> Flexible, programmable logic integration</li>
+                </ul>
+                <div class="expandable" id="emio-details">
+                    <div class="expand-header" onclick="toggleExpand('emio-details')">
+                        <h4>View PCS/PMA Configuration</h4>
+                        <span class="expand-icon">▼</span>
+                    </div>
+                    <div class="expand-content">
+                        <div class="expand-content-inner">
+                            <p><strong>1000BASE-X Mode:</strong></p>
+                            <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                                <li>8B/10B encoding for DC balance</li>
+                                <li>Auto-negotiation support (optional)</li>
+                                <li>Full-duplex operation only</li>
+                                <li>Requires SFP with 1000BASE-X support</li>
+                            </ul>
+                            <p style="margin-top: 1rem;"><strong>SGMII Mode:</strong></p>
+                            <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                                <li>Serial Gigabit Media Independent Interface</li>
+                                <li>10/100/1000 Mbps speed modes</li>
+                                <li>In-band status signaling</li>
+                                <li>Compatible with SGMII PHY or media converters</li>
+                            </ul>
+                            <p style="margin-top: 1rem;"><strong>Clock Source:</strong></p>
+                            <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                                <li>Si570 programmable oscillator (156.25 MHz)</li>
+                                <li>I2C configuration required for frequency setting</li>
+                                <li>PL GT reference clock input</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 3: GTR Path -->
+            <article class="pathway-card gtr-card">
+                <h3><span class="pathway-icon">🔵</span> PS-GTR Pathway</h3>
+                <div class="flow-diagram">
+                    <div class="flow-path">
+                        <span class="flow-node">PS-GEM</span>
+                        <span class="flow-arrow">→</span>
+                        <span class="flow-node">PS-GTR</span>
+                        <span class="flow-arrow">→</span>
+                        <span class="flow-node">SFP+</span>
+                    </div>
+                </div>
+                <h4 style="margin-top: 1.5rem; margin-bottom: 0.5rem;">Technical Specifications</h4>
+                <ul class="specs-list">
+                    <li><strong>Interface:</strong> Native PS-GTR transceiver</li>
+                    <li><strong>Protocol:</strong> 1000BASE-X or SGMII over GTR</li>
+                    <li><strong>Lane Assignment:</strong> GTR Lane 0/1/2/3 (configurable)</li>
+                    <li><strong>Speed Support:</strong> 1.25 Gbps line rate</li>
+                    <li><strong>Connector:</strong> Direct SFP+ connection</li>
+                    <li><strong>Use Case:</strong> High-performance, low-latency path</li>
+                </ul>
+                <div class="expandable" id="gtr-details">
+                    <div class="expand-header" onclick="toggleExpand('gtr-details')">
+                        <h4>View GTR Configuration</h4>
+                        <span class="expand-icon">▼</span>
+                    </div>
+                    <div class="expand-content">
+                        <div class="expand-content-inner">
+                            <p><strong>PS-GTR Features:</strong></p>
+                            <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                                <li>Integrated in ZynqMP Processing System</li>
+                                <li>No PL logic required for basic operation</li>
+                                <li>Direct serdes to PS-GEM connection</li>
+                                <li>Lower power consumption vs PL GTR</li>
+                            </ul>
+                            <p style="margin-top: 1rem;"><strong>BSP Requirements:</strong></p>
+                            <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                                <li>Custom device tree compilation needed</li>
+                                <li>PHY configuration in DT nodes</li>
+                                <li>GTR lane and protocol selection</li>
+                                <li>Reference clock source configuration</li>
+                            </ul>
+                            <p style="margin-top: 1rem;"><strong>DTB Decompilation:</strong></p>
+                            <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                                <li>Use <code>dtc -I dtb -O dts</code> to decompile</li>
+                                <li>Extract PS-GTR and GEM node configurations</li>
+                                <li>Verify lane mappings and protocol settings</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <!-- Device Tree Examples Section -->
+        <section class="code-section">
+            <h2 style="text-align: center;">📄 Device Tree Node Examples</h2>
+            <p class="mb-2" style="color: var(--text-light); text-align: center;">Real device tree snippets from ZCU102 reference designs (2024.2). <a href="#data-browser" style="color: #667eea; text-decoration: underline; font-weight: 600;">Scroll below</a> to browse all versions and designs with complete device trees.</p>
+
+            <!-- Important Note -->
+            <div style="background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%); border-left: 6px solid #ff0000; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 6px 20px rgba(255, 0, 0, 0.3); animation: pulse 2s ease-in-out infinite;">
+                <h4 style="color: white; margin: 0 0 0.75rem 0; font-size: 1.2rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <span style="font-size: 1.5rem;">⚠️</span> IMPORTANT: Final Device Tree Source
+                </h4>
+                <p style="color: white; margin: 0; line-height: 1.6; font-weight: 500;">
+                    The device tree code shown on this page represents the <strong>FINAL compiled output</strong> from the <code style="background: rgba(0,0,0,0.3); padding: 0.2rem 0.5rem; border-radius: 4px;">system.dtb</code> file. These nodes are the result of PetaLinux build process which combines base device trees with custom overrides from <code style="background: rgba(0,0,0,0.3); padding: 0.2rem 0.5rem; border-radius: 4px;">system-user.dtsi</code>. 
+                    To understand the full device tree override required for each design, please visit the 
+                    <a href="https://github.com/ajayadaha1/ZCU102-Ethernet" target="_blank" style="color: #ffeb3b; text-decoration: underline; font-weight: 600;">ZCU102-Ethernet GitHub repository</a> directly!
+                </p>
+            </div>
+
+            <style>
+                @keyframes pulse {
+                    0%, 100% { box-shadow: 0 6px 20px rgba(255, 0, 0, 0.3); }
+                    50% { box-shadow: 0 6px 30px rgba(255, 0, 0, 0.6); }
+                }
+            </style>
+
+            <!-- MIO Example -->
+            <div class="code-block">
+                <div class="code-header">
+                    <span class="code-title">📁 2024.2/ps_mio_eth_1g - PS GEM3 (MIO) with RGMII</span>
+                    <button class="copy-btn" onclick="copyCode(this, 'ps-mio-code')">Copy</button>
+                </div>
+                <pre><code id="ps-mio-code" class="language-dts">ethernet@ff0e0000 {
+    compatible = "xlnx,zynqmp-gem", "cdns,gem";
+    status = "okay";
+    phy-handle = <&phy0>;
+    phy-mode = "rgmii-id";
+    
+    mdio {
+        #address-cells = <1>;
+        #size-cells = <0>;
+        phy0: ethernet-phy@c {
+            reg = <0xc>;
+            ti,rx-internal-delay = <0x8>;
+            ti,tx-internal-delay = <0xa>;
+            ti,fifo-depth = <0x1>;
+            ti,dp83867-rxctrl-strap-quirk;
+        };
+    };
+};</code></pre>
+            </div>
+
+            <!-- EMIO Example -->
+            <div class="code-block mt-2">
+                <div class="code-header">
+                    <span class="code-title">📁 2024.2/ps_emio_eth_1g - PS GEM0 (EMIO) with GMII</span>
+                    <button class="copy-btn" onclick="copyCode(this, 'ps-emio-1g-code')">Copy</button>
+                </div>
+                <pre><code id="ps-emio-1g-code" class="language-dts">ethernet@ff0b0000 {
+    compatible = "xlnx,zynqmp-gem", "cdns,gem";
+    status = "okay";
+    phy-handle = <&phy0>;
+    phy-mode = "gmii";
+    
+    mdio {
+        #address-cells = <1>;
+        #size-cells = <0>;
+        phy0: ethernet-phy@9 {
+            reg = <0x9>;
+            xlnx,phy-type = <0x5>;
+        };
+    };
+};</code></pre>
+            </div>
+
+            <!-- PS EMIO SGMII Example -->
+            <div class="code-block mt-2">
+                <div class="code-header">
+                    <span class="code-title">📁 2024.2/ps_emio_eth_sgmii - PS GEM0 (EMIO) with GMII</span>
+                    <button class="copy-btn" onclick="copyCode(this, 'ps-emio-sgmii-code')">Copy</button>
+                </div>
+                <pre><code id="ps-emio-sgmii-code" class="language-dts">ethernet@ff0b0000 {
+    compatible = "xlnx,zynqmp-gem", "cdns,gem";
+    status = "okay";
+    phy-handle = <&phy0>;
+    phy-mode = "gmii";
+    
+    mdio {
+        #address-cells = <1>;
+        #size-cells = <0>;
+        phy0: ethernet-phy@9 {
+            reg = <0x9>;
+            xlnx,phy-type = <0x4>;
+        };
+    };
+};</code></pre>
+            </div>
+
+            <!-- PL ETH 1G Example -->
+            <div class="code-block mt-2">
+                <div class="code-header">
+                    <span class="code-title">📁 2024.2/pl_eth_1g - PL Ethernet with 1000Base-X</span>
+                    <button class="copy-btn" onclick="copyCode(this, 'pl-eth-1g-code')">Copy</button>
+                </div>
+                <pre><code id="pl-eth-1g-code" class="language-dts">ethernet@a0000000 {
+    compatible = "xlnx,axi-ethernet-7.2", "xlnx,axi-ethernet-1.00.a";
+    device_type = "network";
+    reg = <0x0 0xa0000000 0x0 0x40000>;
+    interrupts = <0x0 0x59 0x4 0x0 0x5a 0x4>;
+    phy-mode = "1000base-x";
+    xlnx,rxmem = <0x1000>;
+    xlnx,txcsum = <0x0>;
+    xlnx,rxcsum = <0x0>;
+    phy-handle = <&phy1>;
+    
+    mdio {
+        #address-cells = <1>;
+        #size-cells = <0>;
+        phy1: ethernet-phy@1 {
+            device_type = "ethernet-phy";
+            reg = <0x1>;
+            xlnx,phy-type = <0x5>;
+        };
+    };
+};</code></pre>
+            </div>
+
+            <!-- PL ETH SGMII Example -->
+            <div class="code-block mt-2">
+                <div class="code-header">
+                    <span class="code-title">📁 2024.2/pl_eth_sgmii - PL Ethernet with SGMII</span>
+                    <button class="copy-btn" onclick="copyCode(this, 'pl-eth-sgmii-code')">Copy</button>
+                </div>
+                <pre><code id="pl-eth-sgmii-code" class="language-dts">ethernet@a0000000 {
+    compatible = "xlnx,axi-ethernet-7.2", "xlnx,axi-ethernet-1.00.a";
+    device_type = "network";
+    reg = <0x0 0xa0000000 0x0 0x40000>;
+    interrupts = <0x0 0x59 0x4 0x0 0x5a 0x4>;
+    phy-mode = "sgmii";
+    xlnx,rxmem = <0x1000>;
+    xlnx,txcsum = <0x2>;
+    xlnx,rxcsum = <0x2>;
+    phy-handle = <&phy2>;
+    
+    mdio {
+        #address-cells = <1>;
+        #size-cells = <0>;
+        phy2: ethernet-phy@1 {
+            device_type = "ethernet-phy";
+            reg = <0x1>;
+            xlnx,phy-type = <0x4>;
+        };
+    };
+};</code></pre>
+            </div>
+
+            <!-- PL ETH 10G Example -->
+            <div class="code-block mt-2">
+                <div class="code-header">
+                    <span class="code-title">📁 2024.2/pl_eth_10g - PL 10G/25G Ethernet with 10GBase-R</span>
+                    <button class="copy-btn" onclick="copyCode(this, 'pl-eth-10g-code')">Copy</button>
+                </div>
+                <pre><code id="pl-eth-10g-code" class="language-dts">ethernet@a0040000 {
+    compatible = "xlnx,xxv-ethernet-4.1", "xlnx,xxv-ethernet-1.0";
+    device_type = "network";
+    reg = <0x0 0xa0040000 0x0 0x40000>;
+    interrupts = <0x0 0x59 0x4 0x0 0x5a 0x4>;
+    phy-mode = "10gbase-r";
+    xlnx,rxmem = <0x1000>;
+    xlnx,channel-ids = <0x1>;
+    local-mac-address = [00 0a 35 00 22 01];
+    phy-handle = <&phy3>;
+    
+    mdio {
+        #address-cells = <1>;
+        #size-cells = <0>;
+        phy3: ethernet-phy@4 {
+            device_type = "ethernet-phy";
+            reg = <0x4>;
+            xlnx,phy-type = <0x5>;
+        };
+    };
+};</code></pre>
+            </div>
+        </section>
+
+        <!-- Version Comparison Matrix -->
+        <section class="matrix-section">
+            <h2 style="text-align: center;">📊 Device Tree Data Availability Matrix</h2>
+            <p class="mb-2" style="color: var(--text-light); text-align: center;">Device tree data availability for each design across Vivado/PetaLinux versions. ✓ = Available, ✗ = Not Available</p>
+            
+            <div style="overflow-x: auto;">
+                <table class="matrix-table" style="margin: 0 auto;">
+                    <thead>
+                        <tr>
+                            <th>Design Type</th>
+                            <th>2020.1</th>
+                            <th>2020.2</th>
+                            <th>2021.1</th>
+                            <th>2021.2</th>
+                            <th>2022.1</th>
+                            <th>2022.2</th>
+                            <th>2023.1</th>
+                            <th>2023.2</th>
+                            <th>2024.1</th>
+                            <th>2024.2</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>ps_mio_eth_1g</strong></td>
+                            <td><span class="status-badge status-available">✓</span></td>
+                            <td><span class="status-badge status-available">✓</span></td>
+                            <td><span class="status-badge status-available">✓</span></td>
+                            <td><span class="status-badge status-unavailable">✗</span></td>
+                            <td><span class="status-badge status-unavailable">✗</span></td>
+                            <td><span class="status-badge status-unavailable">✗</span></td>
+                            <td><span class="status-badge status-available">✓</span></td>
+                            <td><span class="status-badge status-available">✓</span></td>
+                            <td><span class="status-badge status-available">✓</span></td>
+                            <td><span class="status-badge status-available">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>ps_emio_eth_1g</strong></td>
+                            <td><span class="status-badge status-available">✓</span></td>
+                            <td><span class="status-badge status-available">✓</span></td>
+                            <td><span class="status-badge status-available">✓</span></td>
+                            <td><span class="status-badge status-available">✓</span></td>
+                            <td><span class="status-badge status-unavailable">✗</span></td>
+                            <td><span class="status-badge status-available">✓</span></td>
+                            <td><span class="status-badge status-available">✓</span></td>
+                            <td><span class="status-badge status-available">✓</span></td>
+                            <td><span class="status-badge status-available">✓</span></td>
+                            <td><span class="status-badge status-available">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>ps_emio_eth_sgmii</strong></td>
+                            <td><span class="status-badge status-available">✓</span></td>
+                            <td><span class="status-badge status-available">✓</span></td>
+                            <td><span class="status-badge status-available">✓</span></td>
+                            <td><span class="status-badge status-available">✓</span></td>
+                            <td><span class="status-badge status-unavailable">✗</span></td>
+                            <td><span class="status-badge status-available">✓</span></td>
+                            <td><span class="status-badge status-available">✓</span></td>
+                            <td><span class="status-badge status-available">✓</span></td>
+                            <td><span class="status-badge status-available">✓</span></td>
+                            <td><span class="status-badge status-available">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>pl_eth_1g</strong></td>
+                            <td><span class="status-badge status-available">✓</span></td>
+                            <td><span class="status-badge status-available">✓</span></td>
+                            <td><span class="status-badge status-available">✓</span></td>
+                            <td><span class="status-badge status-available">✓</span></td>
+                            <td><span class="status-badge status-available">✓</span></td>
+                            <td><span class="status-badge status-available">✓</span></td>
+                            <td><span class="status-badge status-available">✓</span></td>
+                            <td><span class="status-badge status-available">✓</span></td>
+                            <td><span class="status-badge status-available">✓</span></td>
+                            <td><span class="status-badge status-available">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>pl_eth_sgmii</strong></td>
+                            <td><span class="status-badge status-available">✓</span></td>
+                            <td><span class="status-badge status-available">✓</span></td>
+                            <td><span class="status-badge status-available">✓</span></td>
+                            <td><span class="status-badge status-available">✓</span></td>
+                            <td><span class="status-badge status-unavailable">✗</span></td>
+                            <td><span class="status-badge status-available">✓</span></td>
+                            <td><span class="status-badge status-available">✓</span></td>
+                            <td><span class="status-badge status-available">✓</span></td>
+                            <td><span class="status-badge status-available">✓</span></td>
+                            <td><span class="status-badge status-available">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>pl_eth_10g</strong></td>
+                            <td><span class="status-badge status-available">✓</span></td>
+                            <td><span class="status-badge status-available">✓</span></td>
+                            <td><span class="status-badge status-available">✓</span></td>
+                            <td><span class="status-badge status-available">✓</span></td>
+                            <td><span class="status-badge status-unavailable">✗</span></td>
+                            <td><span class="status-badge status-available">✓</span></td>
+                            <td><span class="status-badge status-available">✓</span></td>
+                            <td><span class="status-badge status-available">✓</span></td>
+                            <td><span class="status-badge status-available">✓</span></td>
+                            <td><span class="status-badge status-available">✓</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="info-callout mt-2">
+                <h4>📌 Note on Device Tree Availability</h4>
+                <p>All six design types are available in the ZCU102-Ethernet repository for all versions shown. This matrix indicates which device tree data has been successfully parsed and is available for browsing below. Missing entries (✗) may be due to incomplete parsing, missing DTS files, or configurations not yet extracted.</p>
+                <p style="margin-top: 1rem;">📦 <strong>Source Repository:</strong> <a href="https://github.com/ajayadaha1/ZCU102-Ethernet" target="_blank" style="color: white; text-decoration: underline;">ZCU102-Ethernet on GitHub</a></p>
+            </div>
+        </section>
+
+        <!-- Data Browser Section -->
+        <section id="data-browser" class="data-browser-section">
+            <h2 style="text-align: center;">🔍 Browse All Device Tree(s)</h2>
+            <p style="text-align: center;">Filter and search through all extracted device tree ethernet configurations. Only showing active/enabled ethernet interfaces in each design!</p>
+            
+            <!-- Filter Controls -->
+                <div class="filter-controls">
+                <div class="filter-grid">
+                    <div class="filter-item">
+                        <label>📅 Version:</label>
+                        <select id="versionFilter" onchange="renderFilteredData()">
+                            <option value="">All Versions</option>
+                        </select>
+                    </div>
+                    <div class="filter-item">
+                        <label>🎨 Design:</label>
+                        <select id="designFilter" onchange="renderFilteredData()">
+                            <option value="">All Designs</option>
+                        </select>
+                    </div>
+                    <div class="filter-item">
+                        <label>🔌 Type:</label>
+                        <select id="typeFilter" onchange="renderFilteredData()">
+                            <option value="">All Types</option>
+                            <option value="ps_gem">PS GEM</option>
+                            <option value="pl_ethernet">PL Ethernet</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Container -->
+            <div id="resultsContainer" class="results-container">
+                <p>Loading data...</p>
+            </div>
+        </section>
+
+        <!-- KR260 & Other Boards -->
+        <section class="code-section">
+            <h2 style="text-align: center;">🎯 Other Development Boards</h2>
+            <div class="expandable" id="kr260-section">
+                <div class="expand-header" onclick="toggleExpand('kr260-section')">
+                    <h4>📟 KR260 Kria SOM Considerations</h4>
+                    <span class="expand-icon">▼</span>
+                </div>
+                <div class="expand-content">
+                    <div class="expand-content-inner">
+                        <p><strong>KR260 Ethernet Configuration:</strong></p>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                            <li>Two PS-GEM interfaces available (GEM0 and GEM1)</li>
+                            <li>GEM0: Connected to RJ45 via RGMII (TI DP83867)</li>
+                            <li>GEM1: Uses PS-GTR for high-speed SerDes connectivity</li>
+                            <li>PS-GTR supports SGMII/1000Base-X through dedicated transceivers</li>
+                            <li>SFP cage on carrier board enables fiber connectivity</li>
+                        </ul>
+                        <p style="margin-top: 1rem;"><strong>PS-GTR Integration:</strong></p>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                            <li>High-speed serial transceivers (up to 16.3 Gbps)</li>
+                            <li>Supports PCIe, DisplayPort, SATA, and Ethernet protocols</li>
+                            <li>GEM1 can leverage PS-GTR for SGMII/1000Base-X</li>
+                            <li>Reduces PL resource usage compared to PL-based solutions</li>
+                        </ul>
+                        <p style="margin-top: 1rem;"><strong>Key Differences from ZCU102:</strong></p>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                            <li>Smaller form factor with integrated PS-GTR capability</li>
+                            <li>Production-ready SOM vs evaluation board</li>
+                            <li>Custom carrier boards enable flexible Ethernet configs</li>
+                            <li>Device tree varies by carrier board design</li>
+                            <li>PS-GTR eliminates need for PL-based PCS/PMA IP in many cases</li>
+                        </ul>
+                        <p style="margin-top: 1rem;"><strong>Device Tree Template (GEM0 - RGMII):</strong></p>
+                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>&gem0 {
+    status = "okay";
+    phy-handle = <&phy0>;
+    phy-mode = "rgmii-id";
+    phy0: ethernet-phy@1 {
+        reg = <0x1>;
+        ti,rx-internal-delay = <0x8>;
+        ti,tx-internal-delay = <0xa>;
+        ti,fifo-depth = <0x1>;
+    };
+};</code></pre>
+                        <p style="margin-top: 1rem;"><strong>Device Tree Template (GEM1 - PS-GTR SGMII):</strong></p>
+                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>&gem1 {
+    status = "okay";
+    phy-handle = <&phy1>;
+    phy-mode = "sgmii";
+    phys = <&psgtr 0 PHY_TYPE_SGMII 0 0>;
+    phy1: ethernet-phy@1 {
+        reg = <0x1>;
+        xlnx,phy-type = <0x4>; /* SGMII */
+    };
+};</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer style="text-align: center; margin-top: 3rem; padding: 2rem; color: rgba(255,255,255,0.7);">
+            <p>📚 ZCU102 Ethernet Interface Architecture Map</p>
+            <p style="font-size: 0.9rem; margin-top: 0.5rem;">Part of the Role Transition Tracker Project • January 2026</p>
+            <p style="font-size: 0.85rem; margin-top: 0.5rem;">Displaying parsed device tree data from 57 design configurations</p>
+        </footer>
+    </div>
+
+    <!-- ============================================
+         JAVASCRIPT - All embedded for portability
+         ============================================ -->
+    <!-- Ethernet Interfaces JavaScript -->
+    <script src="js/ethernet-interfaces.js"></script>
+</body>
+</html>
+
+
+
