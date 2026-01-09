@@ -48,7 +48,7 @@
 
         .dark-mode-toggle {
             position: fixed;
-            top: 1rem;
+            bottom: 5.5rem; /* Position above scroll-to-top button */
             right: 2rem;
             background: var(--card-bg);
             border: 2px solid var(--border-color);
@@ -411,10 +411,28 @@
             }
 
             .dark-mode-toggle {
-                top: 15px;
+                bottom: 5.5rem; /* Keep above scroll-to-top */
                 right: 15px;
                 padding: 0.6rem 1rem;
                 font-size: 0.9rem;
+            }
+
+            /* Hide text on mobile, show icon only */
+            .dark-mode-toggle #darkModeText {
+                display: none;
+            }
+
+            .dark-mode-toggle #darkModeIcon {
+                font-size: 1.3rem;
+                margin: 0;
+            }
+
+            .scroll-to-top {
+                width: 45px;
+                height: 45px;
+                bottom: 1rem;
+                right: 1rem;
+                font-size: 1.2rem;
             }
 
             .back-link {
@@ -445,10 +463,28 @@
             }
 
             .dark-mode-toggle {
-                top: 10px;
+                bottom: 5.5rem; /* Keep above scroll-to-top */
                 right: 10px;
                 padding: 0.5rem 0.9rem;
                 font-size: 0.85rem;
+            }
+
+            /* Hide text on mobile, show icon only */
+            .dark-mode-toggle #darkModeText {
+                display: none;
+            }
+
+            .dark-mode-toggle #darkModeIcon {
+                font-size: 1.2rem;
+                margin: 0;
+            }
+
+            .scroll-to-top {
+                width: 45px;
+                height: 45px;
+                bottom: 1rem;
+                right: 1rem;
+                font-size: 1.2rem;
             }
 
             table {

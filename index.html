@@ -7,331 +7,8 @@
     <meta name="mobile-web-app-capable" content="yes">
     <title>Role Transition Tracker</title>
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
-    <style>
-        /* Prevent text size adjustment on iOS */
-        html {
-            -webkit-text-size-adjust: 100%;
-            -moz-text-size-adjust: 100%;
-            -ms-text-size-adjust: 100%;
-            text-size-adjust: 100%;
-        }
-        
-        /* Smooth scrolling for better mobile experience */
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: 100px; /* Account for fixed nav height */
-        }
-        
-        /* Prevent horizontal overflow */
-        body {
-            overflow-x: hidden;
-        }
-        
-        /* Better tap highlight for mobile */
-        * {
-            -webkit-tap-highlight-color: rgba(102, 126, 234, 0.2);
-        }
-        
-        /* Improve touch scrolling on iOS */
-        .container {
-            -webkit-overflow-scrolling: touch;
-        }
-
-        /* Navigation link styles */
-        nav div .nav-link {
-            position: relative;
-            padding-bottom: 0.5rem;
-        }
-        
-        nav div .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, #667eea, #764ba2);
-            transition: width 0.3s ease;
-        }
-        
-        nav div .nav-link:hover::after {
-            width: 80%;
-        }
-        
-        nav div .nav-link:hover {
-            color: #667eea !important;
-        }
-        
-        nav div .nav-link.active::after {
-            width: 80%;
-        }
-        
-        nav div .nav-link.active {
-            color: #667eea !important;
-        }
-
-        /* Logo rotation animation */
-        #navbar-brand {
-            position: relative;
-        }
-
-        /* Decorative circle behind logo - matching personal website */
-        #navbar-brand::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: -12px;
-            width: 40px;
-            height: 40px;
-            background: #3e64ff;
-            z-index: -1;
-            transform: translateY(-50%);
-            -webkit-transform: translateY(-50%);
-            -moz-transform: translateY(-50%);
-            -ms-transform: translateY(-50%);
-            -o-transform: translateY(-50%);
-            -webkit-border-radius: 50%;
-            -moz-border-radius: 50%;
-            -ms-border-radius: 50%;
-            border-radius: 50%;
-        }
-
-        #navbar-brand span:first-child {
-            transition: transform 0.6s ease;
-            position: relative;
-            z-index: 1;
-        }
-
-        #navbar-brand:hover span:first-child {
-            transform: rotate(360deg) scale(1.1);
-            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
-        }
-
-        /* Fixed nav support */
-        body {
-            padding-top: 80px;
-        }
-
-        /* Dark mode nav styles */
-        .dark-mode nav {
-            background: rgba(30, 30, 30, 0.95) !important;
-        }
-
-        .dark-mode #navbar-brand span:last-child {
-            color: #fff !important;
-        }
-
-        .dark-mode .nav-link {
-            color: #ddd !important;
-        }
-
-        .dark-mode .nav-link:hover {
-            color: #667eea !important;
-        }
-
-        .dark-mode .nav-link.active {
-            color: #667eea !important;
-        }
-
-        /* Desktop menu default display */
-        .desktop-menu {
-            display: flex;
-        }
-
-        /* Mobile Navigation Styles */
-        .mobile-menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            padding: 0.5rem;
-            color: #333;
-            transition: transform 0.3s ease;
-            z-index: 1001;
-        }
-
-        .dark-mode .mobile-menu-toggle {
-            color: #fff;
-        }
-
-        .mobile-menu-toggle:active {
-            transform: scale(0.95);
-        }
-
-        /* Mobile Responsive Styles */
-        @media (max-width: 768px) {
-            body {
-                padding-top: 140px;
-            }
-
-            /* Mobile Navigation */
-            nav {
-                padding: 0 !important;
-                z-index: 1000;
-            }
-
-            nav > div {
-                padding: 0.75rem 1rem !important;
-                flex-wrap: wrap;
-            }
-
-            #navbar-brand span:first-child {
-                width: 35px !important;
-                height: 35px !important;
-                font-size: 1.2rem !important;
-            }
-
-            #navbar-brand::after {
-                width: 32px !important;
-                height: 32px !important;
-                left: -8px !important;
-            }
-
-            #navbar-brand span:last-child {
-                font-size: 1.1rem !important;
-            }
-
-            .mobile-menu-toggle {
-                display: block;
-                z-index: 1001;
-            }
-
-            .desktop-menu {
-                display: none !important;
-                flex-direction: column;
-                gap: 0.5rem !important;
-                width: 100%;
-                padding-top: 1rem;
-                animation: slideDown 0.3s ease;
-            }
-
-            .desktop-menu.mobile-menu-open {
-                display: flex !important;
-            }
-
-            nav div .nav-link {
-                width: 100%;
-                text-align: left;
-                padding: 0.75rem 1rem !important;
-                font-size: 0.95rem !important;
-                border-radius: 8px;
-                background: rgba(102, 126, 234, 0.05);
-            }
-
-            .dark-mode nav div .nav-link {
-                background: rgba(102, 126, 234, 0.1);
-            }
-
-            /* Container and sections */
-            .container {
-                padding: 1rem !important;
-                width: 100% !important;
-                max-width: 100% !important;
-            }
-
-            header h1 {
-                font-size: 1.8rem !important;
-            }
-
-            .subtitle {
-                font-size: 1rem !important;
-            }
-
-            /* Info banner and sections */
-            .info-banner, 
-            #about,
-            #key-resources,
-            #ethernet-designs,
-            #contribution-overview,
-            #transition-tasks {
-                padding: 1.5rem !important;
-                margin-bottom: 1.5rem !important;
-                border-radius: 12px !important;
-            }
-
-            .info-title,
-            h2 {
-                font-size: 1.5rem !important;
-            }
-
-            h3 {
-                font-size: 1.2rem !important;
-            }
-
-            /* Tables */
-            table {
-                font-size: 0.85rem !important;
-                display: block;
-                overflow-x: auto;
-                -webkit-overflow-scrolling: touch;
-            }
-
-            th, td {
-                padding: 0.5rem !important;
-                white-space: nowrap;
-            }
-
-            /* Cards and grid layouts */
-            .resource-grid,
-            .grid-layout {
-                grid-template-columns: 1fr !important;
-                gap: 1rem !important;
-            }
-
-            /* Buttons */
-            .dark-mode-toggle {
-                top: auto !important;
-                bottom: 1rem !important;
-                right: 1rem !important;
-                padding: 0.6rem 1rem !important;
-                font-size: 0.9rem !important;
-            }
-
-            #darkModeIcon {
-                font-size: 0.9rem;
-            }
-
-            #darkModeText {
-                font-size: 0.9rem;
-            }
-
-            /* Decorative elements */
-            .info-decoration {
-                display: none;
-            }
-
-            /* Status badges */
-            .status-badge {
-                font-size: 0.75rem !important;
-                padding: 0.25rem 0.5rem !important;
-            }
-
-            /* Progress bars */
-            .progress-bar {
-                height: 8px !important;
-            }
-
-            /* Scroll padding for mobile */
-            html {
-                scroll-padding-top: 80px !important;
-            }
-        }
-
-        @keyframes slideDown {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
 </head>
 <body>
     <button class="dark-mode-toggle" onclick="toggleDarkMode()">
@@ -886,17 +563,18 @@
                     gap: 1.2rem !important;
                 }
 
-                /* Resource card improvements */
-                .resource-card {
-                    padding: 1.3rem !important;
+                /* Mobile: Make FEATURED badge smaller */
+                .resource-card > div[style*="position: absolute"][style*="FEATURED"] {
+                    font-size: 0.55rem !important;
+                    padding: 0.25rem 0.6rem !important;
+                    top: 6px !important;
+                    right: 6px !important;
                 }
 
-                /* Featured badge - smaller and better positioned */
-                .resource-card > div[style*="position: absolute"][style*="FEATURED"] {
-                    top: 8px !important;
-                    right: 8px !important;
-                    font-size: 0.65rem !important;
-                    padding: 0.3rem 0.7rem !important;
+                /* Resource card - adjust padding for mobile */
+                .resource-card {
+                    padding: 1rem !important;
+                    padding-top: 2.5rem !important;
                 }
 
                 /* Resource background icons - smaller */
@@ -1135,7 +813,7 @@
                 /* Dark mode toggle - better mobile position */
                 .dark-mode-toggle {
                     top: auto !important;
-                    bottom: 1rem !important;
+                    bottom: 5.5rem !important; /* Above scroll-to-top button */
                     right: 1rem !important;
                     padding: 0.6rem 1rem !important;
                     font-size: 0.85rem !important;
@@ -1382,7 +1060,7 @@
                 /* Smaller dark mode toggle */
                 .dark-mode-toggle {
                     top: auto !important;
-                    bottom: 0.75rem !important;
+                    bottom: 5.5rem !important; /* Above scroll-to-top button */
                     right: 0.75rem !important;
                     padding: 0.5rem 0.8rem !important;
                     font-size: 0.8rem !important;
@@ -1460,6 +1138,13 @@
                     font-size: 0.65rem !important;
                     line-height: 1.5 !important;
                     padding: 0 0.5rem !important;
+                }
+            }
+
+            /* Desktop: Ensure proper spacing for FEATURED badges */
+            @media (min-width: 769px) {
+                .resource-card {
+                    padding-top: 3rem !important;
                 }
             }
         </style>
