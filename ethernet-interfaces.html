@@ -19,6 +19,37 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+    <button class="dark-mode-toggle" onclick="toggleDarkMode()">
+        <span id="darkModeIcon">🌙</span>
+        <span id="darkModeText">Dark Mode</span>
+    </button>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" onclick="scrollToTop()" aria-label="Scroll to top">
+        ↑
+    </button>
+
+    <!-- Navigation Bar -->
+    <nav style="position: fixed; top: 0; left: 0; right: 0; z-index: 999; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1); transition: all 0.3s ease;">
+        <div style="max-width: 1400px; margin: 0 auto; padding: 1rem 2rem; display: flex; align-items: center; justify-content: space-between;">
+            <a href="index.html" id="navbar-brand" style="display: flex; align-items: center; gap: 0.5rem; text-decoration: none;">
+                <span style="display: inline-flex; align-items: center; justify-content: center; width: 45px; height: 45px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 50%; font-size: 1.5rem; font-weight: 700; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3); transition: all 0.3s ease;">A</span>
+                <span style="font-weight: 700; font-size: 1.3rem; color: #333;">jaya</span>
+            </a>
+            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu">☰</button>
+            <div id="mobile-menu" class="desktop-menu" style="gap: 2rem; align-items: center;">
+                <a href="#architecture" class="nav-link" style="text-decoration: none; color: #555; font-weight: 500; font-size: 1rem; padding: 0.5rem 1rem; border-radius: 8px; transition: all 0.3s; white-space: nowrap;">Architecture</a>
+                <a href="#device-tree-examples" class="nav-link" style="text-decoration: none; color: #555; font-weight: 500; font-size: 1rem; padding: 0.5rem 1rem; border-radius: 8px; transition: all 0.3s; white-space: nowrap;">Device Tree Examples</a>
+                <a href="#matrix" class="nav-link" style="text-decoration: none; color: #555; font-weight: 500; font-size: 1rem; padding: 0.5rem 1rem; border-radius: 8px; transition: all 0.3s; white-space: nowrap;">Matrix</a>
+                <a href="#data-browser" class="nav-link" style="text-decoration: none; color: #555; font-weight: 500; font-size: 1rem; padding: 0.5rem 1rem; border-radius: 8px; transition: all 0.3s; white-space: nowrap;">Browse DTs</a>
+                <a href="#other-dev-board" class="nav-link" style="text-decoration: none; color: #555; font-weight: 500; font-size: 1rem; padding: 0.5rem 1rem; border-radius: 8px; transition: all 0.3s; white-space: nowrap;">Other Dev Board</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Add top padding to account for fixed navbar -->
+    <div class="nav-spacer"></div>
+
     <!-- Embedded JSON Data (for file:// protocol support) -->
     <script type="application/json" id="ethernet-data-embedded">
 {
@@ -3268,17 +3299,40 @@
         <span id="darkModeText">Dark Mode</span>
     </button>
 
-    <!-- Back to Top Button -->
-    <button class="back-to-top" onclick="scrollToTop()">↑</button>
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" onclick="scrollToTop()" aria-label="Scroll to top">
+        ↑
+    </button>
 
-    <!-- Back Button (Floating) -->
-    <a href="index.html" class="back-button-floating">
-        ← Back to Tracker
+    <!-- Navigation Bar -->
+    <nav style="position: fixed; top: 0; left: 0; right: 0; z-index: 999; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1); transition: all 0.3s ease;">
+        <div style="max-width: 1400px; margin: 0 auto; padding: 1rem 2rem; display: flex; align-items: center; justify-content: space-between;">
+            <a href="index.html" id="navbar-brand" style="display: flex; align-items: center; gap: 0.5rem; text-decoration: none;">
+                <span style="display: inline-flex; align-items: center; justify-content: center; width: 45px; height: 45px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 50%; font-size: 1.5rem; font-weight: 700; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3); transition: all 0.3s ease;">A</span>
+                <span style="font-weight: 700; font-size: 1.3rem; color: #333;">jaya</span>
+            </a>
+            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu">☰</button>
+            <div id="mobile-menu" class="desktop-menu" style="gap: 2rem; align-items: center;">
+                <a href="#architecture" class="nav-link" style="text-decoration: none; color: #555; font-weight: 500; font-size: 1rem; padding: 0.5rem 1rem; border-radius: 8px; transition: all 0.3s; white-space: nowrap;">Architecture</a>
+                <a href="#device-tree-examples" class="nav-link" style="text-decoration: none; color: #555; font-weight: 500; font-size: 1rem; padding: 0.5rem 1rem; border-radius: 8px; transition: all 0.3s; white-space: nowrap;">Device Tree Examples</a>
+                <a href="#matrix" class="nav-link" style="text-decoration: none; color: #555; font-weight: 500; font-size: 1rem; padding: 0.5rem 1rem; border-radius: 8px; transition: all 0.3s; white-space: nowrap;">Availability Matrix</a>
+                <a href="#data-browser" class="nav-link" style="text-decoration: none; color: #555; font-weight: 500; font-size: 1rem; padding: 0.5rem 1rem; border-radius: 8px; transition: all 0.3s; white-space: nowrap;">Browse DTs</a>
+                <a href="#other-dev-board" class="nav-link" style="text-decoration: none; color: #555; font-weight: 500; font-size: 1rem; padding: 0.5rem 1rem; border-radius: 8px; transition: all 0.3s; white-space: nowrap;">Other Dev Board</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Back to Tracker Button (Below Navbar) -->
+    <a href="index.html" style="position: fixed; top: 90px; left: 2rem; z-index: 998; display: flex; align-items: center; gap: 0.5rem; text-decoration: none; padding: 0.6rem 1.2rem; background: var(--card-bg); border-radius: 50px; transition: all 0.3s ease; border: 1px solid rgba(102, 126, 234, 0.2); box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); backdrop-filter: blur(10px);" 
+       onmouseover="this.style.transform='translateX(-3px)'; this.style.boxShadow='0 4px 15px rgba(102, 126, 234, 0.3)'" 
+       onmouseout="this.style.transform='translateX(0)'; this.style.boxShadow='0 2px 10px rgba(0, 0, 0, 0.1)'">
+        <span style="font-size: 1.1rem; color: #667eea;">←</span>
+        <span style="font-weight: 600; color: #667eea; font-size: 0.9rem;">Back to Tracker</span>
     </a>
 
     <div class="container">
         <!-- Header -->
-        <header class="header" style="margin-top: 4rem;">
+        <header class="header" style="margin-top: 1rem;">
             <div style="text-align: center;">
                 <h1>🔌 ZCU102 Ethernet Interface Architecture Map</h1>
                 <p class="subtitle">Interactive Guide to PS-GEM Device Tree Configurations</p>
@@ -3287,7 +3341,7 @@
         </header>
 
         <!-- Main Architecture Diagram -->
-        <section class="diagram-section">
+        <section id="architecture" class="diagram-section" style="scroll-margin-top: 90px;">
             <h2>🏗️ Complete System Architecture</h2>
             <div class="mermaid">
 graph TB
@@ -3484,7 +3538,7 @@ graph TB
         </section>
 
         <!-- Device Tree Examples Section -->
-        <section class="code-section">
+        <section id="device-tree-examples" class="code-section" style="scroll-margin-top: 90px;">
             <h2 style="text-align: center;">📄 Device Tree Node Examples</h2>
             <p class="mb-2" style="color: var(--text-light); text-align: center;">Real device tree snippets from ZCU102 reference designs (2024.2). <a href="#data-browser" style="color: #667eea; text-decoration: underline; font-weight: 600;">Scroll below</a> to browse all versions and designs with complete device trees.</p>
 
@@ -3668,7 +3722,7 @@ graph TB
         </section>
 
         <!-- Version Comparison Matrix -->
-        <section class="matrix-section">
+        <section id="matrix" class="matrix-section" style="scroll-margin-top: 90px;">
             <h2 style="text-align: center;">📊 Device Tree Data Availability Matrix</h2>
             <p class="mb-2" style="color: var(--text-light); text-align: center;">Device tree data availability for each design across Vivado/PetaLinux versions. ✓ = Available, ✗ = Not Available</p>
             
@@ -3780,9 +3834,15 @@ graph TB
         </section>
 
         <!-- Data Browser Section -->
-        <section id="data-browser" class="data-browser-section">
+        <section id="data-browser" class="data-browser-section" style="scroll-margin-top: 90px;">
             <h2 style="text-align: center;">🔍 Browse All Device Tree(s)</h2>
             <p style="text-align: center;">Filter and search through all extracted device tree ethernet configurations. Only showing active/enabled ethernet interfaces in each design!</p>
+            
+            <!-- TODO Note -->
+            <div class="info-callout" style="margin: 1.5rem auto; max-width: 800px;">
+                <h4>📋 TODO</h4>
+                <p>Add a ZIP file download option to allow users to download all DTS files at once.</p>
+            </div>
             
             <!-- Filter Controls -->
                 <div class="filter-controls">
@@ -3819,7 +3879,7 @@ graph TB
         <!-- ============================================
              OTHER DEVELOPMENT BOARDS SECTION
              ============================================ -->
-        <section class="code-section" style="margin-top: 3rem;">
+        <section id="other-dev-board" class="code-section" style="margin-top: 3rem; scroll-margin-top: 90px;">
             <h2 style="text-align: center; margin-bottom: 2rem;">🎯 Other Development Boards - Ethernet Reference</h2>
             
             <!-- Category: Zynq-7000 Series -->
@@ -4833,6 +4893,155 @@ testpmd -l 0-7 -n 4 -- -i \
          ============================================ -->
     <!-- Ethernet Interfaces JavaScript -->
     <script src="js/ethernet-interfaces.js"></script>
+    
+    <!-- Navigation and Scroll Management -->
+    <script>
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('mobile-menu-open');
+        }
+
+        // Close mobile menu when clicking a link
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', function() {
+                    const menu = document.getElementById('mobile-menu');
+                    menu.classList.remove('mobile-menu-open');
+                });
+            });
+
+            // Initialize navigation highlighting
+            highlightActiveSection();
+        });
+
+        // Highlight active navigation link based on scroll position
+        function highlightActiveSection() {
+            const sections = [
+                { id: 'architecture', element: null },
+                { id: 'device-tree-examples', element: null },
+                { id: 'matrix', element: null },
+                { id: 'data-browser', element: null },
+                { id: 'other-dev-board', element: null }
+            ];
+
+            // Get section elements
+            sections.forEach(section => {
+                section.element = document.getElementById(section.id);
+            });
+
+            let initialLoadComplete = false;
+
+            function updateActiveLink() {
+                let activeSection = 'architecture'; // Default to architecture
+                
+                // Check if there's a hash in the URL
+                const urlHash = window.location.hash.substring(1); // Remove #
+                
+                // On initial load, always check hash first
+                if (!initialLoadComplete) {
+                    if (urlHash && sections.some(s => s.id === urlHash)) {
+                        activeSection = urlHash;
+                    } else {
+                        const scrollPosition = window.scrollY;
+                        
+                        if (scrollPosition < 100) {
+                            activeSection = 'architecture';
+                        } else {
+                            // Find which section we're in
+                            for (let i = 0; i < sections.length; i++) {
+                                const section = sections[i];
+                                if (section.element) {
+                                    const sectionTop = section.element.offsetTop - 200;
+                                    
+                                    if (i === sections.length - 1) {
+                                        if (scrollPosition >= sectionTop) {
+                                            activeSection = section.id;
+                                            break;
+                                        }
+                                    } else {
+                                        const sectionBottom = sectionTop + section.element.offsetHeight;
+                                        if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                                            activeSection = section.id;
+                                            break;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    initialLoadComplete = true;
+                } else {
+                    // After initial load, use scroll position
+                    const scrollPosition = window.scrollY;
+                    
+                    if (scrollPosition < 100) {
+                        activeSection = 'architecture';
+                    } else {
+                        for (let i = 0; i < sections.length; i++) {
+                            const section = sections[i];
+                            if (section.element) {
+                                const sectionTop = section.element.offsetTop - 200;
+                                
+                                if (i === sections.length - 1) {
+                                    if (scrollPosition >= sectionTop) {
+                                        activeSection = section.id;
+                                        break;
+                                    }
+                                } else {
+                                    const sectionBottom = sectionTop + section.element.offsetHeight;
+                                    if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                                        activeSection = section.id;
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                // Update nav links
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    const href = link.getAttribute('href').substring(1); // Remove #
+                    if (href === activeSection) {
+                        link.classList.add('active');
+                    } else {
+                        link.classList.remove('active');
+                    }
+                });
+            }
+
+            // Update on scroll
+            window.addEventListener('scroll', () => updateActiveLink());
+            
+            // Initial load
+            updateActiveLink();
+            
+            // Update on hash change
+            window.addEventListener('hashchange', () => {
+                initialLoadComplete = false;
+                updateActiveLink();
+            });
+        }
+
+        // Scroll to top functionality
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Show/hide scroll-to-top button
+        window.addEventListener('scroll', function() {
+            const scrollBtn = document.querySelector('.scroll-to-top');
+            if (window.pageYOffset > 300) {
+                scrollBtn.classList.add('show');
+            } else {
+                scrollBtn.classList.remove('show');
+            }
+        });
+    </script>
 </body>
 </html>
 

@@ -119,6 +119,76 @@
             }
         }
 
+        // Validate PL designs - must have at least one ethernet with address starting with 'a@'
+        function isValidPLDesign(design, ethernetNodes) {
+            // Only validate PL designs (pl_* prefix)
+            if (!design.toLowerCase().startsWith('pl_')) {
+                return true; // PS designs are always valid
+            }
+            
+            // Check if there's at least one ethernet with address starting with 'a' or 'ethernet@a'
+            return ethernetNodes.some(node => {
+                const name = node.name || '';
+                return name.match(/^ethernet@a[0-9a-fA-F]/);
+            });
+        }
+
+        // Get invalid designs map for matrix update
+        function getInvalidDesigns() {
+            const invalidDesigns = {};
+            
+            Object.entries(ethernetData).forEach(([key, data]) => {
+                const isValid = isValidPLDesign(data.design, data.ethernet_nodes);
+                if (!isValid) {
+                    const designKey = data.design;
+                    if (!invalidDesigns[designKey]) {
+                        invalidDesigns[designKey] = [];
+                    }
+                    invalidDesigns[designKey].push(data.version);
+                    console.log(`⚠️ Invalid PL design detected: ${data.version}/${data.design} - No PL ethernet (ethernet@a...) found`);
+                }
+            });
+            
+            return invalidDesigns;
+        }
+
+        // Update matrix table to mark invalid designs
+        function updateMatrixTable() {
+            const invalidDesigns = getInvalidDesigns();
+            
+            Object.entries(invalidDesigns).forEach(([design, versions]) => {
+                versions.forEach(version => {
+                    // Find the matrix table cell and update it
+                    const matrixTable = document.querySelector('.matrix-table');
+                    if (!matrixTable) return;
+                    
+                    // Find the row for this design
+                    const rows = matrixTable.querySelectorAll('tbody tr');
+                    rows.forEach(row => {
+                        const designCell = row.querySelector('td strong');
+                        if (designCell && designCell.textContent.trim() === design) {
+                            // Find the column for this version
+                            const headerCells = matrixTable.querySelectorAll('thead th');
+                            let versionIndex = -1;
+                            headerCells.forEach((cell, index) => {
+                                if (cell.textContent.trim() === version) {
+                                    versionIndex = index;
+                                }
+                            });
+                            
+                            if (versionIndex >= 0) {
+                                const cells = row.querySelectorAll('td');
+                                if (cells[versionIndex]) {
+                                    // Update the cell to show X with a note
+                                    cells[versionIndex].innerHTML = '<span class="status-badge status-unavailable" title="Invalid: No PL ethernet found">✗</span>';
+                                }
+                            }
+                        }
+                    });
+                });
+            });
+        }
+
         // Initialize Data Browser
         function initializeDataBrowser() {
             if (!ethernetData || Object.keys(ethernetData).length === 0) {
@@ -148,6 +218,9 @@
                 designFilter.appendChild(option);
             });
 
+            // Update matrix table with validation
+            updateMatrixTable();
+
             // Initial render
             renderFilteredData();
         }
@@ -161,6 +234,11 @@
             const filtered = Object.entries(ethernetData).filter(([key, data]) => {
                 if (versionFilter && data.version !== versionFilter) return false;
                 if (designFilter && data.design !== designFilter) return false;
+                
+                // Exclude invalid PL designs
+                if (!isValidPLDesign(data.design, data.ethernet_nodes)) {
+                    return false;
+                }
                 
                 // Type filter (PS GEM, PL Ethernet, etc.)
                 if (typeFilter) {

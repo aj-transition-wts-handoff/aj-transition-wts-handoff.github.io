@@ -218,7 +218,9 @@ h1 {
 
 /* Button Styles */
 .back-button {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
     background: var(--card-bg);
     color: var(--primary-color);
     padding: 0.8rem 1.5rem;
@@ -231,6 +233,27 @@ h1 {
 }
 
 .back-button:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Back link (for cases-dashboard) */
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--card-bg);
+    color: var(--primary-color);
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    transition: all 0.3s;
+    box-shadow: var(--shadow-sm);
+}
+
+.back-link:hover {
     transform: translateY(-2px);
     box-shadow: var(--shadow-md);
 }
@@ -702,6 +725,11 @@ body.dark-mode .note {
     }
 }
 
+/* Nav spacer - desktop default */
+.nav-spacer {
+    padding-top: 70px;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     body {
@@ -714,6 +742,28 @@ body.dark-mode .note {
 
     .subtitle {
         font-size: 1rem;
+    }
+    
+    /* Remove header margin on mobile */
+    .header {
+        margin-top: 0 !important;
+    }
+    
+    /* Reduce nav spacer on mobile - minimal space */
+    .nav-spacer {
+        padding-top: 0px !important;
+    }
+    
+    /* Reduce container padding and pull up content */
+    .container {
+        padding-top: 0 !important;
+        margin-top: -15px !important;
+    }
+    
+    /* Also reduce header padding */
+    .header h1 {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
     }
 
     /* Unified tablet/mobile button adjustments */
@@ -1130,10 +1180,30 @@ body.dark-mode .note {
     }
 
     /* Back button */
-    .back-button {
-        padding: 0.7rem 1.2rem;
+    .back-button,
+    .back-link {
+        padding: 0.5rem 0.8rem !important;
         font-size: 0.9rem;
         border-radius: 25px;
+        gap: 0 !important;
+    }
+    
+    /* Hide back button text on mobile */
+    .back-button > span:nth-child(2),
+    .back-link > span:nth-child(2) {
+        display: none !important;
+        width: 0 !important;
+        height: 0 !important;
+        overflow: hidden !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+    }
+    
+    /* Keep arrow visible and centered */
+    .back-button > span:first-child,
+    .back-link > span:first-child {
+        font-size: 1.3rem !important;
+        margin: 0 !important;
     }
 
     /* AR cards */
@@ -1393,6 +1463,7 @@ body {
 /* Header Extensions for Ethernet Page */
 .header {
     text-align: center;
+    margin-top: 2rem;
     margin-bottom: 3rem;
     position: relative;
 }
@@ -2892,6 +2963,54 @@ body.dark-mode .mobile-menu-toggle {
     .nav-link::after {
         display: none;
     }
+
+    /* Hide back button text on mobile, show only arrow */
+    nav a[href="index.html"]:not(#navbar-brand) span:last-child {
+        display: none;
+    }
+    
+    nav a[href="index.html"]:not(#navbar-brand) {
+        padding: 0.5rem !important;
+        min-width: 40px;
+    }
+    
+    /* Hide text on all back buttons (both fixed and regular) on mobile */
+    a[href="index.html"].back-button > span:nth-child(2),
+    a[href="index.html"][style*="position: fixed"] > span:nth-child(2) {
+        display: none !important;
+        width: 0 !important;
+        height: 0 !important;
+        overflow: hidden !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+    }
+    
+    /* Keep arrow visible and centered on all back buttons */
+    a[href="index.html"].back-button > span:first-child,
+    a[href="index.html"][style*="position: fixed"] > span:first-child {
+        font-size: 1.3rem !important;
+        margin: 0 !important;
+    }
+    
+    /* Adjust back button styling for mobile */
+    a[href="index.html"].back-button {
+        padding: 0.5rem 0.8rem !important;
+        min-width: auto !important;
+        gap: 0 !important;
+    }
+    
+    /* Adjust Back to Tracker button positioning on mobile (ethernet page specific) */
+    a[href="index.html"][style*="position: fixed"][style*="top: 110px"] {
+        left: 1rem !important;
+        top: 95px !important;
+        padding: 0.5rem 0.8rem !important;
+        gap: 0 !important;
+    }
+
+    a[href="index.html"][style*="position: fixed"] span:last-child {
+        display: none;
+    }
+
 }
 
 @keyframes slideDown {
