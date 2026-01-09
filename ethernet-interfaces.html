@@ -3815,39 +3815,325 @@ graph TB
             </div>
         </section>
 
-        <!-- KR260 & Other Boards -->
-        <section class="code-section">
-            <h2 style="text-align: center;">🎯 Other Development Boards</h2>
-            <div class="expandable" id="kr260-section">
-                <div class="expand-header" onclick="toggleExpand('kr260-section')">
-                    <h4>📟 KR260 Kria SOM Considerations</h4>
+        <!-- ============================================
+             OTHER DEVELOPMENT BOARDS SECTION
+             ============================================ -->
+        <section class="code-section" style="margin-top: 3rem;">
+            <h2 style="text-align: center; margin-bottom: 2rem;">🎯 Other Development Boards - Ethernet Reference</h2>
+            
+            <!-- Category: Zynq-7000 Series -->
+            <h3 style="margin-top: 2rem; color: #ff6b6b; padding-left: 1rem; border-left: 4px solid #ff6b6b;">🔹 Zynq-7000 SoC Boards</h3>
+            
+            <!-- ZC706 -->
+            <div class="expandable" id="zc706-section">
+                <div class="expand-header" onclick="toggleExpand('zc706-section')">
+                    <h4>📟 ZC706 Evaluation Board (Zynq-7000)</h4>
                     <span class="expand-icon">▼</span>
                 </div>
                 <div class="expand-content">
                     <div class="expand-content-inner">
-                        <p><strong>KR260 Ethernet Configuration:</strong></p>
+                        <p><strong>Ethernet Interfaces:</strong></p>
                         <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
-                            <li>Two PS-GEM interfaces available (GEM0 and GEM1)</li>
-                            <li>GEM0: Connected to RJ45 via RGMII (TI DP83867)</li>
-                            <li>GEM1: Uses PS-GTR for high-speed SerDes connectivity</li>
-                            <li>PS-GTR supports SGMII/1000Base-X through dedicated transceivers</li>
-                            <li>SFP cage on carrier board enables fiber connectivity</li>
+                            <li><strong>PS-GEM0:</strong> 1G Ethernet via RGMII (Marvell 88E1116R PHY)</li>
+                            <li><strong>PL Ethernet:</strong> AXI 1G/2.5G Ethernet Subsystem</li>
+                            <li><strong>Transceivers:</strong> 4x GTX (6.6 Gbps max)</li>
                         </ul>
-                        <p style="margin-top: 1rem;"><strong>PS-GTR Integration:</strong></p>
+                        
+                        <p style="margin-top: 1rem;"><strong>Device Tree Template (PS-GEM0 - RGMII):</strong></p>
+                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>&gem0 {
+    status = "okay";
+    phy-handle = <&phy0>;
+    phy-mode = "rgmii-id";
+    mdio {
+        #address-cells = <1>;
+        #size-cells = <0>;
+        phy0: ethernet-phy@7 {
+            reg = <0x7>;
+            device_type = "ethernet-phy";
+        };
+    };
+};</code></pre>
+                        
+                        <p style="margin-top: 1rem;"><strong>Device Tree Template (PL AXI 1G Ethernet):</strong></p>
+                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>axi_ethernet: ethernet@43c00000 {
+    compatible = "xlnx,axi-ethernet-7.2", "xlnx,axi-ethernet-1.00.a";
+    device_type = "network";
+    reg = <0x43c00000 0x40000>;
+    interrupts = <0 56 4>;
+    phy-mode = "rgmii-id";
+    xlnx,rxmem = <0x1000>;
+    local-mac-address = [00 0a 35 00 01 22];
+};</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ZedBoard -->
+            <div class="expandable" id="zedboard-section">
+                <div class="expand-header" onclick="toggleExpand('zedboard-section')">
+                    <h4>🎓 ZedBoard (Zynq-7000 Z-7020)</h4>
+                    <span class="expand-icon">▼</span>
+                </div>
+                <div class="expand-content">
+                    <div class="expand-content-inner">
+                        <p><strong>Ethernet Interfaces:</strong></p>
                         <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
-                            <li>High-speed serial transceivers (up to 16.3 Gbps)</li>
-                            <li>Supports PCIe, DisplayPort, SATA, and Ethernet protocols</li>
-                            <li>GEM1 can leverage PS-GTR for SGMII/1000Base-X</li>
-                            <li>Reduces PL resource usage compared to PL-based solutions</li>
+                            <li><strong>PS-GEM0:</strong> 1G Ethernet via RGMII (Marvell 88E1518 PHY)</li>
+                            <li>Single Gigabit Ethernet port</li>
+                            <li>RJ45 connector</li>
                         </ul>
-                        <p style="margin-top: 1rem;"><strong>Key Differences from ZCU102:</strong></p>
+                        
+                        <p style="margin-top: 1rem;"><strong>Device Tree Template (PS-GEM0 - RGMII):</strong></p>
+                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>&gem0 {
+    status = "okay";
+    phy-handle = <&phy0>;
+    phy-mode = "rgmii-id";
+    mdio {
+        #address-cells = <1>;
+        #size-cells = <0>;
+        phy0: ethernet-phy@0 {
+            reg = <0x0>;
+            device_type = "ethernet-phy";
+        };
+    };
+};</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category: Kintex UltraScale+ -->
+            <h3 style="margin-top: 3rem; color: #4ecdc4; padding-left: 1rem; border-left: 4px solid #4ecdc4;">🔹 Kintex UltraScale+ FPGA Boards</h3>
+            
+            <!-- KCU105 -->
+            <div class="expandable" id="kcu105-section">
+                <div class="expand-header" onclick="toggleExpand('kcu105-section')">
+                    <h4>💎 KCU105 Evaluation Board</h4>
+                    <span class="expand-icon">▼</span>
+                </div>
+                <div class="expand-content">
+                    <div class="expand-content-inner">
+                        <p><strong>Ethernet Interfaces:</strong></p>
                         <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
-                            <li>Smaller form factor with integrated PS-GTR capability</li>
-                            <li>Production-ready SOM vs evaluation board</li>
-                            <li>Custom carrier boards enable flexible Ethernet configs</li>
-                            <li>Device tree varies by carrier board design</li>
-                            <li>PS-GTR eliminates need for PL-based PCS/PMA IP in many cases</li>
+                            <li><strong>PL Ethernet:</strong> AXI 1G/10G Ethernet Subsystem</li>
+                            <li><strong>PHY:</strong> TI DP83867 (RGMII)</li>
+                            <li><strong>Transceivers:</strong> 8x GTH (16.3 Gbps), 4x GTY (32.75 Gbps)</li>
+                            <li><strong>SFP+:</strong> 1x SFP+ cage for 10G optical</li>
                         </ul>
+                        
+                        <p style="margin-top: 1rem;"><strong>Device Tree Template (PL 1G Ethernet - RGMII):</strong></p>
+                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>axi_ethernet_0: ethernet@40000000 {
+    compatible = "xlnx,axi-ethernet-7.2", "xlnx,axi-ethernet-1.00.a";
+    device_type = "network";
+    reg = <0x0 0x40000000 0x0 0x40000>;
+    interrupts = <0 89 4>;
+    phy-mode = "rgmii-id";
+    phy-handle = <&phy0>;
+    xlnx,rxmem = <0x1000>;
+    local-mac-address = [00 0a 35 00 01 22];
+    
+    mdio {
+        #address-cells = <1>;
+        #size-cells = <0>;
+        phy0: ethernet-phy@1 {
+            reg = <0x1>;
+            ti,rx-internal-delay = <0x8>;
+            ti,tx-internal-delay = <0xa>;
+        };
+    };
+};</code></pre>
+                        
+                        <p style="margin-top: 1rem;"><strong>Device Tree Template (PL 10G Ethernet - SFP+):</strong></p>
+                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>axi_ethernet_10g: ethernet@a0040000 {
+    compatible = "xlnx,axi-ethernet-7.2", "xlnx,axi-ethernet-1.00.a";
+    device_type = "network";
+    reg = <0x0 0xa0040000 0x0 0x40000>;
+    interrupts = <0 90 4>;
+    phy-mode = "10gbase-r";
+    xlnx,rxmem = <0x1000>;
+    local-mac-address = [00 0a 35 00 01 23];
+};</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- KCU116 -->
+            <div class="expandable" id="kcu116-section">
+                <div class="expand-header" onclick="toggleExpand('kcu116-section')">
+                    <h4>💎 KCU116 Evaluation Board</h4>
+                    <span class="expand-icon">▼</span>
+                </div>
+                <div class="expand-content">
+                    <div class="expand-content-inner">
+                        <p><strong>Ethernet Interfaces:</strong></p>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                            <li><strong>PL Ethernet:</strong> AXI 1G/10G/25G Ethernet</li>
+                            <li><strong>PHY:</strong> TI DP83867 (RGMII)</li>
+                            <li><strong>Transceivers:</strong> 20x GTY (32.75 Gbps)</li>
+                            <li><strong>QSFP28:</strong> 1x QSFP28 cage (100G capable)</li>
+                        </ul>
+                        
+                        <p style="margin-top: 1rem;"><strong>Device Tree Template (PL 1G Ethernet - RGMII):</strong></p>
+                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>axi_ethernet_0: ethernet@40000000 {
+    compatible = "xlnx,axi-ethernet-7.2", "xlnx,axi-ethernet-1.00.a";
+    device_type = "network";
+    reg = <0x0 0x40000000 0x0 0x40000>;
+    interrupts = <0 89 4>;
+    phy-mode = "rgmii-id";
+    phy-handle = <&phy0>;
+    xlnx,rxmem = <0x1000>;
+    local-mac-address = [00 0a 35 00 01 22];
+    
+    mdio {
+        #address-cells = <1>;
+        #size-cells = <0>;
+        phy0: ethernet-phy@c {
+            reg = <0xc>;
+            ti,rx-internal-delay = <0x8>;
+            ti,tx-internal-delay = <0xa>;
+        };
+    };
+};</code></pre>
+                        
+                        <p style="margin-top: 1rem;"><strong>Device Tree Template (PL 100G Ethernet - QSFP28):</strong></p>
+                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>axi_ethernet_100g: ethernet@a0000000 {
+    compatible = "xlnx,xxv-ethernet-4.1", "xlnx,xxv-ethernet-1.0";
+    device_type = "network";
+    reg = <0x0 0xa0000000 0x0 0x100000>;
+    interrupts = <0 89 4>;
+    phy-mode = "100gbase-r";
+    xlnx,channel-ids = <0x1>;
+    local-mac-address = [00 0a 35 00 01 10];
+};</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category: Virtex UltraScale+ -->
+            <h3 style="margin-top: 3rem; color: #f39c12; padding-left: 1rem; border-left: 4px solid #f39c12;">🔶 Virtex UltraScale+ FPGA Boards</h3>
+            
+            <!-- VCU118 -->
+            <div class="expandable" id="vcu118-section">
+                <div class="expand-header" onclick="toggleExpand('vcu118-section')">
+                    <h4>⭐ VCU118 Evaluation Board</h4>
+                    <span class="expand-icon">▼</span>
+                </div>
+                <div class="expand-content">
+                    <div class="expand-content-inner">
+                        <p><strong>Ethernet Interfaces:</strong></p>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                            <li><strong>PL Ethernet:</strong> AXI 1G/10G/25G Ethernet</li>
+                            <li><strong>PHY:</strong> TI DP83867 (RGMII)</li>
+                            <li><strong>Transceivers:</strong> 24x GTY (32.75 Gbps)</li>
+                            <li><strong>QSFP28:</strong> 2x QSFP28 cages (100G capable each)</li>
+                        </ul>
+                        
+                        <p style="margin-top: 1rem;"><strong>Device Tree Template (PL 1G Ethernet - RGMII):</strong></p>
+                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>axi_ethernet_0: ethernet@40000000 {
+    compatible = "xlnx,axi-ethernet-7.2", "xlnx,axi-ethernet-1.00.a";
+    device_type = "network";
+    reg = <0x0 0x40000000 0x0 0x40000>;
+    interrupts = <0 89 4>;
+    phy-mode = "rgmii-id";
+    phy-handle = <&phy0>;
+    xlnx,rxmem = <0x1000>;
+    local-mac-address = [00 0a 35 00 01 22];
+    
+    mdio {
+        #address-cells = <1>;
+        #size-cells = <0>;
+        phy0: ethernet-phy@c {
+            reg = <0xc>;
+            ti,rx-internal-delay = <0x8>;
+            ti,tx-internal-delay = <0xa>;
+        };
+    };
+};</code></pre>
+                        
+                        <p style="margin-top: 1rem;"><strong>Device Tree Template (PL 100G Ethernet - QSFP28):</strong></p>
+                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>axi_ethernet_100g: ethernet@a0000000 {
+    compatible = "xlnx,xxv-ethernet-4.1", "xlnx,xxv-ethernet-1.0";
+    device_type = "network";
+    reg = <0x0 0xa0000000 0x0 0x100000>;
+    interrupts = <0 89 4>;
+    phy-mode = "100gbase-r";
+    xlnx,channel-ids = <0x1>;
+    local-mac-address = [00 0a 35 00 01 10];
+};</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VCU128 -->
+            <div class="expandable" id="vcu128-section">
+                <div class="expand-header" onclick="toggleExpand('vcu128-section')">
+                    <h4>⭐ VCU128 HBM Evaluation Board</h4>
+                    <span class="expand-icon">▼</span>
+                </div>
+                <div class="expand-content">
+                    <div class="expand-content-inner">
+                        <p><strong>Ethernet Interfaces:</strong></p>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                            <li><strong>PL Ethernet:</strong> AXI 1G/10G/25G/100G Ethernet</li>
+                            <li><strong>PHY:</strong> TI DP83867 (RGMII)</li>
+                            <li><strong>Transceivers:</strong> 20x GTY (32.75 Gbps)</li>
+                            <li><strong>QSFP28:</strong> 2x QSFP28 cages (100G capable each)</li>
+                            <li><strong>HBM2:</strong> 8 GB HBM2 on-package (460 GB/s bandwidth)</li>
+                        </ul>
+                        
+                        <p style="margin-top: 1rem;"><strong>Device Tree Template (PL 1G Ethernet - RGMII):</strong></p>
+                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>axi_ethernet_0: ethernet@40000000 {
+    compatible = "xlnx,axi-ethernet-7.2", "xlnx,axi-ethernet-1.00.a";
+    device_type = "network";
+    reg = <0x0 0x40000000 0x0 0x40000>;
+    interrupts = <0 89 4>;
+    phy-mode = "rgmii-id";
+    phy-handle = <&phy0>;
+    xlnx,rxmem = <0x1000>;
+    local-mac-address = [00 0a 35 00 01 22];
+    
+    mdio {
+        #address-cells = <1>;
+        #size-cells = <0>;
+        phy0: ethernet-phy@c {
+            reg = <0xc>;
+            ti,rx-internal-delay = <0x8>;
+            ti,tx-internal-delay = <0xa>;
+        };
+    };
+};</code></pre>
+                        
+                        <p style="margin-top: 1rem;"><strong>Device Tree Template (PL 100G Ethernet - QSFP28):</strong></p>
+                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>axi_ethernet_100g: ethernet@a0000000 {
+    compatible = "xlnx,xxv-ethernet-4.1", "xlnx,xxv-ethernet-1.0";
+    device_type = "network";
+    reg = <0x0 0xa0000000 0x0 0x100000>;
+    interrupts = <0 89 4>;
+    phy-mode = "100gbase-r";
+    xlnx,channel-ids = <0x1>;
+    local-mac-address = [00 0a 35 00 01 10];
+};</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category: Kria Adaptive SOMs -->
+            <h3 style="margin-top: 3rem; color: #00bcd4; padding-left: 1rem; border-left: 4px solid #00bcd4;">🔹 Kria Adaptive SOMs</h3>
+            
+            <!-- KR260 Kria SOM -->
+            <div class="expandable" id="kr260-section">
+                <div class="expand-header" onclick="toggleExpand('kr260-section')">
+                    <h4>📟 KR260 Robotics Starter Kit</h4>
+                    <span class="expand-icon">▼</span>
+                </div>
+                <div class="expand-content">
+                    <div class="expand-content-inner">
+                        <p><strong>Ethernet Interfaces:</strong></p>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                            <li><strong>PS-GEM0:</strong> 1G via RGMII (TI DP83867)</li>
+                            <li><strong>PS-GEM1:</strong> 1G via PS-GTR SGMII/1000Base-X</li>
+                            <li><strong>SFP cage:</strong> For fiber connectivity</li>
+                        </ul>
+                        
                         <p style="margin-top: 1rem;"><strong>Device Tree Template (GEM0 - RGMII):</strong></p>
                         <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>&gem0 {
     status = "okay";
@@ -3860,6 +4146,7 @@ graph TB
         ti,fifo-depth = <0x1>;
     };
 };</code></pre>
+                        
                         <p style="margin-top: 1rem;"><strong>Device Tree Template (GEM1 - PS-GTR SGMII):</strong></p>
                         <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>&gem1 {
     status = "okay";
@@ -3874,6 +4161,662 @@ graph TB
                     </div>
                 </div>
             </div>
+
+            <!-- KV260 Vision AI -->
+            <div class="expandable" id="kv260-section">
+                <div class="expand-header" onclick="toggleExpand('kv260-section')">
+                    <h4>🎥 KV260 Vision AI Starter Kit</h4>
+                    <span class="expand-icon">▼</span>
+                </div>
+                <div class="expand-content">
+                    <div class="expand-content-inner">
+                        <p><strong>Ethernet Interfaces:</strong></p>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                            <li><strong>PS-GEM0:</strong> 1G via RGMII (TI DP83867)</li>
+                            <li><strong>PS-GEM1:</strong> 1G via PS-GTR SGMII/1000Base-X</li>
+                            <li><strong>SFP cage:</strong> For fiber connectivity</li>
+                        </ul>
+                        
+                        <p style="margin-top: 1rem;"><strong>Device Tree Template (GEM0 - RGMII):</strong></p>
+                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>&gem0 {
+    status = "okay";
+    phy-handle = <&phy0>;
+    phy-mode = "rgmii-id";
+    mdio {
+        #address-cells = <1>;
+        #size-cells = <0>;
+        phy0: ethernet-phy@1 {
+            reg = <0x1>;
+            ti,rx-internal-delay = <0x8>;
+            ti,tx-internal-delay = <0xa>;
+            ti,fifo-depth = <0x1>;
+            ti,dp83867-rxctrl-strap-quirk;
+        };
+    };
+};</code></pre>
+                        
+                        <p style="margin-top: 1rem;"><strong>Device Tree Template (GEM1 - PS-GTR SGMII):</strong></p>
+                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>&gem1 {
+    status = "okay";
+    phy-mode = "sgmii";
+    phys = <&psgtr 0 PHY_TYPE_SGMII 0 0>;
+    is-internal-pcspma;
+    
+    fixed-link {
+        speed = <1000>;
+        full-duplex;
+    };
+};</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- KD240 -->
+            <div class="expandable" id="kd240-section">
+                <div class="expand-header" onclick="toggleExpand('kd240-section')">
+                    <h4>⚙️ KD240 Drive Starter Kit</h4>
+                    <span class="expand-icon">▼</span>
+                </div>
+                <div class="expand-content">
+                    <div class="expand-content-inner">
+                        <p><strong>Ethernet Interfaces:</strong></p>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                            <li><strong>PS-GEM0:</strong> 1G via RGMII (TI DP83867)</li>
+                            <li><strong>PS-GEM1:</strong> 1G via RGMII (TI DP83867)</li>
+                            <li><strong>TSN:</strong> Time-Sensitive Networking capable</li>
+                            <li><strong>EtherCAT:</strong> Industrial protocol support</li>
+                        </ul>
+                        
+                        <p style="margin-top: 1rem;"><strong>Device Tree Template (GEM0 - RGMII with TSN):</strong></p>
+                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>&gem0 {
+    status = "okay";
+    phy-handle = <&phy0>;
+    phy-mode = "rgmii-id";
+    xlnx,has-mdio = <0x1>;
+    
+    /* TSN configuration */
+    xlnx,tsn-slave;
+    xlnx,tsn-endpoint = <0x1>;
+    
+    mdio {
+        #address-cells = <1>;
+        #size-cells = <0>;
+        phy0: ethernet-phy@1 {
+            reg = <0x1>;
+            ti,rx-internal-delay = <0x8>;
+            ti,tx-internal-delay = <0xa>;
+            ti,fifo-depth = <0x1>;
+            ti,dp83867-rxctrl-strap-quirk;
+        };
+    };
+};</code></pre>
+                        
+                        <p style="margin-top: 1rem;"><strong>Device Tree Template (GEM1 - RGMII for EtherCAT):</strong></p>
+                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>&gem1 {
+    status = "okay";
+    phy-handle = <&phy1>;
+    phy-mode = "rgmii-id";
+    xlnx,has-mdio = <0x1>;
+    
+    mdio {
+        #address-cells = <1>;
+        #size-cells = <0>;
+        phy1: ethernet-phy@2 {
+            reg = <0x2>;
+            ti,rx-internal-delay = <0x8>;
+            ti,tx-internal-delay = <0xa>;
+            ti,fifo-depth = <0x1>;
+            ti,dp83867-rxctrl-strap-quirk;
+            
+            /* EtherCAT specific */
+            xlnx,ethercat-slave;
+        };
+    };
+};</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category: Zynq UltraScale+ MPSoC Boards -->
+            <h3 style="margin-top: 3rem; color: #667eea; padding-left: 1rem; border-left: 4px solid #667eea;">🔷 Zynq UltraScale+ MPSoC Evaluation Boards</h3>
+            
+            <!-- ZCU104 -->
+            <div class="expandable" id="zcu104-section">
+                <div class="expand-header" onclick="toggleExpand('zcu104-section')">
+                    <h4>💼 ZCU104 Evaluation Board</h4>
+                    <span class="expand-icon">▼</span>
+                </div>
+                <div class="expand-content">
+                    <div class="expand-content-inner">
+                        <p><strong>Ethernet Interfaces:</strong></p>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                            <li><strong>PS-GEM3:</strong> 1G via RGMII (TI DP83867)</li>
+                            <li><strong>SFP Cage:</strong> 1G/10G fiber connectivity</li>
+                            <li><strong>GTH Transceivers:</strong> 8 lanes (12.5 Gbps max)</li>
+                        </ul>
+                        
+                        <p style="margin-top: 1rem;"><strong>Device Tree Template (PS-GEM3 - RGMII):</strong></p>
+                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>&gem3 {
+    status = "okay";
+    phy-handle = <&phy0>;
+    phy-mode = "rgmii-id";
+    mdio {
+        #address-cells = <1>;
+        #size-cells = <0>;
+        phy0: ethernet-phy@c {
+            reg = <0xc>;
+            ti,rx-internal-delay = <0x8>;
+            ti,tx-internal-delay = <0xa>;
+            ti,fifo-depth = <0x1>;
+            ti,dp83867-rxctrl-strap-quirk;
+        };
+    };
+};</code></pre>
+                        
+                        <p style="margin-top: 1rem;"><strong>Device Tree Template (PL 10G Ethernet via GTH):</strong></p>
+                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>axi_ethernet_0: ethernet@a0040000 {
+    compatible = "xlnx,axi-ethernet-7.2", "xlnx,axi-ethernet-1.00.a";
+    device_type = "network";
+    reg = <0x0 0xa0040000 0x0 0x40000>;
+    interrupts = <0 89 4 0 90 4>;
+    phy-mode = "10gbase-r";
+    xlnx,rxmem = <0x1000>;
+    xlnx,txcsum = <0x2>;
+    xlnx,rxcsum = <0x2>;
+    local-mac-address = [00 0a 35 00 01 22];
+    
+    mdio {
+        #address-cells = <1>;
+        #size-cells = <0>;
+        phy1: ethernet-phy@1 {
+            reg = <0x1>;
+            device_type = "ethernet-phy";
+        };
+    };
+};</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ZCU106 -->
+            <div class="expandable" id="zcu106-section">
+                <div class="expand-header" onclick="toggleExpand('zcu106-section')">
+                    <h4>📹 ZCU106 Video Codec Evaluation Board</h4>
+                    <span class="expand-icon">▼</span>
+                </div>
+                <div class="expand-content">
+                    <div class="expand-content-inner">
+                        <p><strong>Ethernet Interfaces:</strong></p>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                            <li><strong>PS-GEM3:</strong> 1G via RGMII (TI DP83867)</li>
+                            <li><strong>SFP28 Cages:</strong> 4x 10G/25G capable</li>
+                            <li><strong>GTH Transceivers:</strong> 24 lanes (16.3 Gbps max)</li>
+                        </ul>
+                        
+                        <p style="margin-top: 1rem;"><strong>Device Tree Template (PS-GEM3 - RGMII):</strong></p>
+                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>&gem3 {
+    status = "okay";
+    phy-handle = <&phy0>;
+    phy-mode = "rgmii-id";
+    mdio {
+        #address-cells = <1>;
+        #size-cells = <0>;
+        phy0: ethernet-phy@c {
+            reg = <0xc>;
+            ti,rx-internal-delay = <0x8>;
+            ti,tx-internal-delay = <0xa>;
+            ti,fifo-depth = <0x1>;
+            ti,dp83867-rxctrl-strap-quirk;
+        };
+    };
+};</code></pre>
+                        
+                        <p style="margin-top: 1rem;"><strong>Device Tree Template (PL 25G Ethernet via GTH):</strong></p>
+                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>axi_ethernet_0: ethernet@a0040000 {
+    compatible = "xlnx,xxv-ethernet-4.1", "xlnx,xxv-ethernet-1.0";
+    device_type = "network";
+    reg = <0x0 0xa0040000 0x0 0x40000>;
+    interrupts = <0 89 4 0 90 4>;
+    phy-mode = "25gbase-r";
+    xlnx,rxmem = <0x1000>;
+    xlnx,channel-ids = <0x1>;
+    xlnx,num-queues = <2>;
+    local-mac-address = [00 0a 35 00 01 22];
+    
+    /* SFP28 module support */
+    sfp = <&sfp0>;
+};</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ZCU111 -->
+            <div class="expandable" id="zcu111-section">
+                <div class="expand-header" onclick="toggleExpand('zcu111-section')">
+                    <h4>📡 ZCU111 RF Analytics Evaluation Board</h4>
+                    <span class="expand-icon">▼</span>
+                </div>
+                <div class="expand-content">
+                    <div class="expand-content-inner">
+                        <p><strong>Ethernet Interfaces:</strong></p>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                            <li><strong>PS-GEM3:</strong> 1G via RGMII (TI DP83867)</li>
+                            <li><strong>QSFP28 Cages:</strong> 2x 100G capable</li>
+                            <li><strong>SFP28 Cages:</strong> 4x 25G capable</li>
+                            <li><strong>GTY Transceivers:</strong> 20 lanes (32.75 Gbps each)</li>
+                        </ul>
+                        
+                        <p style="margin-top: 1rem;"><strong>Device Tree Template (PS-GEM3 - RGMII):</strong></p>
+                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>&gem3 {
+    status = "okay";
+    phy-handle = <&phy0>;
+    phy-mode = "rgmii-id";
+    mdio {
+        #address-cells = <1>;
+        #size-cells = <0>;
+        phy0: ethernet-phy@c {
+            reg = <0xc>;
+            ti,rx-internal-delay = <0x8>;
+            ti,tx-internal-delay = <0xa>;
+            ti,fifo-depth = <0x1>;
+            ti,dp83867-rxctrl-strap-quirk;
+        };
+    };
+};</code></pre>
+                        
+                        <p style="margin-top: 1rem;"><strong>Device Tree Template (PL 100G Ethernet via GTY - QSFP28):</strong></p>
+                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>axi_ethernet_100g: ethernet@a0000000 {
+    compatible = "xlnx,xxv-ethernet-4.1", "xlnx,xxv-ethernet-1.0";
+    device_type = "network";
+    reg = <0x0 0xa0000000 0x0 0x100000>;
+    interrupts = <0 89 4>;
+    phy-mode = "100gbase-r";
+    xlnx,rxmem = <0x4000>;
+    xlnx,channel-ids = <0x1>;
+    xlnx,num-queues = <8>;
+    local-mac-address = [00 0a 35 00 11 10];
+    
+    /* QSFP28 optical module */
+    xlnx,gtrefclk-frequency = <156250000>;
+    xlnx,line-rate = "100GBASE-R4"; /* 4x25G lanes */
+};</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ZCU208 -->
+            <div class="expandable" id="zcu208-section">
+                <div class="expand-header" onclick="toggleExpand('zcu208-section')">
+                    <h4>📻 ZCU208 RFSoC Gen 3 Evaluation Board</h4>
+                    <span class="expand-icon">▼</span>
+                </div>
+                <div class="expand-content">
+                    <div class="expand-content-inner">
+                        <p><strong>Ethernet Interfaces:</strong></p>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                            <li><strong>PS-GEM3:</strong> 1G via RGMII (TI DP83867)</li>
+                            <li><strong>SFP28 Cages:</strong> Multiple for 25G optical</li>
+                            <li><strong>GTY Transceivers:</strong> 10G/25G/100G capable</li>
+                        </ul>
+                        
+                        <p style="margin-top: 1rem;"><strong>Device Tree Template (PS-GEM3 - RGMII):</strong></p>
+                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>&gem3 {
+    status = "okay";
+    phy-handle = <&phy0>;
+    phy-mode = "rgmii-id";
+    mdio {
+        #address-cells = <1>;
+        #size-cells = <0>;
+        phy0: ethernet-phy@c {
+            reg = <0xc>;
+            ti,rx-internal-delay = <0x8>;
+            ti,tx-internal-delay = <0xa>;
+            ti,fifo-depth = <0x1>;
+            ti,dp83867-rxctrl-strap-quirk;
+        };
+    };
+};</code></pre>
+                        
+                        <p style="margin-top: 1rem;"><strong>eCPRI over 25G Ethernet (5G Fronthaul):</strong></p>
+                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>axi_ethernet_ecpri: ethernet@a0040000 {
+    compatible = "xlnx,xxv-ethernet-4.1", "xlnx,xxv-ethernet-1.0";
+    device_type = "network";
+    reg = <0x0 0xa0040000 0x0 0x40000>;
+    interrupts = <0 89 4>;
+    phy-mode = "25gbase-r";
+    xlnx,rxmem = <0x2000>;
+    xlnx,channel-ids = <0x1>;
+    local-mac-address = [00 0a 35 00 20 10];
+    
+    /* eCPRI configuration */
+    xlnx,ecpri-enabled;
+    xlnx,tsn-endpoint = <0x1>; /* TSN for timing */
+    xlnx,priority-queues = <8>; /* QoS for 5G traffic */
+};</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category: Versal ACAP Boards -->
+            <h3 style="margin-top: 3rem; color: #9c27b0; padding-left: 1rem; border-left: 4px solid #9c27b0;">🔶 Versal ACAP Evaluation Boards</h3>
+            
+            <!-- VCK190 -->
+            <div class="expandable" id="vck190-section">
+                <div class="expand-header" onclick="toggleExpand('vck190-section')">
+                    <h4>🚀 VCK190 Versal Prime Evaluation Kit</h4>
+                    <span class="expand-icon">▼</span>
+                </div>
+                <div class="expand-content">
+                    <div class="expand-content-inner">
+                        <p><strong>Ethernet Interfaces:</strong></p>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                            <li><strong>PMC-GEM0/GEM1:</strong> 2x 1G via RGMII (TI DP83867)</li>
+                            <li><strong>QSFP-DD Cages:</strong> 4x 400G capable</li>
+                            <li><strong>GTM Transceivers:</strong> 112 Gbps PAM4 per lane</li>
+                            <li><strong>Total Bandwidth:</strong> Up to 1.6 Tbps aggregate</li>
+                        </ul>
+                        
+                        <p style="margin-top: 1rem;"><strong>Device Tree Template (PMC-GEM0 - RGMII):</strong></p>
+                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>&gem0 {
+    status = "okay";
+    phy-handle = <&phy0>;
+    phy-mode = "rgmii-id";
+    mdio {
+        #address-cells = <1>;
+        #size-cells = <0>;
+        phy0: ethernet-phy@1 {
+            reg = <0x1>;
+            ti,rx-internal-delay = <0x8>;
+            ti,tx-internal-delay = <0xa>;
+            ti,fifo-depth = <0x1>;
+            ti,dp83867-rxctrl-strap-quirk;
+        };
+    };
+};</code></pre>
+                        
+                        <p style="margin-top: 1rem;"><strong>Device Tree Template (PMC-GEM1 - RGMII):</strong></p>
+                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>&gem1 {
+    status = "okay";
+    phy-handle = <&phy1>;
+    phy-mode = "rgmii-id";
+    mdio {
+        #address-cells = <1>;
+        #size-cells = <0>;
+        phy1: ethernet-phy@2 {
+            reg = <0x2>;
+            ti,rx-internal-delay = <0x8>;
+            ti,tx-internal-delay = <0xa>;
+            ti,fifo-depth = <0x1>;
+            ti,dp83867-rxctrl-strap-quirk;
+        };
+    };
+};</code></pre>
+                        
+                        <p style="margin-top: 1rem;"><strong>PL 100G/400G Ethernet (MRMAC):</strong></p>
+                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>mrmac_0: ethernet@a0000000 {
+    compatible = "xlnx,mrmac-3.1";
+    device_type = "network";
+    reg = <0x0 0xa0000000 0x0 0x100000>;
+    interrupts = <0 89 4>;
+    local-mac-address = [00 0a 35 00 01 10];
+    xlnx,channel-ids = <0x1>;
+    xlnx,num-ports = <0x4>;
+    xlnx,tx-size = <0x400>;
+    xlnx,rx-size = <0x400>;
+    
+    /* 100G Ethernet configuration */
+    port@0 {
+        reg = <0>;
+        xlnx,port-rate = <100000>; /* 100G */
+        xlnx,num-queues = <4>;
+    };
+};</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VMK180 -->
+            <div class="expandable" id="vmk180-section">
+                <div class="expand-header" onclick="toggleExpand('vmk180-section')">
+                    <h4>🎬 VMK180 Versal Media Evaluation Kit</h4>
+                    <span class="expand-icon">▼</span>
+                </div>
+                <div class="expand-content">
+                    <div class="expand-content-inner">
+                        <p><strong>Ethernet Interfaces:</strong></p>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                            <li><strong>PMC-GEM0/GEM1:</strong> 2x 1G via RGMII (TI DP83867)</li>
+                            <li><strong>QSFP28 Cages:</strong> 2x 100G capable</li>
+                            <li><strong>GTY Transceivers:</strong> 32.75 Gbps per lane</li>
+                        </ul>
+                        
+                        <p style="margin-top: 1rem;"><strong>Device Tree Template (PMC-GEM0 - RGMII):</strong></p>
+                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>&gem0 {
+    status = "okay";
+    phy-handle = <&phy0>;
+    phy-mode = "rgmii-id";
+    mdio {
+        #address-cells = <1>;
+        #size-cells = <0>;
+        phy0: ethernet-phy@1 {
+            reg = <0x1>;
+            ti,rx-internal-delay = <0x8>;
+            ti,tx-internal-delay = <0xa>;
+            ti,fifo-depth = <0x1>;
+            ti,dp83867-rxctrl-strap-quirk;
+        };
+    };
+};</code></pre>
+                        
+                        <p style="margin-top: 1rem;"><strong>PL 100G Ethernet (MRMAC) for QSFP28:</strong></p>
+                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>mrmac_0: ethernet@a0000000 {
+    compatible = "xlnx,mrmac-3.1";
+    device_type = "network";
+    reg = <0x0 0xa0000000 0x0 0x100000>;
+    interrupts = <0 89 4>;
+    local-mac-address = [00 0a 35 00 02 10];
+    xlnx,channel-ids = <0x1>;
+    xlnx,num-ports = <0x1>;
+    
+    /* 100G configuration for QSFP28 */
+    port@0 {
+        reg = <0>;
+        xlnx,port-rate = <100000>; /* 100 Gbps */
+        xlnx,num-queues = <8>;
+        xlnx,line-rate = "100GBASE-R";
+    };
+};</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VEK280 -->
+            <div class="expandable" id="vek280-section">
+                <div class="expand-header" onclick="toggleExpand('vek280-section')">
+                    <h4>🤖 VEK280 Versal AI Edge Evaluation Kit</h4>
+                    <span class="expand-icon">▼</span>
+                </div>
+                <div class="expand-content">
+                    <div class="expand-content-inner">
+                        <p><strong>Ethernet Interfaces:</strong></p>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                            <li><strong>PMC-GEM0/GEM1:</strong> 2x 1G via RGMII (TI DP83867)</li>
+                            <li><strong>QSFP-DD Cages:</strong> 2x 400G capable</li>
+                            <li><strong>GTM Transceivers:</strong> 112 Gbps PAM4 per lane</li>
+                        </ul>
+                        
+                        <p style="margin-top: 1rem;"><strong>Device Tree Template (PMC-GEM0 - RGMII):</strong></p>
+                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>&gem0 {
+    status = "okay";
+    phy-handle = <&phy0>;
+    phy-mode = "rgmii-id";
+    mdio {
+        #address-cells = <1>;
+        #size-cells = <0>;
+        phy0: ethernet-phy@1 {
+            reg = <0x1>;
+            ti,rx-internal-delay = <0x8>;
+            ti,tx-internal-delay = <0xa>;
+            ti,fifo-depth = <0x1>;
+            ti,dp83867-rxctrl-strap-quirk;
+        };
+    };
+};</code></pre>
+                        
+                        <p style="margin-top: 1rem;"><strong>Device Tree Template (PMC-GEM1 - RGMII):</strong></p>
+                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>&gem1 {
+    status = "okay";
+    phy-handle = <&phy1>;
+    phy-mode = "rgmii-id";
+    mdio {
+        #address-cells = <1>;
+        #size-cells = <0>;
+        phy1: ethernet-phy@2 {
+            reg = <0x2>;
+            ti,rx-internal-delay = <0x8>;
+            ti,tx-internal-delay = <0xa>;
+            ti,fifo-depth = <0x1>;
+            ti,dp83867-rxctrl-strap-quirk;
+        };
+    };
+};</code></pre>
+                        
+                        <p style="margin-top: 1rem;"><strong>PL 400G Ethernet (MRMAC) for AI Data Transport:</strong></p>
+                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>mrmac_0: ethernet@a0000000 {
+    compatible = "xlnx,mrmac-3.1";
+    device_type = "network";
+    reg = <0x0 0xa0000000 0x0 0x100000>;
+    interrupts = <0 89 4>;
+    local-mac-address = [00 0a 35 00 03 10];
+    xlnx,channel-ids = <0x1>;
+    xlnx,num-ports = <0x1>;
+    
+    /* 400G configuration for QSFP-DD */
+    port@0 {
+        reg = <0>;
+        xlnx,port-rate = <400000>; /* 400 Gbps */
+        xlnx,num-queues = <16>;
+        xlnx,line-rate = "400GBASE-R";
+        xlnx,fec = "RS-FEC"; /* Forward Error Correction */
+    };
+};</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VCK5000 -->
+            <div class="expandable" id="vck5000-section">
+                <div class="expand-header" onclick="toggleExpand('vck5000-section')">
+                    <h4>💾 VCK5000 Versal Data Center Acceleration Card</h4>
+                    <span class="expand-icon">▼</span>
+                </div>
+                <div class="expand-content">
+                    <div class="expand-content-inner">
+                        <p><strong>🎯 Target Applications:</strong> Data center acceleration, cloud computing, AI inference at scale, network function virtualization (NFV), SmartNIC</p>
+                        
+                        <p style="margin-top: 1rem;"><strong>VCK5000 Ethernet Configuration:</strong></p>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                            <li><strong>No PS Ethernet</strong> (PCIe card format)</li>
+                            <li><strong>QSFP28 Cages:</strong> 2x 100G capable</li>
+                            <li><strong>PL Ethernet Only:</strong> All via programmable logic</li>
+                            <li><strong>GTY Transceivers:</strong> High-speed networking</li>
+                        </ul>
+                        
+                        <p style="margin-top: 1rem;"><strong>Device Tree Template (PL 100G Ethernet - QSFP28 #0):</strong></p>
+                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>/* Note: Typically configured via DPDK, not Linux device tree */
+axi_ethernet_qsfp0: ethernet@a0000000 {
+    compatible = "xlnx,xxv-ethernet-4.1";
+    device_type = "network";
+    reg = <0x0 0xa0000000 0x0 0x100000>;
+    interrupts = <0 89 4>;
+    phy-mode = "100gbase-r";
+    xlnx,rxmem = <0x4000>;
+    xlnx,channel-ids = <0x1>;
+    xlnx,num-queues = <16>;
+    local-mac-address = [00 0a 35 00 50 00];
+    
+    /* SmartNIC features */
+    xlnx,smartnic-mode;
+    xlnx,rss-queues = <16>; /* Receive Side Scaling */
+};</code></pre>
+                        
+                        <p style="margin-top: 1rem;"><strong>DPDK Configuration (Typical for VCK5000):</strong></p>
+                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>/* VCK5000 typically uses DPDK instead of kernel drivers */
+
+# DPDK binding example
+dpdk-devbind.py --bind=vfio-pci 0000:05:00.0  # QSFP0
+dpdk-devbind.py --bind=vfio-pci 0000:05:00.1  # QSFP1
+
+# testpmd for 100G packet forwarding
+testpmd -l 0-7 -n 4 -- -i \
+    --nb-cores=4 \
+    --rxq=8 --txq=8 \
+    --forward-mode=mac</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VPK120/VPK180 -->
+            <div class="expandable" id="vpk-section">
+                <div class="expand-header" onclick="toggleExpand('vpk-section')">
+                    <h4>🚀 VPK120/VPK180 Versal Premium (HBM) Evaluation Kits</h4>
+                    <span class="expand-icon">▼</span>
+                </div>
+                <div class="expand-content">
+                    <div class="expand-content-inner">
+                        <p><strong>Ethernet Interfaces:</strong></p>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                            <li><strong>PMC-GEM0/GEM1:</strong> 2x 1G via RGMII (TI DP83867)</li>
+                            <li><strong>QSFP-DD Cages:</strong> Multiple 400G capable</li>
+                            <li><strong>GTM Transceivers:</strong> 112 Gbps PAM4 per lane</li>
+                            <li><strong>HBM2E Memory:</strong> Up to 32 GB (820 GB/s bandwidth)</li>
+                        </ul>
+                        
+                        <p style="margin-top: 1rem;"><strong>Device Tree Template (PMC-GEM0 - RGMII):</strong></p>
+                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>&gem0 {
+    status = "okay";
+    phy-handle = <&phy0>;
+    phy-mode = "rgmii-id";
+    mdio {
+        #address-cells = <1>;
+        #size-cells = <0>;
+        phy0: ethernet-phy@1 {
+            reg = <0x1>;
+            ti,rx-internal-delay = <0x8>;
+            ti,tx-internal-delay = <0xa>;
+            ti,fifo-depth = <0x1>;
+            ti,dp83867-rxctrl-strap-quirk;
+        };
+    };
+};</code></pre>
+                        
+                        <p style="margin-top: 1rem;"><strong>PL 400G Ethernet with RoCE (RDMA):</strong></p>
+                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>mrmac_roce: ethernet@a0000000 {
+    compatible = "xlnx,mrmac-3.1";
+    device_type = "network";
+    reg = <0x0 0xa0000000 0x0 0x100000>;
+    interrupts = <0 89 4>;
+    local-mac-address = [00 0a 35 00 vp 10];
+    xlnx,channel-ids = <0x1>;
+    xlnx,num-ports = <0x1>;
+    
+    /* 400G with RDMA support */
+    port@0 {
+        reg = <0>;
+        xlnx,port-rate = <400000>; /* 400 Gbps */
+        xlnx,num-queues = <32>;
+        xlnx,line-rate = "400GBASE-R";
+        xlnx,fec = "RS-FEC";
+        
+        /* RoCE v2 configuration */
+        xlnx,roce-enabled;
+        xlnx,rdma-queues = <16>;
+    };
+};</code></pre>
+                    </div>
+                </div>
+            </div>
+
         </section>
 
         <!-- Footer -->
