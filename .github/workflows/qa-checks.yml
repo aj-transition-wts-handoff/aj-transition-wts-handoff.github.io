@@ -67,8 +67,8 @@ jobs:
             http://localhost:8080/pages/ar-list.html
             http://localhost:8080/pages/cq-list.html
             http://localhost:8080/pages/cr-list.html
-          uploadArtifacts: true
-          temporaryPublicStorage: true
+          uploadArtifacts: false
+          temporaryPublicStorage: false
 
   e2e-tests:
     name: End-to-End Testing (Playwright)
