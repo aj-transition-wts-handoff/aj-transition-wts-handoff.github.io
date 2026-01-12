@@ -19,7 +19,7 @@ html {
 }
 
 :root {
-    --primary-color: #667eea;
+    --primary-color: #3949ab;
     --secondary-color: #764ba2;
     --success-color: #51cf66;
     --danger-color: #ff6b6b;
@@ -67,6 +67,7 @@ body.dark-mode {
 .container {
     max-width: 1400px;
     margin: 0 auto;
+    padding: 0 1rem;
 }
 
 /* ============================================
@@ -272,10 +273,10 @@ h1 {
 
 .section-title {
     font-size: 1.8rem;
-    color: var(--primary-color);
+    color: #38006b !important;
     margin-bottom: 1.5rem;
     padding-bottom: 0.5rem;
-    border-bottom: 3px solid var(--primary-color);
+    border-bottom: 3px solid #38006b !important;
     font-weight: 600;
 }
 
@@ -1037,43 +1038,49 @@ body.dark-mode .note {
 
 /* Footer Styles */
 .page-footer {
-    background: var(--card-bg);
-    border-top: 2px solid var(--border-color);
+    background: transparent;
     padding: 2rem;
-    margin-top: 3rem;
+    margin-top: 0;
     text-align: center;
 }
 
 .footer-content {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
+    background: var(--card-bg);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
 }
 
 .last-updated {
-    color: var(--text-muted);
+    color: #666666;
     font-size: 0.95rem;
     margin-bottom: 0.5rem;
 }
 
 .powered-by {
-    color: #1a1a1a;
+    color: #000000;
     font-size: 1rem;
     font-weight: 700;
     margin: 0;
-    animation: fadeIn 1s ease-in;
 }
 
 #powered-text {
     font-weight: 800;
-    color: #000000;
+    color: #000000 !important;
+}
+
+body.dark-mode .last-updated {
+    color: #a0aec0;
 }
 
 body.dark-mode .powered-by {
-    color: var(--text-color);
+    color: #e2e8f0;
 }
 
 body.dark-mode #powered-text {
-    color: var(--text-color);
+    color: #e2e8f0;
 }
 
 .powered-by::before {
@@ -1441,9 +1448,9 @@ body.dark-mode #powered-text {
 
 /* Additional CSS Variables for Ethernet Page */
 :root {
-    --mio-path: #51cf66;
-    --emio-path: #f093fb;
-    --gtr-path: #4dabf7;
+    --mio-path: #2e7d32;
+    --emio-path: #7b1fa2;
+    --gtr-path: #1565c0;
     --warning: #ffd43b;
     --info: #339af0;
 }
@@ -1662,6 +1669,16 @@ body.dark-mode .flow-node {
 
 .specs-list strong {
     color: var(--card-color);
+}
+
+.note strong,
+.note .specs-list strong {
+    color: #856404;
+}
+
+body.dark-mode .note strong,
+body.dark-mode .note .specs-list strong {
+    color: #ffd699;
 }
 
 /* Code Block Section */
@@ -2803,9 +2820,6 @@ body.dark-mode .contribution-section a:hover {
     padding: 2.5rem;
     margin-bottom: 2rem;
     box-shadow: var(--shadow-md);
-    max-width: 1400px;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 
@@ -3213,6 +3227,20 @@ body.dark-mode .resource-card [style*="color: #888"] {
 
 body.dark-mode .resource-card [style*="color: #666"] {
     color: #bbb !important;
+}
+
+/* Fix color contrast for resource card description text in dark mode */
+body.dark-mode .resource-card [style*="color: #333333"] {
+    color: #e0e0e0 !important;
+}
+
+/* Style for resource card description text */
+.resource-card div[style*="margin-top: 0.8rem"][style*="font-size: 0.85rem"] {
+    color: #333333;
+}
+
+body.dark-mode .resource-card div[style*="margin-top: 0.8rem"][style*="font-size: 0.85rem"] {
+    color: #e0e0e0 !important;
 }
 
 /* Fix color contrast for all card description text */
