@@ -151,14 +151,14 @@
                         </ul>
                     </div>
 
-                    <!-- Hardware & Software -->
+                    <!-- Hardware &amp; Software -->
                     <div style="background: linear-gradient(135deg, rgba(156, 39, 176, 0.1) 0%, rgba(156, 39, 176, 0.05) 100%); border: 2px solid rgba(156, 39, 176, 0.3); border-radius: 12px; padding: 1.3rem;">
-                        <h4 style="font-size: 1.1rem; font-weight: 700; color: #9c27b0; margin-bottom: 1rem;">🔧 Hardware & Software</h4>
+                        <h4 style="font-size: 1.1rem; font-weight: 700; color: #9c27b0; margin-bottom: 1rem;">🔧 Hardware &amp; Software</h4>
                         <ul style="margin: 0; padding-left: 1.5rem; line-height: 1.8; color: var(--text-color);">
                             <li>Vivado Design Suite (202x.x)</li>
                             <li>Headless FPGA board farm</li>
                             <li>Target FPGA hardware</li>
-                            <li>Bitstream generation & deployment</li>
+                            <li>Bitstream generation &amp; deployment</li>
                         </ul>
                     </div>
                 </div>
@@ -204,7 +204,7 @@
                                     <strong>Phase 1:</strong> Create HW design with old Vivado tools
                                 </div>
                                 <div style="background: rgba(33, 150, 243, 0.1); padding: 0.6rem; border-radius: 6px;">
-                                    <strong>Phase 2:</strong> Upgrade & build with new Tools
+                                    <strong>Phase 2:</strong> Upgrade &amp; build with new Tools
                                 </div>
                             </div>
                             <div style="margin-top: 0.8rem; text-align: center; padding: 0.6rem; background: rgba(156, 39, 176, 0.1); border-radius: 6px;">
@@ -281,16 +281,16 @@
                         </ul>
                     </div>
 
-                    <!-- Hardware & Software -->
+                    <!-- Hardware &amp; Software -->
                     <div style="background: linear-gradient(135deg, rgba(0, 150, 136, 0.1) 0%, rgba(0, 150, 136, 0.05) 100%); border: 2px solid rgba(0, 150, 136, 0.3); border-radius: 12px; padding: 1.3rem;">
-                        <h4 style="font-size: 1.1rem; font-weight: 700; color: #009688; margin-bottom: 1rem;">🔧 Hardware & Software</h4>
+                        <h4 style="font-size: 1.1rem; font-weight: 700; color: #009688; margin-bottom: 1rem;">🔧 Hardware &amp; Software</h4>
                         <ul style="margin: 0; padding-left: 1.5rem; line-height: 1.8; color: var(--text-color);">
                             <li>PetaLinux Build Environment</li>
                             <li>PetaLinux Toolchain (202x.x)</li>
                             <li>Custom XSA / Pre-built XSA</li>
                             <li>Headless FPGA Board Farm (e.g., zcu102, vcu118)</li>
                             <li>Target FPGA hardware</li>
-                            <li>Boot image generation & deployment</li>
+                            <li>Boot image generation &amp; deployment</li>
                         </ul>
                     </div>
                 </div>
@@ -521,7 +521,7 @@
                 
                 // On initial load, always check hash first
                 if (!initialLoadComplete) {
-                    if (urlHash && sections.some(s => s.id === urlHash)) {
+                    if (urlHash &amp;&amp; sections.some(s => s.id === urlHash)) {
                         activeSection = urlHash;
                     } else {
                         const scrollPosition = window.scrollY;
@@ -542,7 +542,7 @@
                                         }
                                     } else {
                                         const sectionBottom = sectionTop + section.element.offsetHeight;
-                                        if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                                        if (scrollPosition >= sectionTop &amp;&amp; scrollPosition < sectionBottom) {
                                             activeSection = section.id;
                                             break;
                                         }
@@ -571,7 +571,7 @@
                                     }
                                 } else {
                                     const sectionBottom = sectionTop + section.element.offsetHeight;
-                                    if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                                    if (scrollPosition >= sectionTop &amp;&amp; scrollPosition < sectionBottom) {
                                         activeSection = section.id;
                                         break;
                                     }
@@ -700,7 +700,7 @@
             const swipeDistanceY = Math.abs(touchEndY - touchStartY);
             
             // Only trigger if horizontal swipe is greater than vertical (to allow scrolling)
-            if (Math.abs(swipeDistanceX) > swipeThreshold && Math.abs(swipeDistanceX) > swipeDistanceY) {
+            if (Math.abs(swipeDistanceX) > swipeThreshold &amp;&amp; Math.abs(swipeDistanceX) > swipeDistanceY) {
                 if (swipeDistanceX > 0) {
                     // Swiped right - go to previous slide
                     changeSlide(-1);

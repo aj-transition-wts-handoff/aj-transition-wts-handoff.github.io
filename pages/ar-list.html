@@ -592,7 +592,7 @@
     <div class="container">
         <header style="margin-top: 3rem;">
             <h1>📚 Answer Records (ARs) Repository</h1>
-            <p class="subtitle">Comprehensive Ethernet Debugging & Configuration Documentation</p>
+            <p class="subtitle">Comprehensive Ethernet Debugging &amp; Configuration Documentation</p>
         </header>
 
         <div class="search-box">
@@ -720,19 +720,19 @@
                 btn.classList.remove('active');
                 // Check if button text matches the filter type
                 const btnText = btn.textContent.toLowerCase();
-                if ((filterType === 'all' && btnText === 'all') ||
-                    (filterType === 'mrmac' && btnText === 'mrmac') ||
-                    (filterType === 'dcmac' && btnText === 'dcmac') ||
-                    (filterType === 'axi' && btnText.includes('axi')) ||
-                    (filterType === 'ps-gem' && btnText === 'ps-gem') ||
-                    (filterType === 'driver' && btnText.includes('driver')) ||
-                    (filterType === 'dt' && btnText.includes('device tree'))) {
+                if ((filterType === 'all' &amp;&amp; btnText === 'all') ||
+                    (filterType === 'mrmac' &amp;&amp; btnText === 'mrmac') ||
+                    (filterType === 'dcmac' &amp;&amp; btnText === 'dcmac') ||
+                    (filterType === 'axi' &amp;&amp; btnText.includes('axi')) ||
+                    (filterType === 'ps-gem' &amp;&amp; btnText === 'ps-gem') ||
+                    (filterType === 'driver' &amp;&amp; btnText.includes('driver')) ||
+                    (filterType === 'dt' &amp;&amp; btnText.includes('device tree'))) {
                     btn.classList.add('active');
                 }
             });
 
             // If event.target exists (clicked by user), use it
-            if (typeof event !== 'undefined' && event.target) {
+            if (typeof event !== 'undefined' &amp;&amp; event.target) {
                 event.target.classList.add('active');
             }
 
