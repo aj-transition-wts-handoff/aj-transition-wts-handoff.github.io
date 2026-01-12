@@ -11,13 +11,13 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
 </head>
 <body>
-    <button class="dark-mode-toggle" onclick="toggleDarkMode()">
+    <button type="button" class="dark-mode-toggle" onclick="toggleDarkMode()">
         <span id="darkModeIcon">🌙</span>
         <span id="darkModeText">Dark Mode</span>
     </button>
 
     <!-- Scroll to Top Button -->
-    <button class="scroll-to-top" onclick="scrollToTop()" aria-label="Scroll to top">
+    <button type="button" class="scroll-to-top" onclick="scrollToTop()" aria-label="Scroll to top">
         ↑
     </button>
 
@@ -28,7 +28,7 @@
                 <span style="display: inline-flex; align-items: center; justify-content: center; width: 45px; height: 45px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 50%; font-size: 1.5rem; font-weight: 700; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3); transition: all 0.3s ease;">A</span>
                 <span style="font-weight: 700; font-size: 1.3rem; color: #333;">jaya</span>
             </a>
-            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu">☰</button>
+            <button type="button" class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu">☰</button>
             <div id="mobile-menu" class="desktop-menu" style="gap: 2rem; align-items: center;">
                 <a href="#overview" class="nav-link" style="text-decoration: none; color: #555; font-weight: 500; font-size: 1rem; padding: 0.5rem 1rem; border-radius: 8px; transition: all 0.3s; white-space: nowrap;">Overview</a>
                 <a href="#applications" class="nav-link" style="text-decoration: none; color: #555; font-weight: 500; font-size: 1rem; padding: 0.5rem 1rem; border-radius: 8px; transition: all 0.3s; white-space: nowrap;">Applications</a>
@@ -151,14 +151,14 @@
                         </ul>
                     </div>
 
-                    <!-- Hardware & Software -->
+                    <!-- Hardware &amp; Software -->
                     <div style="background: linear-gradient(135deg, rgba(156, 39, 176, 0.1) 0%, rgba(156, 39, 176, 0.05) 100%); border: 2px solid rgba(156, 39, 176, 0.3); border-radius: 12px; padding: 1.3rem;">
-                        <h4 style="font-size: 1.1rem; font-weight: 700; color: #9c27b0; margin-bottom: 1rem;">🔧 Hardware & Software</h4>
+                        <h4 style="font-size: 1.1rem; font-weight: 700; color: #9c27b0; margin-bottom: 1rem;">🔧 Hardware &amp; Software</h4>
                         <ul style="margin: 0; padding-left: 1.5rem; line-height: 1.8; color: var(--text-color);">
                             <li>Vivado Design Suite (202x.x)</li>
                             <li>Headless FPGA board farm</li>
                             <li>Target FPGA hardware</li>
-                            <li>Bitstream generation & deployment</li>
+                            <li>Bitstream generation &amp; deployment</li>
                         </ul>
                     </div>
                 </div>
@@ -204,7 +204,7 @@
                                     <strong>Phase 1:</strong> Create HW design with old Vivado tools
                                 </div>
                                 <div style="background: rgba(33, 150, 243, 0.1); padding: 0.6rem; border-radius: 6px;">
-                                    <strong>Phase 2:</strong> Upgrade & build with new Tools
+                                    <strong>Phase 2:</strong> Upgrade &amp; build with new Tools
                                 </div>
                             </div>
                             <div style="margin-top: 0.8rem; text-align: center; padding: 0.6rem; background: rgba(156, 39, 176, 0.1); border-radius: 6px;">
@@ -281,16 +281,16 @@
                         </ul>
                     </div>
 
-                    <!-- Hardware & Software -->
+                    <!-- Hardware &amp; Software -->
                     <div style="background: linear-gradient(135deg, rgba(0, 150, 136, 0.1) 0%, rgba(0, 150, 136, 0.05) 100%); border: 2px solid rgba(0, 150, 136, 0.3); border-radius: 12px; padding: 1.3rem;">
-                        <h4 style="font-size: 1.1rem; font-weight: 700; color: #009688; margin-bottom: 1rem;">🔧 Hardware & Software</h4>
+                        <h4 style="font-size: 1.1rem; font-weight: 700; color: #009688; margin-bottom: 1rem;">🔧 Hardware &amp; Software</h4>
                         <ul style="margin: 0; padding-left: 1.5rem; line-height: 1.8; color: var(--text-color);">
                             <li>PetaLinux Build Environment</li>
                             <li>PetaLinux Toolchain (202x.x)</li>
                             <li>Custom XSA / Pre-built XSA</li>
                             <li>Headless FPGA Board Farm (e.g., zcu102, vcu118)</li>
                             <li>Target FPGA hardware</li>
-                            <li>Boot image generation & deployment</li>
+                            <li>Boot image generation &amp; deployment</li>
                         </ul>
                     </div>
                 </div>
@@ -324,7 +324,7 @@
                     <p style="color: var(--text-color); line-height: 1.7; margin-bottom: 1rem;">
                         Comprehensive guide for future maintainers with setup instructions and usage examples.
                     </p>
-                    <a href="JenkinsFiles-For-Ethernet-Upgrade/README.md" target="_blank" style="display: inline-block; padding: 0.8rem 1.5rem; background: linear-gradient(135deg, #4caf50 0%, #388e3c 100%); color: white; text-decoration: none; border-radius: 10px; font-weight: 600; box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3); transition: all 0.3s;">
+                    <a href="https://github.com/ajayadaha1/JenkinsFiles-For-Ethernet-Upgrade/blob/main/README.md" target="_blank" style="display: inline-block; padding: 0.8rem 1.5rem; background: linear-gradient(135deg, #4caf50 0%, #388e3c 100%); color: white; text-decoration: none; border-radius: 10px; font-weight: 600; box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3); transition: all 0.3s;">
                         Read Documentation →
                     </a>
                 </div>
@@ -353,40 +353,40 @@
                     <div id="slideshow-container" style="position: relative; max-width: 100%; margin: 0 auto;">
                         <!-- Slide 1 -->
                         <div class="slide active" style="display: block; animation: fadeIn 0.5s;">
-                            <img src="../assets/pdf/Jenkins/Jenkins Automation for WTS/Slide1.PNG" alt="Slide 1" style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);">
+                            <img src="../assets/pdf/Jenkins/Jenkins%20Automation%20for%20WTS/Slide1.PNG" alt="Slide 1" style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);">
                             <div style="text-align: center; margin-top: 1rem; color: var(--text-color); font-weight: 600;">Slide 1 of 5</div>
                         </div>
                         
                         <!-- Slide 2 -->
                         <div class="slide" style="display: none;">
-                            <img src="../assets/pdf/Jenkins/Jenkins Automation for WTS/Slide2.PNG" alt="Slide 2" style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);">
+                            <img src="../assets/pdf/Jenkins/Jenkins%20Automation%20for%20WTS/Slide2.PNG" alt="Slide 2" style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);">
                             <div style="text-align: center; margin-top: 1rem; color: var(--text-color); font-weight: 600;">Slide 2 of 5</div>
                         </div>
                         
                         <!-- Slide 3 -->
                         <div class="slide" style="display: none;">
-                            <img src="../assets/pdf/Jenkins/Jenkins Automation for WTS/Slide3.PNG" alt="Slide 3" style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);">
+                            <img src="../assets/pdf/Jenkins/Jenkins%20Automation%20for%20WTS/Slide3.PNG" alt="Slide 3" style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);">
                             <div style="text-align: center; margin-top: 1rem; color: var(--text-color); font-weight: 600;">Slide 3 of 5</div>
                         </div>
                         
                         <!-- Slide 4 -->
                         <div class="slide" style="display: none;">
-                            <img src="../assets/pdf/Jenkins/Jenkins Automation for WTS/Slide4.PNG" alt="Slide 4" style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);">
+                            <img src="../assets/pdf/Jenkins/Jenkins%20Automation%20for%20WTS/Slide4.PNG" alt="Slide 4" style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);">
                             <div style="text-align: center; margin-top: 1rem; color: var(--text-color); font-weight: 600;">Slide 4 of 5</div>
                         </div>
                         
                         <!-- Slide 5 -->
                         <div class="slide" style="display: none;">
-                            <img src="../assets/pdf/Jenkins/Jenkins Automation for WTS/Slide5.PNG" alt="Slide 5" style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);">
+                            <img src="../assets/pdf/Jenkins/Jenkins%20Automation%20for%20WTS/Slide5.PNG" alt="Slide 5" style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);">
                             <div style="text-align: center; margin-top: 1rem; color: var(--text-color); font-weight: 600;">Slide 5 of 5</div>
                         </div>
                         
                         <!-- Navigation Arrows -->
-                        <button onclick="changeSlide(-1)" style="position: absolute; top: 50%; left: 10px; transform: translateY(-50%); background: rgba(102, 126, 234, 0.9); color: white; border: none; padding: 0; width: 50px; height: 50px; border-radius: 50%; font-size: 1.8rem; cursor: pointer; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); transition: all 0.3s; z-index: 10; display: flex; align-items: center; justify-content: center; line-height: 1;" onmouseover="this.style.background='rgba(102, 126, 234, 1)'; this.style.transform='translateY(-50%) scale(1.1)'" onmouseout="this.style.background='rgba(102, 126, 234, 0.9)'; this.style.transform='translateY(-50%) scale(1)'">
+                        <button type="button" onclick="changeSlide(-1)" style="position: absolute; top: 50%; left: 10px; transform: translateY(-50%); background: rgba(102, 126, 234, 0.9); color: white; border: none; padding: 0; width: 50px; height: 50px; border-radius: 50%; font-size: 1.8rem; cursor: pointer; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); transition: all 0.3s; z-index: 10; display: flex; align-items: center; justify-content: center; line-height: 1;" onmouseover="this.style.background='rgba(102, 126, 234, 1)'; this.style.transform='translateY(-50%) scale(1.1)'" onmouseout="this.style.background='rgba(102, 126, 234, 0.9)'; this.style.transform='translateY(-50%) scale(1)'">
                             ←
                         </button>
                         
-                        <button onclick="changeSlide(1)" style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%); background: rgba(102, 126, 234, 0.9); color: white; border: none; padding: 0; width: 50px; height: 50px; border-radius: 50%; font-size: 1.8rem; cursor: pointer; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); transition: all 0.3s; z-index: 10; display: flex; align-items: center; justify-content: center; line-height: 1;" onmouseover="this.style.background='rgba(102, 126, 234, 1)'; this.style.transform='translateY(-50%) scale(1.1)'" onmouseout="this.style.background='rgba(102, 126, 234, 0.9)'; this.style.transform='translateY(-50%) scale(1)'">
+                        <button type="button" onclick="changeSlide(1)" style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%); background: rgba(102, 126, 234, 0.9); color: white; border: none; padding: 0; width: 50px; height: 50px; border-radius: 50%; font-size: 1.8rem; cursor: pointer; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); transition: all 0.3s; z-index: 10; display: flex; align-items: center; justify-content: center; line-height: 1;" onmouseover="this.style.background='rgba(102, 126, 234, 1)'; this.style.transform='translateY(-50%) scale(1.1)'" onmouseout="this.style.background='rgba(102, 126, 234, 0.9)'; this.style.transform='translateY(-50%) scale(1)'">
                             →
                         </button>
                     </div>
@@ -401,7 +401,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
         <!-- Key Benefits Section -->
         <section class="section" style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.15) 100%); border: 2px solid rgba(102, 126, 234, 0.2); border-radius: 20px; padding: 2.5rem; margin-bottom: 2rem; box-shadow: 0 10px 40px rgba(0,0,0,0.1); scroll-margin-top: 90px;">
@@ -433,7 +433,6 @@
             </div>
         </section>
 
-    
         <!-- Footer -->
         <footer style="text-align: center; margin-top: 3rem; padding: 2rem; color: var(--text-color); opacity: 0.7;">
             <p style="font-size: 1.1rem; margin-bottom: 0.5rem;">🔧 Jenkins Automation for WTS</p>
@@ -711,313 +710,5 @@
                 }
             }
         }
-    </script>
-
-    <style>
-        /* Info Banner Styles - Light Mode */
-        .info-banner {
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.95) 0%, rgba(118, 75, 162, 0.95) 100%);
-            color: white;
-        }
-
-        .info-decoration {
-            background: rgba(255,255,255,0.1);
-        }
-
-        .info-title {
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-        }
-
-        .info-content-box {
-            background: rgba(255,255,255,0.15);
-            border: 1px solid rgba(255,255,255,0.2);
-        }
-
-        .info-card {
-            background: rgba(255,255,255,0.12);
-            border: 1px solid rgba(255,255,255,0.2);
-        }
-
-        .info-card:hover {
-            background: rgba(255,255,255,0.18);
-            transform: translateY(-2px);
-        }
-
-        /* Dark Mode Info Banner Styles */
-        body.dark-mode .info-banner {
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.4) 0%, rgba(118, 75, 162, 0.4) 100%);
-            border: 2px solid rgba(102, 126, 234, 0.3);
-        }
-
-        body.dark-mode .info-decoration {
-            background: rgba(102, 126, 234, 0.15);
-        }
-
-        body.dark-mode .info-content-box {
-            background: rgba(102, 126, 234, 0.2);
-            border: 1px solid rgba(102, 126, 234, 0.3);
-        }
-
-        body.dark-mode .info-card {
-            background: rgba(102, 126, 234, 0.15);
-            border: 1px solid rgba(102, 126, 234, 0.3);
-        }
-
-        body.dark-mode .info-card:hover {
-            background: rgba(102, 126, 234, 0.25);
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        
-        .dot:hover {
-            transform: scale(1.3);
-        }
-
-        /* Mobile Responsive Styles */
-        @media (max-width: 768px) {
-            /* Show Back to Tracker as icon only on mobile - consistent with other pages */
-            a[href="../index.html"][style*="position: fixed"] {
-                left: 1rem !important;
-                top: 80px !important;
-                padding: 0.5rem 0.8rem !important;
-                gap: 0 !important;
-            }
-
-            /* Hide the text, show only arrow icon on mobile */
-            a[href="../index.html"][style*="position: fixed"] span:last-child {
-                display: none !important;
-            }
-
-            /* Hide slideshow arrow buttons on mobile - use swipe instead */
-            #slideshow-container button {
-                display: none !important;
-            }
-
-            /* Container padding */
-            .container {
-                padding: 1rem !important;
-            }
-
-            /* Hero section adjustments */
-            header h1 {
-                font-size: 2rem !important;
-            }
-
-            header p {
-                font-size: 1rem !important;
-            }
-
-            header > div:first-child {
-                font-size: 3rem !important;
-            }
-
-            /* Section titles */
-            .section h2 {
-                font-size: 1.5rem !important;
-            }
-
-            .section h3 {
-                font-size: 1.2rem !important;
-            }
-
-            /* Slide counter text */
-            .slide > div {
-                font-size: 0.85rem !important;
-            }
-
-            /* Dots indicator - make smaller on mobile */
-            .dot {
-                height: 10px !important;
-                width: 10px !important;
-            }
-
-            /* Grid layouts - stack on mobile */
-            div[style*="display: grid"] {
-                grid-template-columns: 1fr !important;
-            }
-
-            /* Stage boxes in workflow */
-            div[style*="grid-template-columns: 1fr 1fr"] {
-                grid-template-columns: 1fr !important;
-            }
-
-            /* Buttons and links - make more touch-friendly */
-            a[style*="padding: 0.8rem"] {
-                padding: 0.9rem 1.2rem !important;
-                font-size: 0.9rem !important;
-            }
-
-            /* Benefits section */
-            .section:last-of-type > div:last-child > div {
-                padding: 1rem !important;
-            }
-
-            /* Stage numbers - adjust size */
-            span[style*="width: 35px; height: 35px"] {
-                width: 30px !important;
-                height: 30px !important;
-                font-size: 0.9rem !important;
-            }
-
-            /* Reduce padding in sections */
-            .section {
-                padding: 1.5rem !important;
-                margin-bottom: 1.5rem !important;
-            }
-
-            /* Footer text */
-            footer p {
-                font-size: 0.9rem !important;
-            }
-
-            footer p:last-child {
-                font-size: 0.8rem !important;
-            }
-
-            /* Resource cards - ensure proper spacing */
-            .resource-card {
-                margin-bottom: 1rem;
-            }
-
-            /* Adjust hero section padding */
-            header {
-                padding: 2rem 1rem !important;
-            }
-
-            /* Make emoji decorations smaller */
-            div[style*="font-size: 2.5rem"] {
-                font-size: 2rem !important;
-            }
-
-            /* Workflow stages - reduce padding */
-            div[style*="padding: 1.2rem"][style*="border-left: 4px solid"] {
-                padding: 1rem !important;
-                padding-left: 1rem !important;
-                margin-left: 0 !important;
-            }
-
-            /* Parallel builds section */
-            div[style*="padding: 1rem"][style*="background: rgba(33, 150, 243"] {
-                padding: 0.8rem !important;
-            }
-
-            /* List items - reduce spacing */
-            ul {
-                padding-left: 1.2rem !important;
-            }
-
-            li {
-                margin-bottom: 0.4rem !important;
-            }
-        }
-
-        @media (max-width: 480px) {
-            /* Extra small screens */
-            header h1 {
-                font-size: 1.5rem !important;
-            }
-
-            header p {
-                font-size: 0.9rem !important;
-            }
-
-            /* Smaller dots */
-            .dot {
-                height: 8px !important;
-                width: 8px !important;
-            }
-
-            /* Further reduce section padding */
-            .section {
-                padding: 1rem !important;
-            }
-
-            /* Stage numbers */
-            span[style*="width: 35px; height: 35px"] {
-                width: 28px !important;
-                height: 28px !important;
-                font-size: 0.85rem !important;
-            }
-
-            /* Button text size */
-            a[style*="font-weight: 600"] {
-                font-size: 0.85rem !important;
-                padding: 0.8rem 1rem !important;
-            }
-        }
-
-        /* Tablet landscape adjustments */
-        @media (min-width: 769px) and (max-width: 1024px) {
-            .container {
-                padding: 2rem !important;
-            }
-
-            /* Adjust grid to 2 columns on tablets */
-            div[style*="display: grid"][style*="minmax(300px"] {
-                grid-template-columns: repeat(2, 1fr) !important;
-            }
-        }
-
-        /* Info Banner Styles - Light Mode */
-        .info-banner {
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.95) 0%, rgba(118, 75, 162, 0.95) 100%);
-            color: white;
-        }
-
-        .info-decoration {
-            background: rgba(255,255,255,0.1);
-        }
-
-        .info-title {
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-        }
-
-        .info-content-box {
-            background: rgba(255,255,255,0.15);
-            border: 1px solid rgba(255,255,255,0.2);
-        }
-
-        .info-card {
-            background: rgba(255,255,255,0.12);
-            border: 1px solid rgba(255,255,255,0.2);
-        }
-
-        /* Info Banner Styles - Dark Mode */
-        body.dark-mode .info-banner {
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.2) 0%, rgba(118, 75, 162, 0.2) 100%);
-            color: var(--text-color);
-        }
-
-        body.dark-mode .info-decoration {
-            background: rgba(102, 126, 234, 0.15);
-        }
-
-        body.dark-mode .info-title {
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
-
-        body.dark-mode .info-content-box {
-            background: rgba(102, 126, 234, 0.1);
-            border: 1px solid rgba(102, 126, 234, 0.3);
-        }
-
-        body.dark-mode .info-card {
-            background: rgba(102, 126, 234, 0.08);
-            border: 1px solid rgba(102, 126, 234, 0.25);
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-        }
-    </style>
-</body>
+    </script></body>
 </html>
