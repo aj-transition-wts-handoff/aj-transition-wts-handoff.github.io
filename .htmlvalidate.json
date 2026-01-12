@@ -10,6 +10,12 @@
     "no-dup-id": "error"
   },
   "elements": [
-    "html5"
+    "html5",
+    {
+      "mermaid": {
+        "flow": true,
+        "phrasing": true
+      }
+    }
   ]
 }
