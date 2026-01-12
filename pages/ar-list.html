@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="theme-color" content="#667eea">
+    <title>Answer Records (ARs) - Ethernet Documentation</title>
+    <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="../js/ar-data.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-gradient-start: #667eea;
+            --bg-gradient-end: #764ba2;
+            --card-bg: white;
+            --text-color: #333;
+            --text-light: #666;
+            --border-color: #e9ecef;
+            --code-bg: #f8f9fa;
+        }
+
+        body.dark-mode {
+            --bg-gradient-start: #1a1a2e;
+            --bg-gradient-end: #16213e;
+            --card-bg: #2d3748;
+            --text-color: #e2e8f0;
+            --text-light: #a0aec0;
+            --border-color: #4a5568;
+            --code-bg: #1a202c;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+            min-height: 100vh;
+            padding: 2rem;
+            color: var(--text-color);
+            transition: all 0.3s ease;
+        }
+
+        .dark-mode-toggle {
+            position: fixed;
+            bottom: 5.5rem; /* Position above scroll-to-top button */
+            right: 2rem;
+            z-index: 1000;
+            background: var(--card-bg);
+            border: none;
+            border-radius: 50px;
+            padding: 0.8rem 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-color);
+        }
+
+        .dark-mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: white;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+
+        .back-button {
+            position: fixed;
+            top: 1rem;
+            left: 2rem;
+            z-index: 1000;
+            background: var(--card-bg);
+            color: #667eea;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .back-button:hover {
+            transform: translateY(-2px) translateX(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        body.dark-mode .back-button {
+            color: #7c90f5;
+        }
+
+        /* Scroll to Top Button */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 1000;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .scroll-to-top:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        .scroll-to-top.show {
+            display: flex;
+            animation: fadeInUp 0.3s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .search-box {
+            background: var(--card-bg);
+            border-radius: 50px;
+            padding: 1rem 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .search-input {
+            width: 100%;
+            border: none;
+            outline: none;
+            font-size: 1.1rem;
+            padding: 0.5rem;
+            background: transparent;
+            color: var(--text-color);
+        }
+
+        .stats-bar {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #667eea;
+        }
+
+        body.dark-mode .stat-number {
+            color: #7c90f5;
+        }
+
+        .stat-label {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-top: 0.3rem;
+        }
+
+        .ar-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(min(350px, 100%), 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .ar-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+            border-left: 5px solid #667eea;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        body.dark-mode .ar-card {
+            border-left-color: #7c90f5;
+        }
+
+        .ar-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        .ar-number {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 0.8rem;
+        }
+
+        body.dark-mode .ar-number {
+            color: #7c90f5;
+        }
+
+        .ar-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 0.8rem;
+            line-height: 1.4;
+        }
+
+        .ar-description {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .ar-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .tag.mrmac {
+            background: #e3f2fd;
+            color: #1976d2;
+        }
+
+        .tag.dcmac {
+            background: #f3e5f5;
+            color: #7b1fa2;
+        }
+
+        .tag.axi {
+            background: #e8f5e9;
+            color: #388e3c;
+        }
+
+        .tag.ps-gem {
+            background: #fff3e0;
+            color: #f57c00;
+        }
+
+        .tag.driver {
+            background: #fce4ec;
+            color: #c2185b;
+        }
+
+        .tag.dt {
+            background: #e0f2f1;
+            color: #00796b;
+        }
+
+        .tag.config {
+            background: #f1f8e9;
+            color: #689f38;
+        }
+
+        .tag.performance {
+            background: #fff8e1;
+            color: #f9a825;
+        }
+
+        .tag.debug {
+            background: #ffebee;
+            color: #d32f2f;
+        }
+
+        .ar-link {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+
+        body.dark-mode .ar-link {
+            background: #7c90f5;
+        }
+
+        .ar-link:hover {
+            background: #764ba2;
+            transform: translateX(5px);
+        }
+
+        body.dark-mode .ar-link:hover {
+            background: #9066c0;
+        }
+
+        .category-section {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            animation: slideIn 0.6s ease-out;
+        }
+
+        .category-title {
+            font-size: 2rem;
+            color: #667eea;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #667eea;
+            font-weight: 600;
+        }
+
+        body.dark-mode .category-title {
+            color: #7c90f5;
+            border-bottom-color: #7c90f5;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 3rem;
+            color: white;
+            opacity: 0.9;
+            font-size: 0.9rem;
+        }
+
+        body.dark-mode .footer {
+            color: var(--text-light);
+        }
+
+        .filter-buttons {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            justify-content: center;
+        }
+
+        .filter-btn {
+            padding: 0.6rem 1.2rem;
+            border: 2px solid #667eea;
+            background: var(--card-bg);
+            color: #667eea;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+
+        body.dark-mode .filter-btn {
+            border-color: #7c90f5;
+            color: #7c90f5;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: #667eea;
+            color: white;
+        }
+
+        body.dark-mode .filter-btn:hover,
+        body.dark-mode .filter-btn.active {
+            background: #7c90f5;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+            }
+
+            .ar-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            body {
+                padding: 1rem;
+            }
+
+            header {
+                margin-bottom: 2rem;
+            }
+
+            .stats-bar {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .stat-item {
+                width: 100%;
+                padding: 0.75rem;
+            }
+
+            .dark-mode-toggle {
+                bottom: 5.5rem; /* Keep above scroll-to-top */
+                right: 1rem;
+                padding: 0.6rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            /* Hide text on mobile, show icon only */
+            .dark-mode-toggle #darkModeText {
+                display: none;
+            }
+
+            .dark-mode-toggle #darkModeIcon {
+                font-size: 1.3rem;
+                margin: 0;
+            }
+
+            .scroll-to-top {
+                width: 45px;
+                height: 45px;
+                bottom: 1rem;
+                right: 1rem;
+                font-size: 1.2rem;
+            }
+
+            .search-filter-bar {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .search-box {
+                width: 100%;
+            }
+
+            .filter-tags {
+                flex-wrap: wrap;
+                gap: 0.5rem;
+            }
+
+            .ar-card {
+                padding: 1.5rem;
+            }
+
+            .ar-header h3 {
+                font-size: 1.1rem;
+            }
+
+            .ar-header .ar-number {
+                font-size: 0.85rem;
+            }
+
+            .back-button {
+                padding: 0.7rem 1.2rem;
+                font-size: 0.9rem;
+            }
+
+            .tag {
+                font-size: 0.7rem;
+                padding: 0.2rem 0.6rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 0.75rem;
+            }
+
+            h1 {
+                font-size: 1.6rem;
+            }
+
+            .dark-mode-toggle {
+                bottom: 5.5rem; /* Keep above scroll-to-top */
+                padding: 0.5rem 0.9rem;
+                font-size: 0.85rem;
+            }
+
+            /* Hide text on mobile, show icon only */
+            .dark-mode-toggle #darkModeText {
+                display: none;
+            }
+
+            .dark-mode-toggle #darkModeIcon {
+                font-size: 1.2rem;
+                margin: 0;
+            }
+
+            .scroll-to-top {
+                width: 45px;
+                height: 45px;
+                bottom: 1rem;
+                right: 1rem;
+                font-size: 1.2rem;
+            }
+
+            .ar-card {
+                padding: 1.25rem;
+            }
+
+            .filter-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="dark-mode-toggle" onclick="toggleDarkMode()">
+        <span id="darkModeIcon">🌙</span>
+        <span id="darkModeText">Dark Mode</span>
+    </button>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" onclick="scrollToTop()" aria-label="Scroll to top">
+        ↑
+    </button>
+
+    <a href="../index.html" class="back-button">
+        <span>←</span>
+        <span>Back to Tracker</span>
+    </a>
+
+    <div class="container">
+        <header style="margin-top: 3rem;">
+            <h1>📚 Answer Records (ARs) Repository</h1>
+            <p class="subtitle">Comprehensive Ethernet Debugging & Configuration Documentation</p>
+        </header>
+
+        <div class="search-box">
+            <input type="text" class="search-input" id="searchInput" placeholder="🔍 Search ARs by number, title, or keywords...">
+        </div>
+
+        <div class="stats-bar">
+            <div class="stat-item">
+                <div class="stat-number" id="totalARs">0</div>
+                <div class="stat-label">Total ARs</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" id="categories">0</div>
+                <div class="stat-label">Categories</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Coverage</div>
+            </div>
+        </div>
+
+        <div class="filter-buttons">
+            <button class="filter-btn active" onclick="filterARs('all')">All</button>
+            <button class="filter-btn" onclick="filterARs('mrmac')">MRMAC</button>
+            <button class="filter-btn" onclick="filterARs('dcmac')">DCMAC</button>
+            <button class="filter-btn" onclick="filterARs('axi')">AXI Ethernet</button>
+            <button class="filter-btn" onclick="filterARs('ps-gem')">PS-GEM</button>
+            <button class="filter-btn" onclick="filterARs('driver')">Driver Issues</button>
+            <button class="filter-btn" onclick="filterARs('dt')">Device Tree</button>
+        </div>
+
+        <!-- AR Cards will be populated here -->
+        <div id="arContainer">
+            <div class="category-section">
+                <h2 class="category-title">📋 AR List Coming Soon</h2>
+                <p style="color: #666; font-size: 1.1rem; line-height: 1.8;">
+                    This section will contain a comprehensive list of Answer Records covering:
+                </p>
+                <ul style="margin-top: 1rem; margin-left: 2rem; color: #666; line-height: 2;">
+                    <li>MRMAC/DCMAC configuration and debugging</li>
+                    <li>10G/25G Ethernet Subsystem setup and troubleshooting</li>
+                    <li>PS-GEM interface configurations</li>
+                    <li>Device Tree configurations across versions</li>
+                    <li>Driver issues and patches</li>
+                    <li>Performance optimization tips</li>
+                    <li>Common issue resolutions</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Answer Records Database | AMD WTS Team | Last updated: January 2026</p>
+        </div>
+    </div>
+
+    <script>
+        // AR data loaded from external file (js/ar-data.js)
+
+        function renderARs(ars) {
+            const container = document.getElementById('arContainer');
+            
+            if (ars.length === 0) {
+                // Show the placeholder message
+                return;
+            }
+
+            container.innerHTML = '';
+            
+            // Group ARs by category if needed
+            const categories = {};
+            ars.forEach(ar => {
+                const category = ar.category || 'General';
+                if (!categories[category]) {
+                    categories[category] = [];
+                }
+                categories[category].push(ar);
+            });
+
+            // Render each category
+            Object.keys(categories).forEach(category => {
+                const section = document.createElement('div');
+                section.className = 'category-section';
+                
+                const title = document.createElement('h2');
+                title.className = 'category-title';
+                title.textContent = category;
+                section.appendChild(title);
+
+                const grid = document.createElement('div');
+                grid.className = 'ar-grid';
+
+                categories[category].forEach(ar => {
+                    const card = createARCard(ar);
+                    grid.appendChild(card);
+                });
+
+                section.appendChild(grid);
+                container.appendChild(section);
+            });
+
+            updateStats();
+        }
+
+        function createARCard(ar) {
+            const card = document.createElement('div');
+            card.className = 'ar-card';
+            card.dataset.tags = ar.tags.join(' ').toLowerCase();
+
+            card.innerHTML = `
+                <div class="ar-number">${ar.number}</div>
+                <div class="ar-title">${ar.title}</div>
+                <div class="ar-description">${ar.description}</div>
+                <div class="ar-tags">
+                    ${ar.tags.map(tag => `<span class="tag ${tag.toLowerCase().replace(/\s+/g, '-')}">${tag}</span>`).join('')}
+                </div>
+                ${ar.link ? `<a href="${ar.link}" class="ar-link" target="_blank">View AR →</a>` : ''}
+            `;
+
+            return card;
+        }
+
+        function filterARs(filterType) {
+            // Update active button
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+                // Check if button text matches the filter type
+                const btnText = btn.textContent.toLowerCase();
+                if ((filterType === 'all' && btnText === 'all') ||
+                    (filterType === 'mrmac' && btnText === 'mrmac') ||
+                    (filterType === 'dcmac' && btnText === 'dcmac') ||
+                    (filterType === 'axi' && btnText.includes('axi')) ||
+                    (filterType === 'ps-gem' && btnText === 'ps-gem') ||
+                    (filterType === 'driver' && btnText.includes('driver')) ||
+                    (filterType === 'dt' && btnText.includes('device tree'))) {
+                    btn.classList.add('active');
+                }
+            });
+
+            // If event.target exists (clicked by user), use it
+            if (typeof event !== 'undefined' && event.target) {
+                event.target.classList.add('active');
+            }
+
+            // Filter cards
+            const cards = document.querySelectorAll('.ar-card');
+            cards.forEach(card => {
+                if (filterType === 'all') {
+                    card.style.display = 'block';
+                } else {
+                    const tags = card.dataset.tags;
+                    if (tags.includes(filterType.toLowerCase())) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                }
+            });
+        }
+
+        function updateStats() {
+            document.getElementById('totalARs').textContent = arData.length;
+            
+            // Count unique categories
+            const categories = new Set(arData.map(ar => ar.category || 'General'));
+            document.getElementById('categories').textContent = categories.size;
+        }
+
+        // Search functionality
+        document.getElementById('searchInput').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const cards = document.querySelectorAll('.ar-card');
+
+            cards.forEach(card => {
+                const text = card.textContent.toLowerCase();
+                if (text.includes(searchTerm)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+
+        // Check for URL parameter and auto-filter
+        function applyUrlFilter() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const filter = urlParams.get('filter');
+            
+            if (filter) {
+                // Call the filterARs function with the URL parameter
+                filterARs(filter);
+            }
+        }
+
+        // Dark mode functionality with state persistence
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            const isDarkMode = document.body.classList.contains('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            updateDarkModeUI(isDarkMode);
+        }
+
+        function updateDarkModeUI(isDarkMode) {
+            const icon = document.getElementById('darkModeIcon');
+            const text = document.getElementById('darkModeText');
+            if (isDarkMode) {
+                icon.textContent = '☀️';
+                text.textContent = 'Light Mode';
+            } else {
+                icon.textContent = '🌙';
+                text.textContent = 'Dark Mode';
+            }
+        }
+
+        function loadDarkMode() {
+            const isDarkMode = localStorage.getItem('darkMode') === 'true';
+            if (isDarkMode) {
+                document.body.classList.add('dark-mode');
+            }
+            updateDarkModeUI(isDarkMode);
+        }
+
+        // Load dark mode state on page load
+        window.addEventListener('DOMContentLoaded', loadDarkMode);
+
+        // Initialize
+        renderARs(arData);
+        applyUrlFilter();
+
+        // Scroll to top functionality
+        window.addEventListener('scroll', function() {
+            const scrollBtn = document.querySelector('.scroll-to-top');
+            if (window.pageYOffset > 300) {
+                scrollBtn.classList.add('show');
+            } else {
+                scrollBtn.classList.remove('show');
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+    </script>
+</body>
+</html>
