@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#667eea">
     <title>Change Requests (CRs) - WTS Contributions</title>
     <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
@@ -99,7 +99,7 @@
             left: 2rem;
             z-index: 1000;
             background: var(--card-bg);
-            color: #667eea;
+            color: #5568d3;
             padding: 0.8rem 1.5rem;
             border-radius: 50px;
             text-decoration: none;
@@ -233,9 +233,9 @@
 
         .filter-btn {
             padding: 0.8rem 1.5rem;
-            border: 2px solid #667eea;
+            border: 2px solid #3949ab;
             background: transparent;
-            color: #667eea;
+            color: #3949ab;
             border-radius: 50px;
             cursor: pointer;
             font-weight: 600;
@@ -248,17 +248,17 @@
         }
 
         .filter-btn.active {
-            background: #667eea;
+            background: #3949ab;
             color: white;
         }
 
         body.dark-mode .filter-btn {
             color: var(--text-color);
-            border-color: #667eea;
+            border-color: #3949ab;
         }
 
         body.dark-mode .filter-btn.active {
-            background: #667eea;
+            background: #3949ab;
             color: white;
         }
 
@@ -301,7 +301,7 @@
 
         .cr-number {
             font-weight: 700;
-            color: #667eea;
+            color: #3949ab;
             font-size: 0.95rem;
             white-space: nowrap;
         }
@@ -554,11 +554,14 @@
         ↑
     </button>
 
+    <nav aria-label="Breadcrumb navigation">
     <a href="../index.html" class="back-button">
         <span>←</span>
         <span>Back to Tracker</span>
     </a>
+    </nav>
 
+    <main>
     <div class="container">
         <header style="margin-top: 3rem;">
             <h1>🔧 Change Requests (CRs)</h1>
@@ -610,6 +613,7 @@
             </div>
         </div>
     </div>
+    </main>
 
     <script>
         // Dark Mode Functions

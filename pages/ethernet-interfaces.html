@@ -17,6 +17,46 @@
     
     <!-- Unified Styles -->
     <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        /* Back to Tracker button */
+        .back-to-tracker {
+            position: fixed;
+            top: 90px;
+            left: 2rem;
+            z-index: 1000;
+            background: var(--card-bg);
+            color: #5568d3;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .back-to-tracker:hover {
+            transform: translateY(-2px) translateX(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        body.dark-mode .back-to-tracker {
+            color: #7c90f5;
+        }
+
+        /* Mobile responsive styles */
+        @media (max-width: 768px) {
+            .back-to-tracker span:nth-child(2) {
+                display: none;
+            }
+            .back-to-tracker {
+                padding: 0.6rem 1rem;
+                gap: 0;
+            }
+        }
+    </style>
 </head>
 <body>
     <button type="button" class="dark-mode-toggle" onclick="toggleDarkMode()">
@@ -36,7 +76,7 @@
                 <span style="display: inline-flex; align-items: center; justify-content: center; width: 45px; height: 45px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 50%; font-size: 1.5rem; font-weight: 700; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3); transition: all 0.3s ease;">A</span>
                 <span style="font-weight: 700; font-size: 1.3rem; color: #333;">jaya</span>
             </a>
-            <button type="button" class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu"><span class="sr-only">Toggle menu</span>☰</button>
+            <button type="button" class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Menu"><span class="sr-only"></span>☰</button>
             <div id="mobile-menu" class="desktop-menu" style="gap: 2rem; align-items: center;">
                 <a href="#architecture" class="nav-link" style="text-decoration: none; color: #555; font-weight: 500; font-size: 1rem; padding: 0.5rem 1rem; border-radius: 8px; transition: all 0.3s; white-space: nowrap;">Architecture</a>
                 <a href="#device-tree-examples" class="nav-link" style="text-decoration: none; color: #555; font-weight: 500; font-size: 1rem; padding: 0.5rem 1rem; border-radius: 8px; transition: all 0.3s; white-space: nowrap;">Device Tree Examples</a>
@@ -3294,13 +3334,11 @@
     </script>
 
     <!-- Back to Tracker Button (Below Navbar) -->
-    <a href="../index.html" style="position: fixed; top: 90px; left: 2rem; z-index: 998; display: flex; align-items: center; gap: 0.5rem; text-decoration: none; padding: 0.6rem 1.2rem; background: var(--card-bg); border-radius: 50px; transition: all 0.3s ease; border: 1px solid rgba(102, 126, 234, 0.2); box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); backdrop-filter: blur(10px);" 
-       onmouseover="this.style.transform='translateX(-3px)'; this.style.boxShadow='0 4px 15px rgba(102, 126, 234, 0.3)'" 
-       onmouseout="this.style.transform='translateX(0)'; this.style.boxShadow='0 2px 10px rgba(0, 0, 0, 0.1)'">
-        <span style="font-size: 1.1rem; color: #667eea;">←</span>
-        <span style="font-weight: 600; color: #667eea; font-size: 0.9rem;">Back to Tracker</span>
-    </a>
+    <nav aria-label="Breadcrumb navigation">
+    <a href="../index.html" class="back-to-tracker"><span>←</span><span>Back to Tracker</span></a>
+    </nav>
 
+    <main>
     <div class="container">
         <!-- Header -->
         <header class="header" style="margin-top: 1rem;">
@@ -3345,7 +3383,7 @@ graph TB
 
         <!-- Info Callout -->
         <div class="info-callout">
-            <h4>📘 About This Guide</h4>
+            <h3>📘 About This Guide</h3>
             <p>This comprehensive reference documents all PS-GEM (Processing System Gigabit Ethernet MAC) device tree configurations for the ZCU102 evaluation board across multiple Vivado/PetaLinux versions. Use the interactive sections below to explore each pathway, view actual device tree nodes, and understand the complete signal chain from software to hardware.</p>
         </div>
 
@@ -3367,7 +3405,7 @@ graph TB
                         <span class="flow-node">RJ45</span>
                     </div>
                 </div>
-                <h4 style="margin-top: 1.5rem; margin-bottom: 0.5rem;">Technical Specifications</h4>
+                <h3 style="margin-top: 1.5rem; margin-bottom: 0.5rem;">Technical Specifications</h3>
                 <ul class="specs-list">
                     <li><strong>Interface:</strong> RGMII (Reduced Gigabit Media Independent Interface)</li>
                     <li><strong>PHY Type:</strong> TI DP83867 (10/100/1000BASE-T)</li>
@@ -3415,7 +3453,7 @@ graph TB
                         <span class="flow-node">SFP+</span>
                     </div>
                 </div>
-                <h4 style="margin-top: 1.5rem; margin-bottom: 0.5rem;">Technical Specifications</h4>
+                <h3 style="margin-top: 1.5rem; margin-bottom: 0.5rem;">Technical Specifications</h3>
                 <ul class="specs-list">
                     <li><strong>Interface:</strong> GMII via EMIO (Extensible MIO)</li>
                     <li><strong>PL IP:</strong> 1G/2.5G Ethernet PCS/PMA or SGMII</li>
@@ -3468,7 +3506,7 @@ graph TB
                         <span class="flow-node">SFP+</span>
                     </div>
                 </div>
-                <h4 style="margin-top: 1.5rem; margin-bottom: 0.5rem;">Technical Specifications</h4>
+                <h3 style="margin-top: 1.5rem; margin-bottom: 0.5rem;">Technical Specifications</h3>
                 <ul class="specs-list">
                     <li><strong>Interface:</strong> Native PS-GTR transceiver</li>
                     <li><strong>Protocol:</strong> 1000BASE-X or SGMII over GTR</li>
@@ -3513,13 +3551,13 @@ graph TB
         <!-- Device Tree Examples Section -->
         <section id="device-tree-examples" class="code-section" style="scroll-margin-top: 90px;">
             <h2 style="text-align: center;">📄 Device Tree Node Examples</h2>
-            <p class="mb-2" style="color: var(--text-light); text-align: center;">Real device tree snippets from ZCU102 reference designs (2024.2). <a href="#data-browser" style="color: #667eea; text-decoration: underline; font-weight: 600;">Scroll below</a> to browse all versions and designs with complete device trees.</p>
+            <p class="mb-2" style="color: var(--text-light); text-align: center;">Real device tree snippets from ZCU102 reference designs (2024.2). <a href="#data-browser" style="color: #3949ab; text-decoration: underline; font-weight: 600;">Scroll below</a> to browse all versions and designs with complete device trees.</p>
 
             <!-- Important Note -->
             <div style="background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%); border-left: 6px solid #ff0000; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 6px 20px rgba(255, 0, 0, 0.3); animation: pulse 2s ease-in-out infinite;">
-                <h4 style="color: white; margin: 0 0 0.75rem 0; font-size: 1.2rem; display: flex; align-items: center; gap: 0.5rem;">
+                <h3 style="color: white; margin: 0 0 0.75rem 0; font-size: 1.2rem; display: flex; align-items: center; gap: 0.5rem;">
                     <span style="font-size: 1.5rem;">⚠️</span> IMPORTANT: Final Device Tree Source
-                </h4>
+                </h3>
                 <p style="color: white; margin: 0; line-height: 1.6; font-weight: 500;">
                     The device tree code shown on this page represents the <strong>FINAL compiled output</strong> from the <code style="background: rgba(0,0,0,0.3); padding: 0.2rem 0.5rem; border-radius: 4px;">system.dtb</code> file. These nodes are the result of PetaLinux build process which combines base device trees with custom overrides from <code style="background: rgba(0,0,0,0.3); padding: 0.2rem 0.5rem; border-radius: 4px;">system-user.dtsi</code>. 
                     To understand the full device tree override required for each design, please visit the 
@@ -3695,7 +3733,7 @@ graph TB
             <p class="mb-2" style="color: var(--text-light); text-align: center;">Device tree data availability for each design across Vivado/PetaLinux versions. ✓ = Available, ✗ = Not Available</p>
             
             <div style="overflow-x: auto;">
-                <table class="matrix-table" style="margin: 0 auto;">
+                <table class="matrix-table" style="margin: 0 auto;" tabindex="0">
                     <thead>
                         <tr>
                             <th scope="col">Design Type</th>
@@ -3795,7 +3833,7 @@ graph TB
             </div>
 
             <div class="info-callout mt-2">
-                <h4>📌 Note on Device Tree Availability</h4>
+                <h3>📌 Note on Device Tree Availability</h3>
                 <p>All six design types are available in the ZCU102-Ethernet repository for all versions shown. This matrix indicates which device tree data has been successfully parsed and is available for browsing below. Missing entries (✗) may be due to incomplete parsing, missing DTS files, or configurations not yet extracted.</p>
                 <p style="margin-top: 1rem;">📦 <strong>Source Repository:</strong> <a href="https://github.com/ajayadaha1/ZCU102-Ethernet" target="_blank" style="color: white; text-decoration: underline;">ZCU102-Ethernet on GitHub</a></p>
             </div>
@@ -3808,7 +3846,7 @@ graph TB
             
             <!-- TODO Note -->
             <div class="info-callout" style="margin: 1.5rem auto; max-width: 800px;">
-                <h4>📋 TODO</h4>
+                <h3>📋 TODO</h3>
                 <p>Add a ZIP file download option to allow users to download all DTS files at once.</p>
             </div>
             
@@ -3816,20 +3854,20 @@ graph TB
                 <div class="filter-controls">
                 <div class="filter-grid">
                     <div class="filter-item">
-                        <label>📅 Version:</label>
-                        <select id="versionFilter" onchange="renderFilteredData()">
+                        <label for="versionFilter">📅 Version:</label>
+                        <select id="versionFilter" aria-label="Filter by version" onchange="renderFilteredData()">
                             <option value="">All Versions</option>
                         </select>
                     </div>
                     <div class="filter-item">
-                        <label>🎨 Design:</label>
-                        <select id="designFilter" onchange="renderFilteredData()">
+                        <label for="designFilter">🎨 Design:</label>
+                        <select id="designFilter" aria-label="Filter by design" onchange="renderFilteredData()">
                             <option value="">All Designs</option>
                         </select>
                     </div>
                     <div class="filter-item">
-                        <label>🔌 Type:</label>
-                        <select id="typeFilter" onchange="renderFilteredData()">
+                        <label for="typeFilter">🔌 Type:</label>
+                        <select id="typeFilter" aria-label="Filter by type" onchange="renderFilteredData()">
                             <option value="">All Types</option>
                             <option value="ps_gem">PS GEM</option>
                             <option value="pl_ethernet">PL Ethernet</option>
@@ -3851,7 +3889,7 @@ graph TB
             <h2 style="text-align: center; margin-bottom: 2rem;">🎯 Other Development Boards - Ethernet Reference</h2>
             
             <!-- Category: Zynq-7000 Series -->
-            <h3 style="margin-top: 2rem; color: #ff6b6b; padding-left: 1rem; border-left: 4px solid #ff6b6b;">🔹 Zynq-7000 SoC Boards</h3>
+            <h3 style="margin-top: 2rem; color: #c62828; padding-left: 1rem; border-left: 4px solid #c62828;">🔹 Zynq-7000 SoC Boards</h3>
             
             <!-- ZC706 -->
             <div class="expandable" id="zc706-section">
@@ -3931,7 +3969,7 @@ graph TB
             </div>
 
             <!-- Category: Kintex UltraScale+ -->
-            <h3 style="margin-top: 3rem; color: #4ecdc4; padding-left: 1rem; border-left: 4px solid #4ecdc4;">🔹 Kintex UltraScale+ FPGA Boards</h3>
+            <h3 style="margin-top: 3rem; color: #00796b; padding-left: 1rem; border-left: 4px solid #00796b;">🔹 Kintex UltraScale+ FPGA Boards</h3>
             
             <!-- KCU105 -->
             <div class="expandable" id="kcu105-section">
@@ -4038,7 +4076,7 @@ graph TB
             </div>
 
             <!-- Category: Virtex UltraScale+ -->
-            <h3 style="margin-top: 3rem; color: #f39c12; padding-left: 1rem; border-left: 4px solid #f39c12;">🔶 Virtex UltraScale+ FPGA Boards</h3>
+            <h3 style="margin-top: 3rem; color: #e65100; padding-left: 1rem; border-left: 4px solid #e65100;">🔶 Virtex UltraScale+ FPGA Boards</h3>
             
             <!-- VCU118 -->
             <div class="expandable" id="vcu118-section">
@@ -4146,7 +4184,7 @@ graph TB
             </div>
 
             <!-- Category: Kria Adaptive SOMs -->
-            <h3 style="margin-top: 3rem; color: #00bcd4; padding-left: 1rem; border-left: 4px solid #00bcd4;">🔹 Kria Adaptive SOMs</h3>
+            <h3 style="margin-top: 3rem; color: #006064; padding-left: 1rem; border-left: 4px solid #006064;">🔹 Kria Adaptive SOMs</h3>
             
             <!-- KR260 Kria SOM -->
             <div class="expandable" id="kr260-section">
@@ -4307,7 +4345,7 @@ graph TB
             </div>
 
             <!-- Category: Zynq UltraScale+ MPSoC Boards -->
-            <h3 style="margin-top: 3rem; color: #667eea; padding-left: 1rem; border-left: 4px solid #667eea;">🔷 Zynq UltraScale+ MPSoC Evaluation Boards</h3>
+            <h3 style="margin-top: 3rem; color: #3949ab; padding-left: 1rem; border-left: 4px solid #3949ab;">🔷 Zynq UltraScale+ MPSoC Evaluation Boards</h3>
             
             <!-- ZCU104 -->
             <div class="expandable" id="zcu104-section">
@@ -4527,7 +4565,7 @@ graph TB
             </div>
 
             <!-- Category: Versal ACAP Boards -->
-            <h3 style="margin-top: 3rem; color: #9c27b0; padding-left: 1rem; border-left: 4px solid #9c27b0;">🔶 Versal ACAP Evaluation Boards</h3>
+            <h3 style="margin-top: 3rem; color: #6a1b9a; padding-left: 1rem; border-left: 4px solid #6a1b9a;">🔶 Versal ACAP Evaluation Boards</h3>
             
             <!-- VCK190 -->
             <div class="expandable" id="vck190-section">
@@ -5010,6 +5048,7 @@ testpmd -l 0-7 -n 4 -- -i \
             }
         });
     </script>
+    </main>
 </body>
 </html>
 

@@ -23,6 +23,16 @@ test.describe('Index Page (Main Tracker)', () => {
     const count = await navLinks.count();
     expect(count).toBeGreaterThan(0);
     
+    // Check if mobile menu toggle is visible (mobile view)
+    const mobileToggle = page.locator('.mobile-menu-toggle');
+    const isMobile = await mobileToggle.isVisible();
+    
+    if (isMobile) {
+      // On mobile, open the hamburger menu first
+      await mobileToggle.click();
+      await page.waitForTimeout(300);
+    }
+    
     for (let i = 0; i < count; i++) {
       const link = navLinks.nth(i);
       await expect(link).toBeVisible();

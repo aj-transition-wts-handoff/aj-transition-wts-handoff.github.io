@@ -221,7 +221,7 @@
 
         .section-title {
             font-size: 1.2rem;
-            color: #764ba2;
+            color: #38006b !important;
             font-weight: 600;
             margin-bottom: 1rem;
             display: flex;
@@ -229,13 +229,13 @@
         }
 
         body.dark-mode .section-title {
-            color: #9066c0;
+            color: #f3e5f5 !important;
         }
 
         .section-title::before {
             content: '▸';
             margin-right: 0.5rem;
-            color: #667eea;
+            color: #3949ab;
             font-size: 1.4rem;
         }
 
@@ -333,25 +333,35 @@
             border-radius: 8px;
             margin-top: 1rem;
             font-size: 0.95rem;
+            color: #000000; /* Ensure dark text on light background */
+        }
+
+        .note-box ul, .note-box li {
+            color: #000000; /* Ensure dark text for list items */
         }
 
         body.dark-mode .note-box {
-            background: rgba(255, 243, 205, 0.15);
-            border-left-color: #ffd43b;
-            color: var(--text-color);
+            background: #4a4227;
+            border-left-color: #ffb84d;
+            color: #ffd699;
+        }
+
+        body.dark-mode .note-box ul,
+        body.dark-mode .note-box li {
+            color: #ffd699;
         }
 
         .note-box strong {
-            color: #f59f00;
+            color: #856404;
         }
 
         body.dark-mode .note-box strong {
-            color: #ffd43b;
+            color: #ffd699;
         }
 
         .code-snippet {
-            background: #2d3748;
-            color: #a0aec0;
+            background: #1a1a1a !important;
+            color: #ffffff !important;
             padding: 1rem;
             border-radius: 8px;
             font-family: 'Courier New', monospace;
@@ -362,7 +372,7 @@
         }
 
         .code-snippet code {
-            color: #68d391;
+            color: #ffffff !important;
             white-space: pre;
         }
 
@@ -570,8 +580,8 @@
         }
 
         .accordion-header {
-            background: #667eea;
-            color: white;
+            background: #0d47a1 !important;
+            color: white !important;
             padding: 1rem;
             border-radius: 8px;
             cursor: pointer;
@@ -581,15 +591,17 @@
         }
 
         body.dark-mode .accordion-header {
-            background: #7c90f5;
+            background: #5e97f6;
+            color: #000000;
         }
 
         .accordion-header:hover {
-            background: #764ba2;
+            background: #4a148c;
         }
 
         body.dark-mode .accordion-header:hover {
-            background: #9066c0;
+            background: #90caf9;
+            color: #000000;
         }
 
         .accordion-content {
@@ -640,11 +652,14 @@
         ↑
     </button>
 
-    <a href="../index.html" class="back-button">
-        <span>←</span>
-        <span>Back to Tracker</span>
-    </a>
+    <nav aria-label="Breadcrumb navigation">
+        <a href="../index.html" class="back-button">
+            <span>←</span>
+            <span>Back to Tracker</span>
+        </a>
+    </nav>
 
+    <main>
     <div class="container">
         <header style="margin-top: 3rem;">
             <h1>🔧 Ethernet Debug Playbook</h1>
@@ -1139,5 +1154,6 @@ cat /proc/interrupts | grep dma</code>
             });
         }
     </script>
+    </main>
 </body>
 </html>
