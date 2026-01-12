@@ -1,0 +1,41 @@
+{
+  "name": "wts-notes-qa-automation",
+  "version": "1.0.0",
+  "description": "QA automation testing for WTS Notes HTML pages",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:debug": "playwright test --debug",
+    "test:ui": "playwright test --ui",
+    "test:chromium": "playwright test --project=chromium",
+    "test:firefox": "playwright test --project=firefox",
+    "test:webkit": "playwright test --project=webkit",
+    "test:mobile": "playwright test tests/mobile.spec.js",
+    "test:accessibility": "playwright test tests/accessibility.spec.js",
+    "test:visual": "playwright test tests/visual-regression.spec.js",
+    "test:common": "playwright test tests/common-features.spec.js",
+    "test:report": "playwright show-report",
+    "server": "http-server -p 8080",
+    "validate:html": "html-validate \"*.html\"",
+    "lint:html": "htmlhint \"*.html\"",
+    "lighthouse": "node scripts/lighthouse-all.js"
+  },
+  "devDependencies": {
+    "@axe-core/cli": "^4.8.0",
+    "@axe-core/playwright": "^4.8.0",
+    "@playwright/test": "^1.40.0",
+    "@types/node": "^20.10.0",
+    "html-validate": "^8.7.0",
+    "htmlhint": "^1.1.4",
+    "http-server": "^14.1.1",
+    "lighthouse": "^11.4.0",
+    "playwright": "^1.40.0"
+  },
+  "keywords": [
+    "testing",
+    "qa",
+    "automation",
+    "playwright",
+    "accessibility"
+  ]
+}

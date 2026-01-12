@@ -1,0 +1,12 @@
+node_modules
+.venv
+playwright-report/
+test-results/
+lighthouse-reports/
+.DS_Store
+Thumbs.db
+*.log
+test-results.json
+test-results.xml
+package-lock.json
+node_modules/
