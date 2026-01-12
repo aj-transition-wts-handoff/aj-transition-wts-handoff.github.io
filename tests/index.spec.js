@@ -6,7 +6,7 @@ test.describe('Index Page (Main Tracker)', () => {
   });
 
   test('page loads successfully', async ({ page }) => {
-    await expect(page).toHaveTitle(/Ajaya/);
+    await expect(page).toHaveTitle(/Role Transition Tracker/);
   });
 
   test('dark mode toggle works', async ({ page }) => {
@@ -43,7 +43,7 @@ test.describe('Index Page (Main Tracker)', () => {
     if (await menuToggle.isVisible()) {
       await menuToggle.click();
       const menu = page.locator('#mobile-menu');
-      await expect(menu).toHaveClass(/show/);
+      await expect(menu).toHaveClass(/mobile-menu-open/);
     }
   });
 

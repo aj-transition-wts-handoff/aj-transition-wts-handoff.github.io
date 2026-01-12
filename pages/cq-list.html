@@ -595,12 +595,12 @@
 <body>
     <a href="../index.html" class="back-button"><span>←</span><span>Back to Tracker</span></a>
     
-    <button class="dark-mode-toggle" onclick="toggleDarkMode()">
+    <button type="button" class="dark-mode-toggle" onclick="toggleDarkMode()">
         <span id="darkModeIcon">🌙</span>
         <span id="darkModeText">Dark Mode</span>
     </button>
 
-    <button class="scroll-to-top" onclick="scrollToTop()">↑</button>
+    <button type="button" class="scroll-to-top" onclick="scrollToTop()">↑</button>
 
     <div class="nav-spacer" style="height: 70px;"></div>
 
@@ -634,10 +634,10 @@
         </div>
 
         <div class="filter-buttons">
-            <button class="filter-btn active" onclick="filterCQs('all')">All Questions</button>
-            <button class="filter-btn" onclick="filterCQs('2023')">2023</button>
-            <button class="filter-btn" onclick="filterCQs('2024')">2024</button>
-            <button class="filter-btn" onclick="filterCQs('2025')">2025</button>
+            <button type="button" class="filter-btn active" onclick="filterCQs('all')">All Questions</button>
+            <button type="button" class="filter-btn" onclick="filterCQs('2023')">2023</button>
+            <button type="button" class="filter-btn" onclick="filterCQs('2024')">2024</button>
+            <button type="button" class="filter-btn" onclick="filterCQs('2025')">2025</button>
         </div>
 
         <div class="cq-grid" id="cqGrid"></div>

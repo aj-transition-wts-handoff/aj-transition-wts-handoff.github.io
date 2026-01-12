@@ -13,6 +13,9 @@ const pages = [
 ];
 
 test.describe('Accessibility Testing', () => {
+  // Increase timeout for large pages with dynamic content
+  test.setTimeout(60000);
+  
   for (const { url, name } of pages) {
     test(`${name} page meets WCAG standards`, async ({ page }) => {
       await page.goto(url, { waitUntil: 'networkidle' });

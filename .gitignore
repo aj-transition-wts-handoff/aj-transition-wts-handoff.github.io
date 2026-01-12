@@ -8,4 +8,5 @@ Thumbs.db
 *.log
 test-results.json
 test-results.xml
-package-lock.json
+node_modules/
+tests/

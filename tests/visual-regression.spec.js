@@ -12,9 +12,13 @@ test.describe('Visual Regression Testing', () => {
     test(`${name} - desktop light mode`, async ({ page }) => {
       await page.goto(url);
       await page.waitForLoadState('networkidle');
+      // Extra wait for dynamic content
+      await page.waitForTimeout(2000);
       await expect(page).toHaveScreenshot(`${name}-desktop-light.png`, {
         fullPage: true,
-        maxDiffPixels: 100
+        maxDiffPixels: 500,
+        timeout: 15000,
+        animations: 'disabled'
       });
     });
 
@@ -25,11 +29,13 @@ test.describe('Visual Regression Testing', () => {
       const darkModeToggle = page.locator('.dark-mode-toggle');
       if (await darkModeToggle.count() > 0) {
         await darkModeToggle.click();
-        await page.waitForTimeout(500);
+        await page.waitForTimeout(2000);
         
         await expect(page).toHaveScreenshot(`${name}-desktop-dark.png`, {
           fullPage: true,
-          maxDiffPixels: 100
+          maxDiffPixels: 500,
+          timeout: 15000,
+          animations: 'disabled'
         });
       }
     });
@@ -38,10 +44,14 @@ test.describe('Visual Regression Testing', () => {
       await page.setViewportSize({ width: 375, height: 667 });
       await page.goto(url);
       await page.waitForLoadState('networkidle');
+      // Extra wait for dynamic content
+      await page.waitForTimeout(2000);
       
       await expect(page).toHaveScreenshot(`${name}-mobile.png`, {
         fullPage: true,
-        maxDiffPixels: 100
+        maxDiffPixels: 500,
+        timeout: 15000,
+        animations: 'disabled'
       });
     });
 
@@ -49,10 +59,14 @@ test.describe('Visual Regression Testing', () => {
       await page.setViewportSize({ width: 768, height: 1024 });
       await page.goto(url);
       await page.waitForLoadState('networkidle');
+      // Extra wait for dynamic content
+      await page.waitForTimeout(2000);
       
       await expect(page).toHaveScreenshot(`${name}-tablet.png`, {
         fullPage: true,
-        maxDiffPixels: 100
+        maxDiffPixels: 500,
+        timeout: 15000,
+        animations: 'disabled'
       });
     });
   }

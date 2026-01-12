@@ -814,12 +814,19 @@
             updateDarkModeUI(isDarkMode);
         }
 
-        // Load dark mode state on page load
-        window.addEventListener('DOMContentLoaded', loadDarkMode);
-
-        // Initialize
-        renderARs(arData);
-        applyUrlFilter();
+        // Load dark mode state and initialize on page load
+        window.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM loaded, arData:', arData);
+            console.log('arData length:', arData ? arData.length : 'undefined');
+            loadDarkMode();
+            // Initialize AR rendering (updateStats is called inside renderARs)
+            if (typeof arData !== 'undefined' && arData.length > 0) {
+                renderARs(arData);
+                applyUrlFilter();
+            } else {
+                console.error('arData is not loaded or empty');
+            }
+        });
 
         // Scroll to top functionality
         window.addEventListener('scroll', function() {

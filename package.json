@@ -16,8 +16,8 @@
     "test:common": "playwright test tests/common-features.spec.js",
     "test:report": "playwright show-report",
     "server": "http-server -p 8080",
-    "validate:html": "html-validate \"*.html\"",
-    "lint:html": "htmlhint \"*.html\"",
+    "validate:html": "html-validate \"*.html\" \"pages/*.html\"",
+    "lint:html": "htmlhint \"*.html\" \"pages/*.html\"",
     "lighthouse": "node scripts/lighthouse-all.js"
   },
   "devDependencies": {
