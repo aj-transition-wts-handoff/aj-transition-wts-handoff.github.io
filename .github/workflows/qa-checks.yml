@@ -19,6 +19,7 @@ jobs:
         with:
           root: ./
           css: false
+          blacklist: backup node_modules .git
           extra: --ignore-re 'Attribute.*not allowed'
 
   link-check:
@@ -30,7 +31,7 @@ jobs:
       - name: Check Links in All Pages
         uses: lycheeverse/lychee-action@v1
         with:
-          args: --verbose --no-progress --accept 200,403,429 './**/*.html'
+          args: --verbose --no-progress --accept 200,403,429 --exclude-path backup --exclude-path node_modules './**/*.html'
           fail: true
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
@@ -82,8 +83,7 @@ jobs:
       
       - name: Install Dependencies
         run: |
-          npm init -y
-          npm install -D @playwright/test playwright
+          npm ci
           npx playwright install --with-deps
       
       - name: Start Server
@@ -114,9 +114,7 @@ jobs:
           node-version: '18'
       
       - name: Install Dependencies
-        run: |
-          npm init -y
-          npm install -D @axe-core/cli http-server
+        run: npm ci
       
       - name: Start Server
         run: |
@@ -148,10 +146,9 @@ jobs:
         with:
           node-version: '18'
       
-      - name: Install Playwright
+      - name: Install Dependencies
         run: |
-          npm init -y
-          npm install -D @playwright/test
+          npm ci
           npx playwright install --with-deps ${{ matrix.browser }}
       
       - name: Start Server
@@ -174,10 +171,10 @@ jobs:
           node-version: '18'
       
       - name: Install Dependencies
-        run: |
-          npm init -y
-          npm install -D @playwright/test
-          npx playwright install --with-deps
+        run: npm ci
+      
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
       
       - name: Start Server
         run: |
