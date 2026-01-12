@@ -521,7 +521,7 @@
                 
                 // On initial load, always check hash first
                 if (!initialLoadComplete) {
-                    if (urlHash &amp;&amp; sections.some(s => s.id === urlHash)) {
+                    if (urlHash && sections.some(s => s.id === urlHash)) {
                         activeSection = urlHash;
                     } else {
                         const scrollPosition = window.scrollY;
@@ -542,7 +542,7 @@
                                         }
                                     } else {
                                         const sectionBottom = sectionTop + section.element.offsetHeight;
-                                        if (scrollPosition >= sectionTop &amp;&amp; scrollPosition < sectionBottom) {
+                                        if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
                                             activeSection = section.id;
                                             break;
                                         }
@@ -571,7 +571,7 @@
                                     }
                                 } else {
                                     const sectionBottom = sectionTop + section.element.offsetHeight;
-                                    if (scrollPosition >= sectionTop &amp;&amp; scrollPosition < sectionBottom) {
+                                    if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
                                         activeSection = section.id;
                                         break;
                                     }
@@ -700,7 +700,7 @@
             const swipeDistanceY = Math.abs(touchEndY - touchStartY);
             
             // Only trigger if horizontal swipe is greater than vertical (to allow scrolling)
-            if (Math.abs(swipeDistanceX) > swipeThreshold &amp;&amp; Math.abs(swipeDistanceX) > swipeDistanceY) {
+            if (Math.abs(swipeDistanceX) > swipeThreshold && Math.abs(swipeDistanceX) > swipeDistanceY) {
                 if (swipeDistanceX > 0) {
                     // Swiped right - go to previous slide
                     changeSlide(-1);

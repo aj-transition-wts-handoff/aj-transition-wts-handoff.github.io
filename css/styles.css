@@ -1056,11 +1056,24 @@ body.dark-mode .note {
 }
 
 .powered-by {
-    color: var(--text-color);
+    color: #1a1a1a;
     font-size: 1rem;
-    font-weight: 500;
+    font-weight: 700;
     margin: 0;
     animation: fadeIn 1s ease-in;
+}
+
+#powered-text {
+    font-weight: 800;
+    color: #000000;
+}
+
+body.dark-mode .powered-by {
+    color: var(--text-color);
+}
+
+body.dark-mode #powered-text {
+    color: var(--text-color);
 }
 
 .powered-by::before {
@@ -3193,9 +3206,69 @@ body.dark-mode .resource-card [style*="color: #888"] {
     color: #aaa !important;
 }
 
+/* Fix color contrast for resource card descriptions */
+.resource-card [style*="color: #666"] {
+    color: #555 !important;
+}
+
+body.dark-mode .resource-card [style*="color: #666"] {
+    color: #bbb !important;
+}
+
+/* Fix color contrast for all card description text */
+.resource-card div[style*="font-size: 0.85rem"][style*="color: #666"] {
+    color: #4a4a4a !important;
+}
+
+body.dark-mode .resource-card div[style*="font-size: 0.85rem"][style*="color: #666"] {
+    color: #c5c5c5 !important;
+}
+
+/* Fix color contrast for resource titles with light colors */
+.resource-title[style*="color: #2e7d32"] {
+    color: #1b5e20 !important;
+}
+
+.resource-title[style*="color: #e65100"] {
+    color: #bf360c !important;
+}
+
+.resource-title[style*="color: #1565c0"] {
+    color: #0d47a1 !important;
+}
+
+/* Fix contact section subtitle contrast */
+.contact-section > div:nth-child(1) > p[style*="opacity: 0.8"] {
+    color: #4a4a4a !important;
+    opacity: 1 !important;
+}
+
+body.dark-mode .contact-section > div:nth-child(1) > p[style*="opacity: 0.8"] {
+    color: #d0d0d0 !important;
+    opacity: 1 !important;
+}
+
 /* Design category headers */
 .category-header {
     transition: all 0.3s ease;
+}
+
+/* Fix color contrast for category header badges */
+.category-header [style*="color: white"][style*="background: #667eea"] {
+    background: #4a5ab8 !important;
+}
+
+.category-header [style*="color: white"][style*="background: #f5576c"] {
+    background: #d43549 !important;
+}
+
+/* Fix category header text contrast */
+.category-header span[style*="color: #667eea"] {
+    color: #4a5ab8 !important;
+}
+
+.category-header span[style*="color: #f5576c"] {
+    color: #d43549 !important;
 }
 
 .category-header:hover {

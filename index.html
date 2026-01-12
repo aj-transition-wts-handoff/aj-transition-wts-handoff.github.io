@@ -7,7 +7,7 @@
     <meta name="mobile-web-app-capable" content="yes">
     <title>Role Transition Tracker</title>
     <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles.css?v=20260112">
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
 </head>
 <body>
@@ -39,14 +39,15 @@
         </div>
     </nav>
 
-    <div class="container">
-        <header>
-            <h1>🚀 Role Transition Tracker</h1>
-            <p class="subtitle">AMD Ethernet Design Hub - Knowledge Transfer &amp; Handoff</p>
-        </header>
+    <main>
+        <div class="container">
+            <header>
+                <h1>🚀 Role Transition Tracker</h1>
+                <p class="subtitle">AMD Ethernet Design Hub - Knowledge Transfer &amp; Handoff</p>
+            </header>
 
-        <!-- Information Section -->
-        <div id="about" class="info-banner" style="border-radius: 20px; padding: 2.5rem; margin-bottom: 2rem; box-shadow: 0 20px 60px rgba(0,0,0,0.3); position: relative; overflow: hidden;">
+            <!-- Information Section -->
+        <section id="about" class="info-banner" style="border-radius: 20px; padding: 2.5rem; margin-bottom: 2rem; box-shadow: 0 20px 60px rgba(0,0,0,0.3); position: relative; overflow: hidden; scroll-margin-top: 100px;">
             <!-- Decorative elements -->
             <div class="info-decoration" style="position: absolute; top: -50px; right: -50px; width: 200px; height: 200px; border-radius: 50%; z-index: 0;"></div>
             <div class="info-decoration" style="position: absolute; bottom: -30px; left: -30px; width: 150px; height: 150px; border-radius: 50%; z-index: 0;"></div>
@@ -92,12 +93,12 @@
                 </div>
             </div>
         </div><!-- Key Resources &amp; Links Section -->
-        <div id="key-resources" class="resources-section" style="background: var(--card-bg); border-radius: 20px; padding: 2.5rem; box-shadow: 0 10px 40px rgba(0,0,0,0.1);">
+        <section id="key-resources" class="resources-section" style="background: var(--card-bg); border-radius: 20px; padding: 2.5rem; box-shadow: 0 10px 40px rgba(0,0,0,0.1); scroll-margin-top: 100px;">
             <div style="text-align: center; margin-bottom: 2.5rem;">
                 <h2 style="font-size: 2.5rem; margin: 0 0 0.5rem 0; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: 700;">
                     📚 Key Resources &amp; Links
                 </h2>
-                <p style="color: var(--text-color); opacity: 0.8; font-size: 1.05rem;">Essential tools, repositories, and documentation</p>
+                <p style="color: #4a4a4a; font-size: 1.05rem;">Essential tools, repositories, and documentation</p>
             </div>
 
             <div class="resource-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem;">
@@ -109,7 +110,7 @@
                     <a href="pages/ethernet-interfaces.html" class="resource-link" target="_blank" style="display: block; background: linear-gradient(135deg, rgba(0, 188, 212, 0.25) 0%, rgba(0, 151, 167, 0.25) 100%); padding: 0.8rem; border-radius: 8px; color: var(--text-color); text-decoration: none; font-weight: 600; position: relative; z-index: 1; transition: all 0.3s; border: 1px solid rgba(0, 188, 212, 0.5);">
                         Browse Ethernet Interfaces →
                     </a>
-                    <div style="margin-top: 0.8rem; font-size: 0.85rem; color: #888; position: relative; z-index: 1;">Interactive map of all 64 Ethernet device tree configurations across Vivado versions</div>
+                    <div style="margin-top: 0.8rem; font-size: 0.85rem; color: #4a4a4a; position: relative; z-index: 1;">Interactive map of all 64 Ethernet device tree configurations across Vivado versions</div>
                 </div>
 
                 <!-- Debug Playbook - Featured #2 -->
@@ -120,7 +121,7 @@
                     <a href="pages/playbook.html" class="resource-link" target="_blank" style="display: block; background: linear-gradient(135deg, rgba(76, 175, 80, 0.25) 0%, rgba(67, 160, 71, 0.25) 100%); padding: 0.8rem; border-radius: 8px; color: var(--text-color); text-decoration: none; font-weight: 600; position: relative; z-index: 1; transition: all 0.3s; border: 1px solid rgba(76, 175, 80, 0.5);">
                         View Debug Playbook →
                     </a>
-                    <div style="margin-top: 0.8rem; font-size: 0.85rem; color: #888; position: relative; z-index: 1;">Quick reference guide for MRMAC/DCMAC &amp; 10G/25G Ethernet Subsystem debugging</div>
+                    <div style="margin-top: 0.8rem; font-size: 0.85rem; color: #4a4a4a; position: relative; z-index: 1;">Quick reference guide for MRMAC/DCMAC &amp; 10G/25G Ethernet Subsystem debugging</div>
                 </div>
 
                 <!-- Cases Dashboard - Featured #3 -->
@@ -131,7 +132,7 @@
                     <a href="pages/cases-dashboard.html" class="resource-link" target="_blank" style="display: block; background: linear-gradient(135deg, rgba(255, 152, 0, 0.25) 0%, rgba(245, 124, 0, 0.25) 100%); padding: 0.8rem; border-radius: 8px; color: var(--text-color); text-decoration: none; font-weight: 600; position: relative; z-index: 1; transition: all 0.3s; border: 1px solid rgba(255, 152, 0, 0.5);">
                         View Cases Dashboard →
                     </a>
-                    <div style="margin-top: 0.8rem; font-size: 0.85rem; color: #888; position: relative; z-index: 1;">Visualize and track Ethernet support cases by year, severity, and status</div>
+                    <div style="margin-top: 0.8rem; font-size: 0.85rem; color: #4a4a4a; position: relative; z-index: 1;">Visualize and track Ethernet support cases by year, severity, and status</div>
                 </div>
 
                 <!-- AR Database - Featured #4 -->
@@ -142,7 +143,7 @@
                     <a href="pages/ar-list.html" class="resource-link" target="_blank" style="display: block; background: linear-gradient(135deg, rgba(244, 67, 54, 0.25) 0%, rgba(229, 57, 53, 0.25) 100%); padding: 0.8rem; border-radius: 8px; color: var(--text-color); text-decoration: none; font-weight: 600; position: relative; z-index: 1; transition: all 0.3s; border: 1px solid rgba(244, 67, 54, 0.5);">
                         View Complete AR Database →
                     </a>
-                    <div style="margin-top: 0.8rem; font-size: 0.85rem; color: #888; position: relative; z-index: 1;">Comprehensive collection of ARs written by AJ for Ethernet debugging and configuration</div>
+                    <div style="margin-top: 0.8rem; font-size: 0.85rem; color: #4a4a4a; position: relative; z-index: 1;">Comprehensive collection of ARs written by AJ for Ethernet debugging and configuration</div>
                 </div>
 
                 <!-- CR Database - Featured #5 -->
@@ -153,7 +154,7 @@
                     <a href="pages/cr-list.html" class="resource-link" target="_blank" style="display: block; background: linear-gradient(135deg, rgba(63, 81, 181, 0.25) 0%, rgba(57, 73, 171, 0.25) 100%); padding: 0.8rem; border-radius: 8px; color: var(--text-color); text-decoration: none; font-weight: 600; position: relative; z-index: 1; transition: all 0.3s; border: 1px solid rgba(63, 81, 181, 0.5);">
                         View Complete CR Database →
                     </a>
-                    <div style="margin-top: 0.8rem; font-size: 0.85rem; color: #888; position: relative; z-index: 1;">Detailed database of all change requests filed by AJ for Ethernet improvements</div>
+                    <div style="margin-top: 0.8rem; font-size: 0.85rem; color: #4a4a4a; position: relative; z-index: 1;">Detailed database of all change requests filed by AJ for Ethernet improvements</div>
                 </div>
 
                 <!-- CQ Database - Featured #6 -->
@@ -164,7 +165,7 @@
                     <a href="pages/cq-list.html" class="resource-link" target="_blank" style="display: block; background: linear-gradient(135deg, rgba(156, 39, 176, 0.25) 0%, rgba(123, 31, 162, 0.25) 100%); padding: 0.8rem; border-radius: 8px; color: var(--text-color); text-decoration: none; font-weight: 600; position: relative; z-index: 1; transition: all 0.3s; border: 1px solid rgba(156, 39, 176, 0.5);">
                         View Complete CQ Database →
                     </a>
-                    <div style="margin-top: 0.8rem; font-size: 0.85rem; color: #888; position: relative; z-index: 1;">Collection of community forum questions answered by AJ about Ethernet issues</div>
+                    <div style="margin-top: 0.8rem; font-size: 0.85rem; color: #4a4a4a; position: relative; z-index: 1;">Collection of community forum questions answered by AJ about Ethernet issues</div>
                 </div>
 
                 <!-- AJ's Versal Ethernet Repo - Featured #7 -->
@@ -175,7 +176,7 @@
                     <a href="https://github.com/ajayadaha1/Versal-Ethernet" class="resource-link" target="_blank" style="display: block; background: linear-gradient(135deg, rgba(33, 150, 243, 0.25) 0%, rgba(30, 136, 229, 0.25) 100%); padding: 0.8rem; border-radius: 8px; color: var(--text-color); text-decoration: none; font-weight: 600; position: relative; z-index: 1; transition: all 0.3s; border: 1px solid rgba(33, 150, 243, 0.5);">
                         GitHub - ajayadaha1/Versal-Ethernet →
                     </a>
-                    <div style="margin-top: 0.8rem; font-size: 0.85rem; color: #888; position: relative; z-index: 1;">Comprehensive Versal Ethernet examples and configurations</div>
+                    <div style="margin-top: 0.8rem; font-size: 0.85rem; color: #4a4a4a; position: relative; z-index: 1;">Comprehensive Versal Ethernet examples and configurations</div>
                 </div>
 
                 <!-- ZCU102 Ethernet Repo - Featured #8 -->
@@ -186,7 +187,7 @@
                     <a href="https://github.com/ajayadaha1/ZCU102-Ethernet" class="resource-link" target="_blank" style="display: block; background: linear-gradient(135deg, rgba(255, 87, 34, 0.25) 0%, rgba(244, 67, 54, 0.25) 100%); padding: 0.8rem; border-radius: 8px; color: var(--text-color); text-decoration: none; font-weight: 600; position: relative; z-index: 1; transition: all 0.3s; border: 1px solid rgba(255, 87, 34, 0.5);">
                         GitHub - ajayadaha1/ZCU102-Ethernet →
                     </a>
-                    <div style="margin-top: 0.8rem; font-size: 0.85rem; color: #888; position: relative; z-index: 1;">Complete ZCU102 Ethernet examples (replaces XAPP1305)</div>
+                    <div style="margin-top: 0.8rem; font-size: 0.85rem; color: #4a4a4a; position: relative; z-index: 1;">Complete ZCU102 Ethernet examples (replaces XAPP1305)</div>
                 </div>
 
                 <!-- Boardfarm Resources - Featured #9 -->
@@ -197,7 +198,7 @@
                     <a href="https://amd.atlassian.net/wiki/spaces/~ajayad/pages/500927983/XSJ+Boardfarm+-+WTS-WWG+-+Ethernet+Testing+Setup" class="resource-link" target="_blank" style="display: block; background: linear-gradient(135deg, rgba(0, 150, 136, 0.25) 0%, rgba(0, 121, 107, 0.25) 100%); padding: 0.8rem; border-radius: 8px; color: var(--text-color); text-decoration: none; font-weight: 600; position: relative; z-index: 1; transition: all 0.3s; border: 1px solid rgba(0, 150, 136, 0.5);">
                         XSJ Boardfarm - WTS-WWG - Ethernet Testing Setup →
                     </a>
-                    <div style="margin-top: 0.8rem; font-size: 0.85rem; color: #888; position: relative; z-index: 1;">Confluence page for testing setup</div>
+                    <div style="margin-top: 0.8rem; font-size: 0.85rem; color: #4a4a4a; position: relative; z-index: 1;">Confluence page for testing setup</div>
                     <div style="margin-top: 1rem; padding: 0.8rem; background: linear-gradient(135deg, rgba(0, 150, 136, 0.15) 0%, rgba(0, 121, 107, 0.15) 100%); border-radius: 8px; font-size: 0.85rem; color: var(--text-color); position: relative; z-index: 1; border-left: 4px solid #009688;">
                         💡 <strong>Note:</strong> If having an issue with the listed interface, comment on the linked CR
                     </div>
@@ -211,7 +212,7 @@
                     <a href="assets/pdf/Domain%20Knowledge.pdf" class="resource-link" target="_blank" style="display: block; background: linear-gradient(135deg, rgba(103, 58, 183, 0.25) 0%, rgba(94, 53, 177, 0.25) 100%); padding: 0.8rem; border-radius: 8px; color: var(--text-color); text-decoration: none; font-weight: 600; position: relative; z-index: 1; transition: all 0.3s; border: 1px solid rgba(103, 58, 183, 0.5);">
                         View Training Plan (PDF) →
                     </a>
-                    <div style="margin-top: 0.8rem; font-size: 0.85rem; color: #888; position: relative; z-index: 1;">Comprehensive Ethernet domain knowledge training plan for L2 engineers</div>
+                    <div style="margin-top: 0.8rem; font-size: 0.85rem; color: #4a4a4a; position: relative; z-index: 1;">Comprehensive Ethernet domain knowledge training plan for L2 engineers</div>
                 </div>
 
                 <!-- Jenkins Automation Project - Featured #11 -->
@@ -222,7 +223,7 @@
                     <a href="pages/jenkins-automation.html" class="resource-link" target="_blank" style="display: block; background: linear-gradient(135deg, rgba(255, 152, 0, 0.25) 0%, rgba(245, 124, 0, 0.25) 100%); padding: 0.8rem; border-radius: 8px; color: var(--text-color); text-decoration: none; font-weight: 600; position: relative; z-index: 1; transition: all 0.3s; border: 1px solid rgba(255, 152, 0, 0.5);">
                         View Jenkins Automation Project →
                     </a>
-                    <div style="margin-top: 0.8rem; font-size: 0.85rem; color: #888; position: relative; z-index: 1;">Automated build and testing infrastructure for Vivado, PetaLinux, and Boardfarm integration</div>
+                    <div style="margin-top: 0.8rem; font-size: 0.85rem; color: #4a4a4a; position: relative; z-index: 1;">Automated build and testing infrastructure for Vivado, PetaLinux, and Boardfarm integration</div>
                 </div>
             </div>
         </div><!-- Point of Contact Section -->
@@ -234,7 +235,7 @@
                         Point of Contact
                     </h2>
                 </div>
-                <p style="color: var(--text-color); opacity: 0.8; font-size: 1.05rem;">Key contacts for Ethernet support and resources</p>
+                <p style="color: #4a4a4a; font-size: 1.05rem;">Key contacts for Ethernet support and resources</p>
             </div>
 
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
@@ -300,8 +301,8 @@
                     </div>
                 </div>
             </div>
-        </div><!-- Key Meetings Section -->
-        <div class="meetings-section" style="background: var(--card-bg); border-radius: 20px; padding: 2.5rem; margin-bottom: 2rem; box-shadow: 0 10px 40px rgba(0,0,0,0.1);">
+        </section><!-- Key Meetings Section -->
+        <section class="meetings-section" style="background: var(--card-bg); border-radius: 20px; padding: 2.5rem; margin-bottom: 2rem; box-shadow: 0 10px 40px rgba(0,0,0,0.1);"> -->
             <div style="text-align: center; margin-bottom: 2rem;">
                 <div style="display: flex; align-items: center; justify-content: center; gap: 1rem; margin-bottom: 0.5rem;">
                     <div style="font-size: 2.5rem;">📅</div>
@@ -370,8 +371,8 @@
                     </div>
                 </div>
             </div>
-        </div><!-- Ethernet Reference Designs Section -->
-        <div id="ethernet-designs" class="ethernet-designs-section" style="background: var(--card-bg); border-radius: 20px; padding: 2.5rem; box-shadow: 0 10px 40px rgba(0,0,0,0.1); margin-bottom: 2rem;">
+        </section><!-- Ethernet Reference Designs Section -->
+        <section id="ethernet-designs" class="ethernet-designs-section" style="background: var(--card-bg); border-radius: 20px; padding: 2.5rem; box-shadow: 0 10px 40px rgba(0,0,0,0.1); margin-bottom: 2rem; scroll-margin-top: 100px;">
             <div style="text-align: center; margin-bottom: 2.5rem;">
                 <h2 style="font-size: 2.5rem; margin: 0 0 0.5rem 0; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: 700;">
                     🔧 Ethernet Reference Designs
@@ -387,16 +388,16 @@
             <div class="design-category" style="margin-bottom: 2rem;">
                 <h3 class="category-header" onclick="toggleDesignCategory(this)" style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.15) 100%); border: 2px solid #667eea; border-radius: 12px; padding: 1.2rem; cursor: pointer; user-select: none; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; transition: all 0.3s; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.2);">
                     <span class="category-icon" style="font-size: 2rem; display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 12px; color: white;">🚀</span>
-                    <span style="flex: 1; font-size: 1.4rem; font-weight: 700; color: #667eea; min-width: 200px;">Versal Designs</span>
-                    <span class="toggle-icon" style="font-size: 1.2rem; transition: transform 0.3s; color: #667eea;">▼</span>
-                    <span style="background: #667eea; color: white; padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.8rem; font-weight: 600; margin-left: 66px;">7 Projects</span>
+                    <span style="flex: 1; font-size: 1.4rem; font-weight: 700; color: #4a5ab8; min-width: 200px;">Versal Designs</span>
+                    <span class="toggle-icon" style="font-size: 1.2rem; transition: transform 0.3s; color: #4a5ab8;">▼</span>
+                    <span style="background: #3d4a99; color: white; padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.8rem; font-weight: 700; margin-left: 66px;">7 Projects</span>
                 </h3>
                 <div class="design-list" style="display: none; margin-top: 1rem; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem;">
                     <a href="https://github.com/ajayadaha1/Versal-Ethernet" class="design-item" target="_blank" style="background: var(--card-bg); border: 2px solid #e3f2fd; border-left: 4px solid #667eea; border-radius: 12px; padding: 1.2rem; transition: all 0.3s; text-decoration: none; display: flex; align-items: center; gap: 1rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
                         <div class="design-icon" style="font-size: 2rem; display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); border-radius: 10px; flex-shrink: 0;">📦</div>
                         <div class="design-info" style="flex: 1;">
                             <div class="design-name" style="font-weight: 700; font-size: 1.1rem; color: var(--text-color); margin-bottom: 0.3rem;">Versal-Ethernet</div>
-                            <div class="design-desc" style="color: #888; font-size: 0.9rem;">Comprehensive Versal Ethernet examples and configurations ⭐ 2</div>
+                            <div class="design-desc" style="color: #4a4a4a; font-size: 0.9rem;">Comprehensive Versal Ethernet examples and configurations ⭐ 2</div>
                         </div>
                         <div class="design-arrow" style="font-size: 1.5rem; color: #667eea; transition: transform 0.3s;">→</div>
                     </a>
@@ -404,7 +405,7 @@
                         <div class="design-icon" style="font-size: 2rem; display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); border-radius: 10px; flex-shrink: 0;">📦</div>
                         <div class="design-info" style="flex: 1;">
                             <div class="design-name" style="font-weight: 700; font-size: 1.1rem; color: var(--text-color); margin-bottom: 0.3rem;">VCK190 Ethernet TRD 2025.1</div>
-                            <div class="design-desc" style="color: #888; font-size: 0.9rem;">Latest VCK190 Ethernet Target Reference Design</div>
+                            <div class="design-desc" style="color: #4a4a4a; font-size: 0.9rem;">Latest VCK190 Ethernet Target Reference Design</div>
                         </div>
                         <div class="design-arrow" style="font-size: 1.5rem; color: #667eea; transition: transform 0.3s;">→</div>
                     </a>
@@ -412,7 +413,7 @@
                         <div class="design-icon" style="font-size: 2rem; display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); border-radius: 10px; flex-shrink: 0;">📦</div>
                         <div class="design-info" style="flex: 1;">
                             <div class="design-name" style="font-weight: 700; font-size: 1.1rem; color: var(--text-color); margin-bottom: 0.3rem;">VPK180 3x25G MRMAC</div>
-                            <div class="design-desc" style="color: #888; font-size: 0.9rem;">Triple 25G MRMAC implementation for VPK180</div>
+                            <div class="design-desc" style="color: #4a4a4a; font-size: 0.9rem;">Triple 25G MRMAC implementation for VPK180</div>
                         </div>
                         <div class="design-arrow" style="font-size: 1.5rem; color: #667eea; transition: transform 0.3s;">→</div>
                     </a>
@@ -420,7 +421,7 @@
                         <div class="design-icon" style="font-size: 2rem; display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); border-radius: 10px; flex-shrink: 0;">📦</div>
                         <div class="design-info" style="flex: 1;">
                             <div class="design-name" style="font-weight: 700; font-size: 1.1rem; color: var(--text-color); margin-bottom: 0.3rem;">VPK120 DCMAC 1x100G</div>
-                            <div class="design-desc" style="color: #888; font-size: 0.9rem;">100G DCMAC design for VPK120 (2023.2)</div>
+                            <div class="design-desc" style="color: #4a4a4a; font-size: 0.9rem;">100G DCMAC design for VPK120 (2023.2)</div>
                         </div>
                         <div class="design-arrow" style="font-size: 1.5rem; color: #667eea; transition: transform 0.3s;">→</div>
                     </a>
@@ -428,7 +429,7 @@
                         <div class="design-icon" style="font-size: 2rem; display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); border-radius: 10px; flex-shrink: 0;">📦</div>
                         <div class="design-info" style="flex: 1;">
                             <div class="design-name" style="font-weight: 700; font-size: 1.1rem; color: var(--text-color); margin-bottom: 0.3rem;">VCK190 1G Example Block Design</div>
-                            <div class="design-desc" style="color: #888; font-size: 0.9rem;">1G Ethernet block design example for VCK190</div>
+                            <div class="design-desc" style="color: #4a4a4a; font-size: 0.9rem;">1G Ethernet block design example for VCK190</div>
                         </div>
                         <div class="design-arrow" style="font-size: 1.5rem; color: #667eea; transition: transform 0.3s;">→</div>
                     </a>
@@ -436,7 +437,7 @@
                         <div class="design-icon" style="font-size: 2rem; display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); border-radius: 10px; flex-shrink: 0;">📦</div>
                         <div class="design-info" style="flex: 1;">
                             <div class="design-name" style="font-weight: 700; font-size: 1.1rem; color: var(--text-color); margin-bottom: 0.3rem;">VCK190 2.5G + 1G Dual SFP</div>
-                            <div class="design-desc" style="color: #888; font-size: 0.9rem;">Multi-speed SFP configuration (2.5G + 1G)</div>
+                            <div class="design-desc" style="color: #4a4a4a; font-size: 0.9rem;">Multi-speed SFP configuration (2.5G + 1G)</div>
                         </div>
                         <div class="design-arrow" style="font-size: 1.5rem; color: #667eea; transition: transform 0.3s;">→</div>
                     </a>
@@ -444,7 +445,7 @@
                         <div class="design-icon" style="font-size: 2rem; display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); border-radius: 10px; flex-shrink: 0;">📦</div>
                         <div class="design-info" style="flex: 1;">
                             <div class="design-name" style="font-weight: 700; font-size: 1.1rem; color: var(--text-color); margin-bottom: 0.3rem;">Versal Baremetal</div>
-                            <div class="design-desc" style="color: #888; font-size: 0.9rem;">Baremetal Ethernet examples for Versal</div>
+                            <div class="design-desc" style="color: #4a4a4a; font-size: 0.9rem;">Baremetal Ethernet examples for Versal</div>
                         </div>
                         <div class="design-arrow" style="font-size: 1.5rem; color: #667eea; transition: transform 0.3s;">→</div>
                     </a>
@@ -455,16 +456,16 @@
             <div class="design-category">
                 <h3 class="category-header" onclick="toggleDesignCategory(this)" style="background: linear-gradient(135deg, rgba(245, 147, 251, 0.15) 0%, rgba(245, 87, 108, 0.15) 100%); border: 2px solid #f5576c; border-radius: 12px; padding: 1.2rem; cursor: pointer; user-select: none; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; transition: all 0.3s; box-shadow: 0 4px 15px rgba(245, 87, 108, 0.2);">
                     <span class="category-icon" style="font-size: 2rem; display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); border-radius: 12px; color: white;">⚡</span>
-                    <span style="flex: 1; font-size: 1.4rem; font-weight: 700; color: #f5576c; min-width: 200px;">Zynq UltraScale+ Designs</span>
-                    <span class="toggle-icon" style="font-size: 1.2rem; transition: transform 0.3s; color: #f5576c;">▼</span>
-                    <span style="background: #f5576c; color: white; padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.8rem; font-weight: 600; margin-left: 66px;">6 Projects</span>
+                    <span style="flex: 1; font-size: 1.4rem; font-weight: 700; color: #d43549; min-width: 200px;">Zynq UltraScale+ Designs</span>
+                    <span class="toggle-icon" style="font-size: 1.2rem; transition: transform 0.3s; color: #d43549;">▼</span>
+                    <span style="background: #b32435; color: white; padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.8rem; font-weight: 700; margin-left: 66px;">6 Projects</span>
                 </h3>
                 <div class="design-list" style="display: none; margin-top: 1rem; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem;">
                     <a href="https://github.com/ajayadaha1/ZCU102-Ethernet" class="design-item" target="_blank" style="background: var(--card-bg); border: 2px solid #fce4ec; border-left: 4px solid #f5576c; border-radius: 12px; padding: 1.2rem; transition: all 0.3s; text-decoration: none; display: flex; align-items: center; gap: 1rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
                         <div class="design-icon" style="font-size: 2rem; display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%); border-radius: 10px; flex-shrink: 0;">📦</div>
                         <div class="design-info" style="flex: 1;">
                             <div class="design-name" style="font-weight: 700; font-size: 1.1rem; color: var(--text-color); margin-bottom: 0.3rem;">ZCU102-Ethernet</div>
-                            <div class="design-desc" style="color: #888; font-size: 0.9rem;">Complete ZCU102 Ethernet examples (replaces XAPP1305)</div>
+                            <div class="design-desc" style="color: #4a4a4a; font-size: 0.9rem;">Complete ZCU102 Ethernet examples (replaces XAPP1305)</div>
                         </div>
                         <div class="design-arrow" style="font-size: 1.5rem; color: #f5576c; transition: transform 0.3s;">→</div>
                     </a>
@@ -472,7 +473,7 @@
                         <div class="design-icon" style="font-size: 2rem; display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%); border-radius: 10px; flex-shrink: 0;">📦</div>
                         <div class="design-info" style="flex: 1;">
                             <div class="design-name" style="font-weight: 700; font-size: 1.1rem; color: var(--text-color); margin-bottom: 0.3rem;">ZCU670 100G CMAC</div>
-                            <div class="design-desc" style="color: #888; font-size: 0.9rem;">100G CMAC implementation for ZCU670</div>
+                            <div class="design-desc" style="color: #4a4a4a; font-size: 0.9rem;">100G CMAC implementation for ZCU670</div>
                         </div>
                         <div class="design-arrow" style="font-size: 1.5rem; color: #f5576c; transition: transform 0.3s;">→</div>
                     </a>
@@ -480,7 +481,7 @@
                         <div class="design-icon" style="font-size: 2rem; display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%); border-radius: 10px; flex-shrink: 0;">📦</div>
                         <div class="design-info" style="flex: 1;">
                             <div class="design-name" style="font-weight: 700; font-size: 1.1rem; color: var(--text-color); margin-bottom: 0.3rem;">ZCU111 Multi-Speed (1G/10G/25G)</div>
-                            <div class="design-desc" style="color: #888; font-size: 0.9rem;">Multi-rate Ethernet designs for ZCU111</div>
+                            <div class="design-desc" style="color: #4a4a4a; font-size: 0.9rem;">Multi-rate Ethernet designs for ZCU111</div>
                         </div>
                         <div class="design-arrow" style="font-size: 1.5rem; color: #f5576c; transition: transform 0.3s;">→</div>
                     </a>
@@ -488,7 +489,7 @@
                         <div class="design-icon" style="font-size: 2rem; display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%); border-radius: 10px; flex-shrink: 0;">📦</div>
                         <div class="design-info" style="flex: 1;">
                             <div class="design-name" style="font-weight: 700; font-size: 1.1rem; color: var(--text-color); margin-bottom: 0.3rem;">ZCU102 USXGMII</div>
-                            <div class="design-desc" style="color: #888; font-size: 0.9rem;">USXGMII interface implementation for ZCU102</div>
+                            <div class="design-desc" style="color: #4a4a4a; font-size: 0.9rem;">USXGMII interface implementation for ZCU102</div>
                         </div>
                         <div class="design-arrow" style="font-size: 1.5rem; color: #f5576c; transition: transform 0.3s;">→</div>
                     </a>
@@ -496,7 +497,7 @@
                         <div class="design-icon" style="font-size: 2rem; display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%); border-radius: 10px; flex-shrink: 0;">📦</div>
                         <div class="design-info" style="flex: 1;">
                             <div class="design-name" style="font-weight: 700; font-size: 1.1rem; color: var(--text-color); margin-bottom: 0.3rem;">ZCU102 Switching Core (1G/10G)</div>
-                            <div class="design-desc" style="color: #888; font-size: 0.9rem;">Ethernet switching core with multi-speed support</div>
+                            <div class="design-desc" style="color: #4a4a4a; font-size: 0.9rem;">Ethernet switching core with multi-speed support</div>
                         </div>
                         <div class="design-arrow" style="font-size: 1.5rem; color: #f5576c; transition: transform 0.3s;">→</div>
                     </a>
@@ -504,14 +505,14 @@
                         <div class="design-icon" style="font-size: 2rem; display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%); border-radius: 10px; flex-shrink: 0;">📦</div>
                         <div class="design-info" style="flex: 1;">
                             <div class="design-name" style="font-weight: 700; font-size: 1.1rem; color: var(--text-color); margin-bottom: 0.3rem;">Ethernet FMC Zynq GEM</div>
-                            <div class="design-desc" style="color: #888; font-size: 0.9rem;">Ethernet FMC examples using Zynq hard GEM</div>
+                            <div class="design-desc" style="color: #4a4a4a; font-size: 0.9rem;">Ethernet FMC examples using Zynq hard GEM</div>
                         </div>
                         <div class="design-arrow" style="font-size: 1.5rem; color: #f5576c; transition: transform 0.3s;">→</div>
                     </a>
                 </div>
             </div>
-        </div><!-- Contribution Overview Section -->
-        <div id="contribution-overview" class="contribution-section" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%); border-radius: 20px; padding: 2.5rem; box-shadow: 0 10px 40px rgba(103, 58, 183, 0.4); margin-bottom: 2rem; color: white; position: relative; overflow: hidden;">
+        </section><!-- Contribution Overview Section -->
+        <section id="contribution-overview" class="contribution-section" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%); border-radius: 20px; padding: 2.5rem; box-shadow: 0 10px 40px rgba(103, 58, 183, 0.4); margin-bottom: 2rem; color: white; position: relative; overflow: hidden; scroll-margin-top: 100px;">
             <!-- Decorative animated background elements -->
             <div style="position: absolute; top: -50px; right: -50px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, transparent 70%); border-radius: 50%; animation: pulse 4s ease-in-out infinite;"></div>
             <div style="position: absolute; bottom: -100px; left: -100px; width: 400px; height: 400px; background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%); border-radius: 50%; animation: pulse 6s ease-in-out infinite;"></div>
@@ -640,11 +641,11 @@
                 </a>
             </div>
             </div>
-        </div>
+        </section>
 
         <div class="tasks-section">
         <!-- Transition Tasks Section -->
-        <div id="transition-tasks" class="section" style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%); border: 2px solid rgba(102, 126, 234, 0.2); border-radius: 20px; padding: 2.5rem; position: relative; overflow: hidden;">
+        <section id="transition-tasks" class="section" style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%); border: 2px solid rgba(102, 126, 234, 0.2); border-radius: 20px; padding: 2.5rem; position: relative; overflow: hidden; scroll-margin-top: 100px;">
             <!-- Decorative elements -->
             <div style="position: absolute; top: -50px; right: -50px; width: 200px; height: 200px; background: radial-gradient(circle, rgba(102, 126, 234, 0.15) 0%, transparent 70%); border-radius: 50%;"></div>
             <div style="position: absolute; bottom: -30px; left: -30px; width: 150px; height: 150px; background: radial-gradient(circle, rgba(118, 75, 162, 0.15) 0%, transparent 70%); border-radius: 50%;"></div>
@@ -834,8 +835,9 @@
                 </div> <!-- End column wrapper -->
                 </div>
             </div>
+        </section>
         </div>
-    </div>
+    </main>
 
     <script>
         // Dark Mode Functions
@@ -1347,7 +1349,7 @@
     <footer class="page-footer">
         <div class="footer-content">
             <p class="last-updated">Last Updated: January 8, 2026</p>
-            <p class="powered-by">☕ <span id="powered-text">Powered by a big jar of coffee and AI</span> ✨</p>
+            <p class="powered-by" style="color: #000000;">☕ <span id="powered-text" style="color: #000000; font-weight: 900;">Powered by a big jar of coffee and AI</span> ✨</p>
         </div>
     </footer>
 
@@ -1404,5 +1406,6 @@
         }
     </script>
     </div>
+    </main>
 </body>
 </html>
