@@ -3314,21 +3314,22 @@
         <!-- Main Architecture Diagram -->
         <section id="architecture" class="diagram-section" style="scroll-margin-top: 90px;">
             <h2>🏗️ Complete System Architecture</h2>
+            <!-- html-validate-disable no-raw-characters -- Mermaid diagram syntax requires arrows -->
             <div class="mermaid">
 graph TB
-    A[ZynqMP PS<br>Processing System] --> B{GEM Controller<br>Gigabit Ethernet MAC}
+    A[ZynqMP PS<br>Processing System] --&gt; B{GEM Controller<br>Gigabit Ethernet MAC}
     
-    B -->|MIO Path| C[RGMII Interface<br>Reduced GMII]
-    B -->|EMIO Path| D[PL Logic<br>Programmable Logic]
-    B -->|GTR Path| E[PS-GTR Serdes<br>Transceiver]
+    B --&gt;|MIO Path| C[RGMII Interface<br>Reduced GMII]
+    B --&gt;|EMIO Path| D[PL Logic<br>Programmable Logic]
+    B --&gt;|GTR Path| E[PS-GTR Serdes<br>Transceiver]
     
-    C --> F[TI DP83867 PHY<br>Physical Layer IC]
-    F --> G[RJ45 Port<br>1000BASE-T]
+    C --&gt; F[TI DP83867 PHY<br>Physical Layer IC]
+    F --&gt; G[RJ45 Port<br>1000BASE-T]
     
-    D --> H[PCS/PMA IP<br>1G/2.5G Subsystem]
-    H --> I[SFP+ Cage<br>1000BASE-X/SGMII]
+    D --&gt; H[PCS/PMA IP<br>1G/2.5G Subsystem]
+    H --&gt; I[SFP+ Cage<br>1000BASE-X/SGMII]
     
-    E --> J[SFP+ Cage<br>Direct Serdes]
+    E --&gt; J[SFP+ Cage<br>Direct Serdes]
     
     style A fill:#667eea,stroke:#764ba2,stroke-width:3px,color:#fff
     style B fill:#764ba2,stroke:#667eea,stroke-width:3px,color:#fff
@@ -3339,6 +3340,7 @@ graph TB
     style I fill:#faa2c1,stroke:#f093fb,stroke-width:2px
     style J fill:#74c0fc,stroke:#4dabf7,stroke-width:2px
             </div>
+            <!-- html-validate-enable no-raw-characters -->
         </section>
 
         <!-- Info Callout -->
