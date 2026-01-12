@@ -912,9 +912,9 @@
             
             // Update task title checkmark
             const taskTitle = element.querySelector('.task-content strong');
-            if (taskTitle &amp;&amp; newCompletedState &amp;&amp; !taskTitle.textContent.startsWith('✓')) {
+            if (taskTitle && newCompletedState && !taskTitle.textContent.startsWith('✓')) {
                 taskTitle.textContent = '✓ ' + taskTitle.textContent;
-            } else if (taskTitle &amp;&amp; !newCompletedState &amp;&amp; taskTitle.textContent.startsWith('✓')) {
+            } else if (taskTitle && !newCompletedState && taskTitle.textContent.startsWith('✓')) {
                 taskTitle.textContent = taskTitle.textContent.replace('✓ ', '');
             }
             
@@ -1116,7 +1116,7 @@
                     
                     // Add checkmark to title
                     const taskTitle = task.querySelector('.task-content strong');
-                    if (taskTitle &amp;&amp; !taskTitle.textContent.startsWith('✓')) {
+                    if (taskTitle && !taskTitle.textContent.startsWith('✓')) {
                         taskTitle.textContent = '✓ ' + taskTitle.textContent;
                     }
                     
@@ -1158,7 +1158,7 @@
                     
                     // Remove checkmark from title
                     const taskTitle = task.querySelector('.task-content strong');
-                    if (taskTitle &amp;&amp; taskTitle.textContent.startsWith('✓')) {
+                    if (taskTitle && taskTitle.textContent.startsWith('✓')) {
                         taskTitle.textContent = taskTitle.textContent.replace('✓ ', '');
                     }
                     
@@ -1250,7 +1250,7 @@
                 
                 // On initial load, always check hash first
                 if (!initialLoadComplete) {
-                    if (urlHash &amp;&amp; sections.some(s => s.id === urlHash)) {
+                    if (urlHash && sections.some(s => s.id === urlHash)) {
                         // If there's a valid hash on initial load, use it
                         activeSection = urlHash;
                     } else {
@@ -1276,7 +1276,7 @@
                                     } else {
                                         // For other sections, check if we're within bounds
                                         const sectionBottom = sectionTop + section.element.offsetHeight;
-                                        if (scrollPosition >= sectionTop &amp;&amp; scrollPosition < sectionBottom) {
+                                        if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
                                             activeSection = section.id;
                                             break;
                                         }
@@ -1308,7 +1308,7 @@
                                 } else {
                                     // For other sections, check if we're within bounds
                                     const sectionBottom = sectionTop + section.element.offsetHeight;
-                                    if (scrollPosition >= sectionTop &amp;&amp; scrollPosition < sectionBottom) {
+                                    if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
                                         activeSection = section.id;
                                         break;
                                     }

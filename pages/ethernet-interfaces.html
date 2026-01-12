@@ -3293,11 +3293,6 @@
 }
     </script>
 
-    <!-- Scroll to Top Button -->
-    <button type="button" class="scroll-to-top" onclick="scrollToTop()" aria-label="Scroll to top">
-        ↑
-    </button>
-
     <!-- Back to Tracker Button (Below Navbar) -->
     <a href="../index.html" style="position: fixed; top: 90px; left: 2rem; z-index: 998; display: flex; align-items: center; gap: 0.5rem; text-decoration: none; padding: 0.6rem 1.2rem; background: var(--card-bg); border-radius: 50px; transition: all 0.3s ease; border: 1px solid rgba(102, 126, 234, 0.2); box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); backdrop-filter: blur(10px);" 
        onmouseover="this.style.transform='translateX(-3px)'; this.style.boxShadow='0 4px 15px rgba(102, 126, 234, 0.3)'" 
@@ -4911,7 +4906,7 @@ testpmd -l 0-7 -n 4 -- -i \
                 
                 // On initial load, always check hash first
                 if (!initialLoadComplete) {
-                    if (urlHash &amp;&amp; sections.some(s => s.id === urlHash)) {
+                    if (urlHash && sections.some(s => s.id === urlHash)) {
                         activeSection = urlHash;
                     } else {
                         const scrollPosition = window.scrollY;
@@ -4932,7 +4927,7 @@ testpmd -l 0-7 -n 4 -- -i \
                                         }
                                     } else {
                                         const sectionBottom = sectionTop + section.element.offsetHeight;
-                                        if (scrollPosition >= sectionTop &amp;&amp; scrollPosition < sectionBottom) {
+                                        if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
                                             activeSection = section.id;
                                             break;
                                         }
@@ -4961,7 +4956,7 @@ testpmd -l 0-7 -n 4 -- -i \
                                     }
                                 } else {
                                     const sectionBottom = sectionTop + section.element.offsetHeight;
-                                    if (scrollPosition >= sectionTop &amp;&amp; scrollPosition < sectionBottom) {
+                                    if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
                                         activeSection = section.id;
                                         break;
                                     }
