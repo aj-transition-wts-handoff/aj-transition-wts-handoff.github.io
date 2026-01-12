@@ -544,13 +544,13 @@
     </style>
 </head>
 <body>
-    <button class="dark-mode-toggle" onclick="toggleDarkMode()">
+    <button type="button" class="dark-mode-toggle" onclick="toggleDarkMode()">
         <span class="mode-icon">🌙</span>
         <span class="mode-text">Dark Mode</span>
     </button>
 
     <!-- Scroll to Top Button -->
-    <button class="scroll-to-top" onclick="scrollToTop()" aria-label="Scroll to top">
+    <button type="button" class="scroll-to-top" onclick="scrollToTop()" aria-label="Scroll to top">
         ↑
     </button>
 
@@ -586,18 +586,18 @@
                     oninput="filterCRs()"
                 >
                 <div class="filter-buttons">
-                    <button class="filter-btn active" onclick="filterByStatus('all')">All</button>
-                    <button class="filter-btn" onclick="filterByStatus('Closed')">Closed</button>
+                    <button type="button" class="filter-btn active" onclick="filterByStatus('all')">All</button>
+                    <button type="button" class="filter-btn" onclick="filterByStatus('Closed')">Closed</button>
                 </div>
             </div>
 
             <table class="cr-table">
-                <thead>
+                <th scope="col"ead>
                     <tr>
-                        <th style="width: 130px;">CR Number</th>
-                        <th>Summary</th>
-                        <th style="width: 100px;">Status</th>
-                        <th style="width: 150px;">Assignee</th>
+                        <th scope="col" style="width: 130px;">CR Number</th>
+                        <th scope="col">Summary</th>
+                        <th scope="col" style="width: 100px;">Status</th>
+                        <th scope="col" style="width: 150px;">Assignee</th>
                     </tr>
                 </thead>
                 <tbody id="crTableBody">

@@ -574,13 +574,13 @@
     </style>
 </head>
 <body>
-    <button class="dark-mode-toggle" onclick="toggleDarkMode()">
+    <button type="button" class="dark-mode-toggle" onclick="toggleDarkMode()">
         <span id="darkModeIcon">🌙</span>
         <span id="darkModeText">Dark Mode</span>
     </button>
 
     <!-- Scroll to Top Button -->
-    <button class="scroll-to-top" onclick="scrollToTop()" aria-label="Scroll to top">
+    <button type="button" class="scroll-to-top" onclick="scrollToTop()" aria-label="Scroll to top">
         ↑
     </button>
 
@@ -615,13 +615,13 @@
         </div>
 
         <div class="filter-buttons">
-            <button class="filter-btn active" onclick="filterARs('all')">All</button>
-            <button class="filter-btn" onclick="filterARs('mrmac')">MRMAC</button>
-            <button class="filter-btn" onclick="filterARs('dcmac')">DCMAC</button>
-            <button class="filter-btn" onclick="filterARs('axi')">AXI Ethernet</button>
-            <button class="filter-btn" onclick="filterARs('ps-gem')">PS-GEM</button>
-            <button class="filter-btn" onclick="filterARs('driver')">Driver Issues</button>
-            <button class="filter-btn" onclick="filterARs('dt')">Device Tree</button>
+            <button type="button" class="filter-btn active" onclick="filterARs('all')">All</button>
+            <button type="button" class="filter-btn" onclick="filterARs('mrmac')">MRMAC</button>
+            <button type="button" class="filter-btn" onclick="filterARs('dcmac')">DCMAC</button>
+            <button type="button" class="filter-btn" onclick="filterARs('axi')">AXI Ethernet</button>
+            <button type="button" class="filter-btn" onclick="filterARs('ps-gem')">PS-GEM</button>
+            <button type="button" class="filter-btn" onclick="filterARs('driver')">Driver Issues</button>
+            <button type="button" class="filter-btn" onclick="filterARs('dt')">Device Tree</button>
         </div>
 
         <!-- AR Cards will be populated here -->

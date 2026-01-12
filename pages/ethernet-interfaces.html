@@ -1,11 +1,11 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ZCU102 Ethernet Interface Architecture Map</title>
     <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&amp;display=swap" rel="stylesheet">
     
     <!-- Mermaid for Diagrams -->
     <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
@@ -19,13 +19,13 @@
     <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
-    <button class="dark-mode-toggle" onclick="toggleDarkMode()">
+    <button type="button" class="dark-mode-toggle" onclick="toggleDarkMode()">
         <span id="darkModeIcon">🌙</span>
         <span id="darkModeText">Dark Mode</span>
     </button>
 
     <!-- Scroll to Top Button -->
-    <button class="scroll-to-top" onclick="scrollToTop()" aria-label="Scroll to top">
+    <button type="button" class="scroll-to-top" onclick="scrollToTop()" aria-label="Scroll to top">
         ↑
     </button>
 
@@ -36,7 +36,7 @@
                 <span style="display: inline-flex; align-items: center; justify-content: center; width: 45px; height: 45px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 50%; font-size: 1.5rem; font-weight: 700; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3); transition: all 0.3s ease;">A</span>
                 <span style="font-weight: 700; font-size: 1.3rem; color: #333;">jaya</span>
             </a>
-            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu">☰</button>
+            <button type="button" class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu">☰</button>
             <div id="mobile-menu" class="desktop-menu" style="gap: 2rem; align-items: center;">
                 <a href="#architecture" class="nav-link" style="text-decoration: none; color: #555; font-weight: 500; font-size: 1rem; padding: 0.5rem 1rem; border-radius: 8px; transition: all 0.3s; white-space: nowrap;">Architecture</a>
                 <a href="#device-tree-examples" class="nav-link" style="text-decoration: none; color: #555; font-weight: 500; font-size: 1rem; padding: 0.5rem 1rem; border-radius: 8px; transition: all 0.3s; white-space: nowrap;">Device Tree Examples</a>
@@ -3294,11 +3294,11 @@
     </script>
 
     <!-- Dark Mode Toggle -->
-    <button class="dark-mode-toggle" onclick="toggleDarkMode()">
+    <button type="button" class="dark-mode-toggle" onclick="toggleDarkMode()">
     </button>
 
     <!-- Scroll to Top Button -->
-    <button class="scroll-to-top" onclick="scrollToTop()" aria-label="Scroll to top">
+    <button type="button" class="scroll-to-top" onclick="scrollToTop()" aria-label="Scroll to top">
         ↑
     </button>
 
@@ -3308,7 +3308,7 @@
                 <span style="display: inline-flex; align-items: center; justify-content: center; width: 45px; height: 45px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 50%; font-size: 1.5rem; font-weight: 700; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3); transition: all 0.3s ease;">A</span>
                 <span style="font-weight: 700; font-size: 1.3rem; color: #333;">jaya</span>
             </a>
-            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu">☰</button>
+            <button type="button" class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu">☰</button>
         </div>
     </nav>
 
@@ -3550,159 +3550,159 @@ graph TB
             <div class="code-block">
                 <div class="code-header">
                     <span class="code-title">📁 2024.2/ps_mio_eth_1g - PS GEM3 (MIO) with RGMII</span>
-                    <button class="copy-btn" onclick="copyCode(this, 'ps-mio-code')">Copy</button>
+                    <button type="button" class="copy-btn" onclick="copyCode(this, 'ps-mio-code')">Copy</button>
                 </div>
-                <pre><code id="ps-mio-code" class="language-dts">ethernet@ff0e0000 {
+                <pre>&lt;code id="ps-mio-code" class="language-dts"&gt;ethernet@ff0e0000 {
     compatible = "xlnx,zynqmp-gem", "cdns,gem";
     status = "okay";
-    phy-handle = <&phy0>;
+    phy-handle = &lt;&amp;phy0&gt;;
     phy-mode = "rgmii-id";
     
     mdio {
-        #address-cells = <1>;
-        #size-cells = <0>;
+        #address-cells = &lt;1&gt;;
+        #size-cells = &lt;0&gt;;
         phy0: ethernet-phy@c {
-            reg = <0xc>;
-            ti,rx-internal-delay = <0x8>;
-            ti,tx-internal-delay = <0xa>;
-            ti,fifo-depth = <0x1>;
+            reg = &lt;0xc&gt;;
+            ti,rx-internal-delay = &lt;0x8&gt;;
+            ti,tx-internal-delay = &lt;0xa&gt;;
+            ti,fifo-depth = &lt;0x1&gt;;
             ti,dp83867-rxctrl-strap-quirk;
         };
     };
-};</code></pre>
+};</code>
             </div>
 
             <!-- EMIO Example -->
             <div class="code-block mt-2">
                 <div class="code-header">
                     <span class="code-title">📁 2024.2/ps_emio_eth_1g - PS GEM0 (EMIO) with GMII</span>
-                    <button class="copy-btn" onclick="copyCode(this, 'ps-emio-1g-code')">Copy</button>
+                    <button type="button" class="copy-btn" onclick="copyCode(this, 'ps-emio-1g-code')">Copy</button>
                 </div>
-                <pre><code id="ps-emio-1g-code" class="language-dts">ethernet@ff0b0000 {
+                <pre>&lt;code id="ps-emio-1g-code" class="language-dts"&gt;ethernet@ff0b0000 {
     compatible = "xlnx,zynqmp-gem", "cdns,gem";
     status = "okay";
-    phy-handle = <&phy0>;
+    phy-handle = &lt;&amp;phy0&gt;;
     phy-mode = "gmii";
     
     mdio {
-        #address-cells = <1>;
-        #size-cells = <0>;
+        #address-cells = &lt;1&gt;;
+        #size-cells = &lt;0&gt;;
         phy0: ethernet-phy@9 {
-            reg = <0x9>;
-            xlnx,phy-type = <0x5>;
+            reg = &lt;0x9&gt;;
+            xlnx,phy-type = &lt;0x5&gt;;
         };
     };
-};</code></pre>
+};</code>
             </div>
 
             <!-- PS EMIO SGMII Example -->
             <div class="code-block mt-2">
                 <div class="code-header">
                     <span class="code-title">📁 2024.2/ps_emio_eth_sgmii - PS GEM0 (EMIO) with GMII</span>
-                    <button class="copy-btn" onclick="copyCode(this, 'ps-emio-sgmii-code')">Copy</button>
+                    <button type="button" class="copy-btn" onclick="copyCode(this, 'ps-emio-sgmii-code')">Copy</button>
                 </div>
-                <pre><code id="ps-emio-sgmii-code" class="language-dts">ethernet@ff0b0000 {
+                <pre>&lt;code id="ps-emio-sgmii-code" class="language-dts"&gt;ethernet@ff0b0000 {
     compatible = "xlnx,zynqmp-gem", "cdns,gem";
     status = "okay";
-    phy-handle = <&phy0>;
+    phy-handle = &lt;&amp;phy0&gt;;
     phy-mode = "gmii";
     
     mdio {
-        #address-cells = <1>;
-        #size-cells = <0>;
+        #address-cells = &lt;1&gt;;
+        #size-cells = &lt;0&gt;;
         phy0: ethernet-phy@9 {
-            reg = <0x9>;
-            xlnx,phy-type = <0x4>;
+            reg = &lt;0x9&gt;;
+            xlnx,phy-type = &lt;0x4&gt;;
         };
     };
-};</code></pre>
+};</code>
             </div>
 
             <!-- PL ETH 1G Example -->
             <div class="code-block mt-2">
                 <div class="code-header">
                     <span class="code-title">📁 2024.2/pl_eth_1g - PL Ethernet with 1000Base-X</span>
-                    <button class="copy-btn" onclick="copyCode(this, 'pl-eth-1g-code')">Copy</button>
+                    <button type="button" class="copy-btn" onclick="copyCode(this, 'pl-eth-1g-code')">Copy</button>
                 </div>
-                <pre><code id="pl-eth-1g-code" class="language-dts">ethernet@a0000000 {
+                <pre>&lt;code id="pl-eth-1g-code" class="language-dts"&gt;ethernet@a0000000 {
     compatible = "xlnx,axi-ethernet-7.2", "xlnx,axi-ethernet-1.00.a";
     device_type = "network";
-    reg = <0x0 0xa0000000 0x0 0x40000>;
-    interrupts = <0x0 0x59 0x4 0x0 0x5a 0x4>;
+    reg = &lt;0x0 0xa0000000 0x0 0x40000&gt;;
+    interrupts = &lt;0x0 0x59 0x4 0x0 0x5a 0x4&gt;;
     phy-mode = "1000base-x";
-    xlnx,rxmem = <0x1000>;
-    xlnx,txcsum = <0x0>;
-    xlnx,rxcsum = <0x0>;
-    phy-handle = <&phy1>;
+    xlnx,rxmem = &lt;0x1000&gt;;
+    xlnx,txcsum = &lt;0x0&gt;;
+    xlnx,rxcsum = &lt;0x0&gt;;
+    phy-handle = &lt;&amp;phy1&gt;;
     
     mdio {
-        #address-cells = <1>;
-        #size-cells = <0>;
+        #address-cells = &lt;1&gt;;
+        #size-cells = &lt;0&gt;;
         phy1: ethernet-phy@1 {
             device_type = "ethernet-phy";
-            reg = <0x1>;
-            xlnx,phy-type = <0x5>;
+            reg = &lt;0x1&gt;;
+            xlnx,phy-type = &lt;0x5&gt;;
         };
     };
-};</code></pre>
+};</code>
             </div>
 
             <!-- PL ETH SGMII Example -->
             <div class="code-block mt-2">
                 <div class="code-header">
                     <span class="code-title">📁 2024.2/pl_eth_sgmii - PL Ethernet with SGMII</span>
-                    <button class="copy-btn" onclick="copyCode(this, 'pl-eth-sgmii-code')">Copy</button>
+                    <button type="button" class="copy-btn" onclick="copyCode(this, 'pl-eth-sgmii-code')">Copy</button>
                 </div>
-                <pre><code id="pl-eth-sgmii-code" class="language-dts">ethernet@a0000000 {
+                <pre>&lt;code id="pl-eth-sgmii-code" class="language-dts"&gt;ethernet@a0000000 {
     compatible = "xlnx,axi-ethernet-7.2", "xlnx,axi-ethernet-1.00.a";
     device_type = "network";
-    reg = <0x0 0xa0000000 0x0 0x40000>;
-    interrupts = <0x0 0x59 0x4 0x0 0x5a 0x4>;
+    reg = &lt;0x0 0xa0000000 0x0 0x40000&gt;;
+    interrupts = &lt;0x0 0x59 0x4 0x0 0x5a 0x4&gt;;
     phy-mode = "sgmii";
-    xlnx,rxmem = <0x1000>;
-    xlnx,txcsum = <0x2>;
-    xlnx,rxcsum = <0x2>;
-    phy-handle = <&phy2>;
+    xlnx,rxmem = &lt;0x1000&gt;;
+    xlnx,txcsum = &lt;0x2&gt;;
+    xlnx,rxcsum = &lt;0x2&gt;;
+    phy-handle = &lt;&amp;phy2&gt;;
     
     mdio {
-        #address-cells = <1>;
-        #size-cells = <0>;
+        #address-cells = &lt;1&gt;;
+        #size-cells = &lt;0&gt;;
         phy2: ethernet-phy@1 {
             device_type = "ethernet-phy";
-            reg = <0x1>;
-            xlnx,phy-type = <0x4>;
+            reg = &lt;0x1&gt;;
+            xlnx,phy-type = &lt;0x4&gt;;
         };
     };
-};</code></pre>
+};</code>
             </div>
 
             <!-- PL ETH 10G Example -->
             <div class="code-block mt-2">
                 <div class="code-header">
                     <span class="code-title">📁 2024.2/pl_eth_10g - PL 10G/25G Ethernet with 10GBase-R</span>
-                    <button class="copy-btn" onclick="copyCode(this, 'pl-eth-10g-code')">Copy</button>
+                    <button type="button" class="copy-btn" onclick="copyCode(this, 'pl-eth-10g-code')">Copy</button>
                 </div>
-                <pre><code id="pl-eth-10g-code" class="language-dts">ethernet@a0040000 {
+                <pre>&lt;code id="pl-eth-10g-code" class="language-dts"&gt;ethernet@a0040000 {
     compatible = "xlnx,xxv-ethernet-4.1", "xlnx,xxv-ethernet-1.0";
     device_type = "network";
-    reg = <0x0 0xa0040000 0x0 0x40000>;
-    interrupts = <0x0 0x59 0x4 0x0 0x5a 0x4>;
+    reg = &lt;0x0 0xa0040000 0x0 0x40000&gt;;
+    interrupts = &lt;0x0 0x59 0x4 0x0 0x5a 0x4&gt;;
     phy-mode = "10gbase-r";
-    xlnx,rxmem = <0x1000>;
-    xlnx,channel-ids = <0x1>;
+    xlnx,rxmem = &lt;0x1000&gt;;
+    xlnx,channel-ids = &lt;0x1&gt;;
     local-mac-address = [00 0a 35 00 22 01];
-    phy-handle = <&phy3>;
+    phy-handle = &lt;&amp;phy3&gt;;
     
     mdio {
-        #address-cells = <1>;
-        #size-cells = <0>;
+        #address-cells = &lt;1&gt;;
+        #size-cells = &lt;0&gt;;
         phy3: ethernet-phy@4 {
             device_type = "ethernet-phy";
-            reg = <0x4>;
-            xlnx,phy-type = <0x5>;
+            reg = &lt;0x4&gt;;
+            xlnx,phy-type = &lt;0x5&gt;;
         };
     };
-};</code></pre>
+};</code>
             </div>
         </section>
 
@@ -3713,19 +3713,19 @@ graph TB
             
             <div style="overflow-x: auto;">
                 <table class="matrix-table" style="margin: 0 auto;">
-                    <thead>
+                    <th scope="col"ead>
                         <tr>
-                            <th>Design Type</th>
-                            <th>2020.1</th>
-                            <th>2020.2</th>
-                            <th>2021.1</th>
-                            <th>2021.2</th>
-                            <th>2022.1</th>
-                            <th>2022.2</th>
-                            <th>2023.1</th>
-                            <th>2023.2</th>
-                            <th>2024.1</th>
-                            <th>2024.2</th>
+                            <th scope="col">Design Type</th>
+                            <th scope="col">2020.1</th>
+                            <th scope="col">2020.2</th>
+                            <th scope="col">2021.1</th>
+                            <th scope="col">2021.2</th>
+                            <th scope="col">2022.1</th>
+                            <th scope="col">2022.2</th>
+                            <th scope="col">2023.1</th>
+                            <th scope="col">2023.2</th>
+                            <th scope="col">2024.1</th>
+                            <th scope="col">2024.2</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -3886,30 +3886,30 @@ graph TB
                         </ul>
                         
                         <p style="margin-top: 1rem;"><strong>Device Tree Template (PS-GEM0 - RGMII):</strong></p>
-                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>&gem0 {
+                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;">&lt;code&gt;&amp;gem0 {
     status = "okay";
-    phy-handle = <&phy0>;
+    phy-handle = &lt;&amp;phy0&gt;;
     phy-mode = "rgmii-id";
     mdio {
-        #address-cells = <1>;
-        #size-cells = <0>;
+        #address-cells = &lt;1&gt;;
+        #size-cells = &lt;0&gt;;
         phy0: ethernet-phy@7 {
-            reg = <0x7>;
+            reg = &lt;0x7&gt;;
             device_type = "ethernet-phy";
         };
     };
-};</code></pre>
+};</code>
                         
                         <p style="margin-top: 1rem;"><strong>Device Tree Template (PL AXI 1G Ethernet):</strong></p>
-                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>axi_ethernet: ethernet@43c00000 {
+                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;">&lt;code&gt;axi_ethernet: ethernet@43c00000 {
     compatible = "xlnx,axi-ethernet-7.2", "xlnx,axi-ethernet-1.00.a";
     device_type = "network";
-    reg = <0x43c00000 0x40000>;
-    interrupts = <0 56 4>;
+    reg = &lt;0x43c00000 0x40000&gt;;
+    interrupts = &lt;0 56 4&gt;;
     phy-mode = "rgmii-id";
-    xlnx,rxmem = <0x1000>;
+    xlnx,rxmem = &lt;0x1000&gt;;
     local-mac-address = [00 0a 35 00 01 22];
-};</code></pre>
+};</code>
                     </div>
                 </div>
             </div>
@@ -3930,19 +3930,19 @@ graph TB
                         </ul>
                         
                         <p style="margin-top: 1rem;"><strong>Device Tree Template (PS-GEM0 - RGMII):</strong></p>
-                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>&gem0 {
+                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;">&lt;code&gt;&amp;gem0 {
     status = "okay";
-    phy-handle = <&phy0>;
+    phy-handle = &lt;&amp;phy0&gt;;
     phy-mode = "rgmii-id";
     mdio {
-        #address-cells = <1>;
-        #size-cells = <0>;
+        #address-cells = &lt;1&gt;;
+        #size-cells = &lt;0&gt;;
         phy0: ethernet-phy@0 {
-            reg = <0x0>;
+            reg = &lt;0x0&gt;;
             device_type = "ethernet-phy";
         };
     };
-};</code></pre>
+};</code>
                     </div>
                 </div>
             </div>
@@ -3967,37 +3967,37 @@ graph TB
                         </ul>
                         
                         <p style="margin-top: 1rem;"><strong>Device Tree Template (PL 1G Ethernet - RGMII):</strong></p>
-                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>axi_ethernet_0: ethernet@40000000 {
+                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;">&lt;code&gt;axi_ethernet_0: ethernet@40000000 {
     compatible = "xlnx,axi-ethernet-7.2", "xlnx,axi-ethernet-1.00.a";
     device_type = "network";
-    reg = <0x0 0x40000000 0x0 0x40000>;
-    interrupts = <0 89 4>;
+    reg = &lt;0x0 0x40000000 0x0 0x40000&gt;;
+    interrupts = &lt;0 89 4&gt;;
     phy-mode = "rgmii-id";
-    phy-handle = <&phy0>;
-    xlnx,rxmem = <0x1000>;
+    phy-handle = &lt;&amp;phy0&gt;;
+    xlnx,rxmem = &lt;0x1000&gt;;
     local-mac-address = [00 0a 35 00 01 22];
     
     mdio {
-        #address-cells = <1>;
-        #size-cells = <0>;
+        #address-cells = &lt;1&gt;;
+        #size-cells = &lt;0&gt;;
         phy0: ethernet-phy@1 {
-            reg = <0x1>;
-            ti,rx-internal-delay = <0x8>;
-            ti,tx-internal-delay = <0xa>;
+            reg = &lt;0x1&gt;;
+            ti,rx-internal-delay = &lt;0x8&gt;;
+            ti,tx-internal-delay = &lt;0xa&gt;;
         };
     };
-};</code></pre>
+};</code>
                         
                         <p style="margin-top: 1rem;"><strong>Device Tree Template (PL 10G Ethernet - SFP+):</strong></p>
-                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>axi_ethernet_10g: ethernet@a0040000 {
+                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;">&lt;code&gt;axi_ethernet_10g: ethernet@a0040000 {
     compatible = "xlnx,axi-ethernet-7.2", "xlnx,axi-ethernet-1.00.a";
     device_type = "network";
-    reg = <0x0 0xa0040000 0x0 0x40000>;
-    interrupts = <0 90 4>;
+    reg = &lt;0x0 0xa0040000 0x0 0x40000&gt;;
+    interrupts = &lt;0 90 4&gt;;
     phy-mode = "10gbase-r";
-    xlnx,rxmem = <0x1000>;
+    xlnx,rxmem = &lt;0x1000&gt;;
     local-mac-address = [00 0a 35 00 01 23];
-};</code></pre>
+};</code>
                     </div>
                 </div>
             </div>
@@ -4019,37 +4019,37 @@ graph TB
                         </ul>
                         
                         <p style="margin-top: 1rem;"><strong>Device Tree Template (PL 1G Ethernet - RGMII):</strong></p>
-                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>axi_ethernet_0: ethernet@40000000 {
+                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;">&lt;code&gt;axi_ethernet_0: ethernet@40000000 {
     compatible = "xlnx,axi-ethernet-7.2", "xlnx,axi-ethernet-1.00.a";
     device_type = "network";
-    reg = <0x0 0x40000000 0x0 0x40000>;
-    interrupts = <0 89 4>;
+    reg = &lt;0x0 0x40000000 0x0 0x40000&gt;;
+    interrupts = &lt;0 89 4&gt;;
     phy-mode = "rgmii-id";
-    phy-handle = <&phy0>;
-    xlnx,rxmem = <0x1000>;
+    phy-handle = &lt;&amp;phy0&gt;;
+    xlnx,rxmem = &lt;0x1000&gt;;
     local-mac-address = [00 0a 35 00 01 22];
     
     mdio {
-        #address-cells = <1>;
-        #size-cells = <0>;
+        #address-cells = &lt;1&gt;;
+        #size-cells = &lt;0&gt;;
         phy0: ethernet-phy@c {
-            reg = <0xc>;
-            ti,rx-internal-delay = <0x8>;
-            ti,tx-internal-delay = <0xa>;
+            reg = &lt;0xc&gt;;
+            ti,rx-internal-delay = &lt;0x8&gt;;
+            ti,tx-internal-delay = &lt;0xa&gt;;
         };
     };
-};</code></pre>
+};</code>
                         
                         <p style="margin-top: 1rem;"><strong>Device Tree Template (PL 100G Ethernet - QSFP28):</strong></p>
-                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>axi_ethernet_100g: ethernet@a0000000 {
+                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;">&lt;code&gt;axi_ethernet_100g: ethernet@a0000000 {
     compatible = "xlnx,xxv-ethernet-4.1", "xlnx,xxv-ethernet-1.0";
     device_type = "network";
-    reg = <0x0 0xa0000000 0x0 0x100000>;
-    interrupts = <0 89 4>;
+    reg = &lt;0x0 0xa0000000 0x0 0x100000&gt;;
+    interrupts = &lt;0 89 4&gt;;
     phy-mode = "100gbase-r";
-    xlnx,channel-ids = <0x1>;
+    xlnx,channel-ids = &lt;0x1&gt;;
     local-mac-address = [00 0a 35 00 01 10];
-};</code></pre>
+};</code>
                     </div>
                 </div>
             </div>
@@ -4074,37 +4074,37 @@ graph TB
                         </ul>
                         
                         <p style="margin-top: 1rem;"><strong>Device Tree Template (PL 1G Ethernet - RGMII):</strong></p>
-                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>axi_ethernet_0: ethernet@40000000 {
+                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;">&lt;code&gt;axi_ethernet_0: ethernet@40000000 {
     compatible = "xlnx,axi-ethernet-7.2", "xlnx,axi-ethernet-1.00.a";
     device_type = "network";
-    reg = <0x0 0x40000000 0x0 0x40000>;
-    interrupts = <0 89 4>;
+    reg = &lt;0x0 0x40000000 0x0 0x40000&gt;;
+    interrupts = &lt;0 89 4&gt;;
     phy-mode = "rgmii-id";
-    phy-handle = <&phy0>;
-    xlnx,rxmem = <0x1000>;
+    phy-handle = &lt;&amp;phy0&gt;;
+    xlnx,rxmem = &lt;0x1000&gt;;
     local-mac-address = [00 0a 35 00 01 22];
     
     mdio {
-        #address-cells = <1>;
-        #size-cells = <0>;
+        #address-cells = &lt;1&gt;;
+        #size-cells = &lt;0&gt;;
         phy0: ethernet-phy@c {
-            reg = <0xc>;
-            ti,rx-internal-delay = <0x8>;
-            ti,tx-internal-delay = <0xa>;
+            reg = &lt;0xc&gt;;
+            ti,rx-internal-delay = &lt;0x8&gt;;
+            ti,tx-internal-delay = &lt;0xa&gt;;
         };
     };
-};</code></pre>
+};</code>
                         
                         <p style="margin-top: 1rem;"><strong>Device Tree Template (PL 100G Ethernet - QSFP28):</strong></p>
-                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>axi_ethernet_100g: ethernet@a0000000 {
+                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;">&lt;code&gt;axi_ethernet_100g: ethernet@a0000000 {
     compatible = "xlnx,xxv-ethernet-4.1", "xlnx,xxv-ethernet-1.0";
     device_type = "network";
-    reg = <0x0 0xa0000000 0x0 0x100000>;
-    interrupts = <0 89 4>;
+    reg = &lt;0x0 0xa0000000 0x0 0x100000&gt;;
+    interrupts = &lt;0 89 4&gt;;
     phy-mode = "100gbase-r";
-    xlnx,channel-ids = <0x1>;
+    xlnx,channel-ids = &lt;0x1&gt;;
     local-mac-address = [00 0a 35 00 01 10];
-};</code></pre>
+};</code>
                     </div>
                 </div>
             </div>
@@ -4127,37 +4127,37 @@ graph TB
                         </ul>
                         
                         <p style="margin-top: 1rem;"><strong>Device Tree Template (PL 1G Ethernet - RGMII):</strong></p>
-                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>axi_ethernet_0: ethernet@40000000 {
+                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;">&lt;code&gt;axi_ethernet_0: ethernet@40000000 {
     compatible = "xlnx,axi-ethernet-7.2", "xlnx,axi-ethernet-1.00.a";
     device_type = "network";
-    reg = <0x0 0x40000000 0x0 0x40000>;
-    interrupts = <0 89 4>;
+    reg = &lt;0x0 0x40000000 0x0 0x40000&gt;;
+    interrupts = &lt;0 89 4&gt;;
     phy-mode = "rgmii-id";
-    phy-handle = <&phy0>;
-    xlnx,rxmem = <0x1000>;
+    phy-handle = &lt;&amp;phy0&gt;;
+    xlnx,rxmem = &lt;0x1000&gt;;
     local-mac-address = [00 0a 35 00 01 22];
     
     mdio {
-        #address-cells = <1>;
-        #size-cells = <0>;
+        #address-cells = &lt;1&gt;;
+        #size-cells = &lt;0&gt;;
         phy0: ethernet-phy@c {
-            reg = <0xc>;
-            ti,rx-internal-delay = <0x8>;
-            ti,tx-internal-delay = <0xa>;
+            reg = &lt;0xc&gt;;
+            ti,rx-internal-delay = &lt;0x8&gt;;
+            ti,tx-internal-delay = &lt;0xa&gt;;
         };
     };
-};</code></pre>
+};</code>
                         
                         <p style="margin-top: 1rem;"><strong>Device Tree Template (PL 100G Ethernet - QSFP28):</strong></p>
-                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>axi_ethernet_100g: ethernet@a0000000 {
+                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;">&lt;code&gt;axi_ethernet_100g: ethernet@a0000000 {
     compatible = "xlnx,xxv-ethernet-4.1", "xlnx,xxv-ethernet-1.0";
     device_type = "network";
-    reg = <0x0 0xa0000000 0x0 0x100000>;
-    interrupts = <0 89 4>;
+    reg = &lt;0x0 0xa0000000 0x0 0x100000&gt;;
+    interrupts = &lt;0 89 4&gt;;
     phy-mode = "100gbase-r";
-    xlnx,channel-ids = <0x1>;
+    xlnx,channel-ids = &lt;0x1&gt;;
     local-mac-address = [00 0a 35 00 01 10];
-};</code></pre>
+};</code>
                     </div>
                 </div>
             </div>
@@ -4181,29 +4181,29 @@ graph TB
                         </ul>
                         
                         <p style="margin-top: 1rem;"><strong>Device Tree Template (GEM0 - RGMII):</strong></p>
-                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>&gem0 {
+                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;">&lt;code&gt;&amp;gem0 {
     status = "okay";
-    phy-handle = <&phy0>;
+    phy-handle = &lt;&amp;phy0&gt;;
     phy-mode = "rgmii-id";
     phy0: ethernet-phy@1 {
-        reg = <0x1>;
-        ti,rx-internal-delay = <0x8>;
-        ti,tx-internal-delay = <0xa>;
-        ti,fifo-depth = <0x1>;
+        reg = &lt;0x1&gt;;
+        ti,rx-internal-delay = &lt;0x8&gt;;
+        ti,tx-internal-delay = &lt;0xa&gt;;
+        ti,fifo-depth = &lt;0x1&gt;;
     };
-};</code></pre>
+};</code>
                         
                         <p style="margin-top: 1rem;"><strong>Device Tree Template (GEM1 - PS-GTR SGMII):</strong></p>
-                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>&gem1 {
+                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;">&lt;code&gt;&amp;gem1 {
     status = "okay";
-    phy-handle = <&phy1>;
+    phy-handle = &lt;&amp;phy1&gt;;
     phy-mode = "sgmii";
-    phys = <&psgtr 0 PHY_TYPE_SGMII 0 0>;
+    phys = &lt;&amp;psgtr 0 PHY_TYPE_SGMII 0 0&gt;;
     phy1: ethernet-phy@1 {
-        reg = <0x1>;
-        xlnx,phy-type = <0x4>; /* SGMII */
+        reg = &lt;0x1&gt;;
+        xlnx,phy-type = &lt;0x4&gt;; /* SGMII */
     };
-};</code></pre>
+};</code>
                     </div>
                 </div>
             </div>
@@ -4224,35 +4224,35 @@ graph TB
                         </ul>
                         
                         <p style="margin-top: 1rem;"><strong>Device Tree Template (GEM0 - RGMII):</strong></p>
-                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>&gem0 {
+                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;">&lt;code&gt;&amp;gem0 {
     status = "okay";
-    phy-handle = <&phy0>;
+    phy-handle = &lt;&amp;phy0&gt;;
     phy-mode = "rgmii-id";
     mdio {
-        #address-cells = <1>;
-        #size-cells = <0>;
+        #address-cells = &lt;1&gt;;
+        #size-cells = &lt;0&gt;;
         phy0: ethernet-phy@1 {
-            reg = <0x1>;
-            ti,rx-internal-delay = <0x8>;
-            ti,tx-internal-delay = <0xa>;
-            ti,fifo-depth = <0x1>;
+            reg = &lt;0x1&gt;;
+            ti,rx-internal-delay = &lt;0x8&gt;;
+            ti,tx-internal-delay = &lt;0xa&gt;;
+            ti,fifo-depth = &lt;0x1&gt;;
             ti,dp83867-rxctrl-strap-quirk;
         };
     };
-};</code></pre>
+};</code>
                         
                         <p style="margin-top: 1rem;"><strong>Device Tree Template (GEM1 - PS-GTR SGMII):</strong></p>
-                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>&gem1 {
+                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;">&lt;code&gt;&amp;gem1 {
     status = "okay";
     phy-mode = "sgmii";
-    phys = <&psgtr 0 PHY_TYPE_SGMII 0 0>;
+    phys = &lt;&amp;psgtr 0 PHY_TYPE_SGMII 0 0&gt;;
     is-internal-pcspma;
     
     fixed-link {
-        speed = <1000>;
+        speed = &lt;1000&gt;;
         full-duplex;
     };
-};</code></pre>
+};</code>
                     </div>
                 </div>
             </div>
@@ -4274,51 +4274,51 @@ graph TB
                         </ul>
                         
                         <p style="margin-top: 1rem;"><strong>Device Tree Template (GEM0 - RGMII with TSN):</strong></p>
-                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>&gem0 {
+                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;">&lt;code&gt;&amp;gem0 {
     status = "okay";
-    phy-handle = <&phy0>;
+    phy-handle = &lt;&amp;phy0&gt;;
     phy-mode = "rgmii-id";
-    xlnx,has-mdio = <0x1>;
+    xlnx,has-mdio = &lt;0x1&gt;;
     
     /* TSN configuration */
     xlnx,tsn-slave;
-    xlnx,tsn-endpoint = <0x1>;
+    xlnx,tsn-endpoint = &lt;0x1&gt;;
     
     mdio {
-        #address-cells = <1>;
-        #size-cells = <0>;
+        #address-cells = &lt;1&gt;;
+        #size-cells = &lt;0&gt;;
         phy0: ethernet-phy@1 {
-            reg = <0x1>;
-            ti,rx-internal-delay = <0x8>;
-            ti,tx-internal-delay = <0xa>;
-            ti,fifo-depth = <0x1>;
+            reg = &lt;0x1&gt;;
+            ti,rx-internal-delay = &lt;0x8&gt;;
+            ti,tx-internal-delay = &lt;0xa&gt;;
+            ti,fifo-depth = &lt;0x1&gt;;
             ti,dp83867-rxctrl-strap-quirk;
         };
     };
-};</code></pre>
+};</code>
                         
                         <p style="margin-top: 1rem;"><strong>Device Tree Template (GEM1 - RGMII for EtherCAT):</strong></p>
-                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>&gem1 {
+                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;">&lt;code&gt;&amp;gem1 {
     status = "okay";
-    phy-handle = <&phy1>;
+    phy-handle = &lt;&amp;phy1&gt;;
     phy-mode = "rgmii-id";
-    xlnx,has-mdio = <0x1>;
+    xlnx,has-mdio = &lt;0x1&gt;;
     
     mdio {
-        #address-cells = <1>;
-        #size-cells = <0>;
+        #address-cells = &lt;1&gt;;
+        #size-cells = &lt;0&gt;;
         phy1: ethernet-phy@2 {
-            reg = <0x2>;
-            ti,rx-internal-delay = <0x8>;
-            ti,tx-internal-delay = <0xa>;
-            ti,fifo-depth = <0x1>;
+            reg = &lt;0x2&gt;;
+            ti,rx-internal-delay = &lt;0x8&gt;;
+            ti,tx-internal-delay = &lt;0xa&gt;;
+            ti,fifo-depth = &lt;0x1&gt;;
             ti,dp83867-rxctrl-strap-quirk;
             
             /* EtherCAT specific */
             xlnx,ethercat-slave;
         };
     };
-};</code></pre>
+};</code>
                     </div>
                 </div>
             </div>
@@ -4342,44 +4342,44 @@ graph TB
                         </ul>
                         
                         <p style="margin-top: 1rem;"><strong>Device Tree Template (PS-GEM3 - RGMII):</strong></p>
-                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>&gem3 {
+                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;">&lt;code&gt;&amp;gem3 {
     status = "okay";
-    phy-handle = <&phy0>;
+    phy-handle = &lt;&amp;phy0&gt;;
     phy-mode = "rgmii-id";
     mdio {
-        #address-cells = <1>;
-        #size-cells = <0>;
+        #address-cells = &lt;1&gt;;
+        #size-cells = &lt;0&gt;;
         phy0: ethernet-phy@c {
-            reg = <0xc>;
-            ti,rx-internal-delay = <0x8>;
-            ti,tx-internal-delay = <0xa>;
-            ti,fifo-depth = <0x1>;
+            reg = &lt;0xc&gt;;
+            ti,rx-internal-delay = &lt;0x8&gt;;
+            ti,tx-internal-delay = &lt;0xa&gt;;
+            ti,fifo-depth = &lt;0x1&gt;;
             ti,dp83867-rxctrl-strap-quirk;
         };
     };
-};</code></pre>
+};</code>
                         
                         <p style="margin-top: 1rem;"><strong>Device Tree Template (PL 10G Ethernet via GTH):</strong></p>
-                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>axi_ethernet_0: ethernet@a0040000 {
+                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;">&lt;code&gt;axi_ethernet_0: ethernet@a0040000 {
     compatible = "xlnx,axi-ethernet-7.2", "xlnx,axi-ethernet-1.00.a";
     device_type = "network";
-    reg = <0x0 0xa0040000 0x0 0x40000>;
-    interrupts = <0 89 4 0 90 4>;
+    reg = &lt;0x0 0xa0040000 0x0 0x40000&gt;;
+    interrupts = &lt;0 89 4 0 90 4&gt;;
     phy-mode = "10gbase-r";
-    xlnx,rxmem = <0x1000>;
-    xlnx,txcsum = <0x2>;
-    xlnx,rxcsum = <0x2>;
+    xlnx,rxmem = &lt;0x1000&gt;;
+    xlnx,txcsum = &lt;0x2&gt;;
+    xlnx,rxcsum = &lt;0x2&gt;;
     local-mac-address = [00 0a 35 00 01 22];
     
     mdio {
-        #address-cells = <1>;
-        #size-cells = <0>;
+        #address-cells = &lt;1&gt;;
+        #size-cells = &lt;0&gt;;
         phy1: ethernet-phy@1 {
-            reg = <0x1>;
+            reg = &lt;0x1&gt;;
             device_type = "ethernet-phy";
         };
     };
-};</code></pre>
+};</code>
                     </div>
                 </div>
             </div>
@@ -4400,38 +4400,38 @@ graph TB
                         </ul>
                         
                         <p style="margin-top: 1rem;"><strong>Device Tree Template (PS-GEM3 - RGMII):</strong></p>
-                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>&gem3 {
+                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;">&lt;code&gt;&amp;gem3 {
     status = "okay";
-    phy-handle = <&phy0>;
+    phy-handle = &lt;&amp;phy0&gt;;
     phy-mode = "rgmii-id";
     mdio {
-        #address-cells = <1>;
-        #size-cells = <0>;
+        #address-cells = &lt;1&gt;;
+        #size-cells = &lt;0&gt;;
         phy0: ethernet-phy@c {
-            reg = <0xc>;
-            ti,rx-internal-delay = <0x8>;
-            ti,tx-internal-delay = <0xa>;
-            ti,fifo-depth = <0x1>;
+            reg = &lt;0xc&gt;;
+            ti,rx-internal-delay = &lt;0x8&gt;;
+            ti,tx-internal-delay = &lt;0xa&gt;;
+            ti,fifo-depth = &lt;0x1&gt;;
             ti,dp83867-rxctrl-strap-quirk;
         };
     };
-};</code></pre>
+};</code>
                         
                         <p style="margin-top: 1rem;"><strong>Device Tree Template (PL 25G Ethernet via GTH):</strong></p>
-                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>axi_ethernet_0: ethernet@a0040000 {
+                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;">&lt;code&gt;axi_ethernet_0: ethernet@a0040000 {
     compatible = "xlnx,xxv-ethernet-4.1", "xlnx,xxv-ethernet-1.0";
     device_type = "network";
-    reg = <0x0 0xa0040000 0x0 0x40000>;
-    interrupts = <0 89 4 0 90 4>;
+    reg = &lt;0x0 0xa0040000 0x0 0x40000&gt;;
+    interrupts = &lt;0 89 4 0 90 4&gt;;
     phy-mode = "25gbase-r";
-    xlnx,rxmem = <0x1000>;
-    xlnx,channel-ids = <0x1>;
-    xlnx,num-queues = <2>;
+    xlnx,rxmem = &lt;0x1000&gt;;
+    xlnx,channel-ids = &lt;0x1&gt;;
+    xlnx,num-queues = &lt;2&gt;;
     local-mac-address = [00 0a 35 00 01 22];
     
     /* SFP28 module support */
-    sfp = <&sfp0>;
-};</code></pre>
+    sfp = &lt;&amp;sfp0&gt;;
+};</code>
                     </div>
                 </div>
             </div>
@@ -4453,39 +4453,39 @@ graph TB
                         </ul>
                         
                         <p style="margin-top: 1rem;"><strong>Device Tree Template (PS-GEM3 - RGMII):</strong></p>
-                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>&gem3 {
+                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;">&lt;code&gt;&amp;gem3 {
     status = "okay";
-    phy-handle = <&phy0>;
+    phy-handle = &lt;&amp;phy0&gt;;
     phy-mode = "rgmii-id";
     mdio {
-        #address-cells = <1>;
-        #size-cells = <0>;
+        #address-cells = &lt;1&gt;;
+        #size-cells = &lt;0&gt;;
         phy0: ethernet-phy@c {
-            reg = <0xc>;
-            ti,rx-internal-delay = <0x8>;
-            ti,tx-internal-delay = <0xa>;
-            ti,fifo-depth = <0x1>;
+            reg = &lt;0xc&gt;;
+            ti,rx-internal-delay = &lt;0x8&gt;;
+            ti,tx-internal-delay = &lt;0xa&gt;;
+            ti,fifo-depth = &lt;0x1&gt;;
             ti,dp83867-rxctrl-strap-quirk;
         };
     };
-};</code></pre>
+};</code>
                         
                         <p style="margin-top: 1rem;"><strong>Device Tree Template (PL 100G Ethernet via GTY - QSFP28):</strong></p>
-                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>axi_ethernet_100g: ethernet@a0000000 {
+                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;">&lt;code&gt;axi_ethernet_100g: ethernet@a0000000 {
     compatible = "xlnx,xxv-ethernet-4.1", "xlnx,xxv-ethernet-1.0";
     device_type = "network";
-    reg = <0x0 0xa0000000 0x0 0x100000>;
-    interrupts = <0 89 4>;
+    reg = &lt;0x0 0xa0000000 0x0 0x100000&gt;;
+    interrupts = &lt;0 89 4&gt;;
     phy-mode = "100gbase-r";
-    xlnx,rxmem = <0x4000>;
-    xlnx,channel-ids = <0x1>;
-    xlnx,num-queues = <8>;
+    xlnx,rxmem = &lt;0x4000&gt;;
+    xlnx,channel-ids = &lt;0x1&gt;;
+    xlnx,num-queues = &lt;8&gt;;
     local-mac-address = [00 0a 35 00 11 10];
     
     /* QSFP28 optical module */
-    xlnx,gtrefclk-frequency = <156250000>;
+    xlnx,gtrefclk-frequency = &lt;156250000&gt;;
     xlnx,line-rate = "100GBASE-R4"; /* 4x25G lanes */
-};</code></pre>
+};</code>
                     </div>
                 </div>
             </div>
@@ -4506,39 +4506,39 @@ graph TB
                         </ul>
                         
                         <p style="margin-top: 1rem;"><strong>Device Tree Template (PS-GEM3 - RGMII):</strong></p>
-                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>&gem3 {
+                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;">&lt;code&gt;&amp;gem3 {
     status = "okay";
-    phy-handle = <&phy0>;
+    phy-handle = &lt;&amp;phy0&gt;;
     phy-mode = "rgmii-id";
     mdio {
-        #address-cells = <1>;
-        #size-cells = <0>;
+        #address-cells = &lt;1&gt;;
+        #size-cells = &lt;0&gt;;
         phy0: ethernet-phy@c {
-            reg = <0xc>;
-            ti,rx-internal-delay = <0x8>;
-            ti,tx-internal-delay = <0xa>;
-            ti,fifo-depth = <0x1>;
+            reg = &lt;0xc&gt;;
+            ti,rx-internal-delay = &lt;0x8&gt;;
+            ti,tx-internal-delay = &lt;0xa&gt;;
+            ti,fifo-depth = &lt;0x1&gt;;
             ti,dp83867-rxctrl-strap-quirk;
         };
     };
-};</code></pre>
+};</code>
                         
                         <p style="margin-top: 1rem;"><strong>eCPRI over 25G Ethernet (5G Fronthaul):</strong></p>
-                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>axi_ethernet_ecpri: ethernet@a0040000 {
+                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;">&lt;code&gt;axi_ethernet_ecpri: ethernet@a0040000 {
     compatible = "xlnx,xxv-ethernet-4.1", "xlnx,xxv-ethernet-1.0";
     device_type = "network";
-    reg = <0x0 0xa0040000 0x0 0x40000>;
-    interrupts = <0 89 4>;
+    reg = &lt;0x0 0xa0040000 0x0 0x40000&gt;;
+    interrupts = &lt;0 89 4&gt;;
     phy-mode = "25gbase-r";
-    xlnx,rxmem = <0x2000>;
-    xlnx,channel-ids = <0x1>;
+    xlnx,rxmem = &lt;0x2000&gt;;
+    xlnx,channel-ids = &lt;0x1&gt;;
     local-mac-address = [00 0a 35 00 20 10];
     
     /* eCPRI configuration */
     xlnx,ecpri-enabled;
-    xlnx,tsn-endpoint = <0x1>; /* TSN for timing */
-    xlnx,priority-queues = <8>; /* QoS for 5G traffic */
-};</code></pre>
+    xlnx,tsn-endpoint = &lt;0x1&gt;; /* TSN for timing */
+    xlnx,priority-queues = &lt;8&gt;; /* QoS for 5G traffic */
+};</code>
                     </div>
                 </div>
             </div>
@@ -4563,60 +4563,60 @@ graph TB
                         </ul>
                         
                         <p style="margin-top: 1rem;"><strong>Device Tree Template (PMC-GEM0 - RGMII):</strong></p>
-                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>&gem0 {
+                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;">&lt;code&gt;&amp;gem0 {
     status = "okay";
-    phy-handle = <&phy0>;
+    phy-handle = &lt;&amp;phy0&gt;;
     phy-mode = "rgmii-id";
     mdio {
-        #address-cells = <1>;
-        #size-cells = <0>;
+        #address-cells = &lt;1&gt;;
+        #size-cells = &lt;0&gt;;
         phy0: ethernet-phy@1 {
-            reg = <0x1>;
-            ti,rx-internal-delay = <0x8>;
-            ti,tx-internal-delay = <0xa>;
-            ti,fifo-depth = <0x1>;
+            reg = &lt;0x1&gt;;
+            ti,rx-internal-delay = &lt;0x8&gt;;
+            ti,tx-internal-delay = &lt;0xa&gt;;
+            ti,fifo-depth = &lt;0x1&gt;;
             ti,dp83867-rxctrl-strap-quirk;
         };
     };
-};</code></pre>
+};</code>
                         
                         <p style="margin-top: 1rem;"><strong>Device Tree Template (PMC-GEM1 - RGMII):</strong></p>
-                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>&gem1 {
+                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;">&lt;code&gt;&amp;gem1 {
     status = "okay";
-    phy-handle = <&phy1>;
+    phy-handle = &lt;&amp;phy1&gt;;
     phy-mode = "rgmii-id";
     mdio {
-        #address-cells = <1>;
-        #size-cells = <0>;
+        #address-cells = &lt;1&gt;;
+        #size-cells = &lt;0&gt;;
         phy1: ethernet-phy@2 {
-            reg = <0x2>;
-            ti,rx-internal-delay = <0x8>;
-            ti,tx-internal-delay = <0xa>;
-            ti,fifo-depth = <0x1>;
+            reg = &lt;0x2&gt;;
+            ti,rx-internal-delay = &lt;0x8&gt;;
+            ti,tx-internal-delay = &lt;0xa&gt;;
+            ti,fifo-depth = &lt;0x1&gt;;
             ti,dp83867-rxctrl-strap-quirk;
         };
     };
-};</code></pre>
+};</code>
                         
                         <p style="margin-top: 1rem;"><strong>PL 100G/400G Ethernet (MRMAC):</strong></p>
-                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>mrmac_0: ethernet@a0000000 {
+                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;">&lt;code&gt;mrmac_0: ethernet@a0000000 {
     compatible = "xlnx,mrmac-3.1";
     device_type = "network";
-    reg = <0x0 0xa0000000 0x0 0x100000>;
-    interrupts = <0 89 4>;
+    reg = &lt;0x0 0xa0000000 0x0 0x100000&gt;;
+    interrupts = &lt;0 89 4&gt;;
     local-mac-address = [00 0a 35 00 01 10];
-    xlnx,channel-ids = <0x1>;
-    xlnx,num-ports = <0x4>;
-    xlnx,tx-size = <0x400>;
-    xlnx,rx-size = <0x400>;
+    xlnx,channel-ids = &lt;0x1&gt;;
+    xlnx,num-ports = &lt;0x4&gt;;
+    xlnx,tx-size = &lt;0x400&gt;;
+    xlnx,rx-size = &lt;0x400&gt;;
     
     /* 100G Ethernet configuration */
     port@0 {
-        reg = <0>;
-        xlnx,port-rate = <100000>; /* 100G */
-        xlnx,num-queues = <4>;
+        reg = &lt;0&gt;;
+        xlnx,port-rate = &lt;100000&gt;; /* 100G */
+        xlnx,num-queues = &lt;4&gt;;
     };
-};</code></pre>
+};</code>
                     </div>
                 </div>
             </div>
@@ -4637,41 +4637,41 @@ graph TB
                         </ul>
                         
                         <p style="margin-top: 1rem;"><strong>Device Tree Template (PMC-GEM0 - RGMII):</strong></p>
-                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>&gem0 {
+                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;">&lt;code&gt;&amp;gem0 {
     status = "okay";
-    phy-handle = <&phy0>;
+    phy-handle = &lt;&amp;phy0&gt;;
     phy-mode = "rgmii-id";
     mdio {
-        #address-cells = <1>;
-        #size-cells = <0>;
+        #address-cells = &lt;1&gt;;
+        #size-cells = &lt;0&gt;;
         phy0: ethernet-phy@1 {
-            reg = <0x1>;
-            ti,rx-internal-delay = <0x8>;
-            ti,tx-internal-delay = <0xa>;
-            ti,fifo-depth = <0x1>;
+            reg = &lt;0x1&gt;;
+            ti,rx-internal-delay = &lt;0x8&gt;;
+            ti,tx-internal-delay = &lt;0xa&gt;;
+            ti,fifo-depth = &lt;0x1&gt;;
             ti,dp83867-rxctrl-strap-quirk;
         };
     };
-};</code></pre>
+};</code>
                         
                         <p style="margin-top: 1rem;"><strong>PL 100G Ethernet (MRMAC) for QSFP28:</strong></p>
-                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>mrmac_0: ethernet@a0000000 {
+                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;">&lt;code&gt;mrmac_0: ethernet@a0000000 {
     compatible = "xlnx,mrmac-3.1";
     device_type = "network";
-    reg = <0x0 0xa0000000 0x0 0x100000>;
-    interrupts = <0 89 4>;
+    reg = &lt;0x0 0xa0000000 0x0 0x100000&gt;;
+    interrupts = &lt;0 89 4&gt;;
     local-mac-address = [00 0a 35 00 02 10];
-    xlnx,channel-ids = <0x1>;
-    xlnx,num-ports = <0x1>;
+    xlnx,channel-ids = &lt;0x1&gt;;
+    xlnx,num-ports = &lt;0x1&gt;;
     
     /* 100G configuration for QSFP28 */
     port@0 {
-        reg = <0>;
-        xlnx,port-rate = <100000>; /* 100 Gbps */
-        xlnx,num-queues = <8>;
+        reg = &lt;0&gt;;
+        xlnx,port-rate = &lt;100000&gt;; /* 100 Gbps */
+        xlnx,num-queues = &lt;8&gt;;
         xlnx,line-rate = "100GBASE-R";
     };
-};</code></pre>
+};</code>
                     </div>
                 </div>
             </div>
@@ -4692,60 +4692,60 @@ graph TB
                         </ul>
                         
                         <p style="margin-top: 1rem;"><strong>Device Tree Template (PMC-GEM0 - RGMII):</strong></p>
-                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>&gem0 {
+                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;">&lt;code&gt;&amp;gem0 {
     status = "okay";
-    phy-handle = <&phy0>;
+    phy-handle = &lt;&amp;phy0&gt;;
     phy-mode = "rgmii-id";
     mdio {
-        #address-cells = <1>;
-        #size-cells = <0>;
+        #address-cells = &lt;1&gt;;
+        #size-cells = &lt;0&gt;;
         phy0: ethernet-phy@1 {
-            reg = <0x1>;
-            ti,rx-internal-delay = <0x8>;
-            ti,tx-internal-delay = <0xa>;
-            ti,fifo-depth = <0x1>;
+            reg = &lt;0x1&gt;;
+            ti,rx-internal-delay = &lt;0x8&gt;;
+            ti,tx-internal-delay = &lt;0xa&gt;;
+            ti,fifo-depth = &lt;0x1&gt;;
             ti,dp83867-rxctrl-strap-quirk;
         };
     };
-};</code></pre>
+};</code>
                         
                         <p style="margin-top: 1rem;"><strong>Device Tree Template (PMC-GEM1 - RGMII):</strong></p>
-                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>&gem1 {
+                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;">&lt;code&gt;&amp;gem1 {
     status = "okay";
-    phy-handle = <&phy1>;
+    phy-handle = &lt;&amp;phy1&gt;;
     phy-mode = "rgmii-id";
     mdio {
-        #address-cells = <1>;
-        #size-cells = <0>;
+        #address-cells = &lt;1&gt;;
+        #size-cells = &lt;0&gt;;
         phy1: ethernet-phy@2 {
-            reg = <0x2>;
-            ti,rx-internal-delay = <0x8>;
-            ti,tx-internal-delay = <0xa>;
-            ti,fifo-depth = <0x1>;
+            reg = &lt;0x2&gt;;
+            ti,rx-internal-delay = &lt;0x8&gt;;
+            ti,tx-internal-delay = &lt;0xa&gt;;
+            ti,fifo-depth = &lt;0x1&gt;;
             ti,dp83867-rxctrl-strap-quirk;
         };
     };
-};</code></pre>
+};</code>
                         
                         <p style="margin-top: 1rem;"><strong>PL 400G Ethernet (MRMAC) for AI Data Transport:</strong></p>
-                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>mrmac_0: ethernet@a0000000 {
+                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;">&lt;code&gt;mrmac_0: ethernet@a0000000 {
     compatible = "xlnx,mrmac-3.1";
     device_type = "network";
-    reg = <0x0 0xa0000000 0x0 0x100000>;
-    interrupts = <0 89 4>;
+    reg = &lt;0x0 0xa0000000 0x0 0x100000&gt;;
+    interrupts = &lt;0 89 4&gt;;
     local-mac-address = [00 0a 35 00 03 10];
-    xlnx,channel-ids = <0x1>;
-    xlnx,num-ports = <0x1>;
+    xlnx,channel-ids = &lt;0x1&gt;;
+    xlnx,num-ports = &lt;0x1&gt;;
     
     /* 400G configuration for QSFP-DD */
     port@0 {
-        reg = <0>;
-        xlnx,port-rate = <400000>; /* 400 Gbps */
-        xlnx,num-queues = <16>;
+        reg = &lt;0&gt;;
+        xlnx,port-rate = &lt;400000&gt;; /* 400 Gbps */
+        xlnx,num-queues = &lt;16&gt;;
         xlnx,line-rate = "400GBASE-R";
         xlnx,fec = "RS-FEC"; /* Forward Error Correction */
     };
-};</code></pre>
+};</code>
                     </div>
                 </div>
             </div>
@@ -4769,25 +4769,25 @@ graph TB
                         </ul>
                         
                         <p style="margin-top: 1rem;"><strong>Device Tree Template (PL 100G Ethernet - QSFP28 #0):</strong></p>
-                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>/* Note: Typically configured via DPDK, not Linux device tree */
+                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;">&lt;code&gt;/* Note: Typically configured via DPDK, not Linux device tree */
 axi_ethernet_qsfp0: ethernet@a0000000 {
     compatible = "xlnx,xxv-ethernet-4.1";
     device_type = "network";
-    reg = <0x0 0xa0000000 0x0 0x100000>;
-    interrupts = <0 89 4>;
+    reg = &lt;0x0 0xa0000000 0x0 0x100000&gt;;
+    interrupts = &lt;0 89 4&gt;;
     phy-mode = "100gbase-r";
-    xlnx,rxmem = <0x4000>;
-    xlnx,channel-ids = <0x1>;
-    xlnx,num-queues = <16>;
+    xlnx,rxmem = &lt;0x4000&gt;;
+    xlnx,channel-ids = &lt;0x1&gt;;
+    xlnx,num-queues = &lt;16&gt;;
     local-mac-address = [00 0a 35 00 50 00];
     
     /* SmartNIC features */
     xlnx,smartnic-mode;
-    xlnx,rss-queues = <16>; /* Receive Side Scaling */
-};</code></pre>
+    xlnx,rss-queues = &lt;16&gt;; /* Receive Side Scaling */
+};</code>
                         
                         <p style="margin-top: 1rem;"><strong>DPDK Configuration (Typical for VCK5000):</strong></p>
-                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>/* VCK5000 typically uses DPDK instead of kernel drivers */
+                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;">&lt;code&gt;/* VCK5000 typically uses DPDK instead of kernel drivers */
 
 # DPDK binding example
 dpdk-devbind.py --bind=vfio-pci 0000:05:00.0  # QSFP0
@@ -4797,7 +4797,7 @@ dpdk-devbind.py --bind=vfio-pci 0000:05:00.1  # QSFP1
 testpmd -l 0-7 -n 4 -- -i \
     --nb-cores=4 \
     --rxq=8 --txq=8 \
-    --forward-mode=mac</code></pre>
+    --forward-mode=mac</code>
                     </div>
                 </div>
             </div>
@@ -4819,46 +4819,46 @@ testpmd -l 0-7 -n 4 -- -i \
                         </ul>
                         
                         <p style="margin-top: 1rem;"><strong>Device Tree Template (PMC-GEM0 - RGMII):</strong></p>
-                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>&gem0 {
+                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;">&lt;code&gt;&amp;gem0 {
     status = "okay";
-    phy-handle = <&phy0>;
+    phy-handle = &lt;&amp;phy0&gt;;
     phy-mode = "rgmii-id";
     mdio {
-        #address-cells = <1>;
-        #size-cells = <0>;
+        #address-cells = &lt;1&gt;;
+        #size-cells = &lt;0&gt;;
         phy0: ethernet-phy@1 {
-            reg = <0x1>;
-            ti,rx-internal-delay = <0x8>;
-            ti,tx-internal-delay = <0xa>;
-            ti,fifo-depth = <0x1>;
+            reg = &lt;0x1&gt;;
+            ti,rx-internal-delay = &lt;0x8&gt;;
+            ti,tx-internal-delay = &lt;0xa&gt;;
+            ti,fifo-depth = &lt;0x1&gt;;
             ti,dp83867-rxctrl-strap-quirk;
         };
     };
-};</code></pre>
+};</code>
                         
                         <p style="margin-top: 1rem;"><strong>PL 400G Ethernet with RoCE (RDMA):</strong></p>
-                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>mrmac_roce: ethernet@a0000000 {
+                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;">&lt;code&gt;mrmac_roce: ethernet@a0000000 {
     compatible = "xlnx,mrmac-3.1";
     device_type = "network";
-    reg = <0x0 0xa0000000 0x0 0x100000>;
-    interrupts = <0 89 4>;
+    reg = &lt;0x0 0xa0000000 0x0 0x100000&gt;;
+    interrupts = &lt;0 89 4&gt;;
     local-mac-address = [00 0a 35 00 vp 10];
-    xlnx,channel-ids = <0x1>;
-    xlnx,num-ports = <0x1>;
+    xlnx,channel-ids = &lt;0x1&gt;;
+    xlnx,num-ports = &lt;0x1&gt;;
     
     /* 400G with RDMA support */
     port@0 {
-        reg = <0>;
-        xlnx,port-rate = <400000>; /* 400 Gbps */
-        xlnx,num-queues = <32>;
+        reg = &lt;0&gt;;
+        xlnx,port-rate = &lt;400000&gt;; /* 400 Gbps */
+        xlnx,num-queues = &lt;32&gt;;
         xlnx,line-rate = "400GBASE-R";
         xlnx,fec = "RS-FEC";
         
         /* RoCE v2 configuration */
         xlnx,roce-enabled;
-        xlnx,rdma-queues = <16>;
+        xlnx,rdma-queues = &lt;16&gt;;
     };
-};</code></pre>
+};</code>
                     </div>
                 </div>
             </div>
