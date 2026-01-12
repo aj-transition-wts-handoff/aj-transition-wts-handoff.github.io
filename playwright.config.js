@@ -51,6 +51,7 @@ module.exports = defineConfig({
   webServer: {
     command: 'npx http-server -p 8080',
     port: 8080,
-    reuseExistingServer: !process.env.CI,
+    reuseExistingServer: true,
+    timeout: 120000,
   },
 });

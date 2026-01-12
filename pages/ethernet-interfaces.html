@@ -3295,8 +3295,6 @@
 
     <!-- Dark Mode Toggle -->
     <button class="dark-mode-toggle" onclick="toggleDarkMode()">
-        <span id="darkModeIcon">🌙</span>
-        <span id="darkModeText">Dark Mode</span>
     </button>
 
     <!-- Scroll to Top Button -->
@@ -3307,18 +3305,10 @@
     <!-- Navigation Bar -->
     <nav style="position: fixed; top: 0; left: 0; right: 0; z-index: 999; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1); transition: all 0.3s ease;">
         <div style="max-width: 1400px; margin: 0 auto; padding: 1rem 2rem; display: flex; align-items: center; justify-content: space-between;">
-            <a href="../index.html" id="navbar-brand" style="display: flex; align-items: center; gap: 0.5rem; text-decoration: none;">
                 <span style="display: inline-flex; align-items: center; justify-content: center; width: 45px; height: 45px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 50%; font-size: 1.5rem; font-weight: 700; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3); transition: all 0.3s ease;">A</span>
                 <span style="font-weight: 700; font-size: 1.3rem; color: #333;">jaya</span>
             </a>
             <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu">☰</button>
-            <div id="mobile-menu" class="desktop-menu" style="gap: 2rem; align-items: center;">
-                <a href="#architecture" class="nav-link" style="text-decoration: none; color: #555; font-weight: 500; font-size: 1rem; padding: 0.5rem 1rem; border-radius: 8px; transition: all 0.3s; white-space: nowrap;">Architecture</a>
-                <a href="#device-tree-examples" class="nav-link" style="text-decoration: none; color: #555; font-weight: 500; font-size: 1rem; padding: 0.5rem 1rem; border-radius: 8px; transition: all 0.3s; white-space: nowrap;">Device Tree Examples</a>
-                <a href="#matrix" class="nav-link" style="text-decoration: none; color: #555; font-weight: 500; font-size: 1rem; padding: 0.5rem 1rem; border-radius: 8px; transition: all 0.3s; white-space: nowrap;">Availability Matrix</a>
-                <a href="#data-browser" class="nav-link" style="text-decoration: none; color: #555; font-weight: 500; font-size: 1rem; padding: 0.5rem 1rem; border-radius: 8px; transition: all 0.3s; white-space: nowrap;">Browse DTs</a>
-                <a href="#other-dev-board" class="nav-link" style="text-decoration: none; color: #555; font-weight: 500; font-size: 1rem; padding: 0.5rem 1rem; border-radius: 8px; transition: all 0.3s; white-space: nowrap;">Other Dev Board</a>
-            </div>
         </div>
     </nav>
 
@@ -3554,12 +3544,7 @@ graph TB
                 </p>
             </div>
 
-            <style>
-                @keyframes pulse {
-                    0%, 100% { box-shadow: 0 6px 20px rgba(255, 0, 0, 0.3); }
-                    50% { box-shadow: 0 6px 30px rgba(255, 0, 0, 0.6); }
-                }
-            </style>
+            
 
             <!-- MIO Example -->
             <div class="code-block">
