@@ -277,56 +277,25 @@
             border-radius: 20px;
             font-size: 0.8rem;
             font-weight: 600;
+            color: #ffffff;
+            border: none;
         }
 
-        .tag.mrmac {
-            background: #e3f2fd;
-            color: #1976d2;
-        }
+        /* Colorful tags based on content */
+        .tag:nth-child(1) { background-color: #1976d2; } /* Blue */
+        .tag:nth-child(2) { background-color: #388e3c; } /* Green */
+        .tag:nth-child(3) { background-color: #d32f2f; } /* Red */
+        .tag:nth-child(4) { background-color: #f57c00; } /* Orange */
+        .tag:nth-child(5) { background-color: #7b1fa2; } /* Purple */
+        .tag:nth-child(6) { background-color: #00796b; } /* Teal */
 
-        .tag.dcmac {
-            background: #f3e5f5;
-            color: #7b1fa2;
-        }
-
-        .tag.axi {
-            background: #e8f5e9;
-            color: #388e3c;
-        }
-
-        .tag.ps-gem {
-            background: #fff3e0;
-            color: #f57c00;
-        }
-
-        .tag.driver {
-            background: #fce4ec;
-            color: #c2185b;
-        }
-
-        .tag.dt {
-            background: #e0f2f1;
-            color: #00796b;
-        }
-
-        .tag.config {
-            background: #f1f8e9;
-            color: #689f38;
-        }
-
-        .tag.performance {
-            background: #fff8e1;
-            color: #f9a825;
-        }
-
-        .tag.debug {
-            background: #ffebee;
-            color: #d32f2f;
+        body.dark-mode .tag {
+            opacity: 0.9;
         }
 
         .ar-link {
             display: inline-block;
-            background: #667eea;
+            background: #3949ab;
             color: white;
             padding: 0.6rem 1.2rem;
             border-radius: 50px;
@@ -337,16 +306,16 @@
         }
 
         body.dark-mode .ar-link {
-            background: #7c90f5;
+            background: #1565c0;
         }
 
         .ar-link:hover {
-            background: #764ba2;
+            background: #4a148c;
             transform: translateX(5px);
         }
 
         body.dark-mode .ar-link:hover {
-            background: #9066c0;
+            background: #0d47a1;
         }
 
         .category-section {
@@ -409,9 +378,9 @@
 
         .filter-btn {
             padding: 0.6rem 1.2rem;
-            border: 2px solid #667eea;
+            border: 2px solid #3949ab;
             background: var(--card-bg);
-            color: #667eea;
+            color: #3949ab;
             border-radius: 25px;
             cursor: pointer;
             font-weight: 600;
@@ -420,19 +389,20 @@
         }
 
         body.dark-mode .filter-btn {
-            border-color: #7c90f5;
-            color: #7c90f5;
+            border-color: #e3f2fd;
+            color: #e3f2fd;
         }
 
         .filter-btn:hover,
         .filter-btn.active {
-            background: #667eea;
+            background: #3949ab;
             color: white;
         }
 
         body.dark-mode .filter-btn:hover,
         body.dark-mode .filter-btn.active {
-            background: #7c90f5;
+            background: #90caf9;
+            color: #000000;
         }
 
         @media (max-width: 768px) {
@@ -584,11 +554,14 @@
         ↑
     </button>
 
+    <nav aria-label="Breadcrumb navigation">
     <a href="../index.html" class="back-button">
         <span>←</span>
         <span>Back to Tracker</span>
     </a>
+    </nav>
 
+    <main>
     <div class="container">
         <header style="margin-top: 3rem;">
             <h1>📚 Answer Records (ARs) Repository</h1>
@@ -647,6 +620,7 @@
             <p>Answer Records Database | AMD WTS Team | Last updated: January 2026</p>
         </div>
     </div>
+    </main>
 
     <script>
         // AR data loaded from external file (js/ar-data.js)
@@ -655,13 +629,11 @@
             const container = document.getElementById('arContainer');
             
             if (ars.length === 0) {
-                // Show the placeholder message
                 return;
             }
 
             container.innerHTML = '';
             
-            // Group ARs by category if needed
             const categories = {};
             ars.forEach(ar => {
                 const category = ar.category || 'General';
@@ -671,7 +643,6 @@
                 categories[category].push(ar);
             });
 
-            // Render each category
             Object.keys(categories).forEach(category => {
                 const section = document.createElement('div');
                 section.className = 'category-section';
@@ -705,45 +676,62 @@
                 <div class="ar-number">${ar.number}</div>
                 <div class="ar-title">${ar.title}</div>
                 <div class="ar-description">${ar.description}</div>
-                <div class="ar-tags">
-                    ${ar.tags.map(tag => `<span class="tag ${tag.toLowerCase().replace(/\s+/g, '-')}">${tag}</span>`).join('')}
-                </div>
-                ${ar.link ? `<a href="${ar.link}" class="ar-link" target="_blank">View AR →</a>` : ''}
             `;
+            
+            if (ar.tags && ar.tags.length > 0) {
+                const tagsDiv = document.createElement('div');
+                tagsDiv.className = 'ar-tags';
+                ar.tags.forEach(tagText => {
+                    const tagSpan = document.createElement('span');
+                    tagSpan.className = 'tag';
+                    tagSpan.textContent = tagText;
+                    tagsDiv.appendChild(tagSpan);
+                });
+                card.appendChild(tagsDiv);
+            }
+
+            if (ar.link) {
+                const link = document.createElement('a');
+                link.href = ar.link;
+                link.className = 'ar-link';
+                link.target = '_blank';
+                link.textContent = 'View AR →';
+                card.appendChild(link);
+            }
 
             return card;
         }
 
         function filterARs(filterType) {
-            // Update active button
             document.querySelectorAll('.filter-btn').forEach(btn => {
                 btn.classList.remove('active');
-                // Check if button text matches the filter type
-                const btnText = btn.textContent.toLowerCase();
-                if ((filterType === 'all' && btnText === 'all') ||
-                    (filterType === 'mrmac' && btnText === 'mrmac') ||
-                    (filterType === 'dcmac' && btnText === 'dcmac') ||
-                    (filterType === 'axi' && btnText.includes('axi')) ||
-                    (filterType === 'ps-gem' && btnText === 'ps-gem') ||
-                    (filterType === 'driver' && btnText.includes('driver')) ||
-                    (filterType === 'dt' && btnText.includes('device tree'))) {
-                    btn.classList.add('active');
-                }
             });
 
-            // If event.target exists (clicked by user), use it
             if (typeof event !== 'undefined' && event.target) {
                 event.target.classList.add('active');
+            } else {
+                const buttons = document.querySelectorAll('.filter-btn');
+                buttons.forEach(btn => {
+                    const btnText = btn.textContent.toLowerCase();
+                    if ((filterType === 'all' && btnText === 'all') ||
+                        (filterType === 'mrmac' && btnText === 'mrmac') ||
+                        (filterType === 'dcmac' && btnText === 'dcmac') ||
+                        (filterType === 'axi' && btnText.includes('axi')) ||
+                        (filterType === 'ps-gem' && btnText === 'ps-gem') ||
+                        (filterType === 'driver' && btnText.includes('driver')) ||
+                        (filterType === 'dt' && btnText.includes('device tree'))) {
+                        btn.classList.add('active');
+                    }
+                });
             }
 
-            // Filter cards
             const cards = document.querySelectorAll('.ar-card');
             cards.forEach(card => {
                 if (filterType === 'all') {
                     card.style.display = 'block';
                 } else {
                     const tags = card.dataset.tags;
-                    if (tags.includes(filterType.toLowerCase())) {
+                    if (tags && tags.includes(filterType.toLowerCase())) {
                         card.style.display = 'block';
                     } else {
                         card.style.display = 'none';
@@ -753,11 +741,11 @@
         }
 
         function updateStats() {
-            document.getElementById('totalARs').textContent = arData.length;
+            const totalCards = document.querySelectorAll('.ar-card').length;
+            document.getElementById('totalARs').textContent = totalCards || arData.length;
             
-            // Count unique categories
-            const categories = new Set(arData.map(ar => ar.category || 'General'));
-            document.getElementById('categories').textContent = categories.size;
+            const categories = document.querySelectorAll('.category-section').length;
+            document.getElementById('categories').textContent = categories || new Set(arData.map(ar => ar.category)).size;
         }
 
         // Search functionality
@@ -775,13 +763,11 @@
             });
         });
 
-        // Check for URL parameter and auto-filter
         function applyUrlFilter() {
             const urlParams = new URLSearchParams(window.location.search);
             const filter = urlParams.get('filter');
             
             if (filter) {
-                // Call the filterARs function with the URL parameter
                 filterARs(filter);
             }
         }
