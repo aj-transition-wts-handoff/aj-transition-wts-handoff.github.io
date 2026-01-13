@@ -12,9 +12,20 @@ const pages = [
 const deviceName = process.env.DEVICE || 'Pixel 5';
 test.use(devices[deviceName]);
 
+// Skip all mobile tests on webkit since Pixel 5 requires chromium
+test.beforeEach(async ({}, testInfo) => {
+  if (testInfo.project.name === 'webkit') {
+    testInfo.skip();
+  }
+});
+
 test.describe('Mobile Responsiveness', () => {
   for (const page of pages) {
     test(`${page} is responsive on ${deviceName}`, async ({ page: playwright, browserName }) => {
+      // Skip on webkit - Pixel 5 is chromium-only device
+      if (browserName === 'webkit') {
+        test.skip();
+      }
       // Skip on Firefox due to rendering inconsistencies
       if (browserName === 'firefox') {
         test.skip();
@@ -35,6 +46,10 @@ test.describe('Mobile Responsiveness', () => {
 
 test.describe('Orientation Changes', () => {
   test('handles portrait to landscape transition', async ({ page, browser, browserName }) => {
+    // Skip on webkit - Pixel 5 is chromium-only device
+    if (browserName === 'webkit') {
+      test.skip();
+    }
     // Skip on Firefox due to rendering inconsistencies
     if (browserName === 'firefox') {
       test.skip();
