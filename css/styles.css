@@ -1054,30 +1054,33 @@ body.dark-mode .note {
 }
 
 .last-updated {
-    color: var(--text-muted);
+    color: #666666;
     font-size: 0.95rem;
     margin-bottom: 0.5rem;
 }
 
 .powered-by {
-    color: #1a1a1a;
+    color: #000000;
     font-size: 1rem;
     font-weight: 700;
     margin: 0;
-    animation: fadeIn 1s ease-in;
 }
 
 #powered-text {
     font-weight: 800;
-    color: #000000;
+    color: #000000 !important;
+}
+
+body.dark-mode .last-updated {
+    color: #a0aec0;
 }
 
 body.dark-mode .powered-by {
-    color: var(--text-color);
+    color: #e2e8f0;
 }
 
 body.dark-mode #powered-text {
-    color: var(--text-color);
+    color: #e2e8f0;
 }
 
 .powered-by::before {
@@ -3214,6 +3217,20 @@ body.dark-mode .resource-card [style*="color: #888"] {
 
 body.dark-mode .resource-card [style*="color: #666"] {
     color: #bbb !important;
+}
+
+/* Fix color contrast for resource card description text in dark mode */
+body.dark-mode .resource-card [style*="color: #333333"] {
+    color: #e0e0e0 !important;
+}
+
+/* Style for resource card description text */
+.resource-card div[style*="margin-top: 0.8rem"][style*="font-size: 0.85rem"] {
+    color: #333333;
+}
+
+body.dark-mode .resource-card div[style*="margin-top: 0.8rem"][style*="font-size: 0.85rem"] {
+    color: #e0e0e0 !important;
 }
 
 /* Fix color contrast for all card description text */
