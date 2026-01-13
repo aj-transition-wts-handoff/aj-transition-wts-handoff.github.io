@@ -7,30 +7,20 @@ const pages = [
   '/pages/ethernet-interfaces.html'
 ];
 
-// Use test.use() at the top level with conditional device selection
-// Using Pixel 5 (chromium) instead of iPhone 12 (webkit) for CI compatibility
+// Use Pixel 5 (chromium) as default device since webkit has compatibility issues
 const deviceName = process.env.DEVICE || 'Pixel 5';
 test.use(devices[deviceName]);
 
-// Skip all mobile tests on webkit since Pixel 5 requires chromium
-test.beforeEach(async ({}, testInfo) => {
-  if (testInfo.project.name === 'webkit') {
-    testInfo.skip();
-  }
-});
-
 test.describe('Mobile Responsiveness', () => {
+  // Skip mobile tests on webkit since Pixel 5 requires chromium
+  test.beforeEach(async ({ browserName }) => {
+    if (browserName === 'webkit') {
+      test.skip();
+    }
+  });
+
   for (const page of pages) {
-    test(`${page} is responsive on ${deviceName}`, async ({ page: playwright, browserName }) => {
-      // Skip on webkit - Pixel 5 is chromium-only device
-      if (browserName === 'webkit') {
-        test.skip();
-      }
-      // Skip on Firefox due to rendering inconsistencies
-      if (browserName === 'firefox') {
-        test.skip();
-      }
-      
+    test(`${page} is responsive on ${deviceName}`, async ({ page: playwright }) => {
       await playwright.goto(page);
       
       const body = playwright.locator('body');
