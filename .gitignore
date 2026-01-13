@@ -9,3 +9,4 @@ Thumbs.db
 test-results.json
 test-results.xml
 node_modules/
+tests/
