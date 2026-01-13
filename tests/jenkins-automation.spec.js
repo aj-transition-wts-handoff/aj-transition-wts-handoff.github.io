@@ -63,7 +63,17 @@ test.describe('Jenkins Automation Page', () => {
   test('navigation sections are accessible', async ({ page }) => {
     const sections = ['#overview', '#applications', '#workflows', '#resources'];
     
+    // Check if mobile menu toggle is visible (mobile view)
+    const mobileToggle = page.locator('.mobile-menu-toggle');
+    const isMobile = await mobileToggle.isVisible();
+    
     for (const section of sections) {
+      if (isMobile) {
+        // On mobile, open the hamburger menu for each click
+        await mobileToggle.click();
+        await page.waitForTimeout(300);
+      }
+      
       const link = page.locator(`a[href="${section}"]`);
       await expect(link).toBeVisible();
       
