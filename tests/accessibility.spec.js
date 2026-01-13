@@ -18,7 +18,7 @@ test.describe('Accessibility Testing', () => {
   
   for (const { url, name } of pages) {
     test(`${name} page meets WCAG standards`, async ({ page }) => {
-      await page.goto(url, { waitUntil: 'networkidle' });
+      await page.goto(url, { waitUntil: 'domcontentloaded' });
       await page.waitForLoadState('domcontentloaded');
       
       try {
@@ -34,7 +34,7 @@ test.describe('Accessibility Testing', () => {
     });
 
     test(`${name} has proper heading hierarchy`, async ({ page }) => {
-      await page.goto(url, { waitUntil: 'networkidle' });
+      await page.goto(url, { waitUntil: 'domcontentloaded' });
       await page.waitForLoadState('domcontentloaded');
       
       const h1Count = await page.locator('h1').count();
@@ -43,7 +43,7 @@ test.describe('Accessibility Testing', () => {
     });
 
     test(`${name} has alt text for images`, async ({ page }) => {
-      await page.goto(url, { waitUntil: 'networkidle' });
+      await page.goto(url, { waitUntil: 'domcontentloaded' });
       await page.waitForLoadState('domcontentloaded');
       
       const images = page.locator('img');
@@ -57,7 +57,7 @@ test.describe('Accessibility Testing', () => {
     });
 
     test(`${name} has proper button labels`, async ({ page }) => {
-      await page.goto(url, { waitUntil: 'networkidle' });
+      await page.goto(url, { waitUntil: 'domcontentloaded' });
       await page.waitForLoadState('domcontentloaded');
       
       const buttons = page.locator('button');
@@ -74,7 +74,7 @@ test.describe('Accessibility Testing', () => {
     });
 
     test(`${name} has proper link labels`, async ({ page }) => {
-      await page.goto(url, { waitUntil: 'networkidle' });
+      await page.goto(url, { waitUntil: 'domcontentloaded' });
       await page.waitForLoadState('domcontentloaded');
       
       const links = page.locator('a');
@@ -92,7 +92,7 @@ test.describe('Accessibility Testing', () => {
     });
 
     test(`${name} has sufficient color contrast`, async ({ page }) => {
-      await page.goto(url, { waitUntil: 'networkidle' });
+      await page.goto(url, { waitUntil: 'domcontentloaded' });
       await page.waitForLoadState('domcontentloaded');
       
       try {
@@ -112,7 +112,7 @@ test.describe('Accessibility Testing', () => {
     });
 
     test(`${name} is keyboard navigable`, async ({ page }) => {
-      await page.goto(url, { waitUntil: 'networkidle' });
+      await page.goto(url, { waitUntil: 'domcontentloaded' });
       await page.waitForLoadState('domcontentloaded');
       
       // Tab through focusable elements
@@ -131,8 +131,7 @@ test.describe('Accessibility Testing', () => {
     });
 
     test(`${name} has proper lang attribute`, async ({ page }) => {
-      await page.goto(url, { waitUntil: 'networkidle' });
-      await page.waitForLoadState('domcontentloaded');
+      await page.goto(url, { waitUntil: 'domcontentloaded' });
       await page.waitForSelector('html');
       
       const lang = await page.locator('html').getAttribute('lang');
@@ -141,7 +140,7 @@ test.describe('Accessibility Testing', () => {
     });
 
     test(`${name} has skip to content link`, async ({ page }) => {
-      await page.goto(url, { waitUntil: 'networkidle' });
+      await page.goto(url, { waitUntil: 'domcontentloaded' });
       await page.waitForLoadState('domcontentloaded');
       
       // Many pages should have a skip link for accessibility
@@ -156,7 +155,7 @@ test.describe('Accessibility Testing', () => {
 
 test.describe('Screen Reader Compatibility', () => {
   test('has proper ARIA landmarks', async ({ page }) => {
-    await page.goto('/index.html', { waitUntil: 'networkidle' });
+    await page.goto('/index.html', { waitUntil: 'domcontentloaded' });
     await page.waitForLoadState('domcontentloaded');
     
     // Check for common landmarks

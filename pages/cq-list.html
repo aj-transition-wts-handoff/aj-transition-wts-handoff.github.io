@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#667eea">
     <title>Community Questions (CQs) - Ethernet Documentation</title>
     <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
@@ -99,7 +99,7 @@
             left: 2rem;
             z-index: 1000;
             background: var(--card-bg);
-            color: #667eea;
+            color: #5568d3;
             padding: 0.8rem 1.5rem;
             border-radius: 50px;
             text-decoration: none;
@@ -225,9 +225,9 @@
 
         .filter-btn {
             padding: 0.7rem 1.5rem;
-            border: 2px solid #667eea;
+            border: 2px solid #3949ab;
             background: transparent;
-            color: #667eea;
+            color: #3949ab;
             border-radius: 50px;
             cursor: pointer;
             font-weight: 600;
@@ -241,7 +241,7 @@
         }
 
         .filter-btn:hover {
-            background: #667eea;
+            background: #3949ab;
             color: white;
             transform: translateY(-2px);
         }
@@ -252,7 +252,7 @@
         }
 
         .filter-btn.active {
-            background: #667eea;
+            background: #3949ab;
             color: white;
         }
 
@@ -593,7 +593,9 @@
     </style>
 </head>
 <body>
+    <nav aria-label="Breadcrumb navigation">
     <a href="../index.html" class="back-button"><span>←</span><span>Back to Tracker</span></a>
+    </nav>
     
     <button type="button" class="dark-mode-toggle" onclick="toggleDarkMode()">
         <span id="darkModeIcon">🌙</span>
@@ -604,6 +606,7 @@
 
     <div class="nav-spacer" style="height: 70px;"></div>
 
+    <main>
     <div class="container">
         <header>
             <h1>Community Questions (CQs)</h1>
@@ -646,6 +649,7 @@
             <p>AMD Adaptive Support Community Contributions | Ajaya Dahal</p>
         </div>
     </div>
+    </main>
 
     <script>
         // Render CQs

@@ -19,7 +19,7 @@ html {
 }
 
 :root {
-    --primary-color: #667eea;
+    --primary-color: #3949ab;
     --secondary-color: #764ba2;
     --success-color: #51cf66;
     --danger-color: #ff6b6b;
@@ -273,10 +273,10 @@ h1 {
 
 .section-title {
     font-size: 1.8rem;
-    color: var(--primary-color);
+    color: #38006b !important;
     margin-bottom: 1.5rem;
     padding-bottom: 0.5rem;
-    border-bottom: 3px solid var(--primary-color);
+    border-bottom: 3px solid #38006b !important;
     font-weight: 600;
 }
 
@@ -1448,9 +1448,9 @@ body.dark-mode #powered-text {
 
 /* Additional CSS Variables for Ethernet Page */
 :root {
-    --mio-path: #51cf66;
-    --emio-path: #f093fb;
-    --gtr-path: #4dabf7;
+    --mio-path: #2e7d32;
+    --emio-path: #7b1fa2;
+    --gtr-path: #1565c0;
     --warning: #ffd43b;
     --info: #339af0;
 }
@@ -1669,6 +1669,16 @@ body.dark-mode .flow-node {
 
 .specs-list strong {
     color: var(--card-color);
+}
+
+.note strong,
+.note .specs-list strong {
+    color: #856404;
+}
+
+body.dark-mode .note strong,
+body.dark-mode .note .specs-list strong {
+    color: #ffd699;
 }
 
 /* Code Block Section */
