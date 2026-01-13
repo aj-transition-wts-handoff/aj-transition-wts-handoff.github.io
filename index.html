@@ -609,7 +609,7 @@
                     </div>
                     <div style="display: flex; flex-direction: column; align-items: center; flex: 1; max-width: 180px;">
                         <div style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem;">33</div>
-                        <div style="background: linear-gradient(to top, #ffd54f, #ffa000); width: 100%; height: 82px; min-height: 82px; border-radius: 10px 10px 0 0; transition: all 0.3s; position: relative; box-shadow: 0 4px 15px rgba(255, 213, 79, 0.3); cursor: pointer;" onclick="window.location.href='ar-list.html'">
+                        <div style="background: linear-gradient(to top, #ffd54f, #ffa000); width: 100%; height: 82px; min-height: 82px; border-radius: 10px 10px 0 0; transition: all 0.3s; position: relative; box-shadow: 0 4px 15px rgba(255, 213, 79, 0.3); cursor: pointer;" onclick="window.location.href='pages/ar-list.html'">
                             <div style="position: absolute; bottom: -30px; left: 50%; transform: translateX(-50%); white-space: nowrap; font-weight: 700; font-size: 1rem;">Answer Records</div>
                         </div>
                     </div>
@@ -644,10 +644,7 @@
         </section>
 
         <!-- Transition Tasks Section -->
-        <section id="transition-tasks" class="section" style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%); border: 2px solid rgba(102, 126, 234, 0.2); border-radius: 20px; padding: 2.5rem; position: relative; overflow: hidden; scroll-margin-top: 100px;">
-            <!-- Decorative elements -->
-            <div style="position: absolute; top: -50px; right: -50px; width: 200px; height: 200px; background: radial-gradient(circle, rgba(102, 126, 234, 0.15) 0%, transparent 70%); border-radius: 50%;"></div>
-            <div style="position: absolute; bottom: -30px; left: -30px; width: 150px; height: 150px; background: radial-gradient(circle, rgba(118, 75, 162, 0.15) 0%, transparent 70%); border-radius: 50%;"></div>
+        <section id="transition-tasks" class="section" style="background: var(--card-bg); border-radius: 20px; padding: 2.5rem; margin-bottom: 2rem; box-shadow: 0 10px 40px rgba(0,0,0,0.1); scroll-margin-top: 100px;">
             
             <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem; position: relative; z-index: 1;">
                 <div style="display: flex; align-items: center; gap: 1rem;">
@@ -705,31 +702,31 @@
                             </div>
                             
                             <!-- Light card with list and buttons only -->
-                            <div style="background: rgba(255, 255, 255, 0.5); padding: 1.2rem; border-radius: 12px; border-left: 4px solid #51cf66; width: 100%; box-sizing: border-box;">
+                            <div style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(118, 75, 162, 0.08) 100%); padding: 1.2rem; border-radius: 12px; border-left: 4px solid #51cf66; max-width: fit-content; display: inline-block;">
                                 <strong style="color: var(--text-color);">Archive in AJ's GitHub repo with:</strong>
                                 <ul style="margin-left: 1.5rem; margin-top: 0.8rem; color: var(--text-color);">
                                     <li style="margin-bottom: 0.5rem;">✓ Extra notes for handoff</li>
                                     <li style="margin-bottom: 0.5rem;">✓ README file for future maintainers</li>
                                     <li>✓ Jenkins PowerPoint presentation</li>
                                 </ul>
-                                
-                                <div style="margin-top: 1.2rem; display: flex; flex-wrap: wrap; gap: 0.8rem;">
-                                    <a href="pages/jenkins-automation.html" 
-                                       style="display: inline-block; padding: 0.7rem 1.3rem; background: linear-gradient(135deg, #51cf66 0%, #40c057 100%); color: white; text-decoration: none; border-radius: 10px; font-weight: 600; font-size: 0.95rem; box-shadow: 0 4px 12px rgba(81, 207, 102, 0.3); transition: all 0.3s;" 
-                                       onclick="event.stopPropagation();" 
-                                       target="_blank">🔧 View Project →</a>
-                                    
-                                    <a href="https://github.com/ajayadaha1/JenkinsFiles-For-Ethernet-Upgrade" 
-                                       style="display: inline-block; padding: 0.7rem 1.3rem; background: linear-gradient(135deg, #51cf66 0%, #40c057 100%); color: white; text-decoration: none; border-radius: 10px; font-weight: 600; font-size: 0.95rem; box-shadow: 0 4px 12px rgba(81, 207, 102, 0.3); transition: all 0.3s;" 
-                                       onclick="event.stopPropagation();" 
-                                       target="_blank">🔗 View Repo →</a>
-                                    
-                                    <a href="https://github.com/ajayadaha1/JenkinsFiles-For-Ethernet-Upgrade/blob/main/Jenkins%20Automation%20for%20WTS.pptx" 
-                                       style="display: inline-block; padding: 0.7rem 1.3rem; background: linear-gradient(135deg, #51cf66 0%, #40c057 100%); color: white; text-decoration: none; border-radius: 10px; font-weight: 600; font-size: 0.95rem; box-shadow: 0 4px 12px rgba(81, 207, 102, 0.3); transition: all 0.3s;" 
-                                       onclick="event.stopPropagation();" 
-                                       target="_blank">📊 PowerPoint →</a>
                             </div>
-                        </div> <!-- End light card -->
+                                
+                            <div style="margin-top: 1.2rem; display: flex; flex-wrap: wrap; gap: 0.8rem;">
+                                <a href="pages/jenkins-automation.html" 
+                                   style="display: inline-block; padding: 0.7rem 1.3rem; background: linear-gradient(135deg, #51cf66 0%, #40c057 100%); color: white; text-decoration: none; border-radius: 10px; font-weight: 600; font-size: 0.95rem; box-shadow: 0 4px 12px rgba(81, 207, 102, 0.3); transition: all 0.3s;" 
+                                   onclick="event.stopPropagation();" 
+                                   target="_blank">🔧 View Project →</a>
+                                
+                                <a href="https://github.com/ajayadaha1/JenkinsFiles-For-Ethernet-Upgrade" 
+                                   style="display: inline-block; padding: 0.7rem 1.3rem; background: linear-gradient(135deg, #51cf66 0%, #40c057 100%); color: white; text-decoration: none; border-radius: 10px; font-weight: 600; font-size: 0.95rem; box-shadow: 0 4px 12px rgba(81, 207, 102, 0.3); transition: all 0.3s;" 
+                                   onclick="event.stopPropagation();" 
+                                   target="_blank">🔗 View Repo →</a>
+                                
+                                <a href="https://github.com/ajayadaha1/JenkinsFiles-For-Ethernet-Upgrade/blob/main/Jenkins%20Automation%20for%20WTS.pptx" 
+                                   style="display: inline-block; padding: 0.7rem 1.3rem; background: linear-gradient(135deg, #51cf66 0%, #40c057 100%); color: white; text-decoration: none; border-radius: 10px; font-weight: 600; font-size: 0.95rem; box-shadow: 0 4px 12px rgba(81, 207, 102, 0.3); transition: all 0.3s;" 
+                                   onclick="event.stopPropagation();" 
+                                   target="_blank">📊 PowerPoint →</a>
+                        </div>
                     </div> <!-- End flex: 1 content area -->
                 </div> <!-- End flex container with task number -->
             </div> <!-- End column wrapper -->
@@ -747,7 +744,7 @@
                                 <div style="margin-bottom: 1rem;">
                                     <strong style="font-size: 1.2rem; color: var(--text-color);">✓ Provide ZCU102 Ethernet Interfaces Map with PS-GEM DT Nodes</strong>
                                 </div>
-                                <div style="background: rgba(255, 255, 255, 0.5); padding: 1.2rem; border-radius: 12px; border-left: 4px solid #51cf66; width: 100%; box-sizing: border-box;">
+                                <div style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(118, 75, 162, 0.08) 100%); padding: 1.2rem; border-radius: 12px; border-left: 4px solid #51cf66; max-width: fit-content; display: inline-block;">
                                     <strong style="color: var(--text-color);">Complete Ethernet Interface Documentation:</strong>
                                     <ul style="margin-left: 1.5rem; margin-top: 0.8rem; color: var(--text-color);">
                                         <li style="margin-bottom: 0.5rem;">✓ PS-GEM → EMIO → PCS/PMA → SFP (1000base-x/sgmii)</li>
@@ -783,7 +780,7 @@
                             <div style="margin-bottom: 1rem;">
                                 <strong style="font-size: 1.2rem; color: var(--text-color);">✓ MRMAC/DCMAC Debug Playbook</strong>
                             </div>
-                            <div style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(118, 75, 162, 0.08) 100%); padding: 1.2rem; border-radius: 12px; border-left: 4px solid #51cf66; width: 100%; box-sizing: border-box;">
+                            <div style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(118, 75, 162, 0.08) 100%); padding: 1.2rem; border-radius: 12px; border-left: 4px solid #51cf66; max-width: fit-content; display: inline-block;">
                                 <strong style="color: var(--text-color);">Create 1-2 page cheat sheet including:</strong>
                                 <ul style="margin-left: 1.5rem; margin-top: 0.8rem; color: var(--text-color);">
                                     <li style="margin-bottom: 0.4rem;">Driver links</li>
@@ -791,10 +788,12 @@
                                     <li style="margin-bottom: 0.4rem;">Useful ARs</li>
                                     <li style="margin-bottom: 0.4rem;">Version differences/notes</li>
                                     <li style="margin-bottom: 0.4rem;">Cases of note (e.g., 3x25 config)</li>
-                                    <li>Main issue types/details &amp; driver issues</li>
+                                    <li style="margin-bottom: 0.4rem;">Main issue types/details &amp; driver issues</li>
                                 </ul>
                             </div>
-                            <a href="pages/playbook.html" style="display: inline-block; margin-top: 1.2rem; padding: 0.7rem 1.3rem; background: linear-gradient(135deg, #51cf66 0%, #40c057 100%); color: white; text-decoration: none; border-radius: 10px; font-weight: 600; box-shadow: 0 4px 12px rgba(81, 207, 102, 0.3); transition: all 0.3s;" onclick="event.stopPropagation();">📖 View Playbook →</a>
+                            <div style="margin-top: 1.2rem;">
+                                <a href="pages/playbook.html" style="display: inline-block; padding: 0.7rem 1.3rem; background: linear-gradient(135deg, #51cf66 0%, #40c057 100%); color: white; text-decoration: none; border-radius: 10px; font-weight: 600; box-shadow: 0 4px 12px rgba(81, 207, 102, 0.3); transition: all 0.3s;" onclick="event.stopPropagation();">📖 View Playbook →</a>
+                            </div>
                         </div>
                     </div>
                 </div> <!-- End column wrapper -->
@@ -813,7 +812,7 @@
                             <div style="margin-bottom: 1rem;">
                                 <strong style="font-size: 1.2rem; color: var(--text-color);">✓ 10G/25G Ethernet Subsystem Debug Playbook</strong>
                             </div>
-                            <div style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(118, 75, 162, 0.08) 100%); padding: 1.2rem; border-radius: 12px; border-left: 4px solid #51cf66; width: 100%; box-sizing: border-box;">
+                            <div style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(118, 75, 162, 0.08) 100%); padding: 1.2rem; border-radius: 12px; border-left: 4px solid #51cf66; max-width: fit-content; display: inline-block;">
                                 <strong style="color: var(--text-color);">Create 1-2 page cheat sheet including:</strong>
                                 <ul style="margin-left: 1.5rem; margin-top: 0.8rem; color: var(--text-color);">
                                     <li style="margin-bottom: 0.4rem;">Driver links</li>
@@ -828,13 +827,24 @@
                                     <li style="margin-bottom: 0.4rem;">DMA reset timeout patch</li>
                                 </ul>
                             </div>
-                            <a href="pages/playbook.html" style="display: inline-block; margin-top: 1.2rem; padding: 0.7rem 1.3rem; background: linear-gradient(135deg, #51cf66 0%, #40c057 100%); color: white; text-decoration: none; border-radius: 10px; font-weight: 600; box-shadow: 0 4px 12px rgba(81, 207, 102, 0.3); transition: all 0.3s;" onclick="event.stopPropagation();">📖 View Playbook →</a>
+                            <div style="margin-top: 1.2rem;">
+                                <a href="pages/playbook.html" style="display: inline-block; padding: 0.7rem 1.3rem; background: linear-gradient(135deg, #51cf66 0%, #40c057 100%); color: white; text-decoration: none; border-radius: 10px; font-weight: 600; box-shadow: 0 4px 12px rgba(81, 207, 102, 0.3); transition: all 0.3s;" onclick="event.stopPropagation();">📖 View Playbook →</a>
+                            </div>
                         </div>
                     </div>
                 </div> <!-- End column wrapper -->
                 </div>
             </div>
         </section>
+
+    <!-- Footer -->
+    <footer class="page-footer">
+        <div class="footer-content">
+            <p class="last-updated">Last Updated: January 8, 2026</p>
+            <p class="powered-by" style="color: #000000;">☕ <span id="powered-text" style="color: #000000; font-weight: 900;">Powered by a big jar of coffee and AI</span> ✨</p>
+        </div>
+    </footer>
+
     </div>
     </main>
 
@@ -1344,16 +1354,8 @@
         }
     </script>
 
-    <!-- Footer -->
-    <footer class="page-footer">
-        <div class="footer-content">
-            <p class="last-updated">Last Updated: January 8, 2026</p>
-            <p class="powered-by" style="color: #000000;">☕ <span id="powered-text" style="color: #000000; font-weight: 900;">Powered by a big jar of coffee and AI</span> ✨</p>
-        </div>
-    </footer>
-
     <script>
-        // Rotating powered-by messages
+        // Dark Mode Functions
         const poweredMessages = [
             "Powered by big jar of coffee and AI",
             "Made with late-night coding",

@@ -67,6 +67,7 @@ body.dark-mode {
 .container {
     max-width: 1400px;
     margin: 0 auto;
+    padding: 0 1rem;
 }
 
 /* ============================================
@@ -1037,16 +1038,19 @@ body.dark-mode .note {
 
 /* Footer Styles */
 .page-footer {
-    background: var(--card-bg);
-    border-top: 2px solid var(--border-color);
+    background: transparent;
     padding: 2rem;
-    margin-top: 3rem;
+    margin-top: 0;
     text-align: center;
 }
 
 .footer-content {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
+    background: var(--card-bg);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
 }
 
 .last-updated {
@@ -2803,9 +2807,6 @@ body.dark-mode .contribution-section a:hover {
     padding: 2.5rem;
     margin-bottom: 2rem;
     box-shadow: var(--shadow-md);
-    max-width: 1400px;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 

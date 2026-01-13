@@ -574,13 +574,13 @@
     </style>
 </head>
 <body>
-    <button type="button" class="dark-mode-toggle" onclick="toggleDarkMode()">
+    <button class="dark-mode-toggle" onclick="toggleDarkMode()">
         <span id="darkModeIcon">🌙</span>
         <span id="darkModeText">Dark Mode</span>
     </button>
 
     <!-- Scroll to Top Button -->
-    <button type="button" class="scroll-to-top" onclick="scrollToTop()" aria-label="Scroll to top">
+    <button class="scroll-to-top" onclick="scrollToTop()" aria-label="Scroll to top">
         ↑
     </button>
 
@@ -592,7 +592,7 @@
     <div class="container">
         <header style="margin-top: 3rem;">
             <h1>📚 Answer Records (ARs) Repository</h1>
-            <p class="subtitle">Comprehensive Ethernet Debugging &amp; Configuration Documentation</p>
+            <p class="subtitle">Comprehensive Ethernet Debugging & Configuration Documentation</p>
         </header>
 
         <div class="search-box">
@@ -615,13 +615,13 @@
         </div>
 
         <div class="filter-buttons">
-            <button type="button" class="filter-btn active" onclick="filterARs('all')">All</button>
-            <button type="button" class="filter-btn" onclick="filterARs('mrmac')">MRMAC</button>
-            <button type="button" class="filter-btn" onclick="filterARs('dcmac')">DCMAC</button>
-            <button type="button" class="filter-btn" onclick="filterARs('axi')">AXI Ethernet</button>
-            <button type="button" class="filter-btn" onclick="filterARs('ps-gem')">PS-GEM</button>
-            <button type="button" class="filter-btn" onclick="filterARs('driver')">Driver Issues</button>
-            <button type="button" class="filter-btn" onclick="filterARs('dt')">Device Tree</button>
+            <button class="filter-btn active" onclick="filterARs('all')">All</button>
+            <button class="filter-btn" onclick="filterARs('mrmac')">MRMAC</button>
+            <button class="filter-btn" onclick="filterARs('dcmac')">DCMAC</button>
+            <button class="filter-btn" onclick="filterARs('axi')">AXI Ethernet</button>
+            <button class="filter-btn" onclick="filterARs('ps-gem')">PS-GEM</button>
+            <button class="filter-btn" onclick="filterARs('driver')">Driver Issues</button>
+            <button class="filter-btn" onclick="filterARs('dt')">Device Tree</button>
         </div>
 
         <!-- AR Cards will be populated here -->
@@ -720,19 +720,19 @@
                 btn.classList.remove('active');
                 // Check if button text matches the filter type
                 const btnText = btn.textContent.toLowerCase();
-                if ((filterType === 'all' &amp;&amp; btnText === 'all') ||
-                    (filterType === 'mrmac' &amp;&amp; btnText === 'mrmac') ||
-                    (filterType === 'dcmac' &amp;&amp; btnText === 'dcmac') ||
-                    (filterType === 'axi' &amp;&amp; btnText.includes('axi')) ||
-                    (filterType === 'ps-gem' &amp;&amp; btnText === 'ps-gem') ||
-                    (filterType === 'driver' &amp;&amp; btnText.includes('driver')) ||
-                    (filterType === 'dt' &amp;&amp; btnText.includes('device tree'))) {
+                if ((filterType === 'all' && btnText === 'all') ||
+                    (filterType === 'mrmac' && btnText === 'mrmac') ||
+                    (filterType === 'dcmac' && btnText === 'dcmac') ||
+                    (filterType === 'axi' && btnText.includes('axi')) ||
+                    (filterType === 'ps-gem' && btnText === 'ps-gem') ||
+                    (filterType === 'driver' && btnText.includes('driver')) ||
+                    (filterType === 'dt' && btnText.includes('device tree'))) {
                     btn.classList.add('active');
                 }
             });
 
             // If event.target exists (clicked by user), use it
-            if (typeof event !== 'undefined' &amp;&amp; event.target) {
+            if (typeof event !== 'undefined' && event.target) {
                 event.target.classList.add('active');
             }
 
@@ -814,12 +814,19 @@
             updateDarkModeUI(isDarkMode);
         }
 
-        // Load dark mode state on page load
-        window.addEventListener('DOMContentLoaded', loadDarkMode);
-
-        // Initialize
-        renderARs(arData);
-        applyUrlFilter();
+        // Load dark mode state and initialize on page load
+        window.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM loaded, arData:', arData);
+            console.log('arData length:', arData ? arData.length : 'undefined');
+            loadDarkMode();
+            // Initialize AR rendering (updateStats is called inside renderARs)
+            if (typeof arData !== 'undefined' && arData.length > 0) {
+                renderARs(arData);
+                applyUrlFilter();
+            } else {
+                console.error('arData is not loaded or empty');
+            }
+        });
 
         // Scroll to top functionality
         window.addEventListener('scroll', function() {
