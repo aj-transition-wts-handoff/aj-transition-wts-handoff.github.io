@@ -35,6 +35,7 @@ module.exports = defineConfig({
     {
       name: 'webkit',
       use: { ...devices['Desktop Safari'] },
+      testIgnore: /mobile\.spec\.js$/, // Skip mobile tests - Pixel 5 requires chromium
     },
     // Mobile viewports
     {
