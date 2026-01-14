@@ -25,6 +25,8 @@ jobs:
     uses: ./.github/workflows/qa-checks.yml
     permissions:
       contents: read
+      actions: read
+      security-events: write
 
   # Step 2: Pre-Deploy Check
   pre-deploy-check:
