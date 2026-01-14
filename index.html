@@ -1233,7 +1233,49 @@
             
             // Navigation highlighting on scroll
             highlightActiveSection();
+            
+            // Smooth scroll for navigation links
+            initSmoothScroll();
         });
+
+        // Initialize smooth scrolling for nav links
+        function initSmoothScroll() {
+            const navLinks = document.querySelectorAll('.nav-link, #navbar-brand');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    
+                    if (targetElement) {
+                        const targetPosition = targetElement.offsetTop - 80; // Account for fixed navbar
+                        const startPosition = window.pageYOffset;
+                        const distance = targetPosition - startPosition;
+                        const duration = 1200; // 1.2 seconds for smooth scroll
+                        let start = null;
+                        
+                        function animation(currentTime) {
+                            if (start === null) start = currentTime;
+                            const timeElapsed = currentTime - start;
+                            const run = ease(timeElapsed, startPosition, distance, duration);
+                            window.scrollTo(0, run);
+                            if (timeElapsed < duration) requestAnimationFrame(animation);
+                        }
+                        
+                        // Easing function for smooth animation
+                        function ease(t, b, c, d) {
+                            t /= d / 2;
+                            if (t < 1) return c / 2 * t * t + b;
+                            t--;
+                            return -c / 2 * (t * (t - 2) - 1) + b;
+                        }
+                        
+                        requestAnimationFrame(animation);
+                    }
+                });
+            });
+        }
 
         // Highlight active navigation link based on scroll position
         function highlightActiveSection() {
@@ -1249,6 +1291,10 @@
             sections.forEach(section => {
                 section.element = document.getElementById(section.id);
             });
+
+            // Get additional sections that should map to key-resources
+            const contactSection = document.querySelector('.contact-section');
+            const meetingsSection = document.querySelector('.meetings-section');
 
             let hashProcessed = false;
             let initialLoadComplete = false;
@@ -1272,22 +1318,57 @@
                         if (scrollPosition < 100) {
                             activeSection = 'about';
                         } else {
-                            // Find which section we're actually in by checking scroll position
-                            for (let i = 0; i < sections.length; i++) {
-                                const section = sections[i];
-                                if (section.element) {
-                                    const sectionTop = section.element.offsetTop - 200;
-                                    
-                                    // For the last section, check if we're past its top
-                                    if (i === sections.length - 1) {
-                                        if (scrollPosition >= sectionTop) {
-                                            activeSection = section.id;
-                                            break;
+                            let foundSection = false;
+                            
+                            // Check if we're in contact or meetings sections first (should map to key-resources)
+                            if (contactSection) {
+                                const contactTop = contactSection.offsetTop - 200;
+                                const contactBottom = contactTop + contactSection.offsetHeight;
+                                if (scrollPosition >= contactTop && scrollPosition < contactBottom) {
+                                    activeSection = 'key-resources';
+                                    foundSection = true;
+                                }
+                            }
+                            if (meetingsSection && !foundSection) {
+                                const meetingsTop = meetingsSection.offsetTop - 200;
+                                const meetingsBottom = meetingsTop + meetingsSection.offsetHeight;
+                                if (scrollPosition >= meetingsTop && scrollPosition < meetingsBottom) {
+                                    activeSection = 'key-resources';
+                                    foundSection = true;
+                                }
+                            }
+                            
+                            // If not in contact/meetings, find which section we're actually in by checking scroll position
+                            if (!foundSection) {
+                                for (let i = 0; i < sections.length; i++) {
+                                    const section = sections[i];
+                                    if (section.element) {
+                                        const sectionTop = section.element.offsetTop - 200;
+                                        
+                                        // For the last section, check if we're past its top
+                                        if (i === sections.length - 1) {
+                                            if (scrollPosition >= sectionTop) {
+                                                activeSection = section.id;
+                                                foundSection = true;
+                                                break;
+                                            }
+                                        } else {
+                                            // For other sections, check if we're within bounds
+                                            const sectionBottom = sectionTop + section.element.offsetHeight;
+                                            if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                                                activeSection = section.id;
+                                                foundSection = true;
+                                                break;
+                                            }
                                         }
-                                    } else {
-                                        // For other sections, check if we're within bounds
-                                        const sectionBottom = sectionTop + section.element.offsetHeight;
-                                        if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                                    }
+                                }
+                                
+                                // If still no section found (in gap), find the closest upcoming section
+                                if (!foundSection) {
+                                    for (let i = 0; i < sections.length; i++) {
+                                        const section = sections[i];
+                                        if (section.element && section.element.offsetTop > scrollPosition) {
                                             activeSection = section.id;
                                             break;
                                         }
@@ -1304,22 +1385,57 @@
                     if (scrollPosition < 100) {
                         activeSection = 'about';
                     } else {
-                        // Find which section we're actually in
-                        for (let i = 0; i < sections.length; i++) {
-                            const section = sections[i];
-                            if (section.element) {
-                                const sectionTop = section.element.offsetTop - 200;
-                                
-                                // For the last section, check if we're past its top
-                                if (i === sections.length - 1) {
-                                    if (scrollPosition >= sectionTop) {
-                                        activeSection = section.id;
-                                        break;
+                        let foundSection = false;
+                        
+                        // Check if we're in contact or meetings sections first (should map to key-resources)
+                        if (contactSection) {
+                            const contactTop = contactSection.offsetTop - 200;
+                            const contactBottom = contactTop + contactSection.offsetHeight;
+                            if (scrollPosition >= contactTop && scrollPosition < contactBottom) {
+                                activeSection = 'key-resources';
+                                foundSection = true;
+                            }
+                        }
+                        if (meetingsSection && !foundSection) {
+                            const meetingsTop = meetingsSection.offsetTop - 200;
+                            const meetingsBottom = meetingsTop + meetingsSection.offsetHeight;
+                            if (scrollPosition >= meetingsTop && scrollPosition < meetingsBottom) {
+                                activeSection = 'key-resources';
+                                foundSection = true;
+                            }
+                        }
+                        
+                        // If not in contact/meetings, find which main section we're in
+                        if (!foundSection) {
+                            for (let i = 0; i < sections.length; i++) {
+                                const section = sections[i];
+                                if (section.element) {
+                                    const sectionTop = section.element.offsetTop - 200;
+                                    
+                                    // For the last section, check if we're past its top
+                                    if (i === sections.length - 1) {
+                                        if (scrollPosition >= sectionTop) {
+                                            activeSection = section.id;
+                                            foundSection = true;
+                                            break;
+                                        }
+                                    } else {
+                                        // For other sections, check if we're within bounds
+                                        const sectionBottom = sectionTop + section.element.offsetHeight;
+                                        if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                                            activeSection = section.id;
+                                            foundSection = true;
+                                            break;
+                                        }
                                     }
-                                } else {
-                                    // For other sections, check if we're within bounds
-                                    const sectionBottom = sectionTop + section.element.offsetHeight;
-                                    if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                                }
+                            }
+                            
+                            // If still no section found (in gap), find the closest upcoming section
+                            if (!foundSection) {
+                                for (let i = 0; i < sections.length; i++) {
+                                    const section = sections[i];
+                                    if (section.element && section.element.offsetTop > scrollPosition) {
                                         activeSection = section.id;
                                         break;
                                     }
