@@ -1251,14 +1251,17 @@
                     if (targetElement) {
                         const targetPosition = targetElement.offsetTop - 80; // Account for fixed navbar
                         const startPosition = window.pageYOffset;
-                        const distance = targetPosition - startPosition;
-                        const duration = 1200; // 1.2 seconds for smooth scroll
+                        const distance = Math.abs(targetPosition - startPosition);
+                        
+                        // Dynamic duration: min 800ms, max 1500ms, scales with distance
+                        // Formula: duration increases with distance for smoother feel
+                        const duration = Math.min(1500, Math.max(800, distance * 0.6 + 400));
                         let start = null;
                         
                         function animation(currentTime) {
                             if (start === null) start = currentTime;
                             const timeElapsed = currentTime - start;
-                            const run = ease(timeElapsed, startPosition, distance, duration);
+                            const run = ease(timeElapsed, startPosition, targetPosition - startPosition, duration);
                             window.scrollTo(0, run);
                             if (timeElapsed < duration) requestAnimationFrame(animation);
                         }

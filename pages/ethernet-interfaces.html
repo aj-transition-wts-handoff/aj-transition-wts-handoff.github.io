@@ -6130,7 +6130,54 @@ graph TB
 
             // Initialize navigation highlighting
             highlightActiveSection();
+            
+            // Initialize smooth scroll
+            initSmoothScroll();
         });
+
+        // Initialize smooth scrolling for nav links
+        function initSmoothScroll() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    // Only apply smooth scroll to anchor links (starting with #)
+                    if (href && href.startsWith('#')) {
+                        e.preventDefault();
+                        const targetId = href.substring(1);
+                        const targetElement = document.getElementById(targetId);
+                        
+                        if (targetElement) {
+                            const targetPosition = targetElement.offsetTop - 80;
+                            const startPosition = window.pageYOffset;
+                            const distance = Math.abs(targetPosition - startPosition);
+                            
+                            // Dynamic duration: min 800ms, max 1500ms, scales with distance
+                            const duration = Math.min(1500, Math.max(800, distance * 0.6 + 400));
+                            let start = null;
+                            
+                            function animation(currentTime) {
+                                if (start === null) start = currentTime;
+                                const timeElapsed = currentTime - start;
+                                const run = ease(timeElapsed, startPosition, targetPosition - startPosition, duration);
+                                window.scrollTo(0, run);
+                                if (timeElapsed < duration) requestAnimationFrame(animation);
+                            }
+                            
+                            function ease(t, b, c, d) {
+                                t /= d / 2;
+                                if (t < 1) return c / 2 * t * t + b;
+                                t--;
+                                return -c / 2 * (t * (t - 2) - 1) + b;
+                            }
+                            
+                            requestAnimationFrame(animation);
+                        }
+                    }
+                });
+            });
+        }
 
         // Highlight active navigation link based on scroll position
         function highlightActiveSection() {
@@ -6165,6 +6212,8 @@ graph TB
                         if (scrollPosition < 100) {
                             activeSection = 'architecture';
                         } else {
+                            let foundSection = false;
+                            
                             // Find which section we're in
                             for (let i = 0; i < sections.length; i++) {
                                 const section = sections[i];
@@ -6174,14 +6223,27 @@ graph TB
                                     if (i === sections.length - 1) {
                                         if (scrollPosition >= sectionTop) {
                                             activeSection = section.id;
+                                            foundSection = true;
                                             break;
                                         }
                                     } else {
                                         const sectionBottom = sectionTop + section.element.offsetHeight;
                                         if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
                                             activeSection = section.id;
+                                            foundSection = true;
                                             break;
                                         }
+                                    }
+                                }
+                            }
+                            
+                            // If no section found (in gap), find the closest upcoming section
+                            if (!foundSection) {
+                                for (let i = 0; i < sections.length; i++) {
+                                    const section = sections[i];
+                                    if (section.element && section.element.offsetTop > scrollPosition) {
+                                        activeSection = section.id;
+                                        break;
                                     }
                                 }
                             }
@@ -6195,6 +6257,8 @@ graph TB
                     if (scrollPosition < 100) {
                         activeSection = 'architecture';
                     } else {
+                        let foundSection = false;
+                        
                         for (let i = 0; i < sections.length; i++) {
                             const section = sections[i];
                             if (section.element) {
@@ -6203,14 +6267,27 @@ graph TB
                                 if (i === sections.length - 1) {
                                     if (scrollPosition >= sectionTop) {
                                         activeSection = section.id;
+                                        foundSection = true;
                                         break;
                                     }
                                 } else {
                                     const sectionBottom = sectionTop + section.element.offsetHeight;
                                     if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
                                         activeSection = section.id;
+                                        foundSection = true;
                                         break;
                                     }
+                                }
+                            }
+                        }
+                        
+                        // If no section found (in gap), find the closest upcoming section
+                        if (!foundSection) {
+                            for (let i = 0; i < sections.length; i++) {
+                                const section = sections[i];
+                                if (section.element && section.element.offsetTop > scrollPosition) {
+                                    activeSection = section.id;
+                                    break;
                                 }
                             }
                         }
