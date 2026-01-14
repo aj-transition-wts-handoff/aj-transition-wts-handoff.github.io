@@ -397,6 +397,199 @@
             margin-bottom: 0.5rem;
         }
 
+        /* Terminal/Matrix style for command snippets */
+        .terminal-commands {
+            background: #0d0d0d !important;
+            color: #00ff00 !important;
+            padding: 1rem;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            overflow-x: auto;
+            margin: 1rem 0;
+            white-space: pre-wrap;
+            border: 1px solid #00ff00;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
+        }
+
+        .terminal-commands code {
+            color: #00ff00 !important;
+            white-space: pre;
+            text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+        }
+
+        body.dark-mode .terminal-commands {
+            background: #000000 !important;
+            box-shadow: 0 0 25px rgba(0, 255, 0, 0.3);
+        }
+
+        body.dark-mode .terminal-commands code {
+            text-shadow: 0 0 8px rgba(0, 255, 0, 0.7);
+        }
+
+        /* Image Lightbox Modal */
+        .lightbox-modal {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .lightbox-modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-content img {
+            max-width: 100%;
+            max-height: 90vh;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 10001;
+            transition: 0.3s;
+            background: rgba(0, 0, 0, 0.5);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+        }
+
+        .lightbox-close:hover,
+        .lightbox-close:focus {
+            color: #bbb;
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s;
+            user-select: none;
+            z-index: 10001;
+        }
+
+        .lightbox-nav:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        .lightbox-prev {
+            left: 20px;
+        }
+
+        .lightbox-next {
+            right: 20px;
+        }
+
+        .lightbox-caption {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            z-index: 10001;
+        }
+
+        /* Clickable thumbnail styling */
+        .ibert-thumbnail {
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid var(--border-color);
+        }
+
+        .ibert-thumbnail:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 20px rgba(102, 126, 234, 0.4);
+            border-color: #667eea;
+        }
+
+        /* Mobile responsive adjustments */
+        @media (max-width: 768px) {
+            .lightbox-close {
+                top: 10px;
+                right: 10px;
+                font-size: 30px;
+                width: 40px;
+                height: 40px;
+            }
+
+            .lightbox-nav {
+                font-size: 30px;
+                width: 50px;
+                height: 50px;
+                padding: 15px;
+            }
+
+            .lightbox-prev {
+                left: 10px;
+            }
+
+            .lightbox-next {
+                right: 10px;
+            }
+
+            .lightbox-caption {
+                font-size: 0.85rem;
+                padding: 8px 15px;
+                bottom: 10px;
+                max-width: 90%;
+            }
+
+            .lightbox-content {
+                max-width: 95%;
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
         .tag.version {
             background: #764ba2;
         }
@@ -739,14 +932,7 @@
 
                 <div class="section">
                     <div class="section-title">⚙️ Notable Configurations</div>
-                    <div class="info-box">
-                        <div class="info-box-title">🎯 3x25G Configuration</div>
-                        <ul class="info-list">
-                            <li>Requires specific clock configuration</li>
-                            <li>Check GT lane assignments</li>
-                            <li>Common in Versal designs</li>
-                        </ul>
-                    </div>
+                    
                     <div class="info-box">
                         <div class="info-box-title">🎯 4x25G Configuration (Standard)</div>
                         <ul class="info-list">
@@ -756,6 +942,26 @@
                             <li>Reference: VCK190-Ethernet/2023.2/pl_4x25g_mrmac</li>
                         </ul>
                     </div>
+
+                    <div class="info-box">
+                        <div class="info-box-title">🎯 3x25G Configuration</div>
+                        <ul class="info-list">
+                            <li>Requires specific clock configuration</li>
+                            <li>Check GT lane assignments</li>
+                            <li>Not so common in Versal; some customers like to share the GT Quad with a different IP for example Aurora</li>
+                            <li>Reference: See above under Reference Designs & Examples</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-box">
+                        <div class="info-box-title">🎯 1x100G CAUI-4 Configuration</div>
+                        <ul class="info-list">
+                            <li>Support from 2024.2</li>
+                            <li>Four lanes operating at 25.78125 Gbps</li>
+                            <li>Reference: VCK190-Ethernet/2024.2/pl_1x100g_mrmac</li>
+                        </ul>
+                    </div>
+
                 </div>
 
                 <div class="section">
@@ -770,7 +976,12 @@
                                 <strong>⚡ Quick Link Up Troubleshooting Steps:</strong>
                                 <ol class="info-list" style="margin-top: 0.5rem; margin-left: 1.5rem;">
                                     <li><strong>Start with DAC (Direct Attached Cable)</strong> - Simplest setup to isolate issues</li>
-                                    <li><strong>Verify Clock in IBERT</strong> - Ensure GT clocks are stable and correct frequency</li>
+                                    <li><strong>Verify Clock in IBERT</strong> - Ensure GT clocks are stable and correct frequency
+                                        <div style="margin-top: 1rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+                                            <img src="../assets/images/IBERT1.png" alt="IBERT Clock Verification Example 1" class="ibert-thumbnail" data-lightbox="ibert-gallery" data-index="0" style="max-width: 45%; height: auto; border-radius: 8px;" onclick="openLightbox(0)">
+                                            <img src="../assets/images/IBERT2.png" alt="IBERT Clock Verification Example 2" class="ibert-thumbnail" data-lightbox="ibert-gallery" data-index="1" style="max-width: 45%; height: auto; border-radius: 8px;" onclick="openLightbox(1)">
+                                        </div>
+                                    </li>
                                     <li><strong>Verify Device Tree</strong> - Check DTS bindings, compatible strings, and PHY configuration</li>
                                 </ol>
                             </div>
@@ -783,6 +994,11 @@
                                 <div class="issue-title">Device Tree Configuration</div>
                                 <div class="issue-desc">Verify compatible string, reg addresses, clocks, and PHY mode in DTS. An example system-user.dtsi is provided above in the Reference Designs section.</div>
                                 <span class="tag issue">Config</span>
+                            </div>
+                            <div class="issue-card">
+                                <div class="issue-title">Does Issuing GT RX datapath reset help?</div>
+                                <div class="issue-desc">The provided reference designs has AXI GPIOs connected to the reset port(s), use devmem command to toggle the reset.</div>
+                                <span class="tag issue">Hardware</span>
                             </div>
                         </div>
                     </div>
@@ -826,7 +1042,7 @@
 
                 <div class="section">
                     <div class="section-title">💻 Useful Commands</div>
-                    <div class="code-snippet">
+                    <div class="terminal-commands">
 <code># Check interface status and capabilities
 ethtool eth0
 
@@ -861,6 +1077,7 @@ ifconfig eth0</code>
                             <li>✅ If using MCDMA, ensure CONFIG_AXIENET_HAS_MCDMA is enabled in kernel config</li>
                             <li>✅ Check driver probe messages in dmesg</li>
                             <li>✅ Review driver patch example if custom features needed (PTP, etc.)</li>
+                            <li>✅ Did it work in internal loopback mode? Try internal Near-end PMA loopback (no need to modify the CRDHOLD in this mode; easiest internal loopback mode to configure from the IBERT)</li>
                         </ul>
                     </div>
                 </div>
@@ -948,7 +1165,7 @@ ifconfig eth0</code>
                                 <strong>⚡ Quick Link Up Troubleshooting Steps:</strong>
                                 <ol class="info-list" style="margin-top: 0.5rem; margin-left: 1.5rem;">
                                     <li><strong>Start with DAC (Direct Attached Cable)</strong> - Simplest setup to isolate issues</li>
-                                    <li><strong>Check TX_DISABLE Jumpers (Zynq MPSoC)</strong> - Ensure jumpers are in correct position</li>
+                                    <li><strong>Check TX_DISABLE Jumpers (Zynq MPSoC)</strong> - Ensure jumpers are in correct position - Checkout the board user guide or schematics to find out board specifics</li>
                                     <li><strong>Verify Si570 Programming (Zynq MPSoC)</strong> - Confirm reference clock is correctly programmed</li>
                                     <li><strong>Verify Clock in IBERT (Versal) </strong> - Ensure GT clocks are stable and correct frequency</li>
                                     <li><strong>Verify Device Tree</strong> - Check DTS bindings, compatible strings, and PHY configuration</li>
@@ -1020,7 +1237,7 @@ ifconfig eth0</code>
 
                 <div class="section">
                     <div class="section-title">💻 Useful Commands</div>
-                    <div class="code-snippet">
+                    <div class="terminal-commands">
 <code># Check interface status and capabilities
 ethtool eth0
 
@@ -1042,8 +1259,6 @@ dmesg | grep "xilinx_axienet"
 # View interface configuration
 ifconfig eth0
 
-# Check DMA status (if available)
-cat /sys/class/net/eth0/device/dma_status
 
 # Monitor DMA interrupts
 cat /proc/interrupts | grep dma</code>
@@ -1071,8 +1286,19 @@ cat /proc/interrupts | grep dma</code>
         </div>
 
         <div class="footer">
-            <p>Ethernet Debug Playbook | AMD WTS Team | Last updated: January 2026</p>
+            <p>Ethernet Debug Playbook | AMD WTS-WWG Team | Part of AJ's Transition Task | Last updated: January 2026</p>
         </div>
+    </div>
+
+    <!-- Image Lightbox Modal -->
+    <div id="lightboxModal" class="lightbox-modal" onclick="closeLightboxOnBackground(event)" role="dialog" aria-modal="true" aria-label="Image gallery" aria-hidden="true">
+        <span class="lightbox-close" onclick="closeLightbox()" role="button" aria-label="Close image gallery" tabindex="0" onkeydown="handleLightboxKeyClose(event)">&times;</span>
+        <span class="lightbox-nav lightbox-prev" onclick="changeImage(-1)" role="button" aria-label="Previous image" tabindex="0" onkeydown="handleLightboxKeyNav(event, -1)">&#10094;</span>
+        <div class="lightbox-content">
+            <img id="lightboxImage" src="" alt="Lightbox image" />
+        </div>
+        <span class="lightbox-nav lightbox-next" onclick="changeImage(1)" role="button" aria-label="Next image" tabindex="0" onkeydown="handleLightboxKeyNav(event, 1)">&#10095;</span>
+        <div class="lightbox-caption" id="lightboxCaption"></div>
     </div>
 
     <script>
@@ -1152,6 +1378,84 @@ cat /proc/interrupts | grep dma</code>
                 top: 0,
                 behavior: 'smooth'
             });
+        }
+
+        // Lightbox functionality for IBERT images
+        const ibertImages = [
+            { src: '../assets/images/IBERT1.png', alt: 'IBERT Clock Verification Example 1' },
+            { src: '../assets/images/IBERT2.png', alt: 'IBERT Clock Verification Example 2' }
+        ];
+        let currentImageIndex = 0;
+
+        function openLightbox(index) {
+            currentImageIndex = index;
+            const modal = document.getElementById('lightboxModal');
+            const img = document.getElementById('lightboxImage');
+            const caption = document.getElementById('lightboxCaption');
+            
+            modal.classList.add('active');
+            img.src = ibertImages[currentImageIndex].src;
+            img.alt = ibertImages[currentImageIndex].alt;
+            caption.textContent = ibertImages[currentImageIndex].alt + ' (' + (currentImageIndex + 1) + ' of ' + ibertImages.length + ')';
+            
+            // Prevent body scroll when modal is open
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            const modal = document.getElementById('lightboxModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function closeLightboxOnBackground(event) {
+            if (event.target.id === 'lightboxModal') {
+                closeLightbox();
+            }
+        }
+
+        function changeImage(direction) {
+            currentImageIndex += direction;
+            if (currentImageIndex >= ibertImages.length) {
+                currentImageIndex = 0;
+            } else if (currentImageIndex < 0) {
+                currentImageIndex = ibertImages.length - 1;
+            }
+            
+            const img = document.getElementById('lightboxImage');
+            const caption = document.getElementById('lightboxCaption');
+            img.src = ibertImages[currentImageIndex].src;
+            img.alt = ibertImages[currentImageIndex].alt;
+            caption.textContent = ibertImages[currentImageIndex].alt + ' (' + (currentImageIndex + 1) + ' of ' + ibertImages.length + ')';
+        }
+
+        // Keyboard navigation for lightbox
+        document.addEventListener('keydown', function(event) {
+            const modal = document.getElementById('lightboxModal');
+            if (modal.classList.contains('active')) {
+                if (event.key === 'Escape') {
+                    closeLightbox();
+                } else if (event.key === 'ArrowLeft') {
+                    changeImage(-1);
+                } else if (event.key === 'ArrowRight') {
+                    changeImage(1);
+                }
+            }
+        });
+
+        // Keyboard handlers for interactive elements
+        function handleLightboxKeyClose(event) {
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                closeLightbox();
+            }
+        }
+
+        function handleLightboxKeyNav(event, direction) {
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                changeImage(direction);
+            }
         }
     </script>
     </main>
