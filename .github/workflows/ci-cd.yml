@@ -1,14 +1,30 @@
-name: QA Automation - All Pages
+name: CI/CD - Test and Deploy
 
 on:
   push:
-    branches: [ main, master, develop, deploy ]
+    branches: [ main, master, develop ]
   pull_request:
-    branches: [ main, master, deploy ]
-  workflow_dispatch:  # Manual trigger
-  workflow_call:  # Allow being called from other workflows
+    branches: [ main, master ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+  security-events: write
+  actions: read
+  issues: write
+  pull-requests: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
+  # ============================================
+  # TESTING JOBS
+  # ============================================
+  
   html-validation:
     name: HTML5 Validation
     runs-on: ubuntu-latest
@@ -182,10 +198,6 @@ jobs:
   security-scan:
     name: Security Scan
     runs-on: ubuntu-latest
-    permissions:
-      security-events: write
-      actions: read
-      contents: read
     steps:
       - uses: actions/checkout@v4
       
@@ -202,3 +214,89 @@ jobs:
         if: always()
         with:
           sarif_file: 'trivy-results.sarif'
+
+  # ============================================
+  # MERGE TO DEPLOY BRANCH
+  # ============================================
+  
+  merge-to-deploy:
+    name: Merge to Deploy Branch
+    runs-on: ubuntu-latest
+    needs: 
+      - html-validation
+      - link-check
+      - lighthouse-tests
+      - e2e-tests
+      - accessibility-check
+      - cross-browser-tests
+      - mobile-responsive-check
+      - security-scan
+    if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master')
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+      
+      - name: Merge to Deploy Branch
+        run: |
+          # Fetch all branches
+          git fetch origin
+          
+          # Check if deploy branch exists
+          if git ls-remote --heads origin deploy | grep deploy; then
+            echo "Deploy branch exists, checking out..."
+            git checkout deploy
+            git pull origin deploy
+          else
+            echo "Creating deploy branch..."
+            git checkout -b deploy
+          fi
+          
+          # Merge main/master into deploy
+          git merge origin/${{ github.ref_name }} --no-ff -m "Auto-merge: ${{ github.ref_name }} → deploy (CI passed)"
+          
+          # Push to deploy branch
+          git push origin deploy
+
+  # ============================================
+  # GITHUB PAGES DEPLOYMENT
+  # ============================================
+  
+  build:
+    name: Build Jekyll Site
+    runs-on: ubuntu-latest
+    needs: merge-to-deploy
+    if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master')
+    steps:
+      - name: Checkout Deploy Branch
+        uses: actions/checkout@v4
+        with:
+          ref: deploy
+      
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      
+      - name: Build with Jekyll
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./
+          destination: ./_site
+      
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+
+  deploy:
+    name: Deploy to GitHub Pages
+    runs-on: ubuntu-latest
+    needs: build
+    if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master')
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
