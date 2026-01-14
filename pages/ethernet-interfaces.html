@@ -3329,6 +3329,845 @@
       }
     ],
     "count": 1
+  },
+  "2025.1/KD240": {
+    "version": "2025.1",
+    "design": "KD240",
+    "ethernet_nodes": [
+      {
+        "name": "ethernet@ff0c0000",
+        "phy-handle": "<0x187>",
+        "assigned-clock-rates": "<0xee6b280>",
+        "pinctrl-0": "<0x186>",
+        "pinctrl-names": "default",
+        "compatible": "ethernet-phy-id0283.bc30",
+        "status": "okay",
+        "interrupt-parent": "<0x0e>",
+        "interrupts": "<0x00 0x3b 0x04 0x00 0x3b 0x04>",
+        "reg": "<0x08>",
+        "clock-names": "pclk\\0hclk\\0tx_clk\\0rx_clk\\0tsu_clk",
+        "power-domains": "<0x7c 0x1e>",
+        "resets": "<0x03 0x1e>",
+        "reset-names": "gem1_rst",
+        "clocks": "<0x73 0x1f 0x73 0x69 0x73 0x2e 0x73 0x32 0x73 0x2c>",
+        "assigned-clocks": "<0x73 0x2c>",
+        "xlnx,is-cache-coherent": "<0x00>",
+        "xlnx,has-mdio": "<0x2faf080>",
+        "xlnx,gem-board-interface": "custom",
+        "phy-mode": "rgmii-id",
+        "xlnx,tz-nonsecure": "<0x01>",
+        "xlnx,enet-slcr-1000mbps-div0": "<0x08>",
+        "xlnx,enet-slcr-10mbps-div0": "<0x32>",
+        "xlnx,enet-slcr-1000mbps-div1": "<0x01>",
+        "xlnx,enet-slcr-10mbps-div1": "<0x08>",
+        "xlnx,enet-tsu-clk-freq-hz": "<0xee6a8ba>",
+        "xlnx,ip-name": "psu_ethernet",
+        "xlnx,eth-mode": "<0x01>",
+        "xlnx,enet-reset": "<0x2faf080>",
+        "xlnx,enet-clk-freq-hz": "<0x773545d>",
+        "xlnx,enet-slcr-100mbps-div0": "<0x28>",
+        "xlnx,ptp-enet-clock": "<0x00>",
+        "xlnx,enet-slcr-100mbps-div1": "<0x01>",
+        "phandle": "<0x187>",
+        "#size-cells": "<0x00>",
+        "#address-cells": "<0x01>",
+        "reset-gpios": "<0x47 0x4d 0x01>",
+        "reset-deassert-us": "<0x1388>",
+        "reset-assert-us": "<0x0a>",
+        "adi,fifo-depth-bits": "<0x08>",
+        "adi,tx-internal-delay-ps": "<0x7d0>",
+        "adi,rx-internal-delay-ps": "<0x7d0>",
+        "#phy-cells": "<0x01>",
+        "mdio": {
+          "name": "mdio",
+          "#address-cells": "<0x01>",
+          "#size-cells": "<0x00>",
+          "phandle": "<0x187>",
+          "reset-gpios": "<0x47 0x4d 0x01>",
+          "reset-deassert-us": "<0x1388>",
+          "reset-assert-us": "<0x0a>",
+          "adi,fifo-depth-bits": "<0x08>",
+          "adi,tx-internal-delay-ps": "<0x7d0>",
+          "adi,rx-internal-delay-ps": "<0x7d0>",
+          "reg": "<0x08>",
+          "compatible": "ethernet-phy-id0283.bc30",
+          "#phy-cells": "<0x01>",
+          "phy_nodes": [
+            {
+              "name": "ethernet-phy@8",
+              "reg": "<0x08>",
+              "phandle": "<0x187>",
+              "reset-gpios": "<0x47 0x4d 0x01>",
+              "reset-deassert-us": "<0x1388>",
+              "reset-assert-us": "<0x0a>",
+              "adi,fifo-depth-bits": "<0x08>",
+              "adi,tx-internal-delay-ps": "<0x7d0>",
+              "adi,rx-internal-delay-ps": "<0x7d0>",
+              "compatible": "ethernet-phy-id0283.bc30"
+            }
+          ]
+        },
+        "nodeType": "Unknown"
+      }
+    ],
+    "count": 1
+  },
+  "2025.1/KR260": {
+    "version": "2025.1",
+    "design": "KR260",
+    "ethernet_nodes": [
+      {
+        "name": "ethernet@ff0b0000",
+        "assigned-clock-rates": "<0xee6b280>",
+        "phy-handle": "<0x18f>",
+        "phys": "<0x62 0x00 0x08 0x00 0x00>",
+        "compatible": "xlnx,zynqmp-gem\\0cdns,gem",
+        "status": "okay",
+        "interrupt-parent": "<0x0f>",
+        "interrupts": "<0x00 0x39 0x04 0x00 0x39 0x04>",
+        "reg": "<0x00 0xff0b0000 0x00 0x1000>",
+        "clock-names": "pclk\\0hclk\\0tx_clk\\0rx_clk\\0tsu_clk",
+        "power-domains": "<0x7e 0x1d>",
+        "resets": "<0x03 0x1d>",
+        "reset-names": "gem0_rst",
+        "clocks": "<0x75 0x1f 0x75 0x68 0x75 0x2d 0x75 0x31 0x75 0x2c>",
+        "assigned-clocks": "<0x75 0x2c>",
+        "xlnx,is-cache-coherent": "<0x00>",
+        "xlnx,has-mdio": "<0x2faf080>",
+        "xlnx,gem-board-interface": "custom",
+        "phy-mode": "sgmii",
+        "xlnx,tz-nonsecure": "<0x01>",
+        "xlnx,enet-slcr-1000mbps-div0": "<0x08>",
+        "xlnx,enet-slcr-10mbps-div0": "<0x32>",
+        "xlnx,enet-slcr-1000mbps-div1": "<0x01>",
+        "xlnx,enet-slcr-10mbps-div1": "<0x08>",
+        "xlnx,enet-tsu-clk-freq-hz": "<0xee6a8ba>",
+        "xlnx,ip-name": "psu_ethernet",
+        "xlnx,eth-mode": "<0x02>",
+        "xlnx,enet-reset": "<0x2faf080>",
+        "xlnx,enet-clk-freq-hz": "<0x773545d>",
+        "xlnx,enet-slcr-100mbps-div0": "<0x28>",
+        "xlnx,ptp-enet-clock": "<0x00>",
+        "xlnx,enet-slcr-100mbps-div1": "<0x01>",
+        "phandle": "<0x39>",
+        "nodeType": "PS GEM0"
+      },
+      {
+        "name": "ethernet@ff0c0000",
+        "assigned-clock-rates": "<0xee6b280>",
+        "phy-handle": "<0x191>",
+        "pinctrl-0": "<0x190>",
+        "pinctrl-names": "default",
+        "compatible": "ethernet-phy-id2000.a231",
+        "status": "okay",
+        "interrupt-parent": "<0x0f>",
+        "interrupts": "<0x00 0x3b 0x04 0x00 0x3b 0x04>",
+        "reg": "<0x04>",
+        "clock-names": "pclk\\0hclk\\0tx_clk\\0rx_clk\\0tsu_clk",
+        "power-domains": "<0x7e 0x1e>",
+        "resets": "<0x03 0x1e>",
+        "reset-names": "gem1_rst",
+        "clocks": "<0x75 0x1f 0x75 0x69 0x75 0x2e 0x75 0x32 0x75 0x2c>",
+        "assigned-clocks": "<0x75 0x2c>",
+        "xlnx,is-cache-coherent": "<0x00>",
+        "xlnx,has-mdio": "<0x2faf080>",
+        "xlnx,gem-board-interface": "custom",
+        "phy-mode": "rgmii-id",
+        "xlnx,tz-nonsecure": "<0x01>",
+        "xlnx,enet-slcr-1000mbps-div0": "<0x08>",
+        "xlnx,enet-slcr-10mbps-div0": "<0x32>",
+        "xlnx,enet-slcr-1000mbps-div1": "<0x01>",
+        "xlnx,enet-slcr-10mbps-div1": "<0x08>",
+        "xlnx,enet-tsu-clk-freq-hz": "<0xee6a8ba>",
+        "xlnx,ip-name": "psu_ethernet",
+        "xlnx,eth-mode": "<0x01>",
+        "xlnx,enet-reset": "<0x2faf080>",
+        "xlnx,enet-clk-freq-hz": "<0x773545d>",
+        "xlnx,enet-slcr-100mbps-div0": "<0x28>",
+        "xlnx,ptp-enet-clock": "<0x00>",
+        "xlnx,enet-slcr-100mbps-div1": "<0x01>",
+        "phandle": "<0x18f>",
+        "#size-cells": "<0x00>",
+        "#address-cells": "<0x01>",
+        "reset-gpios": "<0x187 0x05 0x01>",
+        "reset-deassert-us": "<0x118>",
+        "reset-assert-us": "<0x12c>",
+        "ti,dp83867-rxctrl-strap-quirk": true,
+        "ti,fifo-depth": "<0x01>",
+        "ti,tx-internal-delay": "<0x0a>",
+        "ti,rx-internal-delay": "<0x08>",
+        "#phy-cells": "<0x01>",
+        "mdio": {
+          "name": "mdio",
+          "#address-cells": "<0x01>",
+          "#size-cells": "<0x00>",
+          "phandle": "<0x191>",
+          "reset-gpios": "<0x187 0x06 0x01>",
+          "reset-deassert-us": "<0x118>",
+          "reset-assert-us": "<0x64>",
+          "ti,fifo-depth": "<0x01>",
+          "ti,tx-internal-delay": "<0x0a>",
+          "ti,rx-internal-delay": "<0x08>",
+          "reg": "<0x08>",
+          "compatible": "ethernet-phy-id2000.a231",
+          "#phy-cells": "<0x01>",
+          "phy_nodes": [
+            {
+              "name": "ethernet-phy@8",
+              "reg": "<0x08>",
+              "phandle": "<0x191>",
+              "reset-gpios": "<0x187 0x06 0x01>",
+              "reset-deassert-us": "<0x118>",
+              "reset-assert-us": "<0x64>",
+              "ti,dp83867-rxctrl-strap-quirk": true,
+              "ti,fifo-depth": "<0x01>",
+              "ti,tx-internal-delay": "<0x0a>",
+              "ti,rx-internal-delay": "<0x08>",
+              "compatible": "ethernet-phy-id2000.a231"
+            }
+          ]
+        },
+        "nodeType": "Unknown"
+      }
+    ],
+    "count": 2
+  },
+  "2025.1/KV260": {
+    "version": "2025.1",
+    "design": "KV260",
+    "ethernet_nodes": [
+      {
+        "name": "ethernet@ff0e0000",
+        "assigned-clock-rates": "<0xee6b280>",
+        "phy-handle": "<0x18c>",
+        "pinctrl-0": "<0x18b>",
+        "pinctrl-names": "default",
+        "compatible": "ethernet-phy-id2000.a231",
+        "status": "okay",
+        "interrupt-parent": "<0x0f>",
+        "interrupts": "<0x00 0x3f 0x04 0x00 0x3f 0x04>",
+        "reg": "<0x01>",
+        "clock-names": "pclk\\0hclk\\0tx_clk\\0rx_clk\\0tsu_clk",
+        "power-domains": "<0x7c 0x20>",
+        "resets": "<0x03 0x20>",
+        "reset-names": "gem3_rst",
+        "clocks": "<0x73 0x1f 0x73 0x6b 0x73 0x30 0x73 0x34 0x73 0x2c>",
+        "assigned-clocks": "<0x73 0x2c>",
+        "xlnx,is-cache-coherent": "<0x00>",
+        "xlnx,has-mdio": "<0x2faf080>",
+        "xlnx,gem-board-interface": "custom",
+        "phy-mode": "rgmii-id",
+        "xlnx,tz-nonsecure": "<0x01>",
+        "xlnx,enet-slcr-1000mbps-div0": "<0x0c>",
+        "xlnx,enet-slcr-10mbps-div0": "<0x3c>",
+        "xlnx,enet-slcr-1000mbps-div1": "<0x01>",
+        "xlnx,enet-slcr-10mbps-div1": "<0x0a>",
+        "xlnx,enet-tsu-clk-freq-hz": "<0xee6a8ba>",
+        "xlnx,ip-name": "psu_ethernet",
+        "xlnx,eth-mode": "<0x01>",
+        "xlnx,enet-reset": "<0x2faf080>",
+        "xlnx,enet-clk-freq-hz": "<0x773545d>",
+        "xlnx,enet-slcr-100mbps-div0": "<0x3c>",
+        "xlnx,ptp-enet-clock": "<0x00>",
+        "xlnx,enet-slcr-100mbps-div1": "<0x01>",
+        "phandle": "<0x18c>",
+        "#size-cells": "<0x00>",
+        "#address-cells": "<0x01>",
+        "reset-gpios": "<0x47 0x26 0x01>",
+        "reset-deassert-us": "<0x118>",
+        "reset-assert-us": "<0x64>",
+        "ti,dp83867-rxctrl-strap-quirk": true,
+        "ti,fifo-depth": "<0x01>",
+        "ti,tx-internal-delay": "<0x0a>",
+        "ti,rx-internal-delay": "<0x08>",
+        "#phy-cells": "<0x01>",
+        "mdio": {
+          "name": "mdio",
+          "#address-cells": "<0x01>",
+          "#size-cells": "<0x00>",
+          "phandle": "<0x18c>",
+          "reset-gpios": "<0x47 0x26 0x01>",
+          "reset-deassert-us": "<0x118>",
+          "reset-assert-us": "<0x64>",
+          "ti,fifo-depth": "<0x01>",
+          "ti,tx-internal-delay": "<0x0a>",
+          "ti,rx-internal-delay": "<0x08>",
+          "compatible": "ethernet-phy-id2000.a231",
+          "reg": "<0x01>",
+          "#phy-cells": "<0x01>",
+          "phy_nodes": [
+            {
+              "name": "ethernet-phy@1",
+              "reg": "<0x01>",
+              "phandle": "<0x18c>",
+              "reset-gpios": "<0x47 0x26 0x01>",
+              "reset-deassert-us": "<0x118>",
+              "reset-assert-us": "<0x64>",
+              "ti,dp83867-rxctrl-strap-quirk": true,
+              "ti,fifo-depth": "<0x01>",
+              "ti,tx-internal-delay": "<0x0a>",
+              "ti,rx-internal-delay": "<0x08>",
+              "compatible": "ethernet-phy-id2000.a231"
+            }
+          ]
+        },
+        "nodeType": "Unknown"
+      }
+    ],
+    "count": 1
+  },
+  "2025.1/VCK190": {
+    "version": "2025.1",
+    "design": "VCK190",
+    "ethernet_nodes": [
+      {
+        "name": "ethernet@ff0c0000",
+        "compatible": "ethernet-phy-id2000.a231",
+        "status": "okay",
+        "reg": "<0x02>",
+        "interrupts": "<0x00 0x38 0x04 0x00 0x38 0x04>",
+        "interrupt-parent": "<0x4b>",
+        "clock-names": "pclk\\0hclk\\0tx_clk\\0rx_clk\\0tsu_clk",
+        "#address-cells": "<0x01>",
+        "#size-cells": "<0x00>",
+        "clocks": "<0x81 0x52 0x81 0x58 0x81 0x31 0x81 0x30 0x81 0x2b>",
+        "power-domains": "<0x80 0x18224019>",
+        "xlnx,has-mdio": "<0x01>",
+        "xlnx,is-cache-coherent": "<0x00>",
+        "xlnx,gem-board-interface": "custom",
+        "phy-mode": "rgmii-id",
+        "xlnx,enet-slcr-1000mbps-div0": "<0x02>",
+        "xlnx,enet-slcr-10mbps-div0": "<0x64>",
+        "xlnx,enet-tsu-clk-freq-hz": "<0xee6b18c>",
+        "xlnx,ip-name": "psv_ethernet",
+        "xlnx,eth-mode": "<0x01>",
+        "xlnx,enet-clk-freq-hz": "<0x77358c6>",
+        "xlnx,enet-slcr-100mbps-div0": "<0x0a>",
+        "phy-handle": "<0xa1>",
+        "phandle": "<0xa2>",
+        "#phy-cells": "<0x01>",
+        "ti,rx-internal-delay": "<0x0b>",
+        "ti,tx-internal-delay": "<0x0a>",
+        "ti,fifo-depth": "<0x01>",
+        "ti,dp83867-rxctrl-strap-quirk": true,
+        "reset-assert-us": "<0x64>",
+        "reset-deassert-us": "<0x118>",
+        "reset-gpios": "<0x33 0x31 0x01>",
+        "mdio": {
+          "name": "mdio",
+          "#address-cells": "<0x01>",
+          "#size-cells": "<0x00>",
+          "phandle": "<0xa1>",
+          "#phy-cells": "<0x01>",
+          "compatible": "ethernet-phy-id2000.a231",
+          "reg": "<0x01>",
+          "ti,rx-internal-delay": "<0x0b>",
+          "ti,tx-internal-delay": "<0x0a>",
+          "ti,fifo-depth": "<0x01>",
+          "reset-assert-us": "<0x64>",
+          "reset-deassert-us": "<0x118>",
+          "reset-gpios": "<0x33 0x30 0x01>",
+          "phy_nodes": [
+            {
+              "name": "ethernet-phy@1",
+              "reg": "<0x01>",
+              "compatible": "ethernet-phy-id2000.a231",
+              "ti,rx-internal-delay": "<0x0b>",
+              "ti,tx-internal-delay": "<0x0a>",
+              "ti,fifo-depth": "<0x01>",
+              "ti,dp83867-rxctrl-strap-quirk": true,
+              "reset-assert-us": "<0x64>",
+              "reset-deassert-us": "<0x118>",
+              "reset-gpios": "<0x33 0x30 0x01>"
+            }
+          ]
+        },
+        "nodeType": "Unknown"
+      },
+      {
+        "name": "ethernet@ff0d0000",
+        "compatible": "xlnx,versal-gem\\0cdns,gem",
+        "status": "okay",
+        "reg": "<0x00 0xff0d0000 0x00 0x1000>",
+        "interrupts": "<0x00 0x3a 0x04 0x00 0x3a 0x04>",
+        "interrupt-parent": "<0x4b>",
+        "clock-names": "pclk\\0hclk\\0tx_clk\\0rx_clk\\0tsu_clk",
+        "#address-cells": "<0x01>",
+        "#size-cells": "<0x00>",
+        "clocks": "<0x81 0x52 0x81 0x59 0x81 0x33 0x81 0x32 0x81 0x2b>",
+        "power-domains": "<0x80 0x1822401a>",
+        "xlnx,has-mdio": "<0x00>",
+        "xlnx,is-cache-coherent": "<0x00>",
+        "xlnx,gem-board-interface": "custom",
+        "phy-mode": "rgmii-id",
+        "xlnx,enet-slcr-1000mbps-div0": "<0x02>",
+        "xlnx,enet-slcr-10mbps-div0": "<0x64>",
+        "xlnx,enet-tsu-clk-freq-hz": "<0xee6b18c>",
+        "xlnx,ip-name": "psv_ethernet",
+        "xlnx,eth-mode": "<0x01>",
+        "xlnx,enet-clk-freq-hz": "<0x77358c6>",
+        "xlnx,enet-slcr-100mbps-div0": "<0x0a>",
+        "phy-handle": "<0xa2>",
+        "phandle": "<0x61>",
+        "nodeType": "PS GEM2"
+      }
+    ],
+    "count": 2
+  },
+  "2025.1/VEK280": {
+    "version": "2025.1",
+    "design": "VEK280",
+    "ethernet_nodes": [
+      {
+        "name": "ethernet@ff0c0000",
+        "compatible": "ethernet-phy-id0283.bc30",
+        "status": "okay",
+        "reg": "<0x01>",
+        "interrupts": "<0x00 0x38 0x04 0x00 0x38 0x04>",
+        "interrupt-parent": "<0x4b>",
+        "clock-names": "pclk\\0hclk\\0tx_clk\\0rx_clk\\0tsu_clk",
+        "#address-cells": "<0x01>",
+        "#size-cells": "<0x00>",
+        "clocks": "<0x82 0x52 0x82 0x58 0x82 0x31 0x82 0x30 0x82 0x2b>",
+        "power-domains": "<0x81 0x18224019>",
+        "xlnx,has-mdio": "<0x01>",
+        "xlnx,is-cache-coherent": "<0x00>",
+        "xlnx,gem-board-interface": "custom",
+        "phy-mode": "rgmii-id",
+        "xlnx,enet-slcr-1000mbps-div0": "<0x02>",
+        "xlnx,enet-slcr-10mbps-div0": "<0x64>",
+        "xlnx,enet-tsu-clk-freq-hz": "<0xee6b18c>",
+        "xlnx,ip-name": "psv_ethernet",
+        "xlnx,eth-mode": "<0x01>",
+        "xlnx,enet-clk-freq-hz": "<0x77358c6>",
+        "xlnx,enet-slcr-100mbps-div0": "<0x0a>",
+        "phy-handle": "<0xa2>",
+        "phandle": "<0xa2>",
+        "#phy-cells": "<0x01>",
+        "adi,rx-internal-delay-ps": "<0x7d0>",
+        "adi,tx-internal-delay-ps": "<0x7d0>",
+        "adi,fifo-depth-bits": "<0x08>",
+        "reset-gpios": "<0x34 0x30 0x01>",
+        "reset-assert-us": "<0x0a>",
+        "reset-deassert-us": "<0x1388>",
+        "mdio": {
+          "name": "mdio",
+          "#address-cells": "<0x01>",
+          "#size-cells": "<0x00>",
+          "phandle": "<0xa2>",
+          "#phy-cells": "<0x01>",
+          "compatible": "ethernet-phy-id0283.bc30",
+          "reg": "<0x01>",
+          "adi,rx-internal-delay-ps": "<0x7d0>",
+          "adi,tx-internal-delay-ps": "<0x7d0>",
+          "adi,fifo-depth-bits": "<0x08>",
+          "reset-gpios": "<0x34 0x30 0x01>",
+          "reset-assert-us": "<0x0a>",
+          "reset-deassert-us": "<0x1388>",
+          "phy_nodes": [
+            {
+              "name": "ethernet-phy@1",
+              "reg": "<0x01>",
+              "compatible": "ethernet-phy-id0283.bc30",
+              "adi,rx-internal-delay-ps": "<0x7d0>",
+              "adi,tx-internal-delay-ps": "<0x7d0>",
+              "adi,fifo-depth-bits": "<0x08>",
+              "reset-gpios": "<0x34 0x30 0x01>",
+              "reset-assert-us": "<0x0a>",
+              "reset-deassert-us": "<0x1388>"
+            }
+          ]
+        },
+        "nodeType": "Unknown"
+      }
+    ],
+    "count": 1
+  },
+  "2025.1/VMK180": {
+    "version": "2025.1",
+    "design": "VMK180",
+    "ethernet_nodes": [
+      {
+        "name": "ethernet@ff0c0000",
+        "compatible": "ethernet-phy-id2000.a231",
+        "status": "okay",
+        "reg": "<0x02>",
+        "interrupts": "<0x00 0x38 0x04 0x00 0x38 0x04>",
+        "interrupt-parent": "<0x44>",
+        "clock-names": "pclk\\0hclk\\0tx_clk\\0rx_clk\\0tsu_clk",
+        "#address-cells": "<0x01>",
+        "#size-cells": "<0x00>",
+        "clocks": "<0x7a 0x52 0x7a 0x58 0x7a 0x31 0x7a 0x30 0x7a 0x2b>",
+        "power-domains": "<0x79 0x18224019>",
+        "xlnx,has-mdio": "<0x01>",
+        "xlnx,is-cache-coherent": "<0x00>",
+        "xlnx,gem-board-interface": "custom",
+        "phy-mode": "rgmii-id",
+        "xlnx,enet-slcr-1000mbps-div0": "<0x02>",
+        "xlnx,enet-slcr-10mbps-div0": "<0x64>",
+        "xlnx,enet-tsu-clk-freq-hz": "<0xee6b18c>",
+        "xlnx,ip-name": "psv_ethernet",
+        "xlnx,eth-mode": "<0x01>",
+        "xlnx,enet-clk-freq-hz": "<0x77358c6>",
+        "xlnx,enet-slcr-100mbps-div0": "<0x0a>",
+        "phy-handle": "<0x9a>",
+        "phandle": "<0x9b>",
+        "#phy-cells": "<0x01>",
+        "ti,rx-internal-delay": "<0x0b>",
+        "ti,tx-internal-delay": "<0x0a>",
+        "ti,fifo-depth": "<0x01>",
+        "ti,dp83867-rxctrl-strap-quirk": true,
+        "reset-assert-us": "<0x64>",
+        "reset-deassert-us": "<0x118>",
+        "reset-gpios": "<0x2c 0x31 0x01>",
+        "mdio": {
+          "name": "mdio",
+          "#address-cells": "<0x01>",
+          "#size-cells": "<0x00>",
+          "phandle": "<0x9a>",
+          "#phy-cells": "<0x01>",
+          "compatible": "ethernet-phy-id2000.a231",
+          "reg": "<0x01>",
+          "ti,rx-internal-delay": "<0x0b>",
+          "ti,tx-internal-delay": "<0x0a>",
+          "ti,fifo-depth": "<0x01>",
+          "reset-assert-us": "<0x64>",
+          "reset-deassert-us": "<0x118>",
+          "reset-gpios": "<0x2c 0x30 0x01>",
+          "phy_nodes": [
+            {
+              "name": "ethernet-phy@1",
+              "reg": "<0x01>",
+              "compatible": "ethernet-phy-id2000.a231",
+              "ti,rx-internal-delay": "<0x0b>",
+              "ti,tx-internal-delay": "<0x0a>",
+              "ti,fifo-depth": "<0x01>",
+              "ti,dp83867-rxctrl-strap-quirk": true,
+              "reset-assert-us": "<0x64>",
+              "reset-deassert-us": "<0x118>",
+              "reset-gpios": "<0x2c 0x30 0x01>"
+            }
+          ]
+        },
+        "nodeType": "Unknown"
+      },
+      {
+        "name": "ethernet@ff0d0000",
+        "compatible": "xlnx,versal-gem\\0cdns,gem",
+        "status": "okay",
+        "reg": "<0x00 0xff0d0000 0x00 0x1000>",
+        "interrupts": "<0x00 0x3a 0x04 0x00 0x3a 0x04>",
+        "interrupt-parent": "<0x44>",
+        "clock-names": "pclk\\0hclk\\0tx_clk\\0rx_clk\\0tsu_clk",
+        "#address-cells": "<0x01>",
+        "#size-cells": "<0x00>",
+        "clocks": "<0x7a 0x52 0x7a 0x59 0x7a 0x33 0x7a 0x32 0x7a 0x2b>",
+        "power-domains": "<0x79 0x1822401a>",
+        "xlnx,has-mdio": "<0x00>",
+        "xlnx,is-cache-coherent": "<0x00>",
+        "xlnx,gem-board-interface": "custom",
+        "phy-mode": "rgmii-id",
+        "xlnx,enet-slcr-1000mbps-div0": "<0x02>",
+        "xlnx,enet-slcr-10mbps-div0": "<0x64>",
+        "xlnx,enet-tsu-clk-freq-hz": "<0xee6b18c>",
+        "xlnx,ip-name": "psv_ethernet",
+        "xlnx,eth-mode": "<0x01>",
+        "xlnx,enet-clk-freq-hz": "<0x77358c6>",
+        "xlnx,enet-slcr-100mbps-div0": "<0x0a>",
+        "phy-handle": "<0x9b>",
+        "phandle": "<0x5a>",
+        "nodeType": "PS GEM2"
+      }
+    ],
+    "count": 2
+  },
+  "2025.1/VPK120": {
+    "version": "2025.1",
+    "design": "VPK120",
+    "ethernet_nodes": [
+      {
+        "name": "ethernet@ff0c0000",
+        "compatible": "ethernet-phy-id2000.a231",
+        "status": "okay",
+        "reg": "<0x01>",
+        "interrupts": "<0x00 0x38 0x04 0x00 0x38 0x04>",
+        "interrupt-parent": "<0x44>",
+        "clock-names": "pclk\\0hclk\\0tx_clk\\0rx_clk\\0tsu_clk",
+        "#address-cells": "<0x01>",
+        "#size-cells": "<0x00>",
+        "clocks": "<0x78 0x52 0x78 0x58 0x78 0x31 0x78 0x30 0x78 0x2b>",
+        "power-domains": "<0x77 0x18224019>",
+        "xlnx,has-mdio": "<0x01>",
+        "xlnx,is-cache-coherent": "<0x00>",
+        "xlnx,gem-board-interface": "custom",
+        "phy-mode": "rgmii-id",
+        "xlnx,enet-slcr-1000mbps-div0": "<0x02>",
+        "xlnx,enet-slcr-10mbps-div0": "<0x64>",
+        "xlnx,enet-tsu-clk-freq-hz": "<0xee6b18c>",
+        "xlnx,ip-name": "psv_ethernet",
+        "xlnx,eth-mode": "<0x01>",
+        "xlnx,enet-clk-freq-hz": "<0x77358c6>",
+        "xlnx,enet-slcr-100mbps-div0": "<0x0a>",
+        "phy-handle": "<0x98>",
+        "phandle": "<0x98>",
+        "#phy-cells": "<0x01>",
+        "ti,rx-internal-delay": "<0x0b>",
+        "ti,tx-internal-delay": "<0x0a>",
+        "ti,fifo-depth": "<0x01>",
+        "ti,dp83867-rxctrl-strap-quirk": true,
+        "mdio": {
+          "name": "mdio",
+          "#address-cells": "<0x01>",
+          "#size-cells": "<0x00>",
+          "phandle": "<0x98>",
+          "#phy-cells": "<0x01>",
+          "compatible": "ethernet-phy-id2000.a231",
+          "reg": "<0x01>",
+          "ti,rx-internal-delay": "<0x0b>",
+          "ti,tx-internal-delay": "<0x0a>",
+          "ti,fifo-depth": "<0x01>",
+          "phy_nodes": [
+            {
+              "name": "phy@1",
+              "reg": "<0x01>",
+              "compatible": "ethernet-phy-id2000.a231",
+              "ti,rx-internal-delay": "<0x0b>",
+              "ti,tx-internal-delay": "<0x0a>",
+              "ti,fifo-depth": "<0x01>",
+              "ti,dp83867-rxctrl-strap-quirk": true
+            }
+          ]
+        },
+        "nodeType": "Unknown"
+      }
+    ],
+    "count": 1
+  },
+  "2025.1/ZCU104": {
+    "version": "2025.1",
+    "design": "ZCU104",
+    "ethernet_nodes": [
+      {
+        "name": "ethernet@ff0e0000",
+        "compatible": "ethernet-phy-id2000.a231",
+        "status": "okay",
+        "interrupt-parent": "<0x11>",
+        "interrupts": "<0x00 0x3f 0x04 0x00 0x3f 0x04>",
+        "reg": "<0x0c>",
+        "clock-names": "pclk\\0hclk\\0tx_clk\\0rx_clk\\0tsu_clk",
+        "power-domains": "<0x7f 0x20>",
+        "resets": "<0x03 0x20>",
+        "reset-names": "gem3_rst",
+        "clocks": "<0x77 0x1f 0x77 0x6b 0x77 0x30 0x77 0x34 0x77 0x2c>",
+        "assigned-clocks": "<0x77 0x2c>",
+        "xlnx,is-cache-coherent": "<0x00>",
+        "xlnx,has-mdio": "<0x2faf080>",
+        "xlnx,gem-board-interface": "custom",
+        "phy-mode": "rgmii-id",
+        "xlnx,tz-nonsecure": "<0x01>",
+        "xlnx,enet-slcr-1000mbps-div0": "<0x0c>",
+        "xlnx,enet-slcr-10mbps-div0": "<0x3c>",
+        "xlnx,enet-slcr-1000mbps-div1": "<0x01>",
+        "xlnx,enet-slcr-10mbps-div1": "<0x0a>",
+        "xlnx,enet-tsu-clk-freq-hz": "<0xee6b280>",
+        "xlnx,ip-name": "psu_ethernet",
+        "xlnx,eth-mode": "<0x01>",
+        "xlnx,enet-reset": "<0x2faf080>",
+        "xlnx,enet-clk-freq-hz": "<0x7735940>",
+        "xlnx,enet-slcr-100mbps-div0": "<0x3c>",
+        "xlnx,ptp-enet-clock": "<0x00>",
+        "xlnx,enet-slcr-100mbps-div1": "<0x01>",
+        "phy-handle": "<0x9b>",
+        "pinctrl-names": "default",
+        "pinctrl-0": "<0x9c>",
+        "phandle": "<0x9b>",
+        "#address-cells": "<0x01>",
+        "#size-cells": "<0x00>",
+        "#phy-cells": "<0x01>",
+        "ti,rx-internal-delay": "<0x08>",
+        "ti,tx-internal-delay": "<0x0a>",
+        "ti,fifo-depth": "<0x01>",
+        "ti,dp83867-rxctrl-strap-quirk": true,
+        "reset-gpios": "<0x9d 0x06 0x01>",
+        "mdio": {
+          "name": "mdio",
+          "#address-cells": "<0x01>",
+          "#size-cells": "<0x00>",
+          "phandle": "<0x9b>",
+          "#phy-cells": "<0x01>",
+          "compatible": "ethernet-phy-id2000.a231",
+          "reg": "<0x0c>",
+          "ti,rx-internal-delay": "<0x08>",
+          "ti,tx-internal-delay": "<0x0a>",
+          "ti,fifo-depth": "<0x01>",
+          "reset-gpios": "<0x9d 0x06 0x01>",
+          "phy_nodes": [
+            {
+              "name": "ethernet-phy@c",
+              "reg": "<0x0c>",
+              "compatible": "ethernet-phy-id2000.a231",
+              "ti,rx-internal-delay": "<0x08>",
+              "ti,tx-internal-delay": "<0x0a>",
+              "ti,fifo-depth": "<0x01>",
+              "ti,dp83867-rxctrl-strap-quirk": true,
+              "reset-gpios": "<0x9d 0x06 0x01>"
+            }
+          ]
+        },
+        "nodeType": "Unknown"
+      }
+    ],
+    "count": 1
+  },
+  "2025.1/ZCU106": {
+    "version": "2025.1",
+    "design": "ZCU106",
+    "ethernet_nodes": [
+      {
+        "name": "ethernet@ff0e0000",
+        "compatible": "ethernet-phy-id2000.a231",
+        "status": "okay",
+        "interrupt-parent": "<0x12>",
+        "interrupts": "<0x00 0x3f 0x04 0x00 0x3f 0x04>",
+        "reg": "<0x0c>",
+        "clock-names": "pclk\\0hclk\\0tx_clk\\0rx_clk\\0tsu_clk",
+        "power-domains": "<0x82 0x20>",
+        "resets": "<0x03 0x20>",
+        "reset-names": "gem3_rst",
+        "clocks": "<0x79 0x1f 0x79 0x6b 0x79 0x30 0x79 0x34 0x79 0x2c>",
+        "assigned-clocks": "<0x79 0x2c>",
+        "xlnx,is-cache-coherent": "<0x00>",
+        "xlnx,has-mdio": "<0x2faf080>",
+        "xlnx,gem-board-interface": "custom",
+        "phy-mode": "rgmii-id",
+        "xlnx,tz-nonsecure": "<0x01>",
+        "xlnx,enet-slcr-1000mbps-div0": "<0x0c>",
+        "xlnx,enet-slcr-10mbps-div0": "<0x3c>",
+        "xlnx,enet-slcr-1000mbps-div1": "<0x01>",
+        "xlnx,enet-slcr-10mbps-div1": "<0x0a>",
+        "xlnx,enet-tsu-clk-freq-hz": "<0xee650ed>",
+        "xlnx,ip-name": "psu_ethernet",
+        "xlnx,eth-mode": "<0x01>",
+        "xlnx,enet-reset": "<0x2faf080>",
+        "xlnx,enet-clk-freq-hz": "<0x7732877>",
+        "xlnx,enet-slcr-100mbps-div0": "<0x3c>",
+        "xlnx,ptp-enet-clock": "<0x00>",
+        "xlnx,enet-slcr-100mbps-div1": "<0x01>",
+        "phy-handle": "<0x9e>",
+        "pinctrl-names": "default",
+        "pinctrl-0": "<0x9f>",
+        "phandle": "<0x9e>",
+        "#address-cells": "<0x01>",
+        "#size-cells": "<0x00>",
+        "#phy-cells": "<0x01>",
+        "ti,rx-internal-delay": "<0x08>",
+        "ti,tx-internal-delay": "<0x0a>",
+        "ti,fifo-depth": "<0x01>",
+        "ti,dp83867-rxctrl-strap-quirk": true,
+        "reset-gpios": "<0xa0 0x06 0x01>",
+        "mdio": {
+          "name": "mdio",
+          "#address-cells": "<0x01>",
+          "#size-cells": "<0x00>",
+          "phandle": "<0x9e>",
+          "#phy-cells": "<0x01>",
+          "reg": "<0x0c>",
+          "compatible": "ethernet-phy-id2000.a231",
+          "ti,rx-internal-delay": "<0x08>",
+          "ti,tx-internal-delay": "<0x0a>",
+          "ti,fifo-depth": "<0x01>",
+          "reset-gpios": "<0xa0 0x06 0x01>",
+          "phy_nodes": [
+            {
+              "name": "ethernet-phy@c",
+              "reg": "<0x0c>",
+              "compatible": "ethernet-phy-id2000.a231",
+              "ti,rx-internal-delay": "<0x08>",
+              "ti,tx-internal-delay": "<0x0a>",
+              "ti,fifo-depth": "<0x01>",
+              "ti,dp83867-rxctrl-strap-quirk": true,
+              "reset-gpios": "<0xa0 0x06 0x01>"
+            }
+          ]
+        },
+        "nodeType": "Unknown"
+      }
+    ],
+    "count": 1
+  },
+  "2025.1/ZCU208": {
+    "version": "2025.1",
+    "design": "ZCU208",
+    "ethernet_nodes": [
+      {
+        "name": "ethernet@ff0e0000",
+        "compatible": "ethernet-phy-id2000.a231",
+        "status": "okay",
+        "interrupt-parent": "<0x23>",
+        "interrupts": "<0x00 0x3f 0x04 0x00 0x3f 0x04>",
+        "reg": "<0x0c>",
+        "clock-names": "pclk\\0hclk\\0tx_clk\\0rx_clk\\0tsu_clk",
+        "power-domains": "<0x8e 0x20>",
+        "resets": "<0x03 0x20>",
+        "reset-names": "gem3_rst",
+        "clocks": "<0x85 0x1f 0x85 0x6b 0x85 0x30 0x85 0x34 0x85 0x2c>",
+        "assigned-clocks": "<0x85 0x2c>",
+        "xlnx,is-cache-coherent": "<0x00>",
+        "xlnx,has-mdio": "<0x2faf080>",
+        "xlnx,gem-board-interface": "custom",
+        "phy-mode": "rgmii-id",
+        "xlnx,tz-nonsecure": "<0x01>",
+        "xlnx,enet-slcr-1000mbps-div0": "<0x0c>",
+        "xlnx,enet-slcr-10mbps-div0": "<0x3c>",
+        "xlnx,enet-slcr-1000mbps-div1": "<0x01>",
+        "xlnx,enet-slcr-10mbps-div1": "<0x0a>",
+        "xlnx,enet-tsu-clk-freq-hz": "<0xee6a8ba>",
+        "xlnx,ip-name": "psu_ethernet",
+        "xlnx,eth-mode": "<0x01>",
+        "xlnx,enet-reset": "<0x2faf080>",
+        "xlnx,enet-clk-freq-hz": "<0x773545d>",
+        "xlnx,enet-slcr-100mbps-div0": "<0x3c>",
+        "xlnx,ptp-enet-clock": "<0x00>",
+        "xlnx,enet-slcr-100mbps-div1": "<0x01>",
+        "phy-handle": "<0xa9>",
+        "phandle": "<0xa9>",
+        "#address-cells": "<0x01>",
+        "#size-cells": "<0x00>",
+        "#phy-cells": "<0x01>",
+        "ti,rx-internal-delay": "<0x08>",
+        "ti,tx-internal-delay": "<0x0a>",
+        "ti,fifo-depth": "<0x01>",
+        "ti,dp83867-rxctrl-strap-quirk": true,
+        "reset-gpios": "<0xaa 0x06 0x01>",
+        "mdio": {
+          "name": "mdio",
+          "#address-cells": "<0x01>",
+          "#size-cells": "<0x00>",
+          "phandle": "<0xa9>",
+          "#phy-cells": "<0x01>",
+          "compatible": "ethernet-phy-id2000.a231",
+          "reg": "<0x0c>",
+          "ti,rx-internal-delay": "<0x08>",
+          "ti,tx-internal-delay": "<0x0a>",
+          "ti,fifo-depth": "<0x01>",
+          "reset-gpios": "<0xaa 0x06 0x01>",
+          "phy_nodes": [
+            {
+              "name": "ethernet-phy@c",
+              "reg": "<0x0c>",
+              "compatible": "ethernet-phy-id2000.a231",
+              "ti,rx-internal-delay": "<0x08>",
+              "ti,tx-internal-delay": "<0x0a>",
+              "ti,fifo-depth": "<0x01>",
+              "ti,dp83867-rxctrl-strap-quirk": true,
+              "reset-gpios": "<0xaa 0x06 0x01>"
+            }
+          ]
+        },
+        "nodeType": "Unknown"
+      }
+    ],
+    "count": 1
   }
 }
     </script>
@@ -3596,7 +4435,7 @@ graph TB
             <!-- EMIO Example -->
             <div class="code-block mt-2">
                 <div class="code-header">
-                    <span class="code-title">📁 2024.2/ps_emio_eth_1g - PS GEM0 (EMIO) with GMII</span>
+                    <span class="code-title">📁 2024.2/ps_emio_eth_1g - PS GEM0 (EMIO) with GMII with PL PCS/PMA IP</span>
                     <button type="button" class="copy-btn" onclick="copyCode(this, 'ps-emio-1g-code')">Copy</button>
                 </div>
                 <pre><code id="ps-emio-1g-code" class="language-dts">ethernet@ff0b0000 {
@@ -3619,7 +4458,7 @@ graph TB
             <!-- PS EMIO SGMII Example -->
             <div class="code-block mt-2">
                 <div class="code-header">
-                    <span class="code-title">📁 2024.2/ps_emio_eth_sgmii - PS GEM0 (EMIO) with GMII</span>
+                    <span class="code-title">📁 2024.2/ps_emio_eth_sgmii - PS GEM0 (EMIO) with GMII with PL PCS/PMA IP</span>
                     <button type="button" class="copy-btn" onclick="copyCode(this, 'ps-emio-sgmii-code')">Copy</button>
                 </div>
                 <pre><code id="ps-emio-sgmii-code" class="language-dts">ethernet@ff0b0000 {
@@ -3906,31 +4745,9 @@ graph TB
                             <li><strong>Transceivers:</strong> 4x GTX (6.6 Gbps max)</li>
                         </ul>
                         
-                        <p style="margin-top: 1rem;"><strong>Device Tree Template (PS-GEM0 - RGMII):</strong></p>
-                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>&amp;gem0 {
-    status = "okay";
-    phy-handle = &lt;&amp;phy0&gt;;
-    phy-mode = "rgmii-id";
-    mdio {
-        #address-cells = &lt;1&gt;;
-        #size-cells = &lt;0&gt;;
-        phy0: ethernet-phy@7 {
-            reg = &lt;0x7&gt;;
-            device_type = "ethernet-phy";
-        };
-    };
-};</code></pre>
                         
-                        <p style="margin-top: 1rem;"><strong>Device Tree Template (PL AXI 1G Ethernet):</strong></p>
-                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>axi_ethernet: ethernet@43c00000 {
-    compatible = "xlnx,axi-ethernet-7.2", "xlnx,axi-ethernet-1.00.a";
-    device_type = "network";
-    reg = &lt;0x43c00000 0x40000&gt;;
-    interrupts = &lt;0 56 4&gt;;
-    phy-mode = "rgmii-id";
-    xlnx,rxmem = &lt;0x1000&gt;;
-    local-mac-address = [00 0a 35 00 01 22];
-};</code></pre>
+                        
+                        
                     </div>
                 </div>
             </div>
@@ -3950,20 +4767,7 @@ graph TB
                             <li>RJ45 connector</li>
                         </ul>
                         
-                        <p style="margin-top: 1rem;"><strong>Device Tree Template (PS-GEM0 - RGMII):</strong></p>
-                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>&amp;gem0 {
-    status = "okay";
-    phy-handle = &lt;&amp;phy0&gt;;
-    phy-mode = "rgmii-id";
-    mdio {
-        #address-cells = &lt;1&gt;;
-        #size-cells = &lt;0&gt;;
-        phy0: ethernet-phy@0 {
-            reg = &lt;0x0&gt;;
-            device_type = "ethernet-phy";
-        };
-    };
-};</code></pre>
+                        
                     </div>
                 </div>
             </div>
@@ -3987,38 +4791,9 @@ graph TB
                             <li><strong>SFP+:</strong> 1x SFP+ cage for 10G optical</li>
                         </ul>
                         
-                        <p style="margin-top: 1rem;"><strong>Device Tree Template (PL 1G Ethernet - RGMII):</strong></p>
-                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>axi_ethernet_0: ethernet@40000000 {
-    compatible = "xlnx,axi-ethernet-7.2", "xlnx,axi-ethernet-1.00.a";
-    device_type = "network";
-    reg = &lt;0x0 0x40000000 0x0 0x40000&gt;;
-    interrupts = &lt;0 89 4&gt;;
-    phy-mode = "rgmii-id";
-    phy-handle = &lt;&amp;phy0&gt;;
-    xlnx,rxmem = &lt;0x1000&gt;;
-    local-mac-address = [00 0a 35 00 01 22];
-    
-    mdio {
-        #address-cells = &lt;1&gt;;
-        #size-cells = &lt;0&gt;;
-        phy0: ethernet-phy@1 {
-            reg = &lt;0x1&gt;;
-            ti,rx-internal-delay = &lt;0x8&gt;;
-            ti,tx-internal-delay = &lt;0xa&gt;;
-        };
-    };
-};</code></pre>
                         
-                        <p style="margin-top: 1rem;"><strong>Device Tree Template (PL 10G Ethernet - SFP+):</strong></p>
-                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>axi_ethernet_10g: ethernet@a0040000 {
-    compatible = "xlnx,axi-ethernet-7.2", "xlnx,axi-ethernet-1.00.a";
-    device_type = "network";
-    reg = &lt;0x0 0xa0040000 0x0 0x40000&gt;;
-    interrupts = &lt;0 90 4&gt;;
-    phy-mode = "10gbase-r";
-    xlnx,rxmem = &lt;0x1000&gt;;
-    local-mac-address = [00 0a 35 00 01 23];
-};</code></pre>
+                        
+                        
                     </div>
                 </div>
             </div>
@@ -4039,38 +4814,9 @@ graph TB
                             <li><strong>QSFP28:</strong> 1x QSFP28 cage (100G capable)</li>
                         </ul>
                         
-                        <p style="margin-top: 1rem;"><strong>Device Tree Template (PL 1G Ethernet - RGMII):</strong></p>
-                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>axi_ethernet_0: ethernet@40000000 {
-    compatible = "xlnx,axi-ethernet-7.2", "xlnx,axi-ethernet-1.00.a";
-    device_type = "network";
-    reg = &lt;0x0 0x40000000 0x0 0x40000&gt;;
-    interrupts = &lt;0 89 4&gt;;
-    phy-mode = "rgmii-id";
-    phy-handle = &lt;&amp;phy0&gt;;
-    xlnx,rxmem = &lt;0x1000&gt;;
-    local-mac-address = [00 0a 35 00 01 22];
-    
-    mdio {
-        #address-cells = &lt;1&gt;;
-        #size-cells = &lt;0&gt;;
-        phy0: ethernet-phy@c {
-            reg = &lt;0xc&gt;;
-            ti,rx-internal-delay = &lt;0x8&gt;;
-            ti,tx-internal-delay = &lt;0xa&gt;;
-        };
-    };
-};</code></pre>
                         
-                        <p style="margin-top: 1rem;"><strong>Device Tree Template (PL 100G Ethernet - QSFP28):</strong></p>
-                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>axi_ethernet_100g: ethernet@a0000000 {
-    compatible = "xlnx,xxv-ethernet-4.1", "xlnx,xxv-ethernet-1.0";
-    device_type = "network";
-    reg = &lt;0x0 0xa0000000 0x0 0x100000&gt;;
-    interrupts = &lt;0 89 4&gt;;
-    phy-mode = "100gbase-r";
-    xlnx,channel-ids = &lt;0x1&gt;;
-    local-mac-address = [00 0a 35 00 01 10];
-};</code></pre>
+                        
+                        
                     </div>
                 </div>
             </div>
@@ -4094,38 +4840,9 @@ graph TB
                             <li><strong>QSFP28:</strong> 2x QSFP28 cages (100G capable each)</li>
                         </ul>
                         
-                        <p style="margin-top: 1rem;"><strong>Device Tree Template (PL 1G Ethernet - RGMII):</strong></p>
-                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>axi_ethernet_0: ethernet@40000000 {
-    compatible = "xlnx,axi-ethernet-7.2", "xlnx,axi-ethernet-1.00.a";
-    device_type = "network";
-    reg = &lt;0x0 0x40000000 0x0 0x40000&gt;;
-    interrupts = &lt;0 89 4&gt;;
-    phy-mode = "rgmii-id";
-    phy-handle = &lt;&amp;phy0&gt;;
-    xlnx,rxmem = &lt;0x1000&gt;;
-    local-mac-address = [00 0a 35 00 01 22];
-    
-    mdio {
-        #address-cells = &lt;1&gt;;
-        #size-cells = &lt;0&gt;;
-        phy0: ethernet-phy@c {
-            reg = &lt;0xc&gt;;
-            ti,rx-internal-delay = &lt;0x8&gt;;
-            ti,tx-internal-delay = &lt;0xa&gt;;
-        };
-    };
-};</code></pre>
                         
-                        <p style="margin-top: 1rem;"><strong>Device Tree Template (PL 100G Ethernet - QSFP28):</strong></p>
-                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>axi_ethernet_100g: ethernet@a0000000 {
-    compatible = "xlnx,xxv-ethernet-4.1", "xlnx,xxv-ethernet-1.0";
-    device_type = "network";
-    reg = &lt;0x0 0xa0000000 0x0 0x100000&gt;;
-    interrupts = &lt;0 89 4&gt;;
-    phy-mode = "100gbase-r";
-    xlnx,channel-ids = &lt;0x1&gt;;
-    local-mac-address = [00 0a 35 00 01 10];
-};</code></pre>
+                        
+                        
                     </div>
                 </div>
             </div>
@@ -4147,38 +4864,9 @@ graph TB
                             <li><strong>HBM2:</strong> 8 GB HBM2 on-package (460 GB/s bandwidth)</li>
                         </ul>
                         
-                        <p style="margin-top: 1rem;"><strong>Device Tree Template (PL 1G Ethernet - RGMII):</strong></p>
-                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>axi_ethernet_0: ethernet@40000000 {
-    compatible = "xlnx,axi-ethernet-7.2", "xlnx,axi-ethernet-1.00.a";
-    device_type = "network";
-    reg = &lt;0x0 0x40000000 0x0 0x40000&gt;;
-    interrupts = &lt;0 89 4&gt;;
-    phy-mode = "rgmii-id";
-    phy-handle = &lt;&amp;phy0&gt;;
-    xlnx,rxmem = &lt;0x1000&gt;;
-    local-mac-address = [00 0a 35 00 01 22];
-    
-    mdio {
-        #address-cells = &lt;1&gt;;
-        #size-cells = &lt;0&gt;;
-        phy0: ethernet-phy@c {
-            reg = &lt;0xc&gt;;
-            ti,rx-internal-delay = &lt;0x8&gt;;
-            ti,tx-internal-delay = &lt;0xa&gt;;
-        };
-    };
-};</code></pre>
                         
-                        <p style="margin-top: 1rem;"><strong>Device Tree Template (PL 100G Ethernet - QSFP28):</strong></p>
-                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>axi_ethernet_100g: ethernet@a0000000 {
-    compatible = "xlnx,xxv-ethernet-4.1", "xlnx,xxv-ethernet-1.0";
-    device_type = "network";
-    reg = &lt;0x0 0xa0000000 0x0 0x100000&gt;;
-    interrupts = &lt;0 89 4&gt;;
-    phy-mode = "100gbase-r";
-    xlnx,channel-ids = &lt;0x1&gt;;
-    local-mac-address = [00 0a 35 00 01 10];
-};</code></pre>
+                        
+                        
                     </div>
                 </div>
             </div>
@@ -4200,31 +4888,146 @@ graph TB
                             <li><strong>PS-GEM1:</strong> 1G via PS-GTR SGMII/1000Base-X</li>
                             <li><strong>SFP cage:</strong> For fiber connectivity</li>
                         </ul>
-                        
-                        <p style="margin-top: 1rem;"><strong>Device Tree Template (GEM0 - RGMII):</strong></p>
-                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>&amp;gem0 {
-    status = "okay";
-    phy-handle = &lt;&amp;phy0&gt;;
-    phy-mode = "rgmii-id";
-    phy0: ethernet-phy@1 {
-        reg = &lt;0x1&gt;;
-        ti,rx-internal-delay = &lt;0x8&gt;;
-        ti,tx-internal-delay = &lt;0xa&gt;;
-        ti,fifo-depth = &lt;0x1&gt;;
-    };
+
+                        <p style="margin-top: 1rem;"><strong>Device Tree Snippet PS-GEM0 - PS-GTR/SGMII:</strong></p>
+                        <div class="code-header" style="display: flex; justify-content: space-between; align-items: center; background: #2d2d2d; padding: 0.5rem 1rem; border-radius: 8px 8px 0 0; margin-top: 0.5rem;">
+                            <span style="color: #9cdcfe; font-size: 0.9rem;">Device Tree</span>
+                            <button type="button" class="copy-btn" onclick="copyCode(this, 'kr260-ff0b0000-code')">Copy</button>
+                        </div>
+                        <pre tabindex="0" style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 0 0 8px 8px; margin-top: 0;"><code id="kr260-ff0b0000-code">ethernet@ff0b0000 {
+	compatible = &quot;xlnx,zynqmp-gem&quot;, &quot;cdns,gem&quot;;
+	status = &quot;okay&quot;;
+	reg = &lt;0x00 0xff0b0000 0x00 0x1000&gt;;
+	interrupt-parent = &lt;0x0f&gt;;
+	interrupts = &lt;0x00 0x39 0x04 0x00 0x39 0x04&gt;;
+	phy-handle = &lt;0x18f&gt;;
+	phy-mode = &quot;sgmii&quot;;
+	phys = &lt;0x62 0x00 0x08 0x00 0x00&gt;;
+	assigned-clock-rates = &lt;0xee6b280&gt;;
+	clock-names = &quot;pclk\0hclk\0tx_clk\0rx_clk\0tsu_clk&quot;;
+	power-domains = &lt;0x7e 0x1d&gt;;
+	resets = &lt;0x03 0x1d&gt;;
+	reset-names = &quot;gem0_rst&quot;;
+	clocks = &lt;0x75 0x1f 0x75 0x68 0x75 0x2d 0x75 0x31 0x75 0x2c&gt;;
+	assigned-clocks = &lt;0x75 0x2c&gt;;
+	xlnx,is-cache-coherent = &lt;0x00&gt;;
+	xlnx,has-mdio = &lt;0x2faf080&gt;;
+	xlnx,gem-board-interface = &quot;custom&quot;;
+	xlnx,tz-nonsecure = &lt;0x01&gt;;
+	xlnx,enet-slcr-1000mbps-div0 = &lt;0x08&gt;;
+	xlnx,enet-slcr-10mbps-div0 = &lt;0x32&gt;;
+	xlnx,enet-slcr-1000mbps-div1 = &lt;0x01&gt;;
+	xlnx,enet-slcr-10mbps-div1 = &lt;0x08&gt;;
+	xlnx,enet-tsu-clk-freq-hz = &lt;0xee6a8ba&gt;;
+	xlnx,ip-name = &quot;psu_ethernet&quot;;
+	xlnx,eth-mode = &lt;0x02&gt;;
+	xlnx,enet-reset = &lt;0x2faf080&gt;;
+	xlnx,enet-clk-freq-hz = &lt;0x773545d&gt;;
+	xlnx,enet-slcr-100mbps-div0 = &lt;0x28&gt;;
+	xlnx,ptp-enet-clock = &lt;0x00&gt;;
+	xlnx,enet-slcr-100mbps-div1 = &lt;0x01&gt;;
+	phandle = &lt;0x39&gt;;
 };</code></pre>
-                        
-                        <p style="margin-top: 1rem;"><strong>Device Tree Template (GEM1 - PS-GTR SGMII):</strong></p>
-                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>&amp;gem1 {
-    status = "okay";
-    phy-handle = &lt;&amp;phy1&gt;;
-    phy-mode = "sgmii";
-    phys = &lt;&amp;psgtr 0 PHY_TYPE_SGMII 0 0&gt;;
-    phy1: ethernet-phy@1 {
-        reg = &lt;0x1&gt;;
-        xlnx,phy-type = &lt;0x4&gt;; /* SGMII */
-    };
+
+                        <p style="margin-top: 1rem;"><strong>Device Tree Snippet PS-GEM1 - RGMII-ID:</strong></p>
+                        <div class="code-header" style="display: flex; justify-content: space-between; align-items: center; background: #2d2d2d; padding: 0.5rem 1rem; border-radius: 8px 8px 0 0; margin-top: 0.5rem;">
+                            <span style="color: #9cdcfe; font-size: 0.9rem;">Device Tree</span>
+                            <button type="button" class="copy-btn" onclick="copyCode(this, 'kr260-ff0c0000-code')">Copy</button>
+                        </div>
+                        <pre tabindex="0" style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 0 0 8px 8px; margin-top: 0;"><code id="kr260-ff0c0000-code">ethernet@ff0c0000 {
+	compatible = &quot;ethernet-phy-id2000.a231&quot;;
+	status = &quot;okay&quot;;
+	reg = &lt;0x04&gt;;
+	interrupt-parent = &lt;0x0f&gt;;
+	interrupts = &lt;0x00 0x3b 0x04 0x00 0x3b 0x04&gt;;
+	phy-handle = &lt;0x191&gt;;
+	phy-mode = &quot;rgmii-id&quot;;
+	assigned-clock-rates = &lt;0xee6b280&gt;;
+	pinctrl-0 = &lt;0x190&gt;;
+	pinctrl-names = &quot;default&quot;;
+	clock-names = &quot;pclk\0hclk\0tx_clk\0rx_clk\0tsu_clk&quot;;
+	power-domains = &lt;0x7e 0x1e&gt;;
+	resets = &lt;0x03 0x1e&gt;;
+	reset-names = &quot;gem1_rst&quot;;
+	clocks = &lt;0x75 0x1f 0x75 0x69 0x75 0x2e 0x75 0x32 0x75 0x2c&gt;;
+	assigned-clocks = &lt;0x75 0x2c&gt;;
+	xlnx,is-cache-coherent = &lt;0x00&gt;;
+	xlnx,has-mdio = &lt;0x2faf080&gt;;
+	xlnx,gem-board-interface = &quot;custom&quot;;
+	xlnx,tz-nonsecure = &lt;0x01&gt;;
+	xlnx,enet-slcr-1000mbps-div0 = &lt;0x08&gt;;
+	xlnx,enet-slcr-10mbps-div0 = &lt;0x32&gt;;
+	xlnx,enet-slcr-1000mbps-div1 = &lt;0x01&gt;;
+	xlnx,enet-slcr-10mbps-div1 = &lt;0x08&gt;;
+	xlnx,enet-tsu-clk-freq-hz = &lt;0xee6a8ba&gt;;
+	xlnx,ip-name = &quot;psu_ethernet&quot;;
+	xlnx,eth-mode = &lt;0x01&gt;;
+	xlnx,enet-reset = &lt;0x2faf080&gt;;
+	xlnx,enet-clk-freq-hz = &lt;0x773545d&gt;;
+	xlnx,enet-slcr-100mbps-div0 = &lt;0x28&gt;;
+	xlnx,ptp-enet-clock = &lt;0x00&gt;;
+	xlnx,enet-slcr-100mbps-div1 = &lt;0x01&gt;;
+	phandle = &lt;0x18f&gt;;
+	#size-cells = &lt;0x00&gt;;
+	#address-cells = &lt;0x01&gt;;
+	reset-gpios = &lt;0x187 0x05 0x01&gt;;
+	reset-deassert-us = &lt;0x118&gt;;
+	reset-assert-us = &lt;0x12c&gt;;
+	ti,dp83867-rxctrl-strap-quirk;
+	ti,fifo-depth = &lt;0x01&gt;;
+	ti,tx-internal-delay = &lt;0x0a&gt;;
+	ti,rx-internal-delay = &lt;0x08&gt;;
+	#phy-cells = &lt;0x01&gt;;
+	
+	mdio {
+		#address-cells = &lt;1&gt;;
+		#size-cells = &lt;0&gt;;
+		
+		ethernet-phy@8 {
+			reg = &lt;0x08&gt;;
+			reset-gpios = &lt;0x187 0x06 0x01&gt;;
+			reset-deassert-us = &lt;0x118&gt;;
+			reset-assert-us = &lt;0x64&gt;;
+			ti,dp83867-rxctrl-strap-quirk;
+			ti,fifo-depth = &lt;0x01&gt;;
+			ti,tx-internal-delay = &lt;0x0a&gt;;
+			ti,rx-internal-delay = &lt;0x08&gt;;
+			compatible = &quot;ethernet-phy-id2000.a231&quot;;
+		};
+	};
 };</code></pre>
+
+                        
+
+                        
+
+                        
+
+                        
+
+                        
+
+                        
+
+                        
+
+                        
+
+                        
+
+                        
+
+                        
+
+                        
+
+                        
+
+                        
+                        
+                        
+                        
+                        
                     </div>
                 </div>
             </div>
@@ -4243,37 +5046,92 @@ graph TB
                             <li><strong>PS-GEM1:</strong> 1G via PS-GTR SGMII/1000Base-X</li>
                             <li><strong>SFP cage:</strong> For fiber connectivity</li>
                         </ul>
-                        
-                        <p style="margin-top: 1rem;"><strong>Device Tree Template (GEM0 - RGMII):</strong></p>
-                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>&amp;gem0 {
-    status = "okay";
-    phy-handle = &lt;&amp;phy0&gt;;
-    phy-mode = "rgmii-id";
-    mdio {
-        #address-cells = &lt;1&gt;;
-        #size-cells = &lt;0&gt;;
-        phy0: ethernet-phy@1 {
-            reg = &lt;0x1&gt;;
-            ti,rx-internal-delay = &lt;0x8&gt;;
-            ti,tx-internal-delay = &lt;0xa&gt;;
-            ti,fifo-depth = &lt;0x1&gt;;
-            ti,dp83867-rxctrl-strap-quirk;
-        };
-    };
+
+                        <p style="margin-top: 1rem;"><strong>Device Tree Snippet PS-GEM3 - RGMII-ID:</strong></p>
+                        <div class="code-header" style="display: flex; justify-content: space-between; align-items: center; background: #2d2d2d; padding: 0.5rem 1rem; border-radius: 8px 8px 0 0; margin-top: 0.5rem;">
+                            <span style="color: #9cdcfe; font-size: 0.9rem;">Device Tree</span>
+                            <button type="button" class="copy-btn" onclick="copyCode(this, 'kv260-ff0e0000-code')">Copy</button>
+                        </div>
+                        <pre tabindex="0" style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 0 0 8px 8px; margin-top: 0;"><code id="kv260-ff0e0000-code">ethernet@ff0e0000 {
+	compatible = &quot;ethernet-phy-id2000.a231&quot;;
+	status = &quot;okay&quot;;
+	reg = &lt;0x01&gt;;
+	interrupt-parent = &lt;0x0f&gt;;
+	interrupts = &lt;0x00 0x3f 0x04 0x00 0x3f 0x04&gt;;
+	phy-handle = &lt;0x18c&gt;;
+	phy-mode = &quot;rgmii-id&quot;;
+	assigned-clock-rates = &lt;0xee6b280&gt;;
+	pinctrl-0 = &lt;0x18b&gt;;
+	pinctrl-names = &quot;default&quot;;
+	clock-names = &quot;pclk\0hclk\0tx_clk\0rx_clk\0tsu_clk&quot;;
+	power-domains = &lt;0x7c 0x20&gt;;
+	resets = &lt;0x03 0x20&gt;;
+	reset-names = &quot;gem3_rst&quot;;
+	clocks = &lt;0x73 0x1f 0x73 0x6b 0x73 0x30 0x73 0x34 0x73 0x2c&gt;;
+	assigned-clocks = &lt;0x73 0x2c&gt;;
+	xlnx,is-cache-coherent = &lt;0x00&gt;;
+	xlnx,has-mdio = &lt;0x2faf080&gt;;
+	xlnx,gem-board-interface = &quot;custom&quot;;
+	xlnx,tz-nonsecure = &lt;0x01&gt;;
+	xlnx,enet-slcr-1000mbps-div0 = &lt;0x0c&gt;;
+	xlnx,enet-slcr-10mbps-div0 = &lt;0x3c&gt;;
+	xlnx,enet-slcr-1000mbps-div1 = &lt;0x01&gt;;
+	xlnx,enet-slcr-10mbps-div1 = &lt;0x0a&gt;;
+	xlnx,enet-tsu-clk-freq-hz = &lt;0xee6a8ba&gt;;
+	xlnx,ip-name = &quot;psu_ethernet&quot;;
+	xlnx,eth-mode = &lt;0x01&gt;;
+	xlnx,enet-reset = &lt;0x2faf080&gt;;
+	xlnx,enet-clk-freq-hz = &lt;0x773545d&gt;;
+	xlnx,enet-slcr-100mbps-div0 = &lt;0x3c&gt;;
+	xlnx,ptp-enet-clock = &lt;0x00&gt;;
+	xlnx,enet-slcr-100mbps-div1 = &lt;0x01&gt;;
+	phandle = &lt;0x18c&gt;;
+	#size-cells = &lt;0x00&gt;;
+	#address-cells = &lt;0x01&gt;;
+	reset-gpios = &lt;0x47 0x26 0x01&gt;;
+	reset-deassert-us = &lt;0x118&gt;;
+	reset-assert-us = &lt;0x64&gt;;
+	ti,dp83867-rxctrl-strap-quirk;
+	ti,fifo-depth = &lt;0x01&gt;;
+	ti,tx-internal-delay = &lt;0x0a&gt;;
+	ti,rx-internal-delay = &lt;0x08&gt;;
+	#phy-cells = &lt;0x01&gt;;
+	
+	mdio {
+		#address-cells = &lt;1&gt;;
+		#size-cells = &lt;0&gt;;
+		
+		ethernet-phy@1 {
+			reg = &lt;0x01&gt;;
+			reset-gpios = &lt;0x47 0x26 0x01&gt;;
+			reset-deassert-us = &lt;0x118&gt;;
+			reset-assert-us = &lt;0x64&gt;;
+			ti,dp83867-rxctrl-strap-quirk;
+			ti,fifo-depth = &lt;0x01&gt;;
+			ti,tx-internal-delay = &lt;0x0a&gt;;
+			ti,rx-internal-delay = &lt;0x08&gt;;
+			compatible = &quot;ethernet-phy-id2000.a231&quot;;
+		};
+	};
 };</code></pre>
+
                         
-                        <p style="margin-top: 1rem;"><strong>Device Tree Template (GEM1 - PS-GTR SGMII):</strong></p>
-                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>&amp;gem1 {
-    status = "okay";
-    phy-mode = "sgmii";
-    phys = &lt;&amp;psgtr 0 PHY_TYPE_SGMII 0 0&gt;;
-    is-internal-pcspma;
-    
-    fixed-link {
-        speed = &lt;1000&gt;;
-        full-duplex;
-    };
-};</code></pre>
+
+                        
+
+                        
+
+                        
+
+                        
+
+                        
+
+                        
+                        
+                        
+                        
+                        
                     </div>
                 </div>
             </div>
@@ -4293,53 +5151,90 @@ graph TB
                             <li><strong>TSN:</strong> Time-Sensitive Networking capable</li>
                             <li><strong>EtherCAT:</strong> Industrial protocol support</li>
                         </ul>
-                        
-                        <p style="margin-top: 1rem;"><strong>Device Tree Template (GEM0 - RGMII with TSN):</strong></p>
-                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>&amp;gem0 {
-    status = "okay";
-    phy-handle = &lt;&amp;phy0&gt;;
-    phy-mode = "rgmii-id";
-    xlnx,has-mdio = &lt;0x1&gt;;
-    
-    /* TSN configuration */
-    xlnx,tsn-slave;
-    xlnx,tsn-endpoint = &lt;0x1&gt;;
-    
-    mdio {
-        #address-cells = &lt;1&gt;;
-        #size-cells = &lt;0&gt;;
-        phy0: ethernet-phy@1 {
-            reg = &lt;0x1&gt;;
-            ti,rx-internal-delay = &lt;0x8&gt;;
-            ti,tx-internal-delay = &lt;0xa&gt;;
-            ti,fifo-depth = &lt;0x1&gt;;
-            ti,dp83867-rxctrl-strap-quirk;
-        };
-    };
+
+                        <p style="margin-top: 1rem;"><strong>Device Tree Snippet PS-GEM1 - RGMII-ID:</strong></p>
+                        <div class="code-header" style="display: flex; justify-content: space-between; align-items: center; background: #2d2d2d; padding: 0.5rem 1rem; border-radius: 8px 8px 0 0; margin-top: 0.5rem;">
+                            <span style="color: #9cdcfe; font-size: 0.9rem;">Device Tree</span>
+                            <button type="button" class="copy-btn" onclick="copyCode(this, 'kd240-ff0c0000-code')">Copy</button>
+                        </div>
+                        <pre tabindex="0" style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 0 0 8px 8px; margin-top: 0;"><code id="kd240-ff0c0000-code">ethernet@ff0c0000 {
+	compatible = &quot;ethernet-phy-id0283.bc30&quot;;
+	status = &quot;okay&quot;;
+	reg = &lt;0x08&gt;;
+	interrupt-parent = &lt;0x0e&gt;;
+	interrupts = &lt;0x00 0x3b 0x04 0x00 0x3b 0x04&gt;;
+	phy-handle = &lt;0x187&gt;;
+	phy-mode = &quot;rgmii-id&quot;;
+	assigned-clock-rates = &lt;0xee6b280&gt;;
+	pinctrl-0 = &lt;0x186&gt;;
+	pinctrl-names = &quot;default&quot;;
+	clock-names = &quot;pclk\0hclk\0tx_clk\0rx_clk\0tsu_clk&quot;;
+	power-domains = &lt;0x7c 0x1e&gt;;
+	resets = &lt;0x03 0x1e&gt;;
+	reset-names = &quot;gem1_rst&quot;;
+	clocks = &lt;0x73 0x1f 0x73 0x69 0x73 0x2e 0x73 0x32 0x73 0x2c&gt;;
+	assigned-clocks = &lt;0x73 0x2c&gt;;
+	xlnx,is-cache-coherent = &lt;0x00&gt;;
+	xlnx,has-mdio = &lt;0x2faf080&gt;;
+	xlnx,gem-board-interface = &quot;custom&quot;;
+	xlnx,tz-nonsecure = &lt;0x01&gt;;
+	xlnx,enet-slcr-1000mbps-div0 = &lt;0x08&gt;;
+	xlnx,enet-slcr-10mbps-div0 = &lt;0x32&gt;;
+	xlnx,enet-slcr-1000mbps-div1 = &lt;0x01&gt;;
+	xlnx,enet-slcr-10mbps-div1 = &lt;0x08&gt;;
+	xlnx,enet-tsu-clk-freq-hz = &lt;0xee6a8ba&gt;;
+	xlnx,ip-name = &quot;psu_ethernet&quot;;
+	xlnx,eth-mode = &lt;0x01&gt;;
+	xlnx,enet-reset = &lt;0x2faf080&gt;;
+	xlnx,enet-clk-freq-hz = &lt;0x773545d&gt;;
+	xlnx,enet-slcr-100mbps-div0 = &lt;0x28&gt;;
+	xlnx,ptp-enet-clock = &lt;0x00&gt;;
+	xlnx,enet-slcr-100mbps-div1 = &lt;0x01&gt;;
+	phandle = &lt;0x187&gt;;
+	#size-cells = &lt;0x00&gt;;
+	#address-cells = &lt;0x01&gt;;
+	reset-gpios = &lt;0x47 0x4d 0x01&gt;;
+	reset-deassert-us = &lt;0x1388&gt;;
+	reset-assert-us = &lt;0x0a&gt;;
+	adi,fifo-depth-bits = &lt;0x08&gt;;
+	adi,tx-internal-delay-ps = &lt;0x7d0&gt;;
+	adi,rx-internal-delay-ps = &lt;0x7d0&gt;;
+	#phy-cells = &lt;0x01&gt;;
+	
+	mdio {
+		#address-cells = &lt;1&gt;;
+		#size-cells = &lt;0&gt;;
+		
+		ethernet-phy@8 {
+			reg = &lt;0x08&gt;;
+			reset-gpios = &lt;0x47 0x4d 0x01&gt;;
+			reset-deassert-us = &lt;0x1388&gt;;
+			reset-assert-us = &lt;0x0a&gt;;
+			adi,fifo-depth-bits = &lt;0x08&gt;;
+			adi,tx-internal-delay-ps = &lt;0x7d0&gt;;
+			adi,rx-internal-delay-ps = &lt;0x7d0&gt;;
+			compatible = &quot;ethernet-phy-id0283.bc30&quot;;
+		};
+	};
 };</code></pre>
+
                         
-                        <p style="margin-top: 1rem;"><strong>Device Tree Template (GEM1 - RGMII for EtherCAT):</strong></p>
-                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>&amp;gem1 {
-    status = "okay";
-    phy-handle = &lt;&amp;phy1&gt;;
-    phy-mode = "rgmii-id";
-    xlnx,has-mdio = &lt;0x1&gt;;
-    
-    mdio {
-        #address-cells = &lt;1&gt;;
-        #size-cells = &lt;0&gt;;
-        phy1: ethernet-phy@2 {
-            reg = &lt;0x2&gt;;
-            ti,rx-internal-delay = &lt;0x8&gt;;
-            ti,tx-internal-delay = &lt;0xa&gt;;
-            ti,fifo-depth = &lt;0x1&gt;;
-            ti,dp83867-rxctrl-strap-quirk;
-            
-            /* EtherCAT specific */
-            xlnx,ethercat-slave;
-        };
-    };
-};</code></pre>
+
+                        
+
+                        
+
+                        
+
+                        
+
+                        
+
+                        
+                        
+                        
+                        
+                        
                     </div>
                 </div>
             </div>
@@ -4361,46 +5256,87 @@ graph TB
                             <li><strong>SFP Cage:</strong> 1G/10G fiber connectivity</li>
                             <li><strong>GTH Transceivers:</strong> 8 lanes (12.5 Gbps max)</li>
                         </ul>
-                        
-                        <p style="margin-top: 1rem;"><strong>Device Tree Template (PS-GEM3 - RGMII):</strong></p>
-                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>&amp;gem3 {
-    status = "okay";
-    phy-handle = &lt;&amp;phy0&gt;;
-    phy-mode = "rgmii-id";
-    mdio {
-        #address-cells = &lt;1&gt;;
-        #size-cells = &lt;0&gt;;
-        phy0: ethernet-phy@c {
-            reg = &lt;0xc&gt;;
-            ti,rx-internal-delay = &lt;0x8&gt;;
-            ti,tx-internal-delay = &lt;0xa&gt;;
-            ti,fifo-depth = &lt;0x1&gt;;
-            ti,dp83867-rxctrl-strap-quirk;
-        };
-    };
+
+                        <p style="margin-top: 1rem;"><strong>Device Tree Snippet PS-GEM3 - RGMII-ID:</strong></p>
+                        <div class="code-header" style="display: flex; justify-content: space-between; align-items: center; background: #2d2d2d; padding: 0.5rem 1rem; border-radius: 8px 8px 0 0; margin-top: 0.5rem;">
+                            <span style="color: #9cdcfe; font-size: 0.9rem;">Device Tree</span>
+                            <button type="button" class="copy-btn" onclick="copyCode(this, 'zcu104-ff0e0000-code')">Copy</button>
+                        </div>
+                        <pre tabindex="0" style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 0 0 8px 8px; margin-top: 0;"><code id="zcu104-ff0e0000-code">ethernet@ff0e0000 {
+	compatible = &quot;ethernet-phy-id2000.a231&quot;;
+	status = &quot;okay&quot;;
+	reg = &lt;0x0c&gt;;
+	interrupt-parent = &lt;0x11&gt;;
+	interrupts = &lt;0x00 0x3f 0x04 0x00 0x3f 0x04&gt;;
+	phy-handle = &lt;0x9b&gt;;
+	phy-mode = &quot;rgmii-id&quot;;
+	clock-names = &quot;pclk\0hclk\0tx_clk\0rx_clk\0tsu_clk&quot;;
+	power-domains = &lt;0x7f 0x20&gt;;
+	resets = &lt;0x03 0x20&gt;;
+	reset-names = &quot;gem3_rst&quot;;
+	clocks = &lt;0x77 0x1f 0x77 0x6b 0x77 0x30 0x77 0x34 0x77 0x2c&gt;;
+	assigned-clocks = &lt;0x77 0x2c&gt;;
+	xlnx,is-cache-coherent = &lt;0x00&gt;;
+	xlnx,has-mdio = &lt;0x2faf080&gt;;
+	xlnx,gem-board-interface = &quot;custom&quot;;
+	xlnx,tz-nonsecure = &lt;0x01&gt;;
+	xlnx,enet-slcr-1000mbps-div0 = &lt;0x0c&gt;;
+	xlnx,enet-slcr-10mbps-div0 = &lt;0x3c&gt;;
+	xlnx,enet-slcr-1000mbps-div1 = &lt;0x01&gt;;
+	xlnx,enet-slcr-10mbps-div1 = &lt;0x0a&gt;;
+	xlnx,enet-tsu-clk-freq-hz = &lt;0xee6b280&gt;;
+	xlnx,ip-name = &quot;psu_ethernet&quot;;
+	xlnx,eth-mode = &lt;0x01&gt;;
+	xlnx,enet-reset = &lt;0x2faf080&gt;;
+	xlnx,enet-clk-freq-hz = &lt;0x7735940&gt;;
+	xlnx,enet-slcr-100mbps-div0 = &lt;0x3c&gt;;
+	xlnx,ptp-enet-clock = &lt;0x00&gt;;
+	xlnx,enet-slcr-100mbps-div1 = &lt;0x01&gt;;
+	pinctrl-names = &quot;default&quot;;
+	pinctrl-0 = &lt;0x9c&gt;;
+	phandle = &lt;0x9b&gt;;
+	#address-cells = &lt;0x01&gt;;
+	#size-cells = &lt;0x00&gt;;
+	#phy-cells = &lt;0x01&gt;;
+	ti,rx-internal-delay = &lt;0x08&gt;;
+	ti,tx-internal-delay = &lt;0x0a&gt;;
+	ti,fifo-depth = &lt;0x01&gt;;
+	ti,dp83867-rxctrl-strap-quirk;
+	reset-gpios = &lt;0x9d 0x06 0x01&gt;;
+	
+	mdio {
+		#address-cells = &lt;1&gt;;
+		#size-cells = &lt;0&gt;;
+		
+		ethernet-phy@c {
+			reg = &lt;0x0c&gt;;
+			compatible = &quot;ethernet-phy-id2000.a231&quot;;
+			ti,rx-internal-delay = &lt;0x08&gt;;
+			ti,tx-internal-delay = &lt;0x0a&gt;;
+			ti,fifo-depth = &lt;0x01&gt;;
+			ti,dp83867-rxctrl-strap-quirk;
+			reset-gpios = &lt;0x9d 0x06 0x01&gt;;
+		};
+	};
 };</code></pre>
+
                         
-                        <p style="margin-top: 1rem;"><strong>Device Tree Template (PL 10G Ethernet via GTH):</strong></p>
-                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>axi_ethernet_0: ethernet@a0040000 {
-    compatible = "xlnx,axi-ethernet-7.2", "xlnx,axi-ethernet-1.00.a";
-    device_type = "network";
-    reg = &lt;0x0 0xa0040000 0x0 0x40000&gt;;
-    interrupts = &lt;0 89 4 0 90 4&gt;;
-    phy-mode = "10gbase-r";
-    xlnx,rxmem = &lt;0x1000&gt;;
-    xlnx,txcsum = &lt;0x2&gt;;
-    xlnx,rxcsum = &lt;0x2&gt;;
-    local-mac-address = [00 0a 35 00 01 22];
-    
-    mdio {
-        #address-cells = &lt;1&gt;;
-        #size-cells = &lt;0&gt;;
-        phy1: ethernet-phy@1 {
-            reg = &lt;0x1&gt;;
-            device_type = "ethernet-phy";
-        };
-    };
-};</code></pre>
+
+                        
+
+                        
+
+                        
+
+                        
+
+                        
+
+                        
+                        
+                        
+                        
+                        
                     </div>
                 </div>
             </div>
@@ -4419,40 +5355,87 @@ graph TB
                             <li><strong>SFP28 Cages:</strong> 4x 10G/25G capable</li>
                             <li><strong>GTH Transceivers:</strong> 24 lanes (16.3 Gbps max)</li>
                         </ul>
-                        
-                        <p style="margin-top: 1rem;"><strong>Device Tree Template (PS-GEM3 - RGMII):</strong></p>
-                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>&amp;gem3 {
-    status = "okay";
-    phy-handle = &lt;&amp;phy0&gt;;
-    phy-mode = "rgmii-id";
-    mdio {
-        #address-cells = &lt;1&gt;;
-        #size-cells = &lt;0&gt;;
-        phy0: ethernet-phy@c {
-            reg = &lt;0xc&gt;;
-            ti,rx-internal-delay = &lt;0x8&gt;;
-            ti,tx-internal-delay = &lt;0xa&gt;;
-            ti,fifo-depth = &lt;0x1&gt;;
-            ti,dp83867-rxctrl-strap-quirk;
-        };
-    };
+
+                        <p style="margin-top: 1rem;"><strong>Device Tree Snippet PS-GEM3 - RGMII-ID:</strong></p>
+                        <div class="code-header" style="display: flex; justify-content: space-between; align-items: center; background: #2d2d2d; padding: 0.5rem 1rem; border-radius: 8px 8px 0 0; margin-top: 0.5rem;">
+                            <span style="color: #9cdcfe; font-size: 0.9rem;">Device Tree</span>
+                            <button type="button" class="copy-btn" onclick="copyCode(this, 'zcu106-ff0e0000-code')">Copy</button>
+                        </div>
+                        <pre tabindex="0" style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 0 0 8px 8px; margin-top: 0;"><code id="zcu106-ff0e0000-code">ethernet@ff0e0000 {
+	compatible = &quot;ethernet-phy-id2000.a231&quot;;
+	status = &quot;okay&quot;;
+	reg = &lt;0x0c&gt;;
+	interrupt-parent = &lt;0x12&gt;;
+	interrupts = &lt;0x00 0x3f 0x04 0x00 0x3f 0x04&gt;;
+	phy-handle = &lt;0x9e&gt;;
+	phy-mode = &quot;rgmii-id&quot;;
+	clock-names = &quot;pclk\0hclk\0tx_clk\0rx_clk\0tsu_clk&quot;;
+	power-domains = &lt;0x82 0x20&gt;;
+	resets = &lt;0x03 0x20&gt;;
+	reset-names = &quot;gem3_rst&quot;;
+	clocks = &lt;0x79 0x1f 0x79 0x6b 0x79 0x30 0x79 0x34 0x79 0x2c&gt;;
+	assigned-clocks = &lt;0x79 0x2c&gt;;
+	xlnx,is-cache-coherent = &lt;0x00&gt;;
+	xlnx,has-mdio = &lt;0x2faf080&gt;;
+	xlnx,gem-board-interface = &quot;custom&quot;;
+	xlnx,tz-nonsecure = &lt;0x01&gt;;
+	xlnx,enet-slcr-1000mbps-div0 = &lt;0x0c&gt;;
+	xlnx,enet-slcr-10mbps-div0 = &lt;0x3c&gt;;
+	xlnx,enet-slcr-1000mbps-div1 = &lt;0x01&gt;;
+	xlnx,enet-slcr-10mbps-div1 = &lt;0x0a&gt;;
+	xlnx,enet-tsu-clk-freq-hz = &lt;0xee650ed&gt;;
+	xlnx,ip-name = &quot;psu_ethernet&quot;;
+	xlnx,eth-mode = &lt;0x01&gt;;
+	xlnx,enet-reset = &lt;0x2faf080&gt;;
+	xlnx,enet-clk-freq-hz = &lt;0x7732877&gt;;
+	xlnx,enet-slcr-100mbps-div0 = &lt;0x3c&gt;;
+	xlnx,ptp-enet-clock = &lt;0x00&gt;;
+	xlnx,enet-slcr-100mbps-div1 = &lt;0x01&gt;;
+	pinctrl-names = &quot;default&quot;;
+	pinctrl-0 = &lt;0x9f&gt;;
+	phandle = &lt;0x9e&gt;;
+	#address-cells = &lt;0x01&gt;;
+	#size-cells = &lt;0x00&gt;;
+	#phy-cells = &lt;0x01&gt;;
+	ti,rx-internal-delay = &lt;0x08&gt;;
+	ti,tx-internal-delay = &lt;0x0a&gt;;
+	ti,fifo-depth = &lt;0x01&gt;;
+	ti,dp83867-rxctrl-strap-quirk;
+	reset-gpios = &lt;0xa0 0x06 0x01&gt;;
+	
+	mdio {
+		#address-cells = &lt;1&gt;;
+		#size-cells = &lt;0&gt;;
+		
+		ethernet-phy@c {
+			reg = &lt;0x0c&gt;;
+			compatible = &quot;ethernet-phy-id2000.a231&quot;;
+			ti,rx-internal-delay = &lt;0x08&gt;;
+			ti,tx-internal-delay = &lt;0x0a&gt;;
+			ti,fifo-depth = &lt;0x01&gt;;
+			ti,dp83867-rxctrl-strap-quirk;
+			reset-gpios = &lt;0xa0 0x06 0x01&gt;;
+		};
+	};
 };</code></pre>
+
                         
-                        <p style="margin-top: 1rem;"><strong>Device Tree Template (PL 25G Ethernet via GTH):</strong></p>
-                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>axi_ethernet_0: ethernet@a0040000 {
-    compatible = "xlnx,xxv-ethernet-4.1", "xlnx,xxv-ethernet-1.0";
-    device_type = "network";
-    reg = &lt;0x0 0xa0040000 0x0 0x40000&gt;;
-    interrupts = &lt;0 89 4 0 90 4&gt;;
-    phy-mode = "25gbase-r";
-    xlnx,rxmem = &lt;0x1000&gt;;
-    xlnx,channel-ids = &lt;0x1&gt;;
-    xlnx,num-queues = &lt;2&gt;;
-    local-mac-address = [00 0a 35 00 01 22];
-    
-    /* SFP28 module support */
-    sfp = &lt;&amp;sfp0&gt;;
-};</code></pre>
+
+                        
+
+                        
+
+                        
+
+                        
+
+                        
+
+                        
+                        
+                        
+                        
+                        
                     </div>
                 </div>
             </div>
@@ -4473,40 +5456,9 @@ graph TB
                             <li><strong>GTY Transceivers:</strong> 20 lanes (32.75 Gbps each)</li>
                         </ul>
                         
-                        <p style="margin-top: 1rem;"><strong>Device Tree Template (PS-GEM3 - RGMII):</strong></p>
-                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>&amp;gem3 {
-    status = "okay";
-    phy-handle = &lt;&amp;phy0&gt;;
-    phy-mode = "rgmii-id";
-    mdio {
-        #address-cells = &lt;1&gt;;
-        #size-cells = &lt;0&gt;;
-        phy0: ethernet-phy@c {
-            reg = &lt;0xc&gt;;
-            ti,rx-internal-delay = &lt;0x8&gt;;
-            ti,tx-internal-delay = &lt;0xa&gt;;
-            ti,fifo-depth = &lt;0x1&gt;;
-            ti,dp83867-rxctrl-strap-quirk;
-        };
-    };
-};</code></pre>
                         
-                        <p style="margin-top: 1rem;"><strong>Device Tree Template (PL 100G Ethernet via GTY - QSFP28):</strong></p>
-                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>axi_ethernet_100g: ethernet@a0000000 {
-    compatible = "xlnx,xxv-ethernet-4.1", "xlnx,xxv-ethernet-1.0";
-    device_type = "network";
-    reg = &lt;0x0 0xa0000000 0x0 0x100000&gt;;
-    interrupts = &lt;0 89 4&gt;;
-    phy-mode = "100gbase-r";
-    xlnx,rxmem = &lt;0x4000&gt;;
-    xlnx,channel-ids = &lt;0x1&gt;;
-    xlnx,num-queues = &lt;8&gt;;
-    local-mac-address = [00 0a 35 00 11 10];
-    
-    /* QSFP28 optical module */
-    xlnx,gtrefclk-frequency = &lt;156250000&gt;;
-    xlnx,line-rate = "100GBASE-R4"; /* 4x25G lanes */
-};</code></pre>
+                        
+                        
                     </div>
                 </div>
             </div>
@@ -4525,41 +5477,84 @@ graph TB
                             <li><strong>SFP28 Cages:</strong> Multiple for 25G optical</li>
                             <li><strong>GTY Transceivers:</strong> 10G/25G/100G capable</li>
                         </ul>
-                        
-                        <p style="margin-top: 1rem;"><strong>Device Tree Template (PS-GEM3 - RGMII):</strong></p>
-                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>&amp;gem3 {
-    status = "okay";
-    phy-handle = &lt;&amp;phy0&gt;;
-    phy-mode = "rgmii-id";
-    mdio {
-        #address-cells = &lt;1&gt;;
-        #size-cells = &lt;0&gt;;
-        phy0: ethernet-phy@c {
-            reg = &lt;0xc&gt;;
-            ti,rx-internal-delay = &lt;0x8&gt;;
-            ti,tx-internal-delay = &lt;0xa&gt;;
-            ti,fifo-depth = &lt;0x1&gt;;
-            ti,dp83867-rxctrl-strap-quirk;
-        };
-    };
+
+                        <p style="margin-top: 1rem;"><strong>Device Tree Snippet PS-GEM3 - RGMII-ID:</strong></p>
+                        <div class="code-header" style="display: flex; justify-content: space-between; align-items: center; background: #2d2d2d; padding: 0.5rem 1rem; border-radius: 8px 8px 0 0; margin-top: 0.5rem;">
+                            <span style="color: #9cdcfe; font-size: 0.9rem;">Device Tree</span>
+                            <button type="button" class="copy-btn" onclick="copyCode(this, 'zcu208-ff0e0000-code')">Copy</button>
+                        </div>
+                        <pre tabindex="0" style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 0 0 8px 8px; margin-top: 0;"><code id="zcu208-ff0e0000-code">ethernet@ff0e0000 {
+	compatible = &quot;ethernet-phy-id2000.a231&quot;;
+	status = &quot;okay&quot;;
+	reg = &lt;0x0c&gt;;
+	interrupt-parent = &lt;0x23&gt;;
+	interrupts = &lt;0x00 0x3f 0x04 0x00 0x3f 0x04&gt;;
+	phy-handle = &lt;0xa9&gt;;
+	phy-mode = &quot;rgmii-id&quot;;
+	clock-names = &quot;pclk\0hclk\0tx_clk\0rx_clk\0tsu_clk&quot;;
+	power-domains = &lt;0x8e 0x20&gt;;
+	resets = &lt;0x03 0x20&gt;;
+	reset-names = &quot;gem3_rst&quot;;
+	clocks = &lt;0x85 0x1f 0x85 0x6b 0x85 0x30 0x85 0x34 0x85 0x2c&gt;;
+	assigned-clocks = &lt;0x85 0x2c&gt;;
+	xlnx,is-cache-coherent = &lt;0x00&gt;;
+	xlnx,has-mdio = &lt;0x2faf080&gt;;
+	xlnx,gem-board-interface = &quot;custom&quot;;
+	xlnx,tz-nonsecure = &lt;0x01&gt;;
+	xlnx,enet-slcr-1000mbps-div0 = &lt;0x0c&gt;;
+	xlnx,enet-slcr-10mbps-div0 = &lt;0x3c&gt;;
+	xlnx,enet-slcr-1000mbps-div1 = &lt;0x01&gt;;
+	xlnx,enet-slcr-10mbps-div1 = &lt;0x0a&gt;;
+	xlnx,enet-tsu-clk-freq-hz = &lt;0xee6a8ba&gt;;
+	xlnx,ip-name = &quot;psu_ethernet&quot;;
+	xlnx,eth-mode = &lt;0x01&gt;;
+	xlnx,enet-reset = &lt;0x2faf080&gt;;
+	xlnx,enet-clk-freq-hz = &lt;0x773545d&gt;;
+	xlnx,enet-slcr-100mbps-div0 = &lt;0x3c&gt;;
+	xlnx,ptp-enet-clock = &lt;0x00&gt;;
+	xlnx,enet-slcr-100mbps-div1 = &lt;0x01&gt;;
+	phandle = &lt;0xa9&gt;;
+	#address-cells = &lt;0x01&gt;;
+	#size-cells = &lt;0x00&gt;;
+	#phy-cells = &lt;0x01&gt;;
+	ti,rx-internal-delay = &lt;0x08&gt;;
+	ti,tx-internal-delay = &lt;0x0a&gt;;
+	ti,fifo-depth = &lt;0x01&gt;;
+	ti,dp83867-rxctrl-strap-quirk;
+	reset-gpios = &lt;0xaa 0x06 0x01&gt;;
+	
+	mdio {
+		#address-cells = &lt;1&gt;;
+		#size-cells = &lt;0&gt;;
+		
+		ethernet-phy@c {
+			reg = &lt;0x0c&gt;;
+			compatible = &quot;ethernet-phy-id2000.a231&quot;;
+			ti,rx-internal-delay = &lt;0x08&gt;;
+			ti,tx-internal-delay = &lt;0x0a&gt;;
+			ti,fifo-depth = &lt;0x01&gt;;
+			ti,dp83867-rxctrl-strap-quirk;
+			reset-gpios = &lt;0xaa 0x06 0x01&gt;;
+		};
+	};
 };</code></pre>
+
                         
-                        <p style="margin-top: 1rem;"><strong>eCPRI over 25G Ethernet (5G Fronthaul):</strong></p>
-                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>axi_ethernet_ecpri: ethernet@a0040000 {
-    compatible = "xlnx,xxv-ethernet-4.1", "xlnx,xxv-ethernet-1.0";
-    device_type = "network";
-    reg = &lt;0x0 0xa0040000 0x0 0x40000&gt;;
-    interrupts = &lt;0 89 4&gt;;
-    phy-mode = "25gbase-r";
-    xlnx,rxmem = &lt;0x2000&gt;;
-    xlnx,channel-ids = &lt;0x1&gt;;
-    local-mac-address = [00 0a 35 00 20 10];
-    
-    /* eCPRI configuration */
-    xlnx,ecpri-enabled;
-    xlnx,tsn-endpoint = &lt;0x1&gt;; /* TSN for timing */
-    xlnx,priority-queues = &lt;8&gt;; /* QoS for 5G traffic */
-};</code></pre>
+
+                        
+
+                        
+
+                        
+
+                        
+
+                        
+
+                        
+                        
+                        
+                    
                     </div>
                 </div>
             </div>
@@ -4582,62 +5577,127 @@ graph TB
                             <li><strong>GTM Transceivers:</strong> 112 Gbps PAM4 per lane</li>
                             <li><strong>Total Bandwidth:</strong> Up to 1.6 Tbps aggregate</li>
                         </ul>
-                        
-                        <p style="margin-top: 1rem;"><strong>Device Tree Template (PMC-GEM0 - RGMII):</strong></p>
-                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>&amp;gem0 {
-    status = "okay";
-    phy-handle = &lt;&amp;phy0&gt;;
-    phy-mode = "rgmii-id";
-    mdio {
-        #address-cells = &lt;1&gt;;
-        #size-cells = &lt;0&gt;;
-        phy0: ethernet-phy@1 {
-            reg = &lt;0x1&gt;;
-            ti,rx-internal-delay = &lt;0x8&gt;;
-            ti,tx-internal-delay = &lt;0xa&gt;;
-            ti,fifo-depth = &lt;0x1&gt;;
-            ti,dp83867-rxctrl-strap-quirk;
-        };
-    };
+
+                        <p style="margin-top: 1rem;"><strong>Device Tree Snippet PS-GEM1 - RGMII-ID:</strong></p>
+                        <div class="code-header" style="display: flex; justify-content: space-between; align-items: center; background: #2d2d2d; padding: 0.5rem 1rem; border-radius: 8px 8px 0 0; margin-top: 0.5rem;">
+                            <span style="color: #9cdcfe; font-size: 0.9rem;">Device Tree</span>
+                            <button type="button" class="copy-btn" onclick="copyCode(this, 'vck190-ff0c0000-code')">Copy</button>
+                        </div>
+                        <pre tabindex="0" style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 0 0 8px 8px; margin-top: 0;"><code id="vck190-ff0c0000-code">ethernet@ff0c0000 {
+	compatible = &quot;ethernet-phy-id2000.a231&quot;;
+	status = &quot;okay&quot;;
+	reg = &lt;0x02&gt;;
+	interrupt-parent = &lt;0x4b&gt;;
+	interrupts = &lt;0x00 0x38 0x04 0x00 0x38 0x04&gt;;
+	phy-handle = &lt;0xa1&gt;;
+	phy-mode = &quot;rgmii-id&quot;;
+	clock-names = &quot;pclk\0hclk\0tx_clk\0rx_clk\0tsu_clk&quot;;
+	#address-cells = &lt;0x01&gt;;
+	#size-cells = &lt;0x00&gt;;
+	clocks = &lt;0x81 0x52 0x81 0x58 0x81 0x31 0x81 0x30 0x81 0x2b&gt;;
+	power-domains = &lt;0x80 0x18224019&gt;;
+	xlnx,has-mdio = &lt;0x01&gt;;
+	xlnx,is-cache-coherent = &lt;0x00&gt;;
+	xlnx,gem-board-interface = &quot;custom&quot;;
+	xlnx,enet-slcr-1000mbps-div0 = &lt;0x02&gt;;
+	xlnx,enet-slcr-10mbps-div0 = &lt;0x64&gt;;
+	xlnx,enet-tsu-clk-freq-hz = &lt;0xee6b18c&gt;;
+	xlnx,ip-name = &quot;psv_ethernet&quot;;
+	xlnx,eth-mode = &lt;0x01&gt;;
+	xlnx,enet-clk-freq-hz = &lt;0x77358c6&gt;;
+	xlnx,enet-slcr-100mbps-div0 = &lt;0x0a&gt;;
+	phandle = &lt;0xa2&gt;;
+	#phy-cells = &lt;0x01&gt;;
+	ti,rx-internal-delay = &lt;0x0b&gt;;
+	ti,tx-internal-delay = &lt;0x0a&gt;;
+	ti,fifo-depth = &lt;0x01&gt;;
+	ti,dp83867-rxctrl-strap-quirk;
+	reset-assert-us = &lt;0x64&gt;;
+	reset-deassert-us = &lt;0x118&gt;;
+	reset-gpios = &lt;0x33 0x31 0x01&gt;;
+	
+	mdio {
+		#address-cells = &lt;1&gt;;
+		#size-cells = &lt;0&gt;;
+		
+		ethernet-phy@1 {
+			reg = &lt;0x01&gt;;
+			compatible = &quot;ethernet-phy-id2000.a231&quot;;
+			ti,rx-internal-delay = &lt;0x0b&gt;;
+			ti,tx-internal-delay = &lt;0x0a&gt;;
+			ti,fifo-depth = &lt;0x01&gt;;
+			ti,dp83867-rxctrl-strap-quirk;
+			reset-assert-us = &lt;0x64&gt;;
+			reset-deassert-us = &lt;0x118&gt;;
+			reset-gpios = &lt;0x33 0x30 0x01&gt;;
+		};
+	};
 };</code></pre>
-                        
-                        <p style="margin-top: 1rem;"><strong>Device Tree Template (PMC-GEM1 - RGMII):</strong></p>
-                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>&amp;gem1 {
-    status = "okay";
-    phy-handle = &lt;&amp;phy1&gt;;
-    phy-mode = "rgmii-id";
-    mdio {
-        #address-cells = &lt;1&gt;;
-        #size-cells = &lt;0&gt;;
-        phy1: ethernet-phy@2 {
-            reg = &lt;0x2&gt;;
-            ti,rx-internal-delay = &lt;0x8&gt;;
-            ti,tx-internal-delay = &lt;0xa&gt;;
-            ti,fifo-depth = &lt;0x1&gt;;
-            ti,dp83867-rxctrl-strap-quirk;
-        };
-    };
+
+                        <p style="margin-top: 1rem;"><strong>Device Tree Snippet PS-GEM2 - RGMII-ID:</strong></p>
+                        <div class="code-header" style="display: flex; justify-content: space-between; align-items: center; background: #2d2d2d; padding: 0.5rem 1rem; border-radius: 8px 8px 0 0; margin-top: 0.5rem;">
+                            <span style="color: #9cdcfe; font-size: 0.9rem;">Device Tree</span>
+                            <button type="button" class="copy-btn" onclick="copyCode(this, 'vck190-ff0d0000-code')">Copy</button>
+                        </div>
+                        <pre tabindex="0" style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 0 0 8px 8px; margin-top: 0;"><code id="vck190-ff0d0000-code">ethernet@ff0d0000 {
+	compatible = &quot;xlnx,versal-gem&quot;, &quot;cdns,gem&quot;;
+	status = &quot;okay&quot;;
+	reg = &lt;0x00 0xff0d0000 0x00 0x1000&gt;;
+	interrupt-parent = &lt;0x4b&gt;;
+	interrupts = &lt;0x00 0x3a 0x04 0x00 0x3a 0x04&gt;;
+	phy-handle = &lt;0xa2&gt;;
+	phy-mode = &quot;rgmii-id&quot;;
+	clock-names = &quot;pclk\0hclk\0tx_clk\0rx_clk\0tsu_clk&quot;;
+	#address-cells = &lt;0x01&gt;;
+	#size-cells = &lt;0x00&gt;;
+	clocks = &lt;0x81 0x52 0x81 0x59 0x81 0x33 0x81 0x32 0x81 0x2b&gt;;
+	power-domains = &lt;0x80 0x1822401a&gt;;
+	xlnx,has-mdio = &lt;0x00&gt;;
+	xlnx,is-cache-coherent = &lt;0x00&gt;;
+	xlnx,gem-board-interface = &quot;custom&quot;;
+	xlnx,enet-slcr-1000mbps-div0 = &lt;0x02&gt;;
+	xlnx,enet-slcr-10mbps-div0 = &lt;0x64&gt;;
+	xlnx,enet-tsu-clk-freq-hz = &lt;0xee6b18c&gt;;
+	xlnx,ip-name = &quot;psv_ethernet&quot;;
+	xlnx,eth-mode = &lt;0x01&gt;;
+	xlnx,enet-clk-freq-hz = &lt;0x77358c6&gt;;
+	xlnx,enet-slcr-100mbps-div0 = &lt;0x0a&gt;;
+	phandle = &lt;0x61&gt;;
 };</code></pre>
+
                         
-                        <p style="margin-top: 1rem;"><strong>PL 100G/400G Ethernet (MRMAC):</strong></p>
-                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>mrmac_0: ethernet@a0000000 {
-    compatible = "xlnx,mrmac-3.1";
-    device_type = "network";
-    reg = &lt;0x0 0xa0000000 0x0 0x100000&gt;;
-    interrupts = &lt;0 89 4&gt;;
-    local-mac-address = [00 0a 35 00 01 10];
-    xlnx,channel-ids = &lt;0x1&gt;;
-    xlnx,num-ports = &lt;0x4&gt;;
-    xlnx,tx-size = &lt;0x400&gt;;
-    xlnx,rx-size = &lt;0x400&gt;;
-    
-    /* 100G Ethernet configuration */
-    port@0 {
-        reg = &lt;0&gt;;
-        xlnx,port-rate = &lt;100000&gt;; /* 100G */
-        xlnx,num-queues = &lt;4&gt;;
-    };
-};</code></pre>
+
+                        
+
+                        
+
+                        
+
+                        
+
+                        
+
+                        
+
+                        
+
+                        
+
+                        
+
+                        
+
+                        
+
+                        
+
+                        
+                        
+                        
+                        
+                        
+                        
+                    
                     </div>
                 </div>
             </div>
@@ -4656,43 +5716,125 @@ graph TB
                             <li><strong>QSFP28 Cages:</strong> 2x 100G capable</li>
                             <li><strong>GTY Transceivers:</strong> 32.75 Gbps per lane</li>
                         </ul>
-                        
-                        <p style="margin-top: 1rem;"><strong>Device Tree Template (PMC-GEM0 - RGMII):</strong></p>
-                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>&amp;gem0 {
-    status = "okay";
-    phy-handle = &lt;&amp;phy0&gt;;
-    phy-mode = "rgmii-id";
-    mdio {
-        #address-cells = &lt;1&gt;;
-        #size-cells = &lt;0&gt;;
-        phy0: ethernet-phy@1 {
-            reg = &lt;0x1&gt;;
-            ti,rx-internal-delay = &lt;0x8&gt;;
-            ti,tx-internal-delay = &lt;0xa&gt;;
-            ti,fifo-depth = &lt;0x1&gt;;
-            ti,dp83867-rxctrl-strap-quirk;
-        };
-    };
+
+                        <p style="margin-top: 1rem;"><strong>Device Tree Snippet PS-GEM1 - RGMII-ID:</strong></p>
+                        <div class="code-header" style="display: flex; justify-content: space-between; align-items: center; background: #2d2d2d; padding: 0.5rem 1rem; border-radius: 8px 8px 0 0; margin-top: 0.5rem;">
+                            <span style="color: #9cdcfe; font-size: 0.9rem;">Device Tree</span>
+                            <button type="button" class="copy-btn" onclick="copyCode(this, 'vmk180-ff0c0000-code')">Copy</button>
+                        </div>
+                        <pre tabindex="0" style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 0 0 8px 8px; margin-top: 0;"><code id="vmk180-ff0c0000-code">ethernet@ff0c0000 {
+	compatible = &quot;ethernet-phy-id2000.a231&quot;;
+	status = &quot;okay&quot;;
+	reg = &lt;0x02&gt;;
+	interrupt-parent = &lt;0x44&gt;;
+	interrupts = &lt;0x00 0x38 0x04 0x00 0x38 0x04&gt;;
+	phy-handle = &lt;0x9a&gt;;
+	phy-mode = &quot;rgmii-id&quot;;
+	clock-names = &quot;pclk\0hclk\0tx_clk\0rx_clk\0tsu_clk&quot;;
+	#address-cells = &lt;0x01&gt;;
+	#size-cells = &lt;0x00&gt;;
+	clocks = &lt;0x7a 0x52 0x7a 0x58 0x7a 0x31 0x7a 0x30 0x7a 0x2b&gt;;
+	power-domains = &lt;0x79 0x18224019&gt;;
+	xlnx,has-mdio = &lt;0x01&gt;;
+	xlnx,is-cache-coherent = &lt;0x00&gt;;
+	xlnx,gem-board-interface = &quot;custom&quot;;
+	xlnx,enet-slcr-1000mbps-div0 = &lt;0x02&gt;;
+	xlnx,enet-slcr-10mbps-div0 = &lt;0x64&gt;;
+	xlnx,enet-tsu-clk-freq-hz = &lt;0xee6b18c&gt;;
+	xlnx,ip-name = &quot;psv_ethernet&quot;;
+	xlnx,eth-mode = &lt;0x01&gt;;
+	xlnx,enet-clk-freq-hz = &lt;0x77358c6&gt;;
+	xlnx,enet-slcr-100mbps-div0 = &lt;0x0a&gt;;
+	phandle = &lt;0x9b&gt;;
+	#phy-cells = &lt;0x01&gt;;
+	ti,rx-internal-delay = &lt;0x0b&gt;;
+	ti,tx-internal-delay = &lt;0x0a&gt;;
+	ti,fifo-depth = &lt;0x01&gt;;
+	ti,dp83867-rxctrl-strap-quirk;
+	reset-assert-us = &lt;0x64&gt;;
+	reset-deassert-us = &lt;0x118&gt;;
+	reset-gpios = &lt;0x2c 0x31 0x01&gt;;
+	
+	mdio {
+		#address-cells = &lt;1&gt;;
+		#size-cells = &lt;0&gt;;
+		
+		ethernet-phy@1 {
+			reg = &lt;0x01&gt;;
+			compatible = &quot;ethernet-phy-id2000.a231&quot;;
+			ti,rx-internal-delay = &lt;0x0b&gt;;
+			ti,tx-internal-delay = &lt;0x0a&gt;;
+			ti,fifo-depth = &lt;0x01&gt;;
+			ti,dp83867-rxctrl-strap-quirk;
+			reset-assert-us = &lt;0x64&gt;;
+			reset-deassert-us = &lt;0x118&gt;;
+			reset-gpios = &lt;0x2c 0x30 0x01&gt;;
+		};
+	};
 };</code></pre>
-                        
-                        <p style="margin-top: 1rem;"><strong>PL 100G Ethernet (MRMAC) for QSFP28:</strong></p>
-                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>mrmac_0: ethernet@a0000000 {
-    compatible = "xlnx,mrmac-3.1";
-    device_type = "network";
-    reg = &lt;0x0 0xa0000000 0x0 0x100000&gt;;
-    interrupts = &lt;0 89 4&gt;;
-    local-mac-address = [00 0a 35 00 02 10];
-    xlnx,channel-ids = &lt;0x1&gt;;
-    xlnx,num-ports = &lt;0x1&gt;;
-    
-    /* 100G configuration for QSFP28 */
-    port@0 {
-        reg = &lt;0&gt;;
-        xlnx,port-rate = &lt;100000&gt;; /* 100 Gbps */
-        xlnx,num-queues = &lt;8&gt;;
-        xlnx,line-rate = "100GBASE-R";
-    };
+
+                        <p style="margin-top: 1rem;"><strong>Device Tree Snippet PS-GEM2 - RGMII-ID:</strong></p>
+                        <div class="code-header" style="display: flex; justify-content: space-between; align-items: center; background: #2d2d2d; padding: 0.5rem 1rem; border-radius: 8px 8px 0 0; margin-top: 0.5rem;">
+                            <span style="color: #9cdcfe; font-size: 0.9rem;">Device Tree</span>
+                            <button type="button" class="copy-btn" onclick="copyCode(this, 'vmk180-ff0d0000-code')">Copy</button>
+                        </div>
+                        <pre tabindex="0" style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 0 0 8px 8px; margin-top: 0;"><code id="vmk180-ff0d0000-code">ethernet@ff0d0000 {
+	compatible = &quot;xlnx,versal-gem&quot;, &quot;cdns,gem&quot;;
+	status = &quot;okay&quot;;
+	reg = &lt;0x00 0xff0d0000 0x00 0x1000&gt;;
+	interrupt-parent = &lt;0x44&gt;;
+	interrupts = &lt;0x00 0x3a 0x04 0x00 0x3a 0x04&gt;;
+	phy-handle = &lt;0x9b&gt;;
+	phy-mode = &quot;rgmii-id&quot;;
+	clock-names = &quot;pclk\0hclk\0tx_clk\0rx_clk\0tsu_clk&quot;;
+	#address-cells = &lt;0x01&gt;;
+	#size-cells = &lt;0x00&gt;;
+	clocks = &lt;0x7a 0x52 0x7a 0x59 0x7a 0x33 0x7a 0x32 0x7a 0x2b&gt;;
+	power-domains = &lt;0x79 0x1822401a&gt;;
+	xlnx,has-mdio = &lt;0x00&gt;;
+	xlnx,is-cache-coherent = &lt;0x00&gt;;
+	xlnx,gem-board-interface = &quot;custom&quot;;
+	xlnx,enet-slcr-1000mbps-div0 = &lt;0x02&gt;;
+	xlnx,enet-slcr-10mbps-div0 = &lt;0x64&gt;;
+	xlnx,enet-tsu-clk-freq-hz = &lt;0xee6b18c&gt;;
+	xlnx,ip-name = &quot;psv_ethernet&quot;;
+	xlnx,eth-mode = &lt;0x01&gt;;
+	xlnx,enet-clk-freq-hz = &lt;0x77358c6&gt;;
+	xlnx,enet-slcr-100mbps-div0 = &lt;0x0a&gt;;
+	phandle = &lt;0x5a&gt;;
 };</code></pre>
+
+                        
+
+                        
+
+                        
+
+                        
+
+                        
+
+                        
+
+                        
+
+                        
+
+                        
+
+                        
+
+                        
+
+                        
+
+                        
+
+                        
+                        
+                        
+                        
+                 
                     </div>
                 </div>
             </div>
@@ -4711,62 +5853,80 @@ graph TB
                             <li><strong>QSFP-DD Cages:</strong> 2x 400G capable</li>
                             <li><strong>GTM Transceivers:</strong> 112 Gbps PAM4 per lane</li>
                         </ul>
-                        
-                        <p style="margin-top: 1rem;"><strong>Device Tree Template (PMC-GEM0 - RGMII):</strong></p>
-                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>&amp;gem0 {
-    status = "okay";
-    phy-handle = &lt;&amp;phy0&gt;;
-    phy-mode = "rgmii-id";
-    mdio {
-        #address-cells = &lt;1&gt;;
-        #size-cells = &lt;0&gt;;
-        phy0: ethernet-phy@1 {
-            reg = &lt;0x1&gt;;
-            ti,rx-internal-delay = &lt;0x8&gt;;
-            ti,tx-internal-delay = &lt;0xa&gt;;
-            ti,fifo-depth = &lt;0x1&gt;;
-            ti,dp83867-rxctrl-strap-quirk;
-        };
-    };
+
+                        <p style="margin-top: 1rem;"><strong>Device Tree Snippet PS-GEM1 - RGMII-ID:</strong></p>
+                        <div class="code-header" style="display: flex; justify-content: space-between; align-items: center; background: #2d2d2d; padding: 0.5rem 1rem; border-radius: 8px 8px 0 0; margin-top: 0.5rem;">
+                            <span style="color: #9cdcfe; font-size: 0.9rem;">Device Tree</span>
+                            <button type="button" class="copy-btn" onclick="copyCode(this, 'vek280-ff0c0000-code')">Copy</button>
+                        </div>
+                        <pre tabindex="0" style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 0 0 8px 8px; margin-top: 0;"><code id="vek280-ff0c0000-code">ethernet@ff0c0000 {
+	compatible = &quot;ethernet-phy-id0283.bc30&quot;;
+	status = &quot;okay&quot;;
+	reg = &lt;0x01&gt;;
+	interrupt-parent = &lt;0x4b&gt;;
+	interrupts = &lt;0x00 0x38 0x04 0x00 0x38 0x04&gt;;
+	phy-handle = &lt;0xa2&gt;;
+	phy-mode = &quot;rgmii-id&quot;;
+	clock-names = &quot;pclk\0hclk\0tx_clk\0rx_clk\0tsu_clk&quot;;
+	#address-cells = &lt;0x01&gt;;
+	#size-cells = &lt;0x00&gt;;
+	clocks = &lt;0x82 0x52 0x82 0x58 0x82 0x31 0x82 0x30 0x82 0x2b&gt;;
+	power-domains = &lt;0x81 0x18224019&gt;;
+	xlnx,has-mdio = &lt;0x01&gt;;
+	xlnx,is-cache-coherent = &lt;0x00&gt;;
+	xlnx,gem-board-interface = &quot;custom&quot;;
+	xlnx,enet-slcr-1000mbps-div0 = &lt;0x02&gt;;
+	xlnx,enet-slcr-10mbps-div0 = &lt;0x64&gt;;
+	xlnx,enet-tsu-clk-freq-hz = &lt;0xee6b18c&gt;;
+	xlnx,ip-name = &quot;psv_ethernet&quot;;
+	xlnx,eth-mode = &lt;0x01&gt;;
+	xlnx,enet-clk-freq-hz = &lt;0x77358c6&gt;;
+	xlnx,enet-slcr-100mbps-div0 = &lt;0x0a&gt;;
+	phandle = &lt;0xa2&gt;;
+	#phy-cells = &lt;0x01&gt;;
+	adi,rx-internal-delay-ps = &lt;0x7d0&gt;;
+	adi,tx-internal-delay-ps = &lt;0x7d0&gt;;
+	adi,fifo-depth-bits = &lt;0x08&gt;;
+	reset-gpios = &lt;0x34 0x30 0x01&gt;;
+	reset-assert-us = &lt;0x0a&gt;;
+	reset-deassert-us = &lt;0x1388&gt;;
+	
+	mdio {
+		#address-cells = &lt;1&gt;;
+		#size-cells = &lt;0&gt;;
+		
+		ethernet-phy@1 {
+			reg = &lt;0x01&gt;;
+			compatible = &quot;ethernet-phy-id0283.bc30&quot;;
+			adi,rx-internal-delay-ps = &lt;0x7d0&gt;;
+			adi,tx-internal-delay-ps = &lt;0x7d0&gt;;
+			adi,fifo-depth-bits = &lt;0x08&gt;;
+			reset-gpios = &lt;0x34 0x30 0x01&gt;;
+			reset-assert-us = &lt;0x0a&gt;;
+			reset-deassert-us = &lt;0x1388&gt;;
+		};
+	};
 };</code></pre>
+
                         
-                        <p style="margin-top: 1rem;"><strong>Device Tree Template (PMC-GEM1 - RGMII):</strong></p>
-                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>&amp;gem1 {
-    status = "okay";
-    phy-handle = &lt;&amp;phy1&gt;;
-    phy-mode = "rgmii-id";
-    mdio {
-        #address-cells = &lt;1&gt;;
-        #size-cells = &lt;0&gt;;
-        phy1: ethernet-phy@2 {
-            reg = &lt;0x2&gt;;
-            ti,rx-internal-delay = &lt;0x8&gt;;
-            ti,tx-internal-delay = &lt;0xa&gt;;
-            ti,fifo-depth = &lt;0x1&gt;;
-            ti,dp83867-rxctrl-strap-quirk;
-        };
-    };
-};</code></pre>
+
                         
-                        <p style="margin-top: 1rem;"><strong>PL 400G Ethernet (MRMAC) for AI Data Transport:</strong></p>
-                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>mrmac_0: ethernet@a0000000 {
-    compatible = "xlnx,mrmac-3.1";
-    device_type = "network";
-    reg = &lt;0x0 0xa0000000 0x0 0x100000&gt;;
-    interrupts = &lt;0 89 4&gt;;
-    local-mac-address = [00 0a 35 00 03 10];
-    xlnx,channel-ids = &lt;0x1&gt;;
-    xlnx,num-ports = &lt;0x1&gt;;
-    
-    /* 400G configuration for QSFP-DD */
-    port@0 {
-        reg = &lt;0&gt;;
-        xlnx,port-rate = &lt;400000&gt;; /* 400 Gbps */
-        xlnx,num-queues = &lt;16&gt;;
-        xlnx,line-rate = "400GBASE-R";
-        xlnx,fec = "RS-FEC"; /* Forward Error Correction */
-    };
-};</code></pre>
+
+                        
+
+                        
+
+                        
+
+                        
+
+                        
+                        
+                        
+                        
+                        
+                        
+                        
                     </div>
                 </div>
             </div>
@@ -4789,36 +5949,9 @@ graph TB
                             <li><strong>GTY Transceivers:</strong> High-speed networking</li>
                         </ul>
                         
-                        <p style="margin-top: 1rem;"><strong>Device Tree Template (PL 100G Ethernet - QSFP28 #0):</strong></p>
-                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>/* Note: Typically configured via DPDK, not Linux device tree */
-axi_ethernet_qsfp0: ethernet@a0000000 {
-    compatible = "xlnx,xxv-ethernet-4.1";
-    device_type = "network";
-    reg = &lt;0x0 0xa0000000 0x0 0x100000&gt;;
-    interrupts = &lt;0 89 4&gt;;
-    phy-mode = "100gbase-r";
-    xlnx,rxmem = &lt;0x4000&gt;;
-    xlnx,channel-ids = &lt;0x1&gt;;
-    xlnx,num-queues = &lt;16&gt;;
-    local-mac-address = [00 0a 35 00 50 00];
-    
-    /* SmartNIC features */
-    xlnx,smartnic-mode;
-    xlnx,rss-queues = &lt;16&gt;; /* Receive Side Scaling */
-};</code></pre>
                         
-                        <p style="margin-top: 1rem;"><strong>DPDK Configuration (Typical for VCK5000):</strong></p>
-                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>/* VCK5000 typically uses DPDK instead of kernel drivers */
-
-# DPDK binding example
-dpdk-devbind.py --bind=vfio-pci 0000:05:00.0  # QSFP0
-dpdk-devbind.py --bind=vfio-pci 0000:05:00.1  # QSFP1
-
-# testpmd for 100G packet forwarding
-testpmd -l 0-7 -n 4 -- -i \
-    --nb-cores=4 \
-    --rxq=8 --txq=8 \
-    --forward-mode=mac</code></pre>
+                        
+                       
                     </div>
                 </div>
             </div>
@@ -4838,48 +5971,68 @@ testpmd -l 0-7 -n 4 -- -i \
                             <li><strong>GTM Transceivers:</strong> 112 Gbps PAM4 per lane</li>
                             <li><strong>HBM2E Memory:</strong> Up to 32 GB (820 GB/s bandwidth)</li>
                         </ul>
-                        
-                        <p style="margin-top: 1rem;"><strong>Device Tree Template (PMC-GEM0 - RGMII):</strong></p>
-                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>&amp;gem0 {
-    status = "okay";
-    phy-handle = &lt;&amp;phy0&gt;;
-    phy-mode = "rgmii-id";
-    mdio {
-        #address-cells = &lt;1&gt;;
-        #size-cells = &lt;0&gt;;
-        phy0: ethernet-phy@1 {
-            reg = &lt;0x1&gt;;
-            ti,rx-internal-delay = &lt;0x8&gt;;
-            ti,tx-internal-delay = &lt;0xa&gt;;
-            ti,fifo-depth = &lt;0x1&gt;;
-            ti,dp83867-rxctrl-strap-quirk;
-        };
-    };
+
+                        <p style="margin-top: 1rem;"><strong>Device Tree Snippet PS-GEM1 - RGMII-ID:</strong></p>
+                        <div class="code-header" style="display: flex; justify-content: space-between; align-items: center; background: #2d2d2d; padding: 0.5rem 1rem; border-radius: 8px 8px 0 0; margin-top: 0.5rem;">
+                            <span style="color: #9cdcfe; font-size: 0.9rem;">Device Tree</span>
+                            <button type="button" class="copy-btn" onclick="copyCode(this, 'vpk120-ff0c0000-code')">Copy</button>
+                        </div>
+                        <pre tabindex="0" style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 0 0 8px 8px; margin-top: 0;"><code id="vpk120-ff0c0000-code">ethernet@ff0c0000 {
+	compatible = &quot;ethernet-phy-id2000.a231&quot;;
+	status = &quot;okay&quot;;
+	reg = &lt;0x01&gt;;
+	interrupt-parent = &lt;0x44&gt;;
+	interrupts = &lt;0x00 0x38 0x04 0x00 0x38 0x04&gt;;
+	phy-handle = &lt;0x98&gt;;
+	phy-mode = &quot;rgmii-id&quot;;
+	clock-names = &quot;pclk\0hclk\0tx_clk\0rx_clk\0tsu_clk&quot;;
+	#address-cells = &lt;0x01&gt;;
+	#size-cells = &lt;0x00&gt;;
+	clocks = &lt;0x78 0x52 0x78 0x58 0x78 0x31 0x78 0x30 0x78 0x2b&gt;;
+	power-domains = &lt;0x77 0x18224019&gt;;
+	xlnx,has-mdio = &lt;0x01&gt;;
+	xlnx,is-cache-coherent = &lt;0x00&gt;;
+	xlnx,gem-board-interface = &quot;custom&quot;;
+	xlnx,enet-slcr-1000mbps-div0 = &lt;0x02&gt;;
+	xlnx,enet-slcr-10mbps-div0 = &lt;0x64&gt;;
+	xlnx,enet-tsu-clk-freq-hz = &lt;0xee6b18c&gt;;
+	xlnx,ip-name = &quot;psv_ethernet&quot;;
+	xlnx,eth-mode = &lt;0x01&gt;;
+	xlnx,enet-clk-freq-hz = &lt;0x77358c6&gt;;
+	xlnx,enet-slcr-100mbps-div0 = &lt;0x0a&gt;;
+	phandle = &lt;0x98&gt;;
+	#phy-cells = &lt;0x01&gt;;
+	ti,rx-internal-delay = &lt;0x0b&gt;;
+	ti,tx-internal-delay = &lt;0x0a&gt;;
+	ti,fifo-depth = &lt;0x01&gt;;
+	ti,dp83867-rxctrl-strap-quirk;
+	
+	mdio {
+		#address-cells = &lt;1&gt;;
+		#size-cells = &lt;0&gt;;
+		
+		phy@1 {
+			reg = &lt;0x01&gt;;
+			compatible = &quot;ethernet-phy-id2000.a231&quot;;
+			ti,rx-internal-delay = &lt;0x0b&gt;;
+			ti,tx-internal-delay = &lt;0x0a&gt;;
+			ti,fifo-depth = &lt;0x01&gt;;
+			ti,dp83867-rxctrl-strap-quirk;
+		};
+	};
 };</code></pre>
+
                         
-                        <p style="margin-top: 1rem;"><strong>PL 400G Ethernet with RoCE (RDMA):</strong></p>
-                        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>mrmac_roce: ethernet@a0000000 {
-    compatible = "xlnx,mrmac-3.1";
-    device_type = "network";
-    reg = &lt;0x0 0xa0000000 0x0 0x100000&gt;;
-    interrupts = &lt;0 89 4&gt;;
-    local-mac-address = [00 0a 35 00 vp 10];
-    xlnx,channel-ids = &lt;0x1&gt;;
-    xlnx,num-ports = &lt;0x1&gt;;
-    
-    /* 400G with RDMA support */
-    port@0 {
-        reg = &lt;0&gt;;
-        xlnx,port-rate = &lt;400000&gt;; /* 400 Gbps */
-        xlnx,num-queues = &lt;32&gt;;
-        xlnx,line-rate = "400GBASE-R";
-        xlnx,fec = "RS-FEC";
-        
-        /* RoCE v2 configuration */
-        xlnx,roce-enabled;
-        xlnx,rdma-queues = &lt;16&gt;;
-    };
-};</code></pre>
+
+                        
+
+                        
+
+                        
+                        
+                        
+                        
+                        
                     </div>
                 </div>
             </div>
@@ -4899,6 +6052,64 @@ testpmd -l 0-7 -n 4 -- -i \
          ============================================ -->
     <!-- Ethernet Interfaces JavaScript -->
     <script src="../js/ethernet-interfaces.js"></script>
+    
+    <!-- Copy Code Functionality -->
+    <script>
+        function copyCode(button, codeId) {
+            const codeElement = document.getElementById(codeId);
+            if (!codeElement) {
+                console.error('Code element not found:', codeId);
+                return;
+            }
+            
+            const codeText = codeElement.textContent || codeElement.innerText;
+            
+            // Try to use clipboard API
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(codeText)
+                    .then(() => {
+                        showCopyFeedback(button, true);
+                    })
+                    .catch((err) => {
+                        console.error('Clipboard API failed:', err);
+                        fallbackCopy(codeText, button);
+                    });
+            } else {
+                // Fallback for older browsers
+                fallbackCopy(codeText, button);
+            }
+        }
+        
+        function fallbackCopy(text, button) {
+            const textArea = document.createElement('textarea');
+            textArea.value = text;
+            textArea.style.position = 'fixed';
+            textArea.style.left = '-9999px';
+            document.body.appendChild(textArea);
+            textArea.select();
+            
+            try {
+                const successful = document.execCommand('copy');
+                showCopyFeedback(button, successful);
+            } catch (err) {
+                console.error('Fallback copy failed:', err);
+                showCopyFeedback(button, false);
+            }
+            
+            document.body.removeChild(textArea);
+        }
+        
+        function showCopyFeedback(button, success) {
+            const originalText = button.textContent;
+            button.textContent = success ? 'Copied!' : 'Failed';
+            button.style.background = success ? '#4caf50' : '#f44336';
+            
+            setTimeout(() => {
+                button.textContent = originalText;
+                button.style.background = '';
+            }, 2000);
+        }
+    </script>
     
     <!-- Navigation and Scroll Management -->
     <script>
@@ -5051,6 +6262,7 @@ testpmd -l 0-7 -n 4 -- -i \
     </main>
 </body>
 </html>
+
 
 
 

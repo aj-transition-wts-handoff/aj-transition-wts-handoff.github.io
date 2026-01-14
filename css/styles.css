@@ -2355,6 +2355,20 @@ body.dark-mode .device-tree-section pre {
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+/* Make all pre blocks in expandable sections scrollable */
+.expand-content-inner pre {
+    overflow-x: auto;
+    overflow-y: auto;
+    max-height: 500px;
+}
+
+/* For mobile, reduce max-height */
+@media (max-width: 768px) {
+    .expand-content-inner pre {
+        max-height: 400px;
+    }
+}
+
 .device-tree-section code {
     font-family: 'Courier New', monospace;
     font-size: 0.9rem;
