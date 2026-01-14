@@ -2,10 +2,11 @@ name: QA Automation - All Pages
 
 on:
   push:
-    branches: [ main, master, develop ]
+    branches: [ main, master, develop, deploy ]
   pull_request:
-    branches: [ main, master ]
+    branches: [ main, master, deploy ]
   workflow_dispatch:  # Manual trigger
+  workflow_call:  # Allow being called from other workflows
 
 jobs:
   html-validation:

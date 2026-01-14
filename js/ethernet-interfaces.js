@@ -207,8 +207,10 @@
                 versionFilter.appendChild(option);
             });
 
-            // Populate design filter
-            const designs = [...new Set(Object.values(ethernetData).map(d => d.design))].sort();
+            // Populate design filter (only ps_ and pl_ designs for ZCU102)
+            const designs = [...new Set(Object.values(ethernetData)
+                .filter(d => d.design.startsWith('ps_') || d.design.startsWith('pl_'))
+                .map(d => d.design))].sort();
             const designFilter = document.getElementById('designFilter');
             designFilter.innerHTML = '<option value="">All Designs</option>';
             designs.forEach(design => {
@@ -232,6 +234,11 @@
             const typeFilter = document.getElementById('typeFilter').value;
 
             const filtered = Object.entries(ethernetData).filter(([key, data]) => {
+                // Only show ZCU102 designs (ps_ or pl_ prefix) - other boards have their own section
+                if (!data.design.startsWith('ps_') && !data.design.startsWith('pl_')) {
+                    return false;
+                }
+                
                 if (versionFilter && data.version !== versionFilter) return false;
                 if (designFilter && data.design !== designFilter) return false;
                 

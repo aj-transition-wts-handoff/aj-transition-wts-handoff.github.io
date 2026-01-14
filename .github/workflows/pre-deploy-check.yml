@@ -2,9 +2,10 @@ name: Pre-Deploy Quality Check
 
 on:
   pull_request:
-    branches: [ main, master ]
+    branches: [ main, master, deploy ]
   push:
     branches: [ develop, staging ]
+  workflow_call:  # Allow calling from other workflows
 
 jobs:
   quick-check:
