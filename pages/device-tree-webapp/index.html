@@ -17,73 +17,23 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   
-  <!-- Prism.js for Syntax Highlighting -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
-  
   <!-- Mermaid.js for Diagrams -->
   <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
   
+  <!-- Highlight.js for syntax highlighting (no theme, using custom WCAG-compliant colors) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/c.min.js"></script>
+  
   <style>
-    /* Prism.js WCAG AA Contrast Overrides for dark background (#1e293b) */
-    pre[class*="language-"] .token.comment,
-    pre[class*="language-"] .token.prolog,
-    pre[class*="language-"] .token.doctype,
-    pre[class*="language-"] .token.cdata {
-      color: #94a3b8 !important; /* Light gray for dark background */
-    }
-    
-    pre[class*="language-"] .token.punctuation {
-      color: #cbd5e1 !important; /* Light for dark background */
-    }
-    
-    pre[class*="language-"] .token.property,
-    pre[class*="language-"] .token.tag,
-    pre[class*="language-"] .token.boolean,
-    pre[class*="language-"] .token.number,
-    pre[class*="language-"] .token.constant,
-    pre[class*="language-"] .token.symbol,
-    pre[class*="language-"] .token.deleted {
-      color: #7dd3fc !important; /* Light blue */
-    }
-    
-    pre[class*="language-"] .token.selector,
-    pre[class*="language-"] .token.attr-name,
-    pre[class*="language-"] .token.string,
-    pre[class*="language-"] .token.char,
-    pre[class*="language-"] .token.builtin,
-    pre[class*="language-"] .token.inserted {
-      color: #6ee7b7 !important; /* Light green */
-    }
-    
-    pre[class*="language-"] .token.operator,
-    pre[class*="language-"] .token.entity,
-    pre[class*="language-"] .token.url,
-    pre[class*="language-"] .language-css .token.string,
-    pre[class*="language-"] .style .token.string {
-      color: #fde047 !important; /* Yellow */
-    }
-    
-    pre[class*="language-"] .token.atrule,
-    pre[class*="language-"] .token.attr-value,
-    pre[class*="language-"] .token.keyword {
-      color: #c084fc !important; /* Light purple */
-    }
-    
-    pre[class*="language-"] .token.function,
-    pre[class*="language-"] .token.class-name {
-      color: #fbbf24 !important; /* Amber */
-    }
-    
-    pre[class*="language-"] .token.regex,
-    pre[class*="language-"] .token.important,
-    pre[class*="language-"] .token.variable {
-      color: #fb923c !important; /* Orange */
-    }
-    
-    /* Fallback for any unspecified tokens */
-    pre[class*="language-"] .token {
-      color: #e2e8f0 !important; /* Light gray default */
-    }
+    /* Highlight.js custom colors for WCAG AA compliance on dark background */
+    .hljs { background: #1e293b !important; color: #e2e8f0 !important; }
+    .hljs-comment, .hljs-quote { color: #e2e8f0 !important; }
+    .hljs-keyword, .hljs-selector-tag { color: #c084fc !important; }
+    .hljs-string, .hljs-attr { color: #6ee7b7 !important; }
+    .hljs-number, .hljs-literal { color: #7dd3fc !important; }
+    .hljs-function, .hljs-title { color: #fbbf24 !important; }
+    .hljs-variable, .hljs-name { color: #fb923c !important; }
+    .hljs-operator, .hljs-punctuation { color: #fde047 !important; }
     
     /* Back to Tracker button */
     .back-to-tracker {
@@ -296,7 +246,7 @@
           </div>
           
           <div class="code-wrapper">
-            <pre><code id="dts-code" class="language-c" aria-hidden="true">// Select a board and configure ethernet nodes to generate DTS</code></pre>
+            <pre><code id="dts-code" class="language-c" tabindex="0">// Select a board and configure ethernet nodes to generate DTS</code></pre>
           </div>
         </section>
       </div>
@@ -324,10 +274,35 @@
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
   
-  <!-- Prism.js for Syntax Highlighting -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-clike.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-c.min.js"></script>
+  <!-- Initialize Highlight.js -->
+  <script>
+    hljs.highlightAll();
+    
+    // Force WCAG-compliant colors with inline styles after highlighting
+    document.querySelectorAll('code.hljs').forEach(codeElement => {
+      codeElement.querySelectorAll('.hljs-comment, .hljs-quote').forEach(el => {
+        el.style.color = '#e2e8f0';
+      });
+      codeElement.querySelectorAll('.hljs-keyword, .hljs-selector-tag').forEach(el => {
+        el.style.color = '#c084fc';
+      });
+      codeElement.querySelectorAll('.hljs-string, .hljs-attr').forEach(el => {
+        el.style.color = '#6ee7b7';
+      });
+      codeElement.querySelectorAll('.hljs-number, .hljs-literal').forEach(el => {
+        el.style.color = '#7dd3fc';
+      });
+      codeElement.querySelectorAll('.hljs-function, .hljs-title').forEach(el => {
+        el.style.color = '#fbbf24';
+      });
+      codeElement.querySelectorAll('.hljs-variable, .hljs-name').forEach(el => {
+        el.style.color = '#fb923c';
+      });
+      codeElement.querySelectorAll('.hljs-operator, .hljs-punctuation').forEach(el => {
+        el.style.color = '#fde047';
+      });
+    });
+  </script>
   
   <!-- Embedded Application Scripts (No CORS issues with file://) -->
   <script>
@@ -810,10 +785,37 @@
       const dts = generateDTS(state);
       const codeElement = document.getElementById('dts-code');
       
+      // Remove old highlighting classes
+      codeElement.className = 'language-c';
+      codeElement.removeAttribute('data-highlighted');
+      
       codeElement.textContent = dts;
       
-      if (window.Prism) {
-        Prism.highlightElement(codeElement);
+      if (window.hljs) {
+        hljs.highlightElement(codeElement);
+        
+        // Force WCAG-compliant colors with inline styles (highest specificity)
+        codeElement.querySelectorAll('.hljs-comment, .hljs-quote').forEach(el => {
+          el.style.color = '#e2e8f0';
+        });
+        codeElement.querySelectorAll('.hljs-keyword, .hljs-selector-tag').forEach(el => {
+          el.style.color = '#c084fc';
+        });
+        codeElement.querySelectorAll('.hljs-string, .hljs-attr').forEach(el => {
+          el.style.color = '#6ee7b7';
+        });
+        codeElement.querySelectorAll('.hljs-number, .hljs-literal').forEach(el => {
+          el.style.color = '#7dd3fc';
+        });
+        codeElement.querySelectorAll('.hljs-function, .hljs-title').forEach(el => {
+          el.style.color = '#fbbf24';
+        });
+        codeElement.querySelectorAll('.hljs-variable, .hljs-name').forEach(el => {
+          el.style.color = '#fb923c';
+        });
+        codeElement.querySelectorAll('.hljs-operator, .hljs-punctuation').forEach(el => {
+          el.style.color = '#fde047';
+        });
       }
     }
 

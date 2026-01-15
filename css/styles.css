@@ -1325,6 +1325,8 @@ body.dark-mode #powered-text {
     .dark-mode-toggle {
         padding: 0.5rem 0.9rem;
         font-size: 0.85rem;
+        min-height: 48px;
+        line-height: 1.5;
     }
 
     .section-title {
