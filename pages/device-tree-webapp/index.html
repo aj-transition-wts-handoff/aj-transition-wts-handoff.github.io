@@ -26,8 +26,14 @@
   
   <style>
     /* Highlight.js custom colors for WCAG AA compliance on dark background */
+    /* Maximum specificity to override any cascade */
     .hljs { background: #1e293b !important; color: #e2e8f0 !important; }
-    .hljs-comment, .hljs-quote { color: #e2e8f0 !important; }
+    pre code .hljs-comment, 
+    pre code .hljs-quote,
+    code.language-c .hljs-comment,
+    code.language-c .hljs-quote,
+    .hljs-comment, 
+    .hljs-quote { color: #e2e8f0 !important; }
     .hljs-keyword, .hljs-selector-tag { color: #c084fc !important; }
     .hljs-string, .hljs-attr { color: #6ee7b7 !important; }
     .hljs-number, .hljs-literal { color: #7dd3fc !important; }
@@ -278,30 +284,32 @@
   <script>
     hljs.highlightAll();
     
-    // Force WCAG-compliant colors with inline styles after highlighting
-    document.querySelectorAll('code.hljs').forEach(codeElement => {
-      codeElement.querySelectorAll('.hljs-comment, .hljs-quote').forEach(el => {
-        el.style.color = '#e2e8f0';
+    // Force WCAG-compliant colors with inline styles using setProperty for maximum enforcement
+    setTimeout(() => {
+      document.querySelectorAll('code.hljs, code.language-c, code#dts-code').forEach(codeElement => {
+        codeElement.querySelectorAll('.hljs-comment, .hljs-quote').forEach(el => {
+          el.style.setProperty('color', '#e2e8f0', 'important');
+        });
+        codeElement.querySelectorAll('.hljs-keyword, .hljs-selector-tag').forEach(el => {
+          el.style.setProperty('color', '#c084fc', 'important');
+        });
+        codeElement.querySelectorAll('.hljs-string, .hljs-attr').forEach(el => {
+          el.style.setProperty('color', '#6ee7b7', 'important');
+        });
+        codeElement.querySelectorAll('.hljs-number, .hljs-literal').forEach(el => {
+          el.style.setProperty('color', '#7dd3fc', 'important');
+        });
+        codeElement.querySelectorAll('.hljs-function, .hljs-title').forEach(el => {
+          el.style.setProperty('color', '#fbbf24', 'important');
+        });
+        codeElement.querySelectorAll('.hljs-variable, .hljs-name').forEach(el => {
+          el.style.setProperty('color', '#fb923c', 'important');
+        });
+        codeElement.querySelectorAll('.hljs-operator, .hljs-punctuation').forEach(el => {
+          el.style.setProperty('color', '#fde047', 'important');
+        });
       });
-      codeElement.querySelectorAll('.hljs-keyword, .hljs-selector-tag').forEach(el => {
-        el.style.color = '#c084fc';
-      });
-      codeElement.querySelectorAll('.hljs-string, .hljs-attr').forEach(el => {
-        el.style.color = '#6ee7b7';
-      });
-      codeElement.querySelectorAll('.hljs-number, .hljs-literal').forEach(el => {
-        el.style.color = '#7dd3fc';
-      });
-      codeElement.querySelectorAll('.hljs-function, .hljs-title').forEach(el => {
-        el.style.color = '#fbbf24';
-      });
-      codeElement.querySelectorAll('.hljs-variable, .hljs-name').forEach(el => {
-        el.style.color = '#fb923c';
-      });
-      codeElement.querySelectorAll('.hljs-operator, .hljs-punctuation').forEach(el => {
-        el.style.color = '#fde047';
-      });
-    });
+    }, 0);
   </script>
   
   <!-- Embedded Application Scripts (No CORS issues with file://) -->
