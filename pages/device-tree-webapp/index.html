@@ -20,7 +20,22 @@
   <!-- Mermaid.js for Diagrams -->
   <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
   
+  <!-- Highlight.js for syntax highlighting -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/tomorrow-night.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/c.min.js"></script>
+  
   <style>
+    /* Override Highlight.js colors for WCAG AA compliance on dark background */
+    .hljs { background: #1e293b !important; color: #e2e8f0 !important; }
+    .hljs-comment, .hljs-quote { color: #94a3b8 !important; }
+    .hljs-keyword, .hljs-selector-tag { color: #c084fc !important; }
+    .hljs-string, .hljs-attr { color: #6ee7b7 !important; }
+    .hljs-number, .hljs-literal { color: #7dd3fc !important; }
+    .hljs-function, .hljs-title { color: #fbbf24 !important; }
+    .hljs-variable, .hljs-name { color: #fb923c !important; }
+    .hljs-operator, .hljs-punctuation { color: #fde047 !important; }
+    
     /* Back to Tracker button */
     .back-to-tracker {
         position: fixed;
@@ -232,7 +247,7 @@
           </div>
           
           <div class="code-wrapper">
-            <pre tabindex="0" style="color: #e2e8f0;"><code id="dts-code">// Select a board and configure ethernet nodes to generate DTS</code></pre>
+            <pre><code id="dts-code" class="language-c" tabindex="0">// Select a board and configure ethernet nodes to generate DTS</code></pre>
           </div>
         </section>
       </div>
@@ -259,6 +274,9 @@
 
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <!-- Initialize Highlight.js -->
+  <script>hljs.highlightAll();</script>
   
   <!-- Embedded Application Scripts (No CORS issues with file://) -->
   <script>
@@ -741,10 +759,14 @@
       const dts = generateDTS(state);
       const codeElement = document.getElementById('dts-code');
       
+      // Remove old highlighting classes
+      codeElement.className = 'language-c';
+      codeElement.removeAttribute('data-highlighted');
+      
       codeElement.textContent = dts;
       
-      if (window.Prism) {
-        Prism.highlightElement(codeElement);
+      if (window.hljs) {
+        hljs.highlightElement(codeElement);
       }
     }
 
