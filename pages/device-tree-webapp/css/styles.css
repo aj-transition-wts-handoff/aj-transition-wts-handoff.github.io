@@ -1334,14 +1334,16 @@ body.dark-mode .pathway-selector:disabled {
     .version-select,
     .phy-mode-select {
         font-size: 0.9rem;
-        padding: 0.85rem 0.8rem;
-        min-height: 45px;
+        padding: 0.9rem 0.8rem;
+        min-height: 46px;
+        line-height: 1.5;
     }
     
     .copy-button {
         font-size: 0.85rem;
-        padding: 0.8rem 1rem;
-        min-height: 45px;
+        padding: 0.85rem 1rem;
+        min-height: 46px;
+        line-height: 1.5;
     }
     
     .pathway-badge {
