@@ -4,7 +4,8 @@ const pages = [
   '/index.html',
   '/pages/jenkins-automation.html',
   '/pages/playbook.html',
-  '/pages/ethernet-interfaces.html'
+  '/pages/ethernet-interfaces.html',
+  '/pages/device-tree-webapp/index.html'
 ];
 
 // Skip entire mobile test file on webkit - Pixel 5 device requires chromium
