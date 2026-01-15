@@ -275,7 +275,34 @@
   <script src="https://unpkg.com/lucide@latest"></script>
   
   <!-- Initialize Highlight.js -->
-  <script>hljs.highlightAll();</script>
+  <script>
+    hljs.highlightAll();
+    
+    // Force WCAG-compliant colors with inline styles after highlighting
+    document.querySelectorAll('code.hljs').forEach(codeElement => {
+      codeElement.querySelectorAll('.hljs-comment, .hljs-quote').forEach(el => {
+        el.style.color = '#e2e8f0';
+      });
+      codeElement.querySelectorAll('.hljs-keyword, .hljs-selector-tag').forEach(el => {
+        el.style.color = '#c084fc';
+      });
+      codeElement.querySelectorAll('.hljs-string, .hljs-attr').forEach(el => {
+        el.style.color = '#6ee7b7';
+      });
+      codeElement.querySelectorAll('.hljs-number, .hljs-literal').forEach(el => {
+        el.style.color = '#7dd3fc';
+      });
+      codeElement.querySelectorAll('.hljs-function, .hljs-title').forEach(el => {
+        el.style.color = '#fbbf24';
+      });
+      codeElement.querySelectorAll('.hljs-variable, .hljs-name').forEach(el => {
+        el.style.color = '#fb923c';
+      });
+      codeElement.querySelectorAll('.hljs-operator, .hljs-punctuation').forEach(el => {
+        el.style.color = '#fde047';
+      });
+    });
+  </script>
   
   <!-- Embedded Application Scripts (No CORS issues with file://) -->
   <script>
@@ -766,6 +793,29 @@
       
       if (window.hljs) {
         hljs.highlightElement(codeElement);
+        
+        // Force WCAG-compliant colors with inline styles (highest specificity)
+        codeElement.querySelectorAll('.hljs-comment, .hljs-quote').forEach(el => {
+          el.style.color = '#e2e8f0';
+        });
+        codeElement.querySelectorAll('.hljs-keyword, .hljs-selector-tag').forEach(el => {
+          el.style.color = '#c084fc';
+        });
+        codeElement.querySelectorAll('.hljs-string, .hljs-attr').forEach(el => {
+          el.style.color = '#6ee7b7';
+        });
+        codeElement.querySelectorAll('.hljs-number, .hljs-literal').forEach(el => {
+          el.style.color = '#7dd3fc';
+        });
+        codeElement.querySelectorAll('.hljs-function, .hljs-title').forEach(el => {
+          el.style.color = '#fbbf24';
+        });
+        codeElement.querySelectorAll('.hljs-variable, .hljs-name').forEach(el => {
+          el.style.color = '#fb923c';
+        });
+        codeElement.querySelectorAll('.hljs-operator, .hljs-punctuation').forEach(el => {
+          el.style.color = '#fde047';
+        });
       }
     }
 
