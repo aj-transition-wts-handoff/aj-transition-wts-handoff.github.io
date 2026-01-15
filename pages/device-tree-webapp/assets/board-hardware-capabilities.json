@@ -1,0 +1,473 @@
+{
+  "boards": {
+    "zcu102": {
+      "name": "ZCU102",
+      "architecture": "zynqmp",
+      "description": "Zynq UltraScale+ MPSoC Evaluation Kit",
+      "gems": {
+        "gem0": {
+          "address": "0xff0b0000",
+          "available": true,
+          "pathways": ["MIO", "EMIO"],
+          "default_phy_mode": "gmii",
+          "locked": false,
+          "notes": "Available for configuration. Rarely used in reference designs."
+        },
+        "gem1": {
+          "address": "0xff0c0000",
+          "available": true,
+          "pathways": ["MIO", "EMIO"],
+          "default_phy_mode": "rgmii-id",
+          "locked": false,
+          "notes": "Available for custom designs. Not used in reference designs."
+        },
+        "gem2": {
+          "address": "0xff0d0000",
+          "available": true,
+          "pathways": ["MIO", "EMIO"],
+          "default_phy_mode": "rgmii-id",
+          "locked": false,
+          "notes": "Available for custom designs. Not used in reference designs."
+        },
+        "gem3": {
+          "address": "0xff0e0000",
+          "available": true,
+          "pathways": ["MIO"],
+          "default_phy_mode": "rgmii-id",
+          "locked": true,
+          "hardware_connection": "Hardwired to onboard TI DP83867 PHY via MIO pins",
+          "phy_address": "0x0c",
+          "notes": "PRIMARY ETHERNET - This is the main ethernet interface on ZCU102. Hardware cannot be changed."
+        }
+      },
+      "pl_ethernet": {
+        "axi_1g_capable": true,
+        "xxv_10g_capable": true,
+        "xxv_25g_capable": true,
+        "notes": "Full PL Ethernet support via FMC/SFP connectors"
+      }
+    },
+    "kv260": {
+      "name": "Kria KV260 Vision AI Starter Kit",
+      "architecture": "zynqmp",
+      "description": "Kria SOM with vision/AI capabilities",
+      "gems": {
+        "gem0": {
+          "address": "0xff0b0000",
+          "available": false,
+          "pathways": [],
+          "notes": "Not connected on this board"
+        },
+        "gem1": {
+          "address": "0xff0c0000",
+          "available": false,
+          "pathways": [],
+          "notes": "Not connected on this board"
+        },
+        "gem2": {
+          "address": "0xff0d0000",
+          "available": false,
+          "pathways": [],
+          "notes": "Not connected on this board"
+        },
+        "gem3": {
+          "address": "0xff0e0000",
+          "available": true,
+          "pathways": ["MIO"],
+          "default_phy_mode": "rgmii-id",
+          "locked": true,
+          "hardware_connection": "Hardwired to onboard TI DP83867 PHY via MIO pins",
+          "phy_address": "0x01",
+          "notes": "Only ethernet interface available. Hardware fixed."
+        }
+      },
+      "pl_ethernet": {
+        "axi_1g_capable": false,
+        "xxv_10g_capable": false,
+        "xxv_25g_capable": false,
+        "notes": "PL resources typically used for vision/AI applications"
+      }
+    },
+    "kr260": {
+      "name": "Kria KR260 Robotics Starter Kit",
+      "architecture": "zynqmp",
+      "description": "Kria SOM with dual ethernet for robotics",
+      "gems": {
+        "gem0": {
+          "address": "0xff0b0000",
+          "available": true,
+          "pathways": ["GTR"],
+          "default_phy_mode": "sgmii",
+          "locked": true,
+          "hardware_connection": "Hardwired for SGMII over GTR transceivers",
+          "phy_address": "0x04",
+          "notes": "SGMII ethernet using GTR. Cannot use MIO pathway."
+        },
+        "gem1": {
+          "address": "0xff0c0000",
+          "available": true,
+          "pathways": ["MIO"],
+          "default_phy_mode": "rgmii-id",
+          "locked": true,
+          "hardware_connection": "Hardwired to onboard TI DP83867 PHY via MIO pins",
+          "phy_address": "0x08",
+          "notes": "Primary RGMII ethernet via MIO. Hardware fixed."
+        },
+        "gem2": {
+          "address": "0xff0d0000",
+          "available": false,
+          "pathways": [],
+          "notes": "Not connected on this board"
+        },
+        "gem3": {
+          "address": "0xff0e0000",
+          "available": false,
+          "pathways": [],
+          "notes": "Not connected on this board"
+        }
+      },
+      "pl_ethernet": {
+        "axi_1g_capable": false,
+        "xxv_10g_capable": false,
+        "xxv_25g_capable": false,
+        "notes": "PL resources typically used for robotics applications"
+      }
+    },
+    "kd240": {
+      "name": "Kria KD240 Drive Starter Kit",
+      "architecture": "zynqmp",
+      "description": "Kria SOM for motor control and drives",
+      "gems": {
+        "gem0": {
+          "address": "0xff0b0000",
+          "available": false,
+          "pathways": [],
+          "notes": "Not connected on this board"
+        },
+        "gem1": {
+          "address": "0xff0c0000",
+          "available": true,
+          "pathways": ["MIO"],
+          "default_phy_mode": "rgmii-id",
+          "locked": true,
+          "hardware_connection": "Hardwired to onboard ADI ADIN1300 PHY via MIO pins",
+          "phy_address": "0x08",
+          "notes": "Only ethernet interface. Uses ADI ADIN1300 PHY."
+        },
+        "gem2": {
+          "address": "0xff0d0000",
+          "available": false,
+          "pathways": [],
+          "notes": "Not connected on this board"
+        },
+        "gem3": {
+          "address": "0xff0e0000",
+          "available": false,
+          "pathways": [],
+          "notes": "Not connected on this board"
+        }
+      },
+      "pl_ethernet": {
+        "axi_1g_capable": false,
+        "xxv_10g_capable": false,
+        "xxv_25g_capable": false,
+        "notes": "PL resources typically used for motor control"
+      }
+    },
+    "zcu104": {
+      "name": "ZCU104",
+      "architecture": "zynqmp",
+      "description": "Zynq UltraScale+ MPSoC Evaluation Kit",
+      "gems": {
+        "gem0": {
+          "address": "0xff0b0000",
+          "available": false,
+          "pathways": [],
+          "notes": "Not connected on this board"
+        },
+        "gem1": {
+          "address": "0xff0c0000",
+          "available": false,
+          "pathways": [],
+          "notes": "Not connected on this board"
+        },
+        "gem2": {
+          "address": "0xff0d0000",
+          "available": false,
+          "pathways": [],
+          "notes": "Not connected on this board"
+        },
+        "gem3": {
+          "address": "0xff0e0000",
+          "available": true,
+          "pathways": ["MIO"],
+          "default_phy_mode": "rgmii-id",
+          "locked": true,
+          "hardware_connection": "Hardwired to onboard TI DP83867 PHY via MIO pins",
+          "phy_address": "0x0c",
+          "notes": "Only ethernet interface available."
+        }
+      },
+      "pl_ethernet": {
+        "axi_1g_capable": true,
+        "xxv_10g_capable": false,
+        "xxv_25g_capable": false,
+        "notes": "Limited PL ethernet support"
+      }
+    },
+    "zcu106": {
+      "name": "ZCU106",
+      "architecture": "zynqmp",
+      "description": "Zynq UltraScale+ MPSoC Evaluation Kit",
+      "gems": {
+        "gem0": {
+          "address": "0xff0b0000",
+          "available": false,
+          "pathways": [],
+          "notes": "Not connected on this board"
+        },
+        "gem1": {
+          "address": "0xff0c0000",
+          "available": false,
+          "pathways": [],
+          "notes": "Not connected on this board"
+        },
+        "gem2": {
+          "address": "0xff0d0000",
+          "available": false,
+          "pathways": [],
+          "notes": "Not connected on this board"
+        },
+        "gem3": {
+          "address": "0xff0e0000",
+          "available": true,
+          "pathways": ["MIO"],
+          "default_phy_mode": "rgmii-id",
+          "locked": true,
+          "hardware_connection": "Hardwired to onboard TI DP83867 PHY via MIO pins",
+          "phy_address": "0x0c",
+          "notes": "Only ethernet interface available."
+        }
+      },
+      "pl_ethernet": {
+        "axi_1g_capable": true,
+        "xxv_10g_capable": false,
+        "xxv_25g_capable": false,
+        "notes": "Limited PL ethernet support"
+      }
+    },
+    "zcu208": {
+      "name": "ZCU208",
+      "architecture": "zynqmp",
+      "description": "Zynq UltraScale+ RFSoC Evaluation Kit",
+      "gems": {
+        "gem0": {
+          "address": "0xff0b0000",
+          "available": false,
+          "pathways": [],
+          "notes": "Not connected on this board"
+        },
+        "gem1": {
+          "address": "0xff0c0000",
+          "available": false,
+          "pathways": [],
+          "notes": "Not connected on this board"
+        },
+        "gem2": {
+          "address": "0xff0d0000",
+          "available": false,
+          "pathways": [],
+          "notes": "Not connected on this board"
+        },
+        "gem3": {
+          "address": "0xff0e0000",
+          "available": true,
+          "pathways": ["MIO"],
+          "default_phy_mode": "rgmii-id",
+          "locked": true,
+          "hardware_connection": "Hardwired to onboard TI DP83867 PHY via MIO pins",
+          "phy_address": "0x0c",
+          "notes": "Only ethernet interface available. RFSoC platform."
+        }
+      },
+      "pl_ethernet": {
+        "axi_1g_capable": false,
+        "xxv_10g_capable": false,
+        "xxv_25g_capable": false,
+        "notes": "PL resources dedicated to RF functionality"
+      }
+    },
+    "vck190": {
+      "name": "VCK190",
+      "architecture": "versal",
+      "description": "Versal AI Core Evaluation Kit",
+      "gems": {
+        "gem0": {
+          "address": "0xff0b0000",
+          "available": false,
+          "pathways": [],
+          "notes": "Not available on Versal (different numbering)"
+        },
+        "gem1": {
+          "address": "0xff0c0000",
+          "available": true,
+          "pathways": ["MIO"],
+          "default_phy_mode": "rgmii-id",
+          "locked": true,
+          "hardware_connection": "Hardwired to onboard TI DP83867 PHY",
+          "phy_address": "0x01",
+          "notes": "Primary ethernet interface on Versal"
+        },
+        "gem2": {
+          "address": "0xff0d0000",
+          "available": true,
+          "pathways": ["MIO"],
+          "default_phy_mode": "rgmii-id",
+          "locked": true,
+          "hardware_connection": "Hardwired to onboard TI DP83867 PHY",
+          "phy_address": "0x02",
+          "notes": "Secondary ethernet interface. Shares MDIO with GEM1."
+        },
+        "gem3": {
+          "address": "0xff0e0000",
+          "available": false,
+          "pathways": [],
+          "notes": "Not available on Versal (different numbering)"
+        }
+      },
+      "pl_ethernet": {
+        "axi_1g_capable": true,
+        "xxv_10g_capable": true,
+        "xxv_25g_capable": true,
+        "notes": "Full PL Ethernet support on Versal platform"
+      }
+    },
+    "vek280": {
+      "name": "VEK280",
+      "architecture": "versal",
+      "description": "Versal AI Edge Evaluation Kit",
+      "gems": {
+        "gem0": {
+          "address": "0xff0b0000",
+          "available": false,
+          "pathways": [],
+          "notes": "Not available on Versal"
+        },
+        "gem1": {
+          "address": "0xff0c0000",
+          "available": true,
+          "pathways": ["MIO"],
+          "default_phy_mode": "rgmii-id",
+          "locked": true,
+          "hardware_connection": "Hardwired to onboard PHY",
+          "notes": "Primary ethernet interface"
+        },
+        "gem2": {
+          "address": "0xff0d0000",
+          "available": false,
+          "pathways": [],
+          "notes": "Not connected on this board"
+        },
+        "gem3": {
+          "address": "0xff0e0000",
+          "available": false,
+          "pathways": [],
+          "notes": "Not available on Versal"
+        }
+      },
+      "pl_ethernet": {
+        "axi_1g_capable": true,
+        "xxv_10g_capable": true,
+        "xxv_25g_capable": true,
+        "notes": "PL Ethernet support available"
+      }
+    },
+    "vmk180": {
+      "name": "VMK180",
+      "architecture": "versal",
+      "description": "Versal Prime Evaluation Kit",
+      "gems": {
+        "gem0": {
+          "address": "0xff0b0000",
+          "available": false,
+          "pathways": [],
+          "notes": "Not available on Versal"
+        },
+        "gem1": {
+          "address": "0xff0c0000",
+          "available": true,
+          "pathways": ["MIO"],
+          "default_phy_mode": "rgmii-id",
+          "locked": true,
+          "hardware_connection": "Hardwired to onboard PHY",
+          "notes": "Primary ethernet interface"
+        },
+        "gem2": {
+          "address": "0xff0d0000",
+          "available": false,
+          "pathways": [],
+          "notes": "Not connected on this board"
+        },
+        "gem3": {
+          "address": "0xff0e0000",
+          "available": false,
+          "pathways": [],
+          "notes": "Not available on Versal"
+        }
+      },
+      "pl_ethernet": {
+        "axi_1g_capable": true,
+        "xxv_10g_capable": true,
+        "xxv_25g_capable": true,
+        "notes": "PL Ethernet support available"
+      }
+    },
+    "vpk120": {
+      "name": "VPK120",
+      "architecture": "versal",
+      "description": "Versal Premium Evaluation Kit",
+      "gems": {
+        "gem0": {
+          "address": "0xff0b0000",
+          "available": false,
+          "pathways": [],
+          "notes": "Not available on Versal"
+        },
+        "gem1": {
+          "address": "0xff0c0000",
+          "available": true,
+          "pathways": ["MIO"],
+          "default_phy_mode": "rgmii-id",
+          "locked": true,
+          "hardware_connection": "Hardwired to onboard TI DP83867 PHY",
+          "phy_address": "0x01",
+          "notes": "Primary ethernet interface"
+        },
+        "gem2": {
+          "address": "0xff0d0000",
+          "available": false,
+          "pathways": [],
+          "notes": "Not connected on this board"
+        },
+        "gem3": {
+          "address": "0xff0e0000",
+          "available": false,
+          "pathways": [],
+          "notes": "Not available on Versal"
+        }
+      },
+      "pl_ethernet": {
+        "axi_1g_capable": true,
+        "xxv_10g_capable": true,
+        "xxv_25g_capable": true,
+        "notes": "Full PL Ethernet support"
+      }
+    }
+  },
+  "metadata": {
+    "version": "1.0",
+    "last_updated": "2026-01-14",
+    "source": "Analyzed from ethernet_data.json DTS extracts",
+    "notes": "This file defines hardware capabilities for each reference board. The 'locked' field indicates GEMs that are hardwired and cannot be reconfigured. The 'pathways' array lists valid connection options (MIO/EMIO/GTR) for each GEM."
+  }
+}

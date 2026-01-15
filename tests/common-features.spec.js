@@ -8,7 +8,8 @@ const pages = [
   '/pages/cases-dashboard.html',
   '/pages/ar-list.html',
   '/pages/cq-list.html',
-  '/pages/cr-list.html'
+  '/pages/cr-list.html',
+  '/pages/device-tree-webapp/index.html'
 ];
 
 test.describe('Common Features Across All Pages', () => {
@@ -73,7 +74,8 @@ test.describe('Common Features Across All Pages', () => {
         // Check if styles.css is loaded
         const cssLink = playwright.locator('link[href*="styles.css"]');
         if (await cssLink.count() > 0) {
-          await expect(cssLink).toHaveAttribute('rel', 'stylesheet');
+          // Use .first() to handle pages with multiple CSS files
+          await expect(cssLink.first()).toHaveAttribute('rel', 'stylesheet');
         }
       });
 
