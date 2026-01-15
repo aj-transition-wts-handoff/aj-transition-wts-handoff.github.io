@@ -809,6 +809,98 @@ code {
 }
 
 /* ============================================================================= */
+/* PRISM.JS TOKEN OVERRIDES - WCAG AA CONTRAST FOR DARK BACKGROUND */
+/* ============================================================================= */
+
+/* Ensure all Prism tokens meet WCAG AA 4.5:1 contrast on dark background (#1e293b) */
+code[class*="language-"] .token,
+pre[class*="language-"] .token {
+    color: #e2e8f0 !important; /* Default light color for any token */
+}
+
+code[class*="language-"] .token.comment,
+code[class*="language-"] .token.prolog,
+code[class*="language-"] .token.doctype,
+code[class*="language-"] .token.cdata,
+pre[class*="language-"] .token.comment,
+pre[class*="language-"] .token.prolog,
+pre[class*="language-"] .token.doctype,
+pre[class*="language-"] .token.cdata {
+    color: #94a3b8 !important;
+}
+
+code[class*="language-"] .token.punctuation,
+pre[class*="language-"] .token.punctuation {
+    color: #cbd5e1 !important;
+}
+
+code[class*="language-"] .token.property,
+code[class*="language-"] .token.tag,
+code[class*="language-"] .token.boolean,
+code[class*="language-"] .token.number,
+code[class*="language-"] .token.constant,
+code[class*="language-"] .token.symbol,
+code[class*="language-"] .token.deleted,
+pre[class*="language-"] .token.property,
+pre[class*="language-"] .token.tag,
+pre[class*="language-"] .token.boolean,
+pre[class*="language-"] .token.number,
+pre[class*="language-"] .token.constant,
+pre[class*="language-"] .token.symbol,
+pre[class*="language-"] .token.deleted {
+    color: #7dd3fc !important;
+}
+
+code[class*="language-"] .token.selector,
+code[class*="language-"] .token.attr-name,
+code[class*="language-"] .token.string,
+code[class*="language-"] .token.char,
+code[class*="language-"] .token.builtin,
+code[class*="language-"] .token.inserted,
+pre[class*="language-"] .token.selector,
+pre[class*="language-"] .token.attr-name,
+pre[class*="language-"] .token.string,
+pre[class*="language-"] .token.char,
+pre[class*="language-"] .token.builtin,
+pre[class*="language-"] .token.inserted {
+    color: #6ee7b7 !important;
+}
+
+code[class*="language-"] .token.operator,
+code[class*="language-"] .token.entity,
+code[class*="language-"] .token.url,
+pre[class*="language-"] .token.operator,
+pre[class*="language-"] .token.entity,
+pre[class*="language-"] .token.url {
+    color: #fde047 !important;
+}
+
+code[class*="language-"] .token.atrule,
+code[class*="language-"] .token.attr-value,
+code[class*="language-"] .token.keyword,
+pre[class*="language-"] .token.atrule,
+pre[class*="language-"] .token.attr-value,
+pre[class*="language-"] .token.keyword {
+    color: #c084fc !important;
+}
+
+code[class*="language-"] .token.function,
+code[class*="language-"] .token.class-name,
+pre[class*="language-"] .token.function,
+pre[class*="language-"] .token.class-name {
+    color: #fbbf24 !important;
+}
+
+code[class*="language-"] .token.regex,
+code[class*="language-"] .token.important,
+code[class*="language-"] .token.variable,
+pre[class*="language-"] .token.regex,
+pre[class*="language-"] .token.important,
+pre[class*="language-"] .token.variable {
+    color: #fb923c !important;
+}
+
+/* ============================================================================= */
 /* FOOTER */
 /* ============================================================================= */
 
