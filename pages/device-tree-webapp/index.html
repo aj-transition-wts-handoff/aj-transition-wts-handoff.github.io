@@ -21,16 +21,6 @@
   <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
   
   <style>
-    /* CRITICAL: Prism.js token contrast overrides - must be inline for CI/CD reliability */
-    /* These override any dynamically applied Prism styles */
-    code[class*="language-"] .token,
-    pre[class*="language-"] .token,
-    code .token,
-    pre .token,
-    .token {
-      color: #e2e8f0 !important;
-    }
-    
     /* Back to Tracker button */
     .back-to-tracker {
         position: fixed;
@@ -242,7 +232,7 @@
           </div>
           
           <div class="code-wrapper">
-            <pre><code id="dts-code" class="language-c" aria-hidden="true">// Select a board and configure ethernet nodes to generate DTS</code></pre>
+            <pre><code id="dts-code" aria-hidden="true">// Select a board and configure ethernet nodes to generate DTS</code></pre>
           </div>
         </section>
       </div>
@@ -269,11 +259,6 @@
 
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
-  
-  <!-- Prism.js for Syntax Highlighting -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-clike.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-c.min.js"></script>
   
   <!-- Embedded Application Scripts (No CORS issues with file://) -->
   <script>
