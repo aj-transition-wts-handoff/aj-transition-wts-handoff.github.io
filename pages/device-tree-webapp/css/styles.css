@@ -405,15 +405,17 @@ body.dark-mode .phy-addr-input:focus {
     gap: 1rem;
 }
 
+.empty-state,
 .gem-list .empty-state {
     text-align: center;
     padding: 3rem 1rem;
-    color: #94a3b8;
+    color: #1e293b;
     font-style: italic;
 }
 
+body.dark-mode .empty-state,
 body.dark-mode .gem-list .empty-state {
-    color: #cbd5e1;
+    color: #94a3b8;
 }
 
 .gem-item {

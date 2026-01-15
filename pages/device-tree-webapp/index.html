@@ -15,8 +15,6 @@
   <link rel="stylesheet" href="css/styles.css">
   
   <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   
   <!-- Prism.js for Syntax Highlighting -->
@@ -90,10 +88,12 @@
   </button>
 
   <!-- Back to Tracker Button -->
-  <a href="../../index.html" class="back-to-tracker" aria-label="Return to main tracker page">
-    <span aria-hidden="true">←</span>
-    <span>Back to Tracker</span>
-  </a>
+  <nav aria-label="Site navigation">
+    <a href="../../index.html" class="back-to-tracker" aria-label="Return to main tracker page">
+      <span aria-hidden="true">←</span>
+      <span>Back to Tracker</span>
+    </a>
+  </nav>
 
   <div class="app-container">
     <!-- Header -->
@@ -112,23 +112,24 @@
     </header>
 
     <!-- Work in Progress Warning Section -->
-    <section style="max-width: 1400px; margin: 0 auto; padding: 1rem;">
-      <div class="warning-pulse" style="background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%); border-left: 6px solid #ff0000; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 6px 20px rgba(255, 0, 0, 0.3);">
-        <h3 style="color: white; margin: 0 0 0.75rem 0; font-size: 1.2rem; display: flex; align-items: center; gap: 0.5rem;">
-          <span style="font-size: 1.5rem;">⚠️</span> Work in Progress
-        </h3>
-        <p style="color: white; margin: 0; line-height: 1.6; font-weight: 500;">
-          This tool is under active development and may not provide 100% accurate device trees for all boards. Pending verification across all supported configurations. Use with caution and always verify generated device trees against your hardware documentation.
-        </p>
-      </div>
-    </section>
+    <main>
+      <section style="max-width: 1400px; margin: 0 auto; padding: 1rem;">
+        <div class="warning-pulse" style="background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%); border-left: 6px solid #ff0000; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 6px 20px rgba(255, 0, 0, 0.3);">
+          <h2 style="color: white; margin: 0 0 0.75rem 0; font-size: 1.2rem; display: flex; align-items: center; gap: 0.5rem;">
+            <span style="font-size: 1.5rem;">⚠️</span> Work in Progress
+          </h2>
+          <p style="color: white; margin: 0; line-height: 1.6; font-weight: 500;">
+            This tool is under active development and may not provide 100% accurate device trees for all boards. Pending verification across all supported configurations. Use with caution and always verify generated device trees against your hardware documentation.
+          </p>
+        </div>
+      </section>
 
     <!-- Main Content Card -->
     <div class="main-content-card">
       <!-- Main Split Layout -->
-      <main class="split-layout">
+      <section class="split-layout">
       <!-- Left Panel: Configuration Controls -->
-      <aside class="control-panel">
+      <div class="control-panel">
         <section class="config-section">
           <h2>
             <i data-lucide="settings"></i>
@@ -186,7 +187,7 @@
             <p class="empty-state">Select a board and version first</p>
           </div>
         </section>
-      </aside>
+      </div>
 
       <!-- Right Panel: Visualization and Output -->
       <div class="output-panel">
@@ -234,12 +235,13 @@
           </div>
           
           <div class="code-wrapper">
-            <pre><code id="dts-code" class="language-c">// Select a board and configure ethernet nodes to generate DTS</code></pre>
+            <pre><code id="dts-code" class="language-c" aria-hidden="true">// Select a board and configure ethernet nodes to generate DTS</code></pre>
           </div>
         </section>
       </div>
-    </main>
+    </section>
     </div> <!-- .main-content-card -->
+    </main>
 
     <!-- Footer -->
     <footer class="app-footer">
