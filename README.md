@@ -1,5 +1,5 @@
 # 🌐 AMD Xilinx Ethernet Driver Knowledge Base
-
+[![CI/CD - Test and Deploy](https://github.com/aj-transition-wts-handoff/aj-transition-wts-handoff.github.io/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/aj-transition-wts-handoff/aj-transition-wts-handoff.github.io/actions/workflows/ci-cd.yml)
 [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-brightgreen?style=for-the-badge&logo=github)](https://aj-transition-wts-handoff.github.io/)
 [![Last Updated](https://img.shields.io/badge/Last%20Updated-January%202026-blue?style=for-the-badge&logo=clock)](https://aj-transition-wts-handoff.github.io/)
 [![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)
