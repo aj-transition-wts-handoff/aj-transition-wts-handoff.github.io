@@ -197,7 +197,8 @@ function formatEthernetNode(node, state, interfaceConfig = null, family = null) 
       compatible = 'xlnx,axi-ethernet-1.00.a';
     }
     
-    const phyMode = interfaceConfig?.phy_mode || node.phyMode || 'sgmii';
+    // Prioritize node.phyMode (current state) over interfaceConfig.phy_mode (default from db)
+    const phyMode = node.phyMode || interfaceConfig?.phy_mode || 'sgmii';
     
     console.log('🔧 PL Node Generation:', {
       nodeName: node.name,

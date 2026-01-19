@@ -400,6 +400,7 @@ function renderPLConfig() {
     const is10G = node.phyMode === '10gbase-r' || node.name.includes('10g');
     const is25G = node.phyMode === '25gbase-r';
     const isSerDes = is10G || is25G;
+    const is1G = !isSerDes; // AXI 1G/2.5G interfaces
     
     const speedLabel = is25G ? '25G' : is10G ? '10G' : '1G/2.5G';
     const interfaceTypeLabel = isSerDes ? 'SFP+/SFP28' : 'SFP/RJ45';
@@ -422,8 +423,22 @@ function renderPLConfig() {
         </label>
       </div>
       <p class="capability-desc">
-        ${node.notes || `High-speed Ethernet MAC+PCS/PMA – Works with ${interfaceTypeLabel} (${node.phyMode})`}
+        ${node.notes || `High-speed Ethernet MAC+PCS/PMA – Works with ${interfaceTypeLabel}`}
       </p>
+      
+      ${is1G && node.enabled ? `
+        <div class="form-group pathway-select-group">
+          <label for="pl-phy-mode-${state.nodes.indexOf(node)}">PHY Mode:</label>
+          <select class="pathway-select pl-phy-mode-select" 
+                  id="pl-phy-mode-${state.nodes.indexOf(node)}"
+                  data-index="${state.nodes.indexOf(node)}">
+            <option value="sgmii" ${node.phyMode === 'sgmii' ? 'selected' : ''}>SGMII</option>
+            <option value="1000base-x" ${node.phyMode === '1000base-x' ? 'selected' : ''}>1000BASE-X</option>
+            <option value="rgmii-id" ${node.phyMode === 'rgmii-id' ? 'selected' : ''}>RGMII-ID</option>
+          </select>
+        </div>
+      ` : ''}
+      
       <div class="pl-details">
         <span class="badge pathway-emio">${node.address}</span>
         <span class="badge pathway-gtr">${node.phyMode}</span>
@@ -435,6 +450,10 @@ function renderPLConfig() {
   // Attach event listeners
   container.querySelectorAll('.pl-toggle').forEach(checkbox => {
     checkbox.addEventListener('change', handlePLToggle);
+  });
+  
+  container.querySelectorAll('.pl-phy-mode-select').forEach(select => {
+    select.addEventListener('change', handlePLPhyModeChange);
   });
 }
 
@@ -776,6 +795,35 @@ function handlePLToggle(e) {
   console.log('PL Toggle:', state.nodes[index].name, state.nodes[index].enabled);
   
   updateUI();
+}
+
+/**
+ * Handle PL PHY mode change (for AXI 1G Ethernet)
+ */
+function handlePLPhyModeChange(e) {
+  const index = parseInt(e.target.dataset.index);
+  if (isNaN(index) || !state.nodes[index]) {
+    console.error('Invalid PL phy mode index:', index);
+    return;
+  }
+  
+  const oldPhyMode = state.nodes[index].phyMode;
+  state.nodes[index].phyMode = e.target.value;
+  console.log(`PL PHY Mode Change: ${state.nodes[index].name} from ${oldPhyMode} to ${state.nodes[index].phyMode}`);
+  console.log('Updated node:', state.nodes[index]);
+  
+  // Update the PHY mode badge in the UI without re-rendering entire section
+  const card = e.target.closest('.pl-capability-card');
+  if (card) {
+    const phyModeBadge = card.querySelector('.pl-details .badge.pathway-gtr');
+    if (phyModeBadge) {
+      phyModeBadge.textContent = e.target.value;
+    }
+  }
+  
+  // Force immediate update of diagram and DTS
+  renderDiagram();
+  renderDTSPreview();
 }
 
 /**

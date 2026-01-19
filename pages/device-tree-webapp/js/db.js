@@ -188,6 +188,17 @@ export const ETHERNET_DB = {
                     note: "Hardware Fixed - This ethernet connection is hardwired on the board and cannot be reconfigured"
                 },
                 {
+                    id: "pl_axi_1g",
+                    type: "pl_ethernet",
+                    label: "AXI 1G/2.5G Ethernet",
+                    template: "axi_ethernet",
+                    axi_node: "axi_ethernet_0",
+                    axi_base_addr: "0xa0000000",
+                    phy_mode: "sgmii",
+                    interface_type: "PL",
+                    note: "AXI 1G/2.5G Ethernet Subsystem with 1G/2.5G PCS/PMA under the hood. "
+                },
+                {
                     id: "pl_10g",
                     type: "pl_ethernet",
                     label: "PL 10G Ethernet",
@@ -265,6 +276,17 @@ export const ETHERNET_DB = {
                     note: "Hardware Fixed - This ethernet connection is hardwired on the board and cannot be reconfigured"
                 },
                 {
+                    id: "pl_axi_1g",
+                    type: "pl_ethernet",
+                    label: "AXI 1G/2.5G Ethernet",
+                    template: "axi_ethernet",
+                    axi_node: "axi_ethernet_0",
+                    axi_base_addr: "0xa0000000",
+                    phy_mode: "sgmii",
+                    interface_type: "PL",
+                    note: "AXI 1G/2.5G Ethernet Subsystem with 1G/2.5G PCS/PMA under the hood. "
+                },
+                {
                     id: "pl_10g",
                     type: "pl_ethernet",
                     label: "PL 10G Ethernet",
@@ -340,6 +362,17 @@ export const ETHERNET_DB = {
                     locked: true,
                     reset_gpio: "&gpio 38 0",
                     note: "Hardware Fixed - This ethernet connection is hardwired on the board and cannot be reconfigured"
+                },
+                {
+                    id: "pl_axi_1g",
+                    type: "pl_ethernet",
+                    label: "AXI 1G/2.5G Ethernet",
+                    template: "axi_ethernet",
+                    axi_node: "axi_ethernet_0",
+                    axi_base_addr: "0xa0000000",
+                    phy_mode: "sgmii",
+                    interface_type: "PL",
+                    note: "AXI 1G/2.5G Ethernet Subsystem with 1G/2.5G PCS/PMA under the hood. "
                 },
                 {
                     id: "pl_10g",
@@ -450,7 +483,7 @@ export const ETHERNET_DB = {
                     axi_base_addr: "0xa0000000",
                     phy_mode: "sgmii",
                     interface_type: "PL",
-                    note: "Tri-Mode Ethernet MAC (RGMII/SGMII/1000BASE-X) for PL PHY or SFP"
+                    note: "AXI 1G/2.5G Ethernet Subsystem with 1G/2.5G PCS/PMA under the hood. "
                 },
                 {
                     id: "pl_sfp_10g",
@@ -485,6 +518,17 @@ export const ETHERNET_DB = {
                     phy_compatible: "ethernet-phy-id2000.a231",
                     interface_type: "RGMII",
                     reset_gpio: "&gpio 44 0"
+                },
+                {
+                    id: "pl_axi_1g",
+                    type: "pl_ethernet",
+                    label: "AXI 1G/2.5G Ethernet",
+                    template: "axi_ethernet",
+                    axi_node: "axi_ethernet_0",
+                    axi_base_addr: "0xa0000000",
+                    phy_mode: "sgmii",
+                    interface_type: "PL",
+                    note: "AXI 1G/2.5G Ethernet Subsystem with 1G/2.5G PCS/PMA under the hood. "
                 }
             ]
         },
@@ -508,6 +552,17 @@ export const ETHERNET_DB = {
                     phy_compatible: "ethernet-phy-ieee802.3-c22",
                     interface_type: "RGMII",
                     reset_gpio: "&gpio 44 0"
+                },
+                {
+                    id: "pl_axi_1g",
+                    type: "pl_ethernet",
+                    label: "AXI 1G/2.5G Ethernet",
+                    template: "axi_ethernet",
+                    axi_node: "axi_ethernet_0",
+                    axi_base_addr: "0xa0000000",
+                    phy_mode: "sgmii",
+                    interface_type: "PL",
+                    note: "AXI 1G/2.5G Ethernet Subsystem with 1G/2.5G PCS/PMA under the hood. "
                 }
             ]
         },
