@@ -270,6 +270,405 @@ body.dark-mode .legend-item {
 }
 
 /* ============================================================================= */
+/* GEM CARD STYLES */
+/* ============================================================================= */
+
+.gem-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border: 2px solid rgba(102, 126, 234, 0.2);
+    transition: all 0.3s ease;
+}
+
+body.dark-mode .gem-card {
+    background: #2d3748;
+    border-color: #4a5568;
+}
+
+.gem-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.15);
+}
+
+.gem-card.locked {
+    background: linear-gradient(135deg, rgba(255, 193, 7, 0.1) 0%, rgba(255, 235, 59, 0.05) 100%);
+    border-color: #ffc107;
+}
+
+body.dark-mode .gem-card.locked {
+    background: linear-gradient(135deg, rgba(255, 193, 7, 0.15) 0%, rgba(255, 235, 59, 0.08) 100%);
+}
+
+.gem-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.gem-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex: 1;
+    flex-wrap: wrap;
+}
+
+.gem-title h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #1a202c;
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+}
+
+body.dark-mode .gem-title h3 {
+    color: #f7fafc;
+}
+
+.gem-title .gem-name {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #1a202c;
+}
+
+body.dark-mode .gem-title .gem-name {
+    color: #f7fafc;
+}
+
+.lock-icon {
+    font-size: 1rem;
+}
+
+.hardware-locked-badge {
+    background: linear-gradient(135deg, #ffc107 0%, #ff9800 100%);
+    color: #1a202c;
+    padding: 0.5rem 1rem;
+    border-radius: 8px 8px 0 0;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    box-shadow: 0 2px 8px rgba(255, 193, 7, 0.4);
+    margin: -1rem -1rem 1rem -1rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+}
+
+.gem-card.locked {
+    background: linear-gradient(135deg, #fff8e1 0%, #fff3cd 100%);
+    border-color: #ffc107;
+}
+
+body.dark-mode .gem-card.locked {
+    background: linear-gradient(135deg, rgba(255, 193, 7, 0.15) 0%, rgba(255, 152, 0, 0.15) 100%);
+    border-color: #ffc107;
+}
+
+.pathway-select-group {
+    margin: 1rem 0;
+}
+
+.pathway-select {
+    width: 100%;
+    padding: 0.65rem 1rem;
+    border-radius: 8px;
+    border: 2px solid rgba(100, 116, 139, 0.2);
+    background: white;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #1e293b;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.pathway-select:hover:not(:disabled) {
+    border-color: #667eea;
+}
+
+.pathway-select option:disabled {
+    color: #94a3b8;
+    font-style: italic;
+}
+
+body.dark-mode .pathway-select option:disabled {
+    color: #64748b;
+}
+
+.pathway-select:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+body.dark-mode .pathway-select {
+    background: rgba(255, 255, 255, 0.08);
+    color: #f1f5f9;
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+.hardware-description {
+    color: #64748b;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin: 1rem 0;
+}
+
+body.dark-mode .hardware-description {
+    color: #94a3b8;
+}
+
+.emio-description {
+    color: #64748b;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin: 0.75rem 0;
+    font-style: italic;
+}
+
+body.dark-mode .emio-description {
+    color: #94a3b8;
+}
+
+.pl-details {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+.warning-box {
+    background: rgba(255, 152, 0, 0.1);
+    border: 1px solid rgba(255, 152, 0, 0.3);
+    border-left: 4px solid #ff9800;
+    padding: 0.85rem 1rem;
+    margin: 1rem 0 0 0;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    color: #1a202c;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    line-height: 1.5;
+}
+
+body.dark-mode .warning-box {
+    background: rgba(255, 152, 0, 0.15);
+    color: #f7fafc;
+    border-color: rgba(255, 152, 0, 0.4);
+}
+
+.warning-icon {
+    flex-shrink: 0;
+    font-size: 1.1rem;
+}
+
+.gem-address {
+    font-family: 'Courier New', monospace;
+    font-size: 0.95rem;
+    color: #1e293b;
+    margin-bottom: 0.75rem;
+    font-weight: 700;
+    padding: 0.6rem 0.8rem;
+    background: rgba(100, 116, 139, 0.12);
+    border-radius: 6px;
+    border: 1px solid rgba(100, 116, 139, 0.2);
+}
+
+.gem-address code {
+    color: #1e293b;
+}
+
+body.dark-mode .gem-address {
+    color: #f1f5f9;
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+body.dark-mode .gem-address code {
+    color: #f1f5f9;
+}
+
+.hardware-info {
+    background: rgba(255, 152, 0, 0.1);
+    border-left: 3px solid #ff9800;
+    padding: 0.75rem 1rem;
+    margin: 1rem 0;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    color: #1a202c;
+}
+
+body.dark-mode .hardware-info {
+    background: rgba(255, 152, 0, 0.15);
+    color: #f7fafc;
+}
+
+.hardware-info .info-icon {
+    margin-right: 0.5rem;
+}
+
+.gem-controls {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode .gem-controls {
+    border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.gem-notes {
+    margin-top: 1rem;
+    padding: 0.75rem 1rem;
+    background: rgba(102, 126, 234, 0.08);
+    border-left: 3px solid var(--gradient-start);
+    border-radius: 4px;
+    font-size: 0.9rem;
+    color: #334155;
+    line-height: 1.6;
+}
+
+.gem-notes p {
+    margin: 0;
+}
+
+body.dark-mode .gem-notes {
+    background: rgba(102, 126, 234, 0.15);
+    color: #e2e8f0;
+}
+
+/* ============================================================================= */
+/* PL CAPABILITY CARD STYLES */
+/* ============================================================================= */
+
+.pl-capability-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border: 2px solid rgba(118, 75, 162, 0.2);
+    transition: all 0.3s ease;
+}
+
+body.dark-mode .pl-capability-card {
+    background: #2d3748;
+    border-color: #4a5568;
+}
+
+.pl-capability-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.15);
+}
+
+.capability-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.capability-header h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1a202c;
+}
+
+body.dark-mode .capability-header h3 {
+    color: #f7fafc;
+}
+
+.capability-desc {
+    font-size: 0.95rem;
+    color: #475569;
+    margin: 0.5rem 0 1rem 0;
+    line-height: 1.7;
+}
+
+body.dark-mode .capability-desc {
+    color: #cbd5e1;
+}
+
+.not-available {
+    color: #ef4444;
+    font-size: 0.9rem;
+    font-style: italic;
+    margin-top: 0.5rem;
+}
+
+body.dark-mode .not-available {
+    color: #f87171;
+}
+
+.phy-mode-group {
+    margin-top: 1rem;
+}
+
+.phy-mode-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: #475569;
+}
+
+body.dark-mode .phy-mode-group label {
+    color: #cbd5e1;
+}
+
+.phy-mode-group select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    color: #1a202c;
+    background: white;
+    transition: all 0.3s ease;
+}
+
+body.dark-mode .phy-mode-group select {
+    background: #1a202c;
+    border-color: #4a5568;
+    color: #f7fafc;
+}
+
+.phy-mode-group select:focus {
+    outline: none;
+    border-color: var(--gradient-start);
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.pl-notes {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background: rgba(118, 75, 162, 0.05);
+    border-left: 3px solid var(--gradient-end);
+    border-radius: 4px;
+    font-size: 0.9rem;
+    color: #475569;
+    line-height: 1.6;
+}
+
+body.dark-mode .pl-notes {
+    background: rgba(118, 75, 162, 0.1);
+    color: #cbd5e1;
+}
+
+/* ============================================================================= */
 /* FORM CONTROLS */
 /* ============================================================================= */
 
@@ -282,15 +681,14 @@ body.dark-mode .legend-item {
     align-items: center;
     gap: 0.5rem;
     margin-bottom: 0.75rem;
-    font-weight: 500;
-    font-size: 0.95rem;
-    color: #475569;
-    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #334155;
     letter-spacing: 0.3px;
 }
 
 body.dark-mode .form-group label {
-    color: #cbd5e1;
+    color: #e2e8f0;
 }
 
 .form-group label i {
@@ -575,6 +973,20 @@ body.dark-mode .gem-controls {
     transform: translateX(24px);
 }
 
+.toggle-slider.locked {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.toggle-switch input:disabled + .toggle-slider {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.toggle-switch input:disabled + .toggle-slider:before {
+    background-color: #e2e8f0;
+}
+
 /* ============================================================================= */
 /* PATHWAY BADGES */
 /* ============================================================================= */
@@ -593,9 +1005,10 @@ body.dark-mode .gem-controls {
 
 .pathway-badge.pathway-mio,
 .pathway-mio {
-    background: rgba(81, 207, 102, 0.15);
-    color: #2d7a3e;
+    background: rgba(81, 207, 102, 0.2);
+    color: #1e5128;
     border: 2px solid var(--mio-color);
+    font-weight: 700;
     box-shadow: 0 2px 8px rgba(81, 207, 102, 0.2);
 }
 
@@ -608,9 +1021,10 @@ body.dark-mode .pathway-mio {
 
 .pathway-badge.pathway-emio,
 .pathway-emio {
-    background: rgba(245, 87, 108, 0.15);
-    color: #b91c3b;
+    background: rgba(245, 87, 108, 0.2);
+    color: #7f1d1d;
     border: 2px solid var(--emio-color);
+    font-weight: 700;
     box-shadow: 0 2px 8px rgba(245, 87, 108, 0.2);
 }
 
@@ -623,9 +1037,10 @@ body.dark-mode .pathway-emio {
 
 .pathway-badge.pathway-gtr,
 .pathway-gtr {
-    background: rgba(57, 73, 171, 0.15);
-    color: #2d3b6b;
+    background: rgba(57, 73, 171, 0.2);
+    color: #1e3a8a;
     border: 2px solid var(--gtr-color);
+    font-weight: 700;
     box-shadow: 0 2px 8px rgba(57, 73, 171, 0.2);
 }
 
@@ -710,16 +1125,14 @@ body.dark-mode .section-header h2 i {
 
 .diagram-container {
     width: 100%;
-    min-height: 300px;
-    padding: 2rem;
+    min-height: 500px;
+    padding: 3rem 2rem 6rem 2rem;
     background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
     border-radius: 12px;
     border: 2px solid #e2e8f0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow-x: auto;
-    overflow-y: hidden;
+    display: block;
+    overflow: auto;
+    position: relative;
 }
 
 body.dark-mode .diagram-container {
@@ -730,6 +1143,9 @@ body.dark-mode .diagram-container {
 .diagram-container .mermaid {
     width: 100%;
     max-width: 100%;
+    min-height: 400px;
+    margin: 0 auto;
+    padding: 2rem 0;
 }
 
 /* Code Section */
@@ -1379,6 +1795,23 @@ body.dark-mode .loading {
 /* Mermaid Diagram Styling */
 .mermaid {
     font-family: 'Poppins', sans-serif !important;
+}
+
+.mermaid svg {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 2rem auto;
+    padding: 1rem;
+}
+
+/* Mermaid zoom controls */
+.diagram-container:hover {
+    cursor: grab;
+}
+
+.diagram-container:active {
+    cursor: grabbing;
 }
 
 /* Smooth scrolling */
