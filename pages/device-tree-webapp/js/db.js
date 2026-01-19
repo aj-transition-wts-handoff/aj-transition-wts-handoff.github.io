@@ -1,305 +1,861 @@
-// Device Tree Database - Hardware configurations extracted from parent ethernet-interfaces.html
-// This database contains actual hardware data for ZCU102/KR260/KD240 boards across multiple Vivado versions
+/**
+ * ETHERNET DEVICE TREE DATABASE
+ * 
+ * Architecture: Template Inheritance Model
+ * - Templates: Generic DTS skeletons with {{PLACEHOLDERS}}
+ * - Families: Chip-level defaults (ZynqMP, Versal, Kria)
+ * - Boards: Hardware-specific configuration variables
+ * - Quirks: Version-aware mutation logic (2020.1 - 2024.2)
+ * 
+ * Source: Comprehensive Audit of Xilinx Kernel Bindings
+ */
+
+// ============================================================================
+// TEMPLATES (The Skeletons)
+// ============================================================================
 
 export const ETHERNET_DB = {
-  "2020.1/zcu102": {
-    "version": "2020.1",
-    "design": "zcu102",
-    "board": "zcu102",
-    "ethernet_nodes": [
-      {
-        "name": "ethernet@ff0e0000",
-        "compatible": "cdns,zynqmp-gem\\0cdns,gem",
-        "status": "okay",
-        "interrupt-parent": "0x04",
-        "interrupts": "0x00 0x3f 0x04 0x00 0x3f 0x04",
-        "reg": "0x00 0xff0e0000 0x00 0x1000",
-        "clock-names": "pclk\\0hclk\\0tx_clk\\0rx_clk\\0tsu_clk",
-        "#address-cells": "0x01",
-        "#size-cells": "0x00",
-        "#stream-id-cells": "0x01",
-        "iommus": "0x0e 0x877",
-        "power-domains": "0x0c 0x20",
-        "clocks": "0x03 0x1f 0x03 0x6b 0x03 0x30 0x03 0x34 0x03 0x2c",
-        "phy-handle": "0x0f",
-        "pinctrl-names": "default",
-        "pinctrl-0": "0x10",
-        "phy-mode": "rgmii-id",
-        "xlnx,ptp-enet-clock": "0x00",
-        "local-mac-address": "[00 0a 35 00 22 01]",
-        "phandle": "0x71",
-        "nodeType": "PS GEM3 (EMIO)",
-        "phy_nodes": [
-          {
-            "name": "ethernet-phy@c",
-            "reg": "0x0c",
-            "ti,rx-internal-delay": "0x08",
-            "ti,tx-internal-delay": "0x0a",
-            "ti,fifo-depth": "0x01",
-            "ti,dp83867-rxctrl-strap-quirk": true,
-            "phandle": "0x0f"
-          }
-        ]
-      },
-      {
-        "name": "ethernet@a0040000",
-        "axistream-connected": "0x3a",
-        "axistream-control-connected": "0x3a",
-        "clock-frequency": "0x5f5e100",
-        "clock-names": "rx_core_clk\\0dclk\\0s_axi_aclk\\0s_axi_lite_aclk\\0m_axi_sg_aclk\\0m_axi_mm2s_aclk\\0m_axi_s2mm_aclk",
-        "clocks": "0x39 0x03 0x47 0x03 0x47 0x03 0x47 0x03 0x47 0x39 0x39",
-        "compatible": "xlnx,xxv-ethernet-3.2\\0xlnx,xxv-ethernet-1.0",
-        "device_type": "network",
-        "local-mac-address": "[00 0a 35 00 00 01]",
-        "phy-mode": "base-r",
-        "reg": "0x00 0xa0040000 0x00 0x40000",
-        "xlnx": "0x00",
-        "xlnx,add-gt-cntrl-sts-ports": "0x00",
-        "xlnx,anlt-clk-in-mhz": "0x64",
-        "xlnx,axis-tdata-width": "0x40",
-        "xlnx,axis-tkeep-width": "0x07",
-        "xlnx,base-r-kr": "BASE-R",
-        "xlnx,clocking": "Asynchronous",
-        "xlnx,cmac-core-select": "CMACE4_X0Y0",
-        "xlnx,core": "Ethernet MAC+PCS/PMA 64-bit",
-        "xlnx,data-path-interface": "AXI Stream",
-        "xlnx,enable-datapath-parity": "0x00",
-        "xlnx,enable-pipeline-reg": "0x00",
-        "xlnx,enable-preemption": "0x00",
-        "xlnx,enable-preemption-fifo": "0x00",
-        "xlnx,enable-rx-flow-control-logic": "0x00",
-        "xlnx,enable-time-stamping": "0x00",
-        "xlnx,enable-tx-flow-control-logic": "0x00",
-        "xlnx,enable-vlane-adjust-mode": "0x00",
-        "xlnx,family-chk": "zynquplus",
-        "xlnx,fast-sim-mode": "0x00",
-        "xlnx,gt-diffctrl-width": "0x04",
-        "xlnx,gt-drp-clk": "100.00",
-        "xlnx,gt-group-select": "Quad X0Y0",
-        "xlnx,gt-location": "0x01",
-        "xlnx,gt-ref-clk-freq": "156.25",
-        "xlnx,gt-type": "GTH",
-        "xlnx,gtm-group-select": "NA",
-        "xlnx,include-auto-neg-lt-logic": "None",
-        "xlnx,include-axi4-interface": "0x01",
-        "xlnx,include-dre": true,
-        "xlnx,include-fec-logic": "0x00",
-        "xlnx,include-hybrid-cmac-rsfec-logic": "0x00",
-        "xlnx,include-rsfec-logic": "0x00",
-        "xlnx,include-shared-logic": "0x01",
-        "xlnx,include-statistics-counters": "0x01",
-        "xlnx,include-user-fifo": "0x01",
-        "xlnx,ins-loss-nyq": "0x1e",
-        "xlnx,lane1-gt-loc": "X1Y14",
-        "xlnx,lane2-gt-loc": "NA",
-        "xlnx,lane3-gt-loc": "NA",
-        "xlnx,lane4-gt-loc": "NA",
-        "xlnx,line-rate": "0x0a",
-        "xlnx,mii-ctrl-width": "0x04",
-        "xlnx,mii-data-width": "0x20",
-        "xlnx,num-of-cores": "0x01",
-        "xlnx,ptp-clocking-mode": "0x00",
-        "xlnx,ptp-operation-mode": "0x02",
-        "xlnx,runtime-switch": "0x00",
-        "xlnx,rx-eq-mode": "AUTO",
-        "xlnx,rxmem": "0x40000",
-        "xlnx,statistics-regs-type": "0x00",
-        "xlnx,switch-1-10-25g": "0x00",
-        "xlnx,tx-latency-adjust": "0x00",
-        "xlnx,tx-total-bytes-width": "0x04",
-        "xlnx,xgmii-interface": "0x01",
-        "phandle": "0xa4",
-        "nodeType": "PL Ethernet (10G/25G)",
-        "status": "okay",
-        "mdio": {
-          "name": "mdio",
-          "#address-cells": "0x01",
-          "#size-cells": "0x00",
-          "phandle": "0xa5"
+    templates: {
+        /**
+         * ZynqMP GEM Template (MPSoC Standard PS Ethernet)
+         * Compatible: xlnx,zynqmp-gem
+         * Used by: ZCU102, ZCU104, ZCU106, Ultra96-V2
+         */
+        zynqmp_gem: `&{{GEM_NODE}} {
+    status = "okay";
+    phy-handle = <&{{PHY_LABEL}}>;
+    phy-mode = "{{PHY_MODE}}";
+{{EXTRA_PROPS}}
+    mdio {
+        #address-cells = <1>;
+        #size-cells = <0>;
+        
+        {{PHY_LABEL}}: ethernet-phy@{{PHY_ADDR}} {
+            reg = <{{PHY_ADDR}}>;
+            compatible = "{{PHY_COMPATIBLE}}";
+{{PHY_DELAYS}}
+        };
+    };
+};`,
+
+        /**
+         * Versal GEM Template (Versal Standard PS Ethernet)
+         * Compatible: xlnx,versal-gem
+         * Used by: VCK190, VMK180
+         * MANDATORY: xlnx,ptp-enet-clock property
+         */
+        versal_gem: `&{{GEM_NODE}} {
+    status = "okay";
+    phy-handle = <&{{PHY_LABEL}}>;
+    phy-mode = "{{PHY_MODE}}";
+{{EXTRA_PROPS}}
+    mdio {
+        #address-cells = <1>;
+        #size-cells = <0>;
+        
+        {{PHY_LABEL}}: ethernet-phy@{{PHY_ADDR}} {
+            reg = <{{PHY_ADDR}}>;
+            compatible = "{{PHY_COMPATIBLE}}";
+{{PHY_DELAYS}}
+        };
+    };
+};`,
+
+        /**
+         * AXI Ethernet Template (PL-based 1G/10G/25G)
+         * Compatible: xlnx,axi-ethernet-[version]
+         * Used by: Custom PL designs
+         */
+        axi_ethernet: `{{AXI_NODE}}: ethernet@{{AXI_BASE_ADDR}} {
+    compatible = "xlnx,axi-ethernet-7.2", "xlnx,axi-ethernet-1.00.a";
+    device_type = "network";
+    reg = <0x0 {{AXI_BASE_ADDR}} 0x0 0x40000>;
+    interrupt-parent = <&gic>;
+    interrupts = <0 {{IRQ_NUM}} 4>;
+    phy-mode = "{{PHY_MODE}}";
+    phy-handle = <&{{PHY_LABEL}}>;
+    xlnx,rxmem = <0x1000>;
+    xlnx,txcsum = <0x2>;
+    xlnx,rxcsum = <0x2>;
+    status = "okay";
+{{EXTRA_PROPS}}
+    mdio {
+        #address-cells = <1>;
+        #size-cells = <0>;
+        
+        {{PHY_LABEL}}: ethernet-phy@{{PHY_ADDR}} {
+            reg = <{{PHY_ADDR}}>;
+            compatible = "{{PHY_COMPATIBLE}}";
+{{PHY_DELAYS}}
+        };
+    };
+};`
+    },
+
+    // ========================================================================
+    // FAMILIES (Chip-Level Defaults)
+    // ========================================================================
+
+    families: {
+        zynqmp: {
+            gem_compatible: "xlnx,zynqmp-gem",
+            phy_compatible: "ethernet-phy-id2000.a231", // TI DP83867
+            requires_ptp_clock: false,
+            default_phy_mode: "rgmii-id"
+        },
+        versal: {
+            gem_compatible: "xlnx,versal-gem",
+            phy_compatible: "ethernet-phy-id2000.a231", // TI DP83867
+            requires_ptp_clock: true, // MANDATORY for Versal
+            default_phy_mode: "rgmii-id"
+        },
+        kria: {
+            gem_compatible: "xlnx,zynqmp-gem",
+            phy_compatible: "ethernet-phy-id2000.a231", // TI DP83867
+            requires_ptp_clock: false,
+            default_phy_mode: "rgmii-id"
         }
-      }
-    ],
-    "count": 2
-  },
-  "2024.1/zcu102": {
-    "version": "2024.1",
-    "design": "zcu102",
-    "board": "zcu102",
-    "ethernet_nodes": [
-      {
-        "name": "ethernet@ff0e0000",
-        "compatible": "xlnx,zynqmp-gem\\0cdns,gem",
-        "status": "okay",
-        "reg": "0x00 0xff0e0000 0x00 0x1000",
-        "phy-mode": "rgmii-id",
-        "nodeType": "PS GEM3 (MIO)",
-        "phy_nodes": [
-          {
-            "name": "ethernet-phy@c",
-            "reg": "0x0c",
-            "phandle": "0x15"
-          }
-        ]
-      }
-    ],
-    "count": 1
-  },
-  "2023.2/zcu102": {
-    "version": "2023.2",
-    "design": "zcu102",
-    "board": "zcu102",
-    "ethernet_nodes": [
-      {
-        "name": "ethernet@ff0e0000",
-        "compatible": "xlnx,zynqmp-gem\\0cdns,gem",
-        "status": "okay",
-        "reg": "0x00 0xff0e0000 0x00 0x1000",
-        "phy-mode": "rgmii-id",
-        "nodeType": "PS GEM",
-        "phy_nodes": [
-          {
-            "name": "ethernet-phy@c",
-            "reg": "0x0c",
-            "ti,rx-internal-delay": "0x08",
-            "ti,tx-internal-delay": "0x0a",
-            "ti,fifo-depth": "0x01",
-            "ti,dp83867-rxctrl-strap-quirk": true,
-            "phandle": "0x15"
-          }
-        ]
-      }
-    ],
-    "count": 1
-  },
-  "2025.1/zcu102": {
-    "version": "2025.1",
-    "design": "zcu102",
-    "board": "zcu102",
-    "ethernet_nodes": [
-      {
-        "name": "ethernet@ff0e0000",
-        "compatible": "xlnx,zynqmp-gem\\0cdns,gem",
-        "status": "okay",
-        "reg": "0x00 0xff0e0000 0x00 0x1000",
-        "phy-mode": "rgmii-id",
-        "nodeType": "PS GEM3 (MIO)",
-        "phy_nodes": [
-          {
-            "name": "ethernet-phy@c",
-            "reg": "0x0c",
-            "phandle": "0x15"
-          }
-        ]
-      }
-    ],
-    "count": 1
-  },
-  "2025.1/kd240": {
-    "version": "2025.1",
-    "design": "kd240",
-    "board": "kd240",
-    "ethernet_nodes": [
-      {
-        "name": "ethernet@ff0c0000",
-        "phy-handle": "0x187",
-        "assigned-clock-rates": "0xee6b280",
-        "pinctrl-0": "0x186",
-        "pinctrl-names": "default",
-        "compatible": "xlnx,zynqmp-gem\\0cdns,gem",
-        "status": "okay",
-        "interrupt-parent": "0x0e",
-        "interrupts": "0x00 0x3b 0x04 0x00 0x3b 0x04",
-        "reg": "0x00 0xff0c0000 0x00 0x1000",
-        "clock-names": "pclk\\0hclk\\0tx_clk\\0rx_clk\\0tsu_clk",
-        "power-domains": "0x7c 0x1e",
-        "resets": "0x03 0x1e",
-        "reset-names": "gem1_rst",
-        "clocks": "0x73 0x1f 0x73 0x69 0x73 0x2e 0x73 0x32 0x73 0x2c",
-        "assigned-clocks": "0x73 0x2c",
-        "xlnx,is-cache-coherent": "0x00",
-        "xlnx,has-mdio": "0x2faf080",
-        "xlnx,gem-board-interface": "custom",
-        "phy-mode": "rgmii-id",
-        "xlnx,tz-nonsecure": "0x01",
-        "xlnx,enet-slcr-1000mbps-div0": "0x08",
-        "xlnx,enet-slcr-10mbps-div0": "0x32",
-        "xlnx,enet-slcr-1000mbps-div1": "0x01",
-        "xlnx,enet-slcr-10mbps-div1": "0x08",
-        "xlnx,enet-tsu-clk-freq-hz": "0xee6a8ba",
-        "xlnx,ip-name": "psu_ethernet",
-        "xlnx,eth-mode": "0x01",
-        "xlnx,enet-reset": "0x2faf080",
-        "xlnx,enet-clk-freq-hz": "0x773545d",
-        "xlnx,enet-slcr-100mbps-div0": "0x28",
-        "xlnx,ptp-enet-clock": "0x00",
-        "xlnx,enet-slcr-100mbps-div1": "0x01",
-        "phandle": "0x39",
-        "nodeType": "PS GEM",
-        "mdio": {
-          "name": "mdio",
-          "phandle": "0x18c",
-          "#size-cells": "0x00",
-          "#address-cells": "0x01",
-          "phy_nodes": [
-            {
-              "name": "ethernet-phy@8",
-              "phandle": "0x187",
-              "reset-gpios": "0x47 0x4d 0x01",
-              "reset-deassert-us": "0x1388",
-              "reset-assert-us": "0x0a",
-              "adi,fifo-depth-bits": "0x08",
-              "adi,tx-internal-delay-ps": "0x7d0",
-              "adi,rx-internal-delay-ps": "0x7d0",
-              "reg": "0x08",
-              "compatible": "ethernet-phy-id0283.bc30",
-              "#phy-cells": "0x01"
-            }
-          ]
+    },
+
+    // ========================================================================
+    // BOARDS (Hardware-Specific "DNA")
+    // ========================================================================
+    // Schema: Multi-Interface Support
+    // Each board can have multiple ethernet interfaces (PS GEM, PL Ethernet, etc.)
+
+    boards: {
+        zcu102: {
+            name: "ZCU102",
+            family: "zynqmp",
+            description: "MPSoC ZCU102 Evaluation Kit",
+            interfaces: [
+                {
+                    id: "ps_gem0",
+                    type: "ps_gem",
+                    label: "Cadence Gigabit Ethernet MAC",
+                    template: "zynqmp_gem",
+                    gem_node: "gem0",
+                    phy_addr: "0x1",
+                    phy_label: "phy1",
+                    phy_mode: "rgmii-id",
+                    phy_model: "ethernet-phy-ieee802.3-c22",
+                    phy_compatible: "ethernet-phy-ieee802.3-c22",
+                    interface_type: "EMIO",
+                    note: "Available for PL-based ethernet via EMIO. "
+                },
+                {
+                    id: "ps_gem1",
+                    type: "ps_gem",
+                    label: "Cadence Gigabit Ethernet MAC",
+                    template: "zynqmp_gem",
+                    gem_node: "gem1",
+                    phy_addr: "0x2",
+                    phy_label: "phy2",
+                    phy_mode: "rgmii-id",
+                    phy_model: "ethernet-phy-ieee802.3-c22",
+                    phy_compatible: "ethernet-phy-ieee802.3-c22",
+                    interface_type: "EMIO",
+                    note: "Available for PL-based ethernet via EMIO. "
+                },
+                {
+                    id: "ps_gem2",
+                    type: "ps_gem",
+                    label: "Cadence Gigabit Ethernet MAC",
+                    template: "zynqmp_gem",
+                    gem_node: "gem2",
+                    phy_addr: "0x3",
+                    phy_label: "phy3",
+                    phy_mode: "rgmii-id",
+                    phy_model: "ethernet-phy-ieee802.3-c22",
+                    phy_compatible: "ethernet-phy-ieee802.3-c22",
+                    interface_type: "EMIO",
+                    note: "Available for PL-based ethernet via EMIO. "
+                },
+                {
+                    id: "ps_gem3",
+                    type: "ps_gem",
+                    label: "Hardwired to onboard TI DP83867 PHY via MIO pins",
+                    template: "zynqmp_gem",
+                    gem_node: "gem3",
+                    phy_addr: "0xc",
+                    phy_label: "phy0",
+                    phy_mode: "rgmii-id",
+                    phy_model: "ti,dp83867",
+                    phy_compatible: "ethernet-phy-id2000.a231",
+                    interface_type: "MIO",
+                    locked: true,
+                    reset_gpio: "&gpio 38 0",
+                    note: "Hardware Fixed - This ethernet connection is hardwired on the board and cannot be reconfigured"
+                },
+                {
+                    id: "pl_axi_1g",
+                    type: "pl_ethernet",
+                    label: "AXI 1G/2.5G Ethernet",
+                    template: "axi_ethernet",
+                    axi_node: "axi_ethernet_0",
+                    axi_base_addr: "0xa0000000",
+                    phy_mode: "sgmii",
+                    interface_type: "PL",
+                    note: "AXI 1G/2.5G Ethernet Subsystem with 1G/2.5G PCS/PMA under the hood. "
+                },
+                {
+                    id: "pl_10g",
+                    type: "pl_ethernet",
+                    label: "PL 10G Ethernet",
+                    template: "axi_ethernet",
+                    axi_node: "axi_ethernet_10g",
+                    axi_base_addr: "0xa4000000",
+                    phy_mode: "10gbase-r",
+                    interface_type: "SFP+",
+                    note: "10GBASE-R SerDes - No MDIO/PHY"
+                }
+            ]
+        },
+
+        zcu104: {
+            name: "ZCU104",
+            family: "zynqmp",
+            description: "MPSoC ZCU104 Evaluation Kit",
+            interfaces: [
+                {
+                    id: "ps_gem0",
+                    type: "ps_gem",
+                    label: "Cadence Gigabit Ethernet MAC",
+                    template: "zynqmp_gem",
+                    gem_node: "gem0",
+                    phy_addr: "0x1",
+                    phy_label: "phy1",
+                    phy_mode: "rgmii-id",
+                    phy_model: "ethernet-phy-ieee802.3-c22",
+                    phy_compatible: "ethernet-phy-ieee802.3-c22",
+                    interface_type: "EMIO",
+                    note: "Available for PL-based ethernet via EMIO. "
+                },
+                {
+                    id: "ps_gem1",
+                    type: "ps_gem",
+                    label: "Cadence Gigabit Ethernet MAC",
+                    template: "zynqmp_gem",
+                    gem_node: "gem1",
+                    phy_addr: "0x2",
+                    phy_label: "phy2",
+                    phy_mode: "rgmii-id",
+                    phy_model: "ethernet-phy-ieee802.3-c22",
+                    phy_compatible: "ethernet-phy-ieee802.3-c22",
+                    interface_type: "EMIO",
+                    note: "Available for PL-based ethernet via EMIO. "
+                },
+                {
+                    id: "ps_gem2",
+                    type: "ps_gem",
+                    label: "Cadence Gigabit Ethernet MAC",
+                    template: "zynqmp_gem",
+                    gem_node: "gem2",
+                    phy_addr: "0x3",
+                    phy_label: "phy3",
+                    phy_mode: "rgmii-id",
+                    phy_model: "ethernet-phy-ieee802.3-c22",
+                    phy_compatible: "ethernet-phy-ieee802.3-c22",
+                    interface_type: "EMIO",
+                    note: "Available for PL-based ethernet via EMIO. "
+                },
+                {
+                    id: "ps_gem3",
+                    type: "ps_gem",
+                    label: "Hardwired to onboard TI DP83867 PHY via MIO pins",
+                    template: "zynqmp_gem",
+                    gem_node: "gem3",
+                    phy_addr: "0xc",
+                    phy_label: "phy0",
+                    phy_mode: "rgmii-id",
+                    phy_model: "ti,dp83867",
+                    phy_compatible: "ethernet-phy-id2000.a231",
+                    interface_type: "MIO",
+                    locked: true,
+                    reset_gpio: "&gpio 38 0",
+                    note: "Hardware Fixed - This ethernet connection is hardwired on the board and cannot be reconfigured"
+                },
+                {
+                    id: "pl_axi_1g",
+                    type: "pl_ethernet",
+                    label: "AXI 1G/2.5G Ethernet",
+                    template: "axi_ethernet",
+                    axi_node: "axi_ethernet_0",
+                    axi_base_addr: "0xa0000000",
+                    phy_mode: "sgmii",
+                    interface_type: "PL",
+                    note: "AXI 1G/2.5G Ethernet Subsystem with 1G/2.5G PCS/PMA under the hood. "
+                },
+                {
+                    id: "pl_10g",
+                    type: "pl_ethernet",
+                    label: "PL 10G Ethernet",
+                    template: "axi_ethernet",
+                    axi_node: "axi_ethernet_10g",
+                    axi_base_addr: "0xa4000000",
+                    phy_mode: "10gbase-r",
+                    interface_type: "SFP+",
+                    note: "10GBASE-R SerDes - No MDIO/PHY"
+                }
+            ]
+        },
+
+        zcu106: {
+            name: "ZCU106",
+            family: "zynqmp",
+            description: "MPSoC ZCU106 Evaluation Kit",
+            interfaces: [
+                {
+                    id: "ps_gem0",
+                    type: "ps_gem",
+                    label: "Cadence Gigabit Ethernet MAC",
+                    template: "zynqmp_gem",
+                    gem_node: "gem0",
+                    phy_addr: "0x1",
+                    phy_label: "phy1",
+                    phy_mode: "rgmii-id",
+                    phy_model: "ethernet-phy-ieee802.3-c22",
+                    phy_compatible: "ethernet-phy-ieee802.3-c22",
+                    interface_type: "EMIO",
+                    note: "Available for PL-based ethernet via EMIO. "
+                },
+                {
+                    id: "ps_gem1",
+                    type: "ps_gem",
+                    label: "Cadence Gigabit Ethernet MAC",
+                    template: "zynqmp_gem",
+                    gem_node: "gem1",
+                    phy_addr: "0x2",
+                    phy_label: "phy2",
+                    phy_mode: "rgmii-id",
+                    phy_model: "ethernet-phy-ieee802.3-c22",
+                    phy_compatible: "ethernet-phy-ieee802.3-c22",
+                    interface_type: "EMIO",
+                    note: "Available for PL-based ethernet via EMIO. "
+                },
+                {
+                    id: "ps_gem2",
+                    type: "ps_gem",
+                    label: "Cadence Gigabit Ethernet MAC",
+                    template: "zynqmp_gem",
+                    gem_node: "gem2",
+                    phy_addr: "0x3",
+                    phy_label: "phy3",
+                    phy_mode: "rgmii-id",
+                    phy_model: "ethernet-phy-ieee802.3-c22",
+                    phy_compatible: "ethernet-phy-ieee802.3-c22",
+                    interface_type: "EMIO",
+                    note: "Available for PL-based ethernet via EMIO. "
+                },
+                {
+                    id: "ps_gem3",
+                    type: "ps_gem",
+                    label: "Hardwired to onboard TI DP83867 PHY via MIO pins",
+                    template: "zynqmp_gem",
+                    gem_node: "gem3",
+                    phy_addr: "0xc",
+                    phy_label: "phy0",
+                    phy_mode: "rgmii-id",
+                    phy_model: "ti,dp83867",
+                    phy_compatible: "ethernet-phy-id2000.a231",
+                    interface_type: "MIO",
+                    locked: true,
+                    reset_gpio: "&gpio 38 0",
+                    note: "Hardware Fixed - This ethernet connection is hardwired on the board and cannot be reconfigured"
+                },
+                {
+                    id: "pl_axi_1g",
+                    type: "pl_ethernet",
+                    label: "AXI 1G/2.5G Ethernet",
+                    template: "axi_ethernet",
+                    axi_node: "axi_ethernet_0",
+                    axi_base_addr: "0xa0000000",
+                    phy_mode: "sgmii",
+                    interface_type: "PL",
+                    note: "AXI 1G/2.5G Ethernet Subsystem with 1G/2.5G PCS/PMA under the hood. "
+                },
+                {
+                    id: "pl_10g",
+                    type: "pl_ethernet",
+                    label: "PL 10G Ethernet",
+                    template: "axi_ethernet",
+                    axi_node: "axi_ethernet_10g",
+                    axi_base_addr: "0xa4000000",
+                    phy_mode: "10gbase-r",
+                    interface_type: "SFP+",
+                    note: "10GBASE-R SerDes - No MDIO/PHY"
+                }
+            ]
+        },
+
+        ultra96v2: {
+            name: "Ultra96-V2",
+            family: "zynqmp",
+            description: "Avnet Ultra96-V2",
+            interfaces: [
+                {
+                    id: "ps_gem3",
+                    type: "ps_gem",
+                    label: "PS GEM3 (RGMII)",
+                    template: "zynqmp_gem",
+                    gem_node: "gem3",
+                    phy_addr: "0x4",
+                    phy_label: "phy0",
+                    phy_mode: "rgmii-id",
+                    phy_model: "micron,ksz9031",
+                    phy_compatible: "ethernet-phy-ieee802.3-c22",
+                    interface_type: "MIO"
+                }
+            ]
+        },
+
+        kr260: {
+            name: "KR260",
+            family: "kria",
+            description: "Kria KR260 Robotics Starter Kit (Multi-Interface)",
+            carrier_note: "Official Xilinx Carrier Card - 3x Ethernet Interfaces",
+            interfaces: [
+                {
+                    id: "ps_gem0_sgmii",
+                    type: "ps_gem",
+                    label: "Hardwired for SGMII over GTR transceivers",
+                    template: "zynqmp_gem",
+                    gem_node: "gem0",
+                    phy_addr: "0x4",
+                    phy_label: "phy4",
+                    phy_mode: "sgmii",
+                    phy_model: "ti,dp83867",
+                    phy_compatible: "ethernet-phy-id2000.a231",
+                    interface_type: "GTR",
+                    locked: true,
+                    note: "Hardware Fixed - This ethernet connection is hardwired on the board and cannot be reconfigured"
+                },
+                {
+                    id: "ps_gem1_rgmii",
+                    type: "ps_gem",
+                    label: "Hardwired to onboard TI DP83867 PHY via MIO pins",
+                    template: "zynqmp_gem",
+                    gem_node: "gem1",
+                    phy_addr: "0x8",
+                    phy_label: "phy8",
+                    phy_mode: "rgmii-id",
+                    phy_model: "ti,dp83867",
+                    phy_compatible: "ethernet-phy-id2000.a231",
+                    interface_type: "MIO",
+                    locked: true,
+                    reset_gpio: "&gpio 44 0",
+                    note: "Hardware Fixed - This ethernet connection is hardwired on the board and cannot be reconfigured"
+                },
+                {
+                    id: "ps_gem2_emio",
+                    type: "ps_gem",
+                    label: "Cadence Gigabit Ethernet MAC",
+                    template: "zynqmp_gem",
+                    gem_node: "gem2",
+                    phy_addr: "0x3",
+                    phy_label: "phy3",
+                    phy_mode: "rgmii-id",
+                    phy_model: "ethernet-phy-ieee802.3-c22",
+                    phy_compatible: "ethernet-phy-ieee802.3-c22",
+                    interface_type: "EMIO",
+                    note: "Available for PL-based ethernet via EMIO. Can be used with PL PCS/PMA for SFP+ connectivity."
+                },
+                {
+                    id: "ps_gem3_emio",
+                    type: "ps_gem",
+                    label: "Cadence Gigabit Ethernet MAC",
+                    template: "zynqmp_gem",
+                    gem_node: "gem3",
+                    phy_addr: "0x4",
+                    phy_label: "phy4",
+                    phy_mode: "rgmii-id",
+                    phy_model: "ethernet-phy-ieee802.3-c22",
+                    phy_compatible: "ethernet-phy-ieee802.3-c22",
+                    interface_type: "EMIO",
+                    note: "Available for PL-based ethernet via EMIO. Can be used with PL PCS/PMA for SFP+ connectivity."
+                },
+                {
+                    id: "pl_axi_1g",
+                    type: "pl_ethernet",
+                    label: "AXI 1G/2.5G Ethernet",
+                    template: "axi_ethernet",
+                    axi_node: "axi_ethernet_1",
+                    axi_base_addr: "0xa0000000",
+                    phy_mode: "sgmii",
+                    interface_type: "PL",
+                    note: "AXI 1G/2.5G Ethernet Subsystem with 1G/2.5G PCS/PMA under the hood. "
+                },
+                {
+                    id: "pl_sfp_10g",
+                    type: "pl_ethernet",
+                    label: "PL SFP+ (10G)",
+                    template: "axi_ethernet",
+                    axi_node: "axi_ethernet_0",
+                    axi_base_addr: "0xa0040000",
+                    phy_mode: "10gbase-r",
+                    interface_type: "SFP+",
+                    note: "Direct SerDes connection, no MDIO"
+                }
+            ]
+        },
+
+        kv260: {
+            name: "KV260",
+            family: "kria",
+            description: "Kria KV260 Vision AI Starter Kit",
+            carrier_note: "Official Xilinx Carrier Card",
+            interfaces: [
+                {
+                    id: "ps_gem1_rgmii",
+                    type: "ps_gem",
+                    label: "PS GEM1 (RGMII)",
+                    template: "zynqmp_gem",
+                    gem_node: "gem1",
+                    phy_addr: "0x1",  // CORRECTED: Was 0x8, audit confirms 0x1
+                    phy_label: "phy1",
+                    phy_mode: "rgmii-id",
+                    phy_model: "ti,dp83867",
+                    phy_compatible: "ethernet-phy-id2000.a231",
+                    interface_type: "RGMII",
+                    reset_gpio: "&gpio 44 0"
+                },
+                {
+                    id: "pl_axi_1g",
+                    type: "pl_ethernet",
+                    label: "AXI 1G/2.5G Ethernet",
+                    template: "axi_ethernet",
+                    axi_node: "axi_ethernet_0",
+                    axi_base_addr: "0xa0000000",
+                    phy_mode: "sgmii",
+                    interface_type: "PL",
+                    note: "AXI 1G/2.5G Ethernet Subsystem with 1G/2.5G PCS/PMA under the hood. "
+                }
+            ]
+        },
+
+        kd240: {
+            name: "KD240",
+            family: "kria",
+            description: "Kria KD240 Drive Starter Kit",
+            carrier_note: "Official Xilinx Carrier Card",
+            interfaces: [
+                {
+                    id: "ps_gem1_rgmii",
+                    type: "ps_gem",
+                    label: "PS GEM1 (RGMII)",
+                    template: "zynqmp_gem",
+                    gem_node: "gem1",
+                    phy_addr: "0x8",
+                    phy_label: "phy8",
+                    phy_mode: "rgmii-id",
+                    phy_model: "adi,adin1300",  // CORRECTED: Was ti,dp83867, audit confirms adi,adin1300
+                    phy_compatible: "ethernet-phy-ieee802.3-c22",
+                    interface_type: "RGMII",
+                    reset_gpio: "&gpio 44 0"
+                },
+                {
+                    id: "pl_axi_1g",
+                    type: "pl_ethernet",
+                    label: "AXI 1G/2.5G Ethernet",
+                    template: "axi_ethernet",
+                    axi_node: "axi_ethernet_0",
+                    axi_base_addr: "0xa0000000",
+                    phy_mode: "sgmii",
+                    interface_type: "PL",
+                    note: "AXI 1G/2.5G Ethernet Subsystem with 1G/2.5G PCS/PMA under the hood. "
+                }
+            ]
+        },
+
+        vck190: {
+            name: "VCK190",
+            family: "versal",
+            description: "Versal VCK190 Evaluation Kit (Dual GEM)",
+            interfaces: [
+                {
+                    id: "ps_gem0_rgmii",
+                    type: "ps_gem",
+                    label: "PS GEM0 (RGMII)",
+                    template: "versal_gem",
+                    gem_node: "gem0",
+                    phy_addr: "0x1",
+                    phy_label: "phy1",
+                    phy_mode: "rgmii-id",
+                    phy_model: "ti,dp83867",
+                    phy_compatible: "ethernet-phy-id2000.a231",
+                    interface_type: "RGMII"
+                },
+                {
+                    id: "ps_gem1_rgmii",
+                    type: "ps_gem",
+                    label: "PS GEM1 (RGMII)",
+                    template: "versal_gem",
+                    gem_node: "gem1",
+                    phy_addr: "0x2",
+                    phy_label: "phy2",
+                    phy_mode: "rgmii-id",
+                    phy_model: "ti,dp83867",
+                    phy_compatible: "ethernet-phy-id2000.a231",
+                    interface_type: "RGMII",
+                    note: "Shares MDIO bus with GEM0"
+                }
+            ]
+        },
+
+        vmk180: {
+            name: "VMK180",
+            family: "versal",
+            description: "Versal VMK180 Evaluation Kit (Dual GEM)",
+            interfaces: [
+                {
+                    id: "ps_gem0_rgmii",
+                    type: "ps_gem",
+                    label: "PS GEM0 (RGMII)",
+                    template: "versal_gem",
+                    gem_node: "gem0",
+                    phy_addr: "0x1",
+                    phy_label: "phy1",
+                    phy_mode: "rgmii-id",
+                    phy_model: "ti,dp83867",
+                    phy_compatible: "ethernet-phy-id2000.a231",
+                    interface_type: "RGMII"
+                },
+                {
+                    id: "ps_gem1_rgmii",
+                    type: "ps_gem",
+                    label: "PS GEM1 (RGMII)",
+                    template: "versal_gem",
+                    gem_node: "gem1",
+                    phy_addr: "0x2",
+                    phy_label: "phy2",
+                    phy_mode: "rgmii-id",
+                    phy_model: "ti,dp83867",
+                    phy_compatible: "ethernet-phy-id2000.a231",
+                    interface_type: "RGMII",
+                    note: "Shares MDIO bus with GEM0"
+                }
+            ]
         }
-      }
-    ],
-    "count": 1
-  },
-  "2025.1/kr260": {
-    "version": "2025.1",
-    "design": "kr260",
-    "board": "kr260",
-    "ethernet_nodes": [
-      {
-        "name": "ethernet@ff0b0000",
-        "assigned-clock-rates": "0xee6b280",
-        "phy-handle": "0x18f",
-        "phys": "0x62 0x00 0x08 0x00 0x00",
-        "compatible": "xlnx,zynqmp-gem\\0cdns,gem",
-        "status": "okay",
-        "interrupt-parent": "0x0f",
-        "interrupts": "0x00 0x39 0x04 0x00 0x39 0x04",
-        "reg": "0x00 0xff0b0000 0x00 0x1000",
-        "clock-names": "pclk\\0hclk\\0tx_clk\\0rx_clk\\0tsu_clk",
-        "power-domains": "0x7e 0x1d",
-        "resets": "0x03 0x1d",
-        "reset-names": "gem0_rst",
-        "clocks": "0x75 0x1f 0x75 0x68 0x75 0x2d 0x75 0x31 0x75 0x2c",
-        "assigned-clocks": "0x75 0x2c",
-        "xlnx,is-cache-coherent": "0x00",
-        "xlnx,has-mdio": "0x2faf080",
-        "xlnx,gem-board-interface": "custom",
-        "phy-mode": "sgmii",
-        "xlnx,tz-nonsecure": "0x01",
-        "xlnx,enet-slcr-1000mbps-div0": "0x08",
-        "xlnx,enet-slcr-10mbps-div0": "0x32",
-        "xlnx,enet-slcr-1000mbps-div1": "0x01",
-        "xlnx,enet-slcr-10mbps-div1": "0x08",
-        "xlnx,enet-tsu-clk-freq-hz": "0xee6a8ba",
-        "xlnx,ip-name": "psu_ethernet",
-        "xlnx,eth-mode": "0x02",
-        "xlnx,enet-reset": "0x2faf080",
-        "xlnx,enet-clk-freq-hz": "0x773545d",
-        "phy-mode": "sgmii",
-        "nodeType": "PS GEM",
-        "phandle": "0x38"
-      }
-    ],
-    "count": 1
-  }
+    }
 };
+
+// ============================================================================
+// MUTATION LOGIC (Version-Aware "Time Travel" Rules)
+// ============================================================================
+
+/**
+ * Generate version-specific quirks and properties (Multi-Interface Version)
+ * Implements the four critical mutation rules from the audit:
+ * 
+ * Rule 1: GPIO Reset Shift (2021.1)
+ * Rule 2: Versal PTP Clock Mandate
+ * Rule 3: TI DP83867 PHY Delays (Hex Precision)
+ * Rule 4: ADI ADIN1300 PHY Delays (KD240)
+ * 
+ * @param {Object} interfaceConfig - Interface configuration object from board.interfaces[]
+ * @param {string} version - Vivado/Kernel version (e.g., "2020.1", "2021.1", "2024.2")
+ * @param {string} family - Board family (zynqmp, versal, etc.)
+ * @returns {Object} { extra_props, phy_delays }
+ */
+export function getQuirks(interfaceConfig, version, family) {
+    let extra_props = [];
+    let phy_delays = [];
+
+    if (!interfaceConfig || !version) {
+        return { extra_props: '', phy_delays: '' };
+    }
+
+    // Parse version (e.g., "2021.1" -> 2021.1)
+    const versionFloat = parseFloat(version);
+
+    // ------------------------------------------------------------------------
+    // RULE 1: The GPIO Reset Shift (2021.1)
+    // ------------------------------------------------------------------------
+    // Xilinx changed the property name in 2021.1 and often flipped the active flag
+    // Old: phy-reset-gpios = <&gpio 38 0>;  (active-high, in GEM node)
+    // New: reset-gpios = <&gpio 38 1>;      (active-low, in PHY node)
+    
+    if (interfaceConfig.reset_gpio) {
+        if (versionFloat >= 2021.1) {
+            // Flip the last digit (0 -> 1 or 1 -> 0) for active-low
+            const gpio = interfaceConfig.reset_gpio.replace(/ 0$/, ' 1');
+            phy_delays.push('\t\t\t\treset-gpios = <' + gpio + '>;  /* Active-low since 2021.1 */');
+        } else {
+            extra_props.push('\t\tphy-reset-gpios = <' + interfaceConfig.reset_gpio + '>;  /* Active-high before 2021.1 */');
+        }
+    }
+
+    // ------------------------------------------------------------------------
+    // RULE 2: Versal PTP Clock Mandate
+    // ------------------------------------------------------------------------
+    // Versal family REQUIRES xlnx,ptp-enet-clock or driver crashes on boot
+    
+    if (family === 'versal') {
+        extra_props.push('    xlnx,ptp-enet-clock = <0x0>;  /* MANDATORY for Versal */');
+    }
+
+    // ------------------------------------------------------------------------
+    // RULE 3: TI DP83867 PHY Delays (Hex Precision)
+    // ------------------------------------------------------------------------
+    // CRITICAL: Use exact hex strings - DO NOT convert to decimal
+    // These values are hardware-calibrated for RGMII skew compensation
+    
+    if (interfaceConfig.phy_model === 'ti,dp83867') {
+        phy_delays.push('\t\t\t\tti,rx-internal-delay = <0x8>;');
+        phy_delays.push('\t\t\t\tti,tx-internal-delay = <0xa>;');
+        phy_delays.push('\t\t\t\tti,fifo-depth = <0x1>;');
+        phy_delays.push('\t\t\t\tti,dp83867-rxctrl-strap-quirk;');
+    }
+
+    // ------------------------------------------------------------------------
+    // RULE 4: ADI ADIN1300 PHY Delays (KD240-Specific)
+    // ------------------------------------------------------------------------
+    // Analog Devices ADIN1300 used on KD240 with 2ns RGMII delays
+    
+    if (interfaceConfig.phy_model === 'adi,adin1300') {
+        phy_delays.push('\t\t\t\tadi,rx-internal-delay-ps = <2000>;');
+        phy_delays.push('\t\t\t\tadi,tx-internal-delay-ps = <2000>;');
+        phy_delays.push('\t\t\t\tadi,fifo-depth-bits = <8>;');
+    }
+
+    // For non-TI PHYs (e.g., Micron KSZ9031), add generic delay if needed
+    if (interfaceConfig.phy_model === 'micron,ksz9031') {
+        phy_delays.push('            /* Generic PHY - adjust delays per datasheet */');
+    }
+
+    return {
+        extra_props: extra_props.join('\n'),
+        phy_delays: phy_delays.join('\n')
+    };
+}
+
+// ============================================================================
+// HELPER FUNCTIONS
+// ============================================================================
+
+/**
+ * Get family defaults for a board
+ * @param {string} boardId - Board identifier (e.g., "zcu102")
+ * @returns {Object} Family configuration
+ */
+export function getFamilyDefaults(boardId) {
+    const board = ETHERNET_DB.boards[boardId];
+    if (!board) {
+        throw new Error(`Unknown board: ${boardId}`);
+    }
+    return ETHERNET_DB.families[board.family];
+}
+
+/**
+ * Get template for a board
+ * @param {string} boardId - Board identifier
+ * @returns {string} DTS template string
+ */
+export function getTemplate(boardId) {
+    const board = ETHERNET_DB.boards[boardId];
+    if (!board) {
+        throw new Error(`Unknown board: ${boardId}`);
+    }
+    return ETHERNET_DB.templates[board.template];
+}
+
+/**
+ * Replace all placeholders in a template
+ * @param {string} template - DTS template with {{PLACEHOLDERS}}
+ * @param {Object} replacements - Key-value pairs for substitution
+ * @returns {string} Generated DTS code
+ */
+export function fillTemplate(template, replacements) {
+    let result = template;
+    for (const [key, value] of Object.entries(replacements)) {
+        const placeholder = `{{${key}}}`;
+        result = result.replaceAll(placeholder, value);
+    }
+    return result;
+}
+
+/**
+ * Generate complete DTS code for a board and version
+ * @param {string} boardId - Board identifier
+ * @param {string} version - Vivado/Kernel version
+ * @returns {string} Complete DTS code
+ */
+export function generateDTS(boardId, version) {
+    const board = ETHERNET_DB.boards[boardId];
+    if (!board) {
+        throw new Error(`Unknown board: ${boardId}`);
+    }
+
+    const template = getTemplate(boardId);
+    const quirks = getQuirks(board, version);
+
+    const replacements = {
+        GEM_NODE: board.gem_node,
+        PHY_LABEL: board.phy_label,
+        PHY_MODE: board.phy_mode,
+        PHY_ADDR: board.phy_addr,
+        PHY_COMPATIBLE: board.phy_compatible,
+        EXTRA_PROPS: quirks.extra_props,
+        PHY_DELAYS: quirks.phy_delays,
+        // AXI Ethernet specific (if applicable)
+        AXI_NODE: board.axi_node || 'axi_ethernet_0',
+        AXI_BASE_ADDR: board.axi_base_addr || '0x80000000',
+        IRQ_NUM: board.irq_num || '89'
+    };
+
+    return fillTemplate(template, replacements);
+}
+
+/**
+ * Get list of all supported boards
+ * @returns {Array} Array of board objects with id and name
+ */
+export function getSupportedBoards() {
+    return Object.entries(ETHERNET_DB.boards).map(([id, board]) => ({
+        id,
+        name: board.name,
+        description: board.description,
+        family: board.family
+    }));
+}
+
+/**
+ * Validate board and version combination
+ * @param {string} boardId - Board identifier
+ * @param {string} version - Vivado/Kernel version
+ * @returns {Object} { valid, warnings, errors }
+ */
+export function validateConfiguration(boardId, version) {
+    const warnings = [];
+    const errors = [];
+
+    // Check board exists
+    if (!ETHERNET_DB.boards[boardId]) {
+        errors.push(`Unknown board: ${boardId}`);
+        return { valid: false, warnings, errors };
+    }
+
+    const board = ETHERNET_DB.boards[boardId];
+    const versionFloat = parseFloat(version);
+
+    // Version range check
+    if (versionFloat < 2020.1 || versionFloat > 2024.2) {
+        warnings.push(`Version ${version} is outside tested range (2020.1 - 2024.2)`);
+    }
+
+    // Kria carrier card warning
+    if (board.family === 'kria' && board.carrier_note) {
+        warnings.push(board.carrier_note);
+    }
+
+    // Versal PTP clock reminder
+    if (board.family === 'versal') {
+        warnings.push('Versal requires xlnx,ptp-enet-clock property (auto-included)');
+    }
+
+    return {
+        valid: errors.length === 0,
+        warnings,
+        errors
+    };
+}

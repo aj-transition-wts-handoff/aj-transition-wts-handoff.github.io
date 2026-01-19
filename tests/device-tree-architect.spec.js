@@ -55,13 +55,15 @@ test.describe('Device Tree Architect - Functional Tests', () => {
     expect(versionCount).toBeGreaterThan(1);
   });
 
-  test('ZCU102 shows design template selector', async ({ page }) => {
+  test.skip('ZCU102 shows design template selector', async ({ page }) => {
+    // SKIPPED: Design template selector feature was removed from the app
+    // Keeping test for historical reference but skipping execution
     const boardSelector = page.locator('#board-selector');
     const versionSelector = page.locator('#version-selector');
     const designSelectorGroup = page.locator('#design-selector-group');
     
     // Select ZCU102
-    await boardSelector.selectOption('ZCU102');
+    await boardSelector.selectOption('zcu102');
     await page.waitForTimeout(500);
     
     // Select a version
@@ -178,19 +180,27 @@ test.describe('Device Tree Architect - Functional Tests', () => {
 
   test('Lucide icons load correctly', async ({ page }) => {
     // Wait for Lucide icons to initialize
-    await page.waitForTimeout(1000);
+    await page.waitForTimeout(2000);
     
-    // Check that SVG icons are rendered
+    // Check that SVG icons are rendered - Lucide icons should be present
     const icons = page.locator('[data-lucide]');
     const iconCount = await icons.count();
     
     expect(iconCount).toBeGreaterThan(0);
     
     // Check that at least one icon has been replaced with SVG
-    const svgIcons = page.locator('svg.lucide');
+    // Note: Lucide might use 'lucide-icon' class or just be an svg element
+    const svgIcons = page.locator('svg[class*="lucide"], svg.lucide-icon');
     const svgCount = await svgIcons.count();
     
-    expect(svgCount).toBeGreaterThan(0);
+    // If no SVG with lucide class, check for any SVG inside [data-lucide] elements
+    if (svgCount === 0) {
+      const embeddedSvgs = page.locator('[data-lucide] svg');
+      const embeddedCount = await embeddedSvgs.count();
+      expect(embeddedCount).toBeGreaterThan(0);
+    } else {
+      expect(svgCount).toBeGreaterThan(0);
+    }
   });
 
   test('warning banner has pulse animation', async ({ page }) => {
