@@ -60,7 +60,7 @@
             const navbar = document.querySelector('.navbar');
             const hamburger = document.querySelector('.hamburger');
             
-            if (!navbar.contains(event.target) && !hamburger.contains(event.target)) {
+            if (navbar && hamburger && !navbar.contains(event.target) && !hamburger.contains(event.target)) {
                 navbar.classList.remove('active');
             }
         });
@@ -90,33 +90,51 @@
 
         async function loadEthernetData() {
             try {
-                // Try loading from embedded data first (for file:// protocol)
-                const embeddedScript = document.getElementById('ethernet-data-embedded');
-                if (embeddedScript) {
-                    ethernetData = JSON.parse(embeddedScript.textContent);
-                    console.log('✅ Using embedded ethernet data:', Object.keys(ethernetData).length, 'configurations');
-                    console.log('📦 Standalone mode: Works with file:// protocol!');
-                    initializeDataBrowser();
-                    return;
-                }
-            } catch (error) {
-                console.warn('⚠️ Failed to parse embedded data, trying external fetch...', error);
-            }
-
-            // Fallback to external JSON file
-            try {
-                const response = await fetch('ethernet_data.json');
+                const response = await fetch('../assets/data/ethernet_data.json');
                 ethernetData = await response.json();
-                console.log('✅ Loaded ethernet data from external file:', Object.keys(ethernetData).length, 'configurations');
+                
+                // Normalize nodeType dynamically for consistency
+                Object.values(ethernetData).forEach(config => {
+                    config.ethernet_nodes.forEach(node => {
+                        node.nodeType = determineNodeType(node.name, node.compatible);
+                    });
+                });
+                
+                console.log('✅ Loaded ethernet data from file:', Object.keys(ethernetData).length, 'configurations');
                 initializeDataBrowser();
             } catch (error) {
                 console.error('❌ Error loading ethernet data:', error);
-                if (window.location.protocol === 'file:') {
-                    console.error('📝 Note: Running on file:// protocol. Make sure data is embedded in HTML.');
-                } else {
-                    console.error('📝 Note: Make sure ethernet_data.json is in the same directory.');
-                }
+                console.error('📝 Note: Make sure ethernet_data.json is accessible at ../assets/data/ethernet_data.json');
             }
+        }
+
+        // Dynamically determine nodeType from address and compatible string
+        function determineNodeType(nodeName, compatible) {
+            if (!nodeName) return "Unknown";
+            
+            // PS GEM detection
+            if (nodeName.startsWith("ethernet@ff0e")) {
+                return "PS GEM via MIO to onboard PHY";
+            } else if (nodeName.startsWith("ethernet@ff")) {
+                return "PS GEM via EMIO";
+            }
+            
+            // PL Ethernet detection
+            if (nodeName.startsWith("ethernet@a004")) {
+                // Check compatible string for 10G/25G cores
+                if (compatible && (compatible.includes("xxv-ethernet") || compatible.includes("usxgmii"))) {
+                    return "PL Ethernet (10G/25G)";
+                }
+                return "PL Ethernet (10G/25G)";
+            } else if (nodeName.startsWith("ethernet@a000") || nodeName.startsWith("ethernet@a001")) {
+                // AXI Ethernet 1G/2.5G
+                if (compatible && compatible.includes("axi-ethernet")) {
+                    return "PL Ethernet (AXI 1G/2.5G)";
+                }
+                return "PL Ethernet (AXI 1G/2.5G)";
+            }
+            
+            return "Unknown";
         }
 
         // Validate PL designs - must have at least one ethernet with address starting with 'a@'
@@ -446,6 +464,9 @@
                         if (phy['ti,dp83867-rxctrl-strap-quirk']) {
                             code += '            ti,dp83867-rxctrl-strap-quirk;\n';
                         }
+                        if (phy.phandle) {
+                            code += '            phandle = <' + phy.phandle + '>;\n';
+                        }
                         code += '        };\n';
                     });
                 }
@@ -454,6 +475,7 @@
             }
             // Add PHY nodes directly if no MDIO wrapper
             else if (node.phy_nodes && node.phy_nodes.length > 0) {
+                code += '\n    /* PHY nodes (should typically be under MDIO) */\n';
                 node.phy_nodes.forEach(phy => {
                     code += '\n    ' + phy.name + ' {\n';
                     if (phy.reg) {
@@ -474,8 +496,15 @@
                     if (phy['ti,dp83867-rxctrl-strap-quirk']) {
                         code += '        ti,dp83867-rxctrl-strap-quirk;\n';
                     }
+                    if (phy.phandle) {
+                        code += '        phandle = <' + phy.phandle + '>;\n';
+                    }
                     code += '    };\n';
                 });
+            }
+            // If PS GEM but no MDIO/PHY nodes, add a note
+            else if (node.nodeType && node.nodeType.includes("PS GEM") && node.name.startsWith("ethernet@ff")) {
+                code += '\n    /* Note: MDIO and PHY configuration may be in separate nodes */\n';
             }
             
             code += '};';
@@ -559,10 +588,10 @@
 
         // Scroll to top functionality
         window.addEventListener('scroll', function() {
-            const scrollBtn = document.querySelector('.back-to-top');
-            if (window.pageYOffset > 300) {
+            const scrollBtn = document.querySelector('.scroll-to-top');
+            if (scrollBtn && window.pageYOffset > 300) {
                 scrollBtn.classList.add('show');
-            } else {
+            } else if (scrollBtn) {
                 scrollBtn.classList.remove('show');
             }
         });
