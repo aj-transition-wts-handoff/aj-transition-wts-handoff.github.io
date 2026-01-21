@@ -899,7 +899,7 @@
                             <input type="text" class="table-search" id="b2b-search" placeholder="Type to search...">
                         </div>
                     </div>
-                    <div style="overflow-x: auto;">
+                    <div style="overflow-x: auto;" tabindex="0">
                     <table id="board-to-board-table" class="custom-table">
                         <thead>
                             <tr>
@@ -1049,7 +1049,7 @@
                             <input type="text" class="table-search" id="b2n-search" placeholder="Type to search...">
                         </div>
                     </div>
-                    <div style="overflow-x: auto;">
+                    <div style="overflow-x: auto;" tabindex="0">
                     <table id="board-to-nic-table" class="custom-table">
                         <thead>
                             <tr>
@@ -1192,7 +1192,7 @@ graph TB
                 <p style="color: #555; margin-bottom: 1rem;">Currently, we have 2 Mellanox in this setup as shown in the diagram above.</p>
                 
                 <div style="background: rgba(40, 40, 60, 0.05); border-radius: 8px; padding: 1rem; margin-bottom: 1rem; overflow-x: auto;" tabindex="0">
-                    <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre;"><code>1  ajayad@xsjzebu13 ~ - $ lspci | grep Mella
+                    <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre;" tabindex="0"><code>1  ajayad@xsjzebu13 ~ - $ lspci | grep Mella
 2  25:00.0 Ethernet controller: Mellanox Technologies MT28800 Family [ConnectX-5 Ex]
 3  25:00.1 Ethernet controller: Mellanox Technologies MT28800 Family [ConnectX-5 Ex]
 4  81:00.0 Ethernet controller: Mellanox Technologies MT28800 Family [ConnectX-5 Ex]
@@ -1202,7 +1202,7 @@ graph TB
                 <p style="color: #555; margin-bottom: 1rem;">Below are the interfaces. Each card has 2 ports:</p>
                 
                 <div style="background: rgba(40, 40, 60, 0.05); border-radius: 8px; padding: 1rem; margin-bottom: 1rem; overflow-x: auto;" tabindex="0">
-                    <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85rem; line-height: 1.6; white-space: pre;"><code>1   ajayad@xsjzebu13 ~ - $ ifconfig
+                    <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85rem; line-height: 1.6; white-space: pre;" tabindex="0"><code>1   ajayad@xsjzebu13 ~ - $ ifconfig
 2   eth6: flags=4099&lt;UP,BROADCAST,MULTICAST&gt;  mtu 1500
 3           ether 6c:b3:11:88:0f:ea  txqueuelen 1000  (Ethernet)
 4           RX packets 0  bytes 0 (0.0 B)
@@ -1301,7 +1301,7 @@ graph TB
                         </div>
                         
                         <!-- Keyboard Navigation Hint -->
-                        <div style="text-align: center; margin-top: 1rem; color: #888; font-size: 0.85rem;">
+                        <div style="text-align: center; margin-top: 1rem; color: #666; font-size: 0.85rem;">
                             💡 Tip: Use arrow keys (← →) to navigate slides
                         </div>
                     </div>
@@ -1342,7 +1342,7 @@ graph TB
 
                 <h4 style="color: #667eea; font-size: 1.1rem; margin-top: 1.5rem; margin-bottom: 0.75rem; text-align: left;">Terminal 1:</h4>
                 <div style="background: rgba(40, 40, 60, 0.05); border-radius: 8px; padding: 1rem; margin-bottom: 1rem; overflow-x: auto;" tabindex="0">
-                    <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.9rem; line-height: 1.6;"><code>1  [vck190-15] Systest# loadmodule "2024.2_released"
+                    <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.9rem; line-height: 1.6;" tabindex="0"><code>1  [vck190-15] Systest# loadmodule "2024.2_released"
 2  [vck190-15] Systest# hw_server
 3  Vivado hardware server is running on: chanterelle12:3121
 4
@@ -1354,7 +1354,7 @@ graph TB
                 <p style="color: #555; line-height: 1.6; margin-bottom: 1rem;">On a separate terminal, download the petalinux to the board:</p>
                 
                 <div style="background: rgba(40, 40, 60, 0.05); border-radius: 8px; padding: 1rem; margin-bottom: 1rem; overflow-x: auto;" tabindex="0">
-                    <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.9rem; line-height: 1.6;"><code>1  ts -petalinux 2024.2
+                    <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.9rem; line-height: 1.6;" tabindex="0"><code>1  ts -petalinux 2024.2
 2  cd /public/cases/gt_refclk_program/xilinx-vck190-2024.2
 3  petalinux-boot --jtag --kernel --rootfs ./images/linux/rootfs.cpio.gz.u-boot --hw_server tcp:chanterelle12:3121</code></pre>
                 </div>
@@ -1371,7 +1371,7 @@ graph TB
                 </p>
                 
                 <div style="background: rgba(40, 40, 60, 0.05); border-radius: 8px; padding: 1rem; margin-bottom: 1.5rem; overflow-x: auto; max-height: 500px; overflow-y: auto;" tabindex="0">
-                    <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85rem; line-height: 1.6;"><code>********************************************************************************
+                    <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85rem; line-height: 1.6;" tabindex="0"><code>********************************************************************************
 The PetaLinux source code and images provided/generated are for demonstration pu
 Please refer to https://xilinx-wiki.atlassian.net/wiki/spaces/A/pages/2741928025
 for more details.
@@ -1448,7 +1448,7 @@ PetaLinux:/home/petalinux# [vck190-15] Systest#
                 </ol>
                 
                 <div style="background: rgba(40, 40, 60, 0.05); border-radius: 8px; padding: 1rem; margin: 1rem 0; overflow-x: auto;" tabindex="0">
-                    <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.9rem; line-height: 1.6;"><code>1  chmod +x tcs2bin
+                    <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.9rem; line-height: 1.6;" tabindex="0"><code>1  chmod +x tcs2bin
 2  ./tcs2bin -i &lt;file_name.tcs&gt; -o idtcm.bin</code></pre>
                 </div>
                 
@@ -1475,7 +1475,7 @@ PetaLinux:/home/petalinux# [vck190-15] Systest#
                 </ol>
                 
                 <div style="background: rgba(40, 40, 60, 0.05); border-radius: 8px; padding: 1rem; margin: 1rem 0; overflow-x: auto;" tabindex="0">
-                    <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.9rem; line-height: 1.6;"><code>1  petalinux-build -x mrproper && petalinux-build
+                    <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.9rem; line-height: 1.6;" tabindex="0"><code>1  petalinux-build -x mrproper && petalinux-build
 2  petalinux-package --boot --plm --psmfw --u-boot --dtb --force
 3  petalinux-boot --jtag --kernel --rootfs ./images/linux/rootfs.cpio.gz.u-boot --hw_server tcp:chanterelle12:3121</code></pre>
                 </div>
@@ -1491,7 +1491,7 @@ PetaLinux:/home/petalinux# [vck190-15] Systest#
                 <h2>🖥️ XHD boards in XSJ Machine</h2>
                 
                 <div style="background: rgba(40, 40, 60, 0.05); border-radius: 8px; padding: 1rem; margin-bottom: 1rem; overflow-x: auto;" tabindex="0">
-                    <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.9rem; line-height: 1.6;"><code>1   ssh xhdbf1
+                    <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.9rem; line-height: 1.6;" tabindex="0"><code>1   ssh xhdbf1
 2   /proj/systest/bin/systest xhd-zcu670-5
 3   Job &lt;9467010&gt; is submitted to queue &lt;hwboard&gt;.
 4   &lt;&lt;Waiting for dispatch ...&gt;&gt;
