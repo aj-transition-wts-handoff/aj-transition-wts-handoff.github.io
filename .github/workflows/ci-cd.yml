@@ -84,6 +84,7 @@ jobs:
             http://localhost:8080/pages/ar-list.html
             http://localhost:8080/pages/cq-list.html
             http://localhost:8080/pages/cr-list.html
+            http://localhost:8080/pages/boardfarm-resources/boardfarm.html
             http://localhost:8080/pages/device-tree-webapp/index.html
           uploadArtifacts: false
           temporaryPublicStorage: false
