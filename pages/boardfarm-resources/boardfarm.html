@@ -1,0 +1,1951 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="theme-color" content="#667eea">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>XSJ Boardfarm - Ethernet Testing Setup</title>
+    <link rel="icon" type="image/svg+xml" href="../../assets/images/favicon.svg">
+    <link rel="stylesheet" href="../../css/styles.css?v=20260112">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    
+    <style>
+        /* TanStack-style Table Styling */
+        .table-container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .table-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .table-controls-left {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .table-controls-right {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .table-select {
+            padding: 0.5rem 2rem 0.5rem 0.75rem;
+            border: 2px solid rgba(102, 126, 234, 0.3);
+            border-radius: 8px;
+            background: white;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .table-select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        
+        .table-search {
+            padding: 0.5rem 1rem;
+            border: 2px solid rgba(102, 126, 234, 0.3);
+            border-radius: 8px;
+            background: white;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.9rem;
+            min-width: 250px;
+            transition: all 0.3s ease;
+        }
+        
+        .table-search:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        
+        .custom-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .custom-table thead {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .custom-table thead th {
+            padding: 1rem;
+            text-align: left;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            user-select: none;
+            position: relative;
+        }
+        
+        .custom-table thead th:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .custom-table thead th.sortable::after {
+            content: '⇅';
+            margin-left: 0.5rem;
+            opacity: 0.5;
+        }
+        
+        .custom-table thead th.sort-asc::after {
+            content: '↑';
+            opacity: 1;
+        }
+        
+        .custom-table thead th.sort-desc::after {
+            content: '↓';
+            opacity: 1;
+        }
+        
+        .custom-table tbody tr {
+            border-bottom: 1px solid rgba(102, 126, 234, 0.15);
+            transition: all 0.2s ease;
+        }
+        
+        .custom-table tbody tr:nth-child(odd) {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.03) 0%, rgba(118, 75, 162, 0.03) 100%);
+        }
+        
+        .custom-table tbody tr:nth-child(even) {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.06) 0%, rgba(118, 75, 162, 0.06) 100%);
+        }
+        
+        .custom-table tbody tr:hover {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.12) 0%, rgba(118, 75, 162, 0.12) 100%) !important;
+            transform: scale(1.005);
+            box-shadow: 0 2px 8px rgba(102, 126, 234, 0.15);
+        }
+        
+        .custom-table tbody td {
+            padding: 1rem;
+            color: #333;
+        }
+        
+        .table-pagination {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .table-info {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .pagination-buttons {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .pagination-btn {
+            padding: 0.5rem 1rem;
+            border: 2px solid rgba(102, 126, 234, 0.3);
+            border-radius: 8px;
+            background: white;
+            color: #667eea;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .pagination-btn:hover:not(:disabled) {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-color: #667eea;
+        }
+        
+        .pagination-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+        
+        .pagination-btn.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-color: #667eea;
+        }
+        
+        /* Section Styling */
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 1.5rem 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            scroll-margin-top: 90px;
+        }
+        
+        .card h2 {
+            font-size: 2.5rem;
+            margin: 0 0 1rem 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+            text-align: center;
+            width: 100%;
+            padding-bottom: 0.75rem;
+        }
+        
+        .card p {
+            color: #555;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        
+        .card .table-container {
+            margin-top: 1.5rem;
+        }
+        
+        /* Dark Mode Styles */
+        body.dark-mode {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #e0e0e0;
+        }
+        
+        body.dark-mode .card {
+            background: rgba(30, 30, 46, 0.95);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+        
+        body.dark-mode .card h2 {
+            color: #e0e0e0;
+        }
+        
+        body.dark-mode .card p {
+            color: #b0b0b0;
+        }
+        
+        body.dark-mode .table-container {
+            background: rgba(30, 30, 46, 0.98);
+        }
+        
+        body.dark-mode .table-select,
+        body.dark-mode .table-search {
+            background: rgba(40, 40, 60, 0.8);
+            color: #e0e0e0;
+            border-color: rgba(102, 126, 234, 0.4);
+        }
+        
+        body.dark-mode .table-select:focus,
+        body.dark-mode .table-search:focus {
+            background: rgba(50, 50, 70, 0.9);
+            border-color: #667eea;
+        }
+        
+        body.dark-mode .custom-table {
+            background: rgba(40, 40, 60, 0.5);
+        }
+        
+        body.dark-mode .custom-table tbody tr:nth-child(odd) {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(118, 75, 162, 0.08) 100%);
+        }
+        
+        body.dark-mode .custom-table tbody tr:nth-child(even) {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.12) 0%, rgba(118, 75, 162, 0.12) 100%);
+        }
+        
+        body.dark-mode .custom-table tbody tr:hover {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.2) 0%, rgba(118, 75, 162, 0.2) 100%) !important;
+        }
+        
+        body.dark-mode .custom-table tbody tr {
+            border-bottom: 1px solid rgba(102, 126, 234, 0.2);
+        }
+        
+        body.dark-mode .custom-table tbody td {
+            color: #d0d0d0;
+        }
+        
+        body.dark-mode .custom-table tbody td strong {
+            color: #e0e0e0;
+        }
+        
+        body.dark-mode .custom-table tbody td a {
+            color: #8b9aee !important;
+        }
+        
+        body.dark-mode .custom-table tbody td small {
+            color: #a0a0a0;
+        }
+        
+        body.dark-mode .table-info {
+            color: #b0b0b0;
+        }
+        
+        body.dark-mode .pagination-btn {
+            background: rgba(40, 40, 60, 0.8);
+            color: #8b9aee;
+            border-color: rgba(102, 126, 234, 0.4);
+        }
+        
+        body.dark-mode .pagination-btn:hover:not(:disabled) {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        body.dark-mode .pagination-btn.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        body.dark-mode .warning-box {
+            background: linear-gradient(135deg, #ff9a00 0%, #ff6b00 100%) !important;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+            border: 2px solid rgba(255, 200, 0, 0.3);
+            color: #000000 !important;
+        }
+        
+        body.dark-mode .warning-box strong {
+            color: #000000 !important;
+        }
+        
+        body.dark-mode .warning-box span {
+            color: #000000 !important;
+        }
+        
+        /* Dark mode for slideshow */
+        body.dark-mode #slideshow-container > div {
+            background: rgba(30, 30, 46, 0.8) !important;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4) !important;
+        }
+        
+        body.dark-mode #slideshow-container img {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4) !important;
+        }
+        
+        body.dark-mode #slideshow-container .slide-indicator {
+            border-color: #667eea !important;
+        }
+        
+        body.dark-mode #slideshow-container button {
+            opacity: 0.95;
+        }
+        
+        body.dark-mode #slideshow-container button:hover {
+            opacity: 1;
+        }
+        
+        body.dark-mode .badge {
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        body.dark-mode nav {
+            background: rgba(30, 30, 46, 0.95) !important;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3) !important;
+        }
+        
+        body.dark-mode #navbar-brand span:last-child {
+            color: #e0e0e0 !important;
+        }
+        
+        /* Nav link styling - consistent with other pages */
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: #667eea;
+        }
+        
+        .nav-link:hover::after {
+            width: 80%;
+        }
+        
+        body.dark-mode .nav-link {
+            color: #b0b0b0 !important;
+        }
+        
+        body.dark-mode .nav-link:hover {
+            color: #7c90f5 !important;
+        }
+        
+        /* Smooth scroll behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body.dark-mode header h1 {
+            color: white;
+        }
+        
+        body.dark-mode header .subtitle {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        body.dark-mode code {
+            background: rgba(102, 126, 234, 0.15);
+            color: #a0c4ff;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+        }
+        
+        /* Dark mode pre and code blocks */
+        body.dark-mode pre {
+            background: rgba(40, 40, 60, 0.3) !important;
+        }
+        
+        body.dark-mode pre code {
+            color: #d0d0d0;
+            background: transparent;
+        }
+        
+        /* Dark mode mermaid diagram */
+        body.dark-mode .mermaid {
+            background: rgba(40, 40, 60, 0.6) !important;
+        }
+        
+        /* Smooth transitions for dark mode - exclude pre, code, and specific containers */
+        body, .card, .table-container, .custom-table, .table-select, .table-search, 
+        .pagination-btn, nav, .nav-link, .custom-table tbody td, .mermaid {
+            transition: all 0.3s ease;
+        }
+        
+        /* No transitions for code blocks to prevent layout shift */
+        pre, code, pre code {
+            transition: none !important;
+        }
+        
+        /* Stabilize code block rendering to prevent shifts */
+        pre {
+            margin: 0;
+            font-family: 'Courier New', Courier, monospace;
+            white-space: pre;
+            overflow-x: auto;
+            -webkit-font-smoothing: subpixel-antialiased;
+            -moz-osx-font-smoothing: auto;
+            text-rendering: optimizeSpeed;
+            font-variant-ligatures: none;
+        }
+        
+        pre code {
+            font-family: inherit;
+            line-height: inherit;
+            display: block;
+            padding: 0 !important;
+            margin: 0 !important;
+            border: none !important;
+            background: transparent !important;
+            border-radius: 0 !important;
+        }
+        
+        /* Badge Styling - Accessibility Compliant */
+        .badge {
+            display: inline-block;
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: all 0.2s ease;
+        }
+        
+        /* QSFP Badge - Purple with WCAG AAA contrast */
+        .badge-qsfp {
+            background: linear-gradient(135deg, #5b68d8 0%, #6b4b9a 100%);
+            color: #ffffff;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        /* SFP Badge - Green with WCAG AAA contrast */
+        .badge-sfp {
+            background: linear-gradient(135deg, #059669 0%, #047857 100%);
+            color: #ffffff;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Mellanox Badge - Orange with proper contrast */
+        .badge-mellanox {
+            background: linear-gradient(135deg, #ea580c 0%, #c2410c 100%);
+            color: #ffffff;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        /* CLOSED Badge - Success green with proper contrast */
+        .badge-closed {
+            background: linear-gradient(135deg, #059669 0%, #047857 100%);
+            color: #ffffff;
+            padding: 0.25rem 0.6rem;
+            font-size: 0.75rem;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Dark mode badge adjustments */
+        body.dark-mode .badge-qsfp {
+            background: linear-gradient(135deg, #7c85e0 0%, #8b6bb8 100%);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+        
+        body.dark-mode .badge-sfp {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+        
+        body.dark-mode .badge-mellanox {
+            background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+        
+        body.dark-mode .badge-closed {
+            background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+            color: #ffffff;
+            border-color: rgba(255, 255, 255, 0.4);
+            font-weight: 600;
+        }
+        
+        /* Back to Tracker button */
+        .back-to-tracker {
+            position: fixed;
+            top: 90px;
+            left: 2rem;
+            z-index: 1000;
+            background: var(--card-bg, white);
+            color: #5568d3;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .back-to-tracker:hover {
+            transform: translateY(-2px) translateX(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        body.dark-mode .back-to-tracker {
+            background: rgba(30, 30, 46, 0.95);
+            color: #7c90f5;
+        }
+        
+        /* Mobile Responsive Styles */
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem 0.5rem;
+                
+            }
+            
+            .container {
+                padding: 0 0.5rem;
+            }
+            
+            header h1 {
+                font-size: 1.8rem;
+            }
+            
+            header .subtitle {
+                font-size: 0.95rem;
+            }
+            
+            .card {
+                padding: 1.5rem 1rem;
+            }
+            
+            .custom-table {
+                font-size: 0.85rem;
+            }
+            
+            .custom-table th,
+            .custom-table td {
+                padding: 0.6rem 0.5rem;
+            }
+            
+            .table-controls {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .table-controls-left,
+            .table-controls-right {
+                width: 100%;
+                justify-content: flex-start;
+            }
+            
+            .table-search {
+                max-width: 100%;
+                min-width: 0;
+                flex: 1;
+            }
+            
+            /* Mobile table improvements */
+            .table-container {
+                position: relative;
+            }
+            
+            .table-container::after {
+                content: '→ Scroll →';
+                position: absolute;
+                bottom: 10px;
+                right: 10px;
+                background: rgba(102, 126, 234, 0.9);
+                color: white;
+                padding: 0.3rem 0.8rem;
+                border-radius: 20px;
+                font-size: 0.75rem;
+                pointer-events: none;
+                animation: fadeInOut 2s ease-in-out infinite;
+            }
+            
+            @keyframes fadeInOut {
+                0%, 100% { opacity: 0.6; }
+                50% { opacity: 1; }
+            }
+            
+            /* Code block improvements */
+            pre {
+                position: relative;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+            
+            pre::before {
+                content: 'Swipe to scroll →';
+                position: absolute;
+                top: 5px;
+                right: 5px;
+                background: rgba(102, 126, 234, 0.8);
+                color: white;
+                padding: 0.2rem 0.6rem;
+                border-radius: 12px;
+                font-size: 0.7rem;
+                z-index: 1;
+            }
+            
+            nav {
+                padding: 0.75rem 1rem !important;
+            }
+            
+            .mobile-menu-toggle {
+                display: flex;
+            }
+            
+            .desktop-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(255, 255, 255, 0.98);
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            }
+            
+            body.dark-mode .desktop-menu {
+                background: rgba(30, 30, 46, 0.98);
+            }
+            
+            .desktop-menu.show {
+                display: flex;
+            }
+            
+            .nav-link {
+                width: 100%;
+                text-align: center;
+                padding: 0.75rem 1rem !important;
+            }
+            
+            #slideshow-container > div {
+                padding: 1rem !important;
+                max-width: 100% !important;
+            }
+            
+            #slideshow-container {
+                margin-top: 1rem !important;
+            }
+            
+            #slideshow-container .slide-indicator {
+                display: none !important;
+            }
+            
+            /* Hide button text, show only arrows on mobile */
+            #slideshow-container button[onclick*="changeSlide"] {
+                width: 50px !important;
+                height: 50px !important;
+                padding: 0 !important;
+                min-width: 50px;
+                text-indent: -9999px;
+                overflow: hidden;
+                font-size: 1.5rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            #slideshow-container button[onclick="changeSlide(-1)"]::after {
+                content: '←';
+                position: absolute;
+                text-indent: 0;
+                font-size: 1.8rem;
+            }
+            
+            #slideshow-container button[onclick="changeSlide(1)"]::after {
+                content: '→';
+                position: absolute;
+                text-indent: 0;
+                font-size: 1.8rem;
+            }
+            
+            /* Mobile carousel navigation improvements */
+            #slideshow-container > div > div:last-child {
+                flex-direction: column;
+                gap: 0.8rem !important;
+            }
+            
+            #slideshow-container > div > div:last-child > button {
+                width: 100%;
+                max-width: 200px;
+            }
+            
+            #slideshow-container > div > div:last-child > div {
+                order: -1;
+                width: 100%;
+                justify-content: center !important;
+            }
+            
+            #slideshow-container img {
+                border-radius: 8px;
+                box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+            }
+            
+            /* Add swipe hint for mobile carousel */
+            #slideshow-container::before {
+                content: '← Swipe to navigate →';
+                display: block;
+                text-align: center;
+                color: #667eea;
+                font-size: 0.85rem;
+                font-weight: 600;
+                padding: 0.5rem;
+                background: rgba(102, 126, 234, 0.1);
+                border-radius: 8px;
+                margin-bottom: 0.5rem;
+                animation: pulse 2s ease-in-out infinite;
+            }
+            
+            @keyframes pulse {
+                0%, 100% { opacity: 0.6; }
+                50% { opacity: 1; }
+            }
+            
+            .slide-indicator {
+                width: 10px !important;
+                height: 10px !important;
+            }
+            
+            .scroll-to-top {
+                bottom: 1.5rem;
+                right: 1rem;
+                width: 45px;
+                height: 45px;
+                font-size: 1.2rem;
+            }
+            
+            .dark-mode-toggle {
+                bottom: 5rem;
+                right: 1rem;
+                padding: 0.6rem 1rem;
+                font-size: 0.9rem;
+            }
+            
+            .back-to-tracker span:nth-child(2) {
+                display: none;
+            }
+            .back-to-tracker {
+                padding: 0.6rem 1rem;
+                gap: 0;
+                top: 115px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.5rem;
+            }
+            
+            .card h2 {
+                font-size: 1.3rem;
+            }
+            
+            .custom-table {
+                font-size: 0.8rem;
+            }
+            
+            .badge {
+                font-size: 0.7rem;
+                padding: 0.2rem 0.4rem;
+            }
+            
+            #slideshow-container button {
+                padding: 0.4rem 0.8rem !important;
+                font-size: 0.85rem !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button type="button" class="dark-mode-toggle" onclick="toggleDarkMode()">
+        <span id="darkModeIcon">🌙</span>
+        <span id="darkModeText">Dark Mode</span>
+    </button>
+
+    <!-- Scroll to Top Button -->
+    <button type="button" class="scroll-to-top" onclick="scrollToTop()" aria-label="Scroll to top">
+        ↑
+    </button>
+
+    <!-- Navigation Bar -->
+    <nav style="position: fixed; top: 0; left: 0; right: 0; z-index: 999; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1); transition: all 0.3s ease;">
+        <div style="max-width: 1400px; margin: 0 auto; padding: 1rem 2rem; display: flex; align-items: center; justify-content: space-between;">
+            <a href="../../index.html" id="navbar-brand" style="display: flex; align-items: center; gap: 0.5rem; text-decoration: none;">
+                <span style="display: inline-flex; align-items: center; justify-content: center; width: 45px; height: 45px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 50%; font-size: 1.5rem; font-weight: 700; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3); transition: all 0.3s ease;">A</span>
+                <span style="font-weight: 700; font-size: 1.3rem; color: #333;">jaya</span>
+            </a>
+            <button type="button" class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu">☰</button>
+            <div id="mobile-menu" class="desktop-menu" style="gap: 2rem; align-items: center;">
+                <a href="#introduction" class="nav-link" style="text-decoration: none; color: #555; font-weight: 500; font-size: 0.95rem; padding: 0.5rem 1rem; border-radius: 8px; transition: all 0.3s; white-space: nowrap;">Introduction</a>
+                <a href="#board-to-board" class="nav-link" style="text-decoration: none; color: #555; font-weight: 500; font-size: 0.95rem; padding: 0.5rem 1rem; border-radius: 8px; transition: all 0.3s; white-space: nowrap;">Board-to-Board</a>
+                <a href="#board-to-nic" class="nav-link" style="text-decoration: none; color: #555; font-weight: 500; font-size: 0.95rem; padding: 0.5rem 1rem; border-radius: 8px; transition: all 0.3s; white-space: nowrap;">Board-to-NIC</a>
+                <a href="#setup-details" class="nav-link" style="text-decoration: none; color: #555; font-weight: 500; font-size: 0.95rem; padding: 0.5rem 1rem; border-radius: 8px; transition: all 0.3s; white-space: nowrap;">Setup Details</a>
+                <a href="#gt-ref-clock" class="nav-link" style="text-decoration: none; color: #555; font-weight: 500; font-size: 0.95rem; padding: 0.5rem 1rem; border-radius: 8px; transition: all 0.3s; white-space: nowrap;">GT Ref Clock</a>
+                <a href="#vck190-workaround" class="nav-link" style="text-decoration: none; color: #555; font-weight: 500; font-size: 0.95rem; padding: 0.5rem 1rem; border-radius: 8px; transition: all 0.3s; white-space: nowrap;">VCK190 Workaround</a>
+                <a href="#xhd-boards" class="nav-link" style="text-decoration: none; color: #555; font-weight: 500; font-size: 0.95rem; padding: 0.5rem 1rem; border-radius: 8px; transition: all 0.3s; white-space: nowrap;">XHD Boards</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Add top padding to account for fixed navbar -->
+    <div class="nav-spacer" style="padding-top: 70px;"></div>
+
+    <!-- Back to Tracker Button (Below Navbar) -->
+    <nav aria-label="Breadcrumb navigation">
+    <a href="../../index.html" class="back-to-tracker"><span>←</span><span>Back to Tracker</span></a>
+    </nav>
+
+    <main>
+        <div class="container">
+            <header>
+                <h1>🔧 XSJ Boardfarm - Ethernet Testing Setup</h1>
+                <p class="subtitle">WTS-WWG Ethernet Testing Documentation</p>
+            </header>
+
+            <!-- Introduction Section -->
+            <section class="card" id="introduction">
+                <h2>📚 Introduction</h2>
+                <p>This page shows various setups for board-to-board Ethernet testing.</p>
+            </section>
+
+            <!-- Board-to-Board Setup Section -->
+            <section class="card" id="board-to-board">
+                <h2>🔗 Board-to-Board setup</h2>
+                <div class="table-container">
+                    <div class="table-controls">
+                        <div class="table-controls-left">
+                            <span style="color: #666;">Show</span>
+                            <select class="table-select" id="b2b-page-size" aria-label="Number of entries per page">
+                                <option value="5">5</option>
+                                <option value="10" selected>10</option>
+                                <option value="25">25</option>
+                                <option value="50">50</option>
+                            </select>
+                            <span style="color: #666;">entries</span>
+                        </div>
+                        <div class="table-controls-right">
+                            <span style="color: #667eea; font-weight: 500;">🔍 Search boards:</span>
+                            <input type="text" class="table-search" id="b2b-search" placeholder="Type to search...">
+                        </div>
+                    </div>
+                    <div style="overflow-x: auto;" tabindex="0">
+                    <table id="board-to-board-table" class="custom-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 25%;">Board</th>
+                                <th style="width: 15%;">Connection Type</th>
+                                <th style="width: 10%;">Port</th>
+                                <th style="width: 50%;">CR</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>VEK385-7 & VEK385-8</strong></td>
+                                <td><span class="badge badge-qsfp">QSFP</span></td>
+                                <td><code>QSFP1</code></td>
+                                <td>
+                                    <a href="https://jira.xilinx.com/browse/CR-1253164" target="_blank" rel="noopener" style="color: #667eea; font-weight: 600;">🔗 CR-1253164</a><br>
+                                    <small>WTS-WWG-Ethernet-Testing - Need a VEK385 to VEK385 connection via QSFP</small><br>
+                                    <span class="badge badge-closed">CLOSED</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>VCK190-13 & VCK190-14</strong></td>
+                                <td><span class="badge badge-qsfp">QSFP</span></td>
+                                <td><code>QSFP0</code></td>
+                                <td>
+                                    <a href="https://jira.xilinx.com/browse/CR-1198548" target="_blank" rel="noopener" style="color: #667eea; font-weight: 600;">🔗 CR-1198548</a><br>
+                                    <small>WTS-WWG-Ethernet-Testing - Need a VCK190 to VCK190 connection via QSFP</small><br>
+                                    <span class="badge badge-closed">CLOSED</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>VPK120-5 & VPK120-6</strong></td>
+                                <td><span class="badge badge-qsfp">QSFP</span></td>
+                                <td><code>QSFP2</code></td>
+                                <td>
+                                    <a href="https://jira.xilinx.com/browse/CR-1204096" target="_blank" rel="noopener" style="color: #667eea; font-weight: 600;">🔗 CR-1204096</a><br>
+                                    <small>WTS-WWG-Ethernet-Testing - VPK120 to VPK120 QSFP connection</small><br>
+                                    <span class="badge badge-closed">CLOSED</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>VPK180-5 & VPK180-6</strong></td>
+                                <td><span class="badge badge-qsfp">QSFP</span></td>
+                                <td><code>QSFP4</code></td>
+                                <td>
+                                    <a href="https://jira.xilinx.com/browse/CR-1226912" target="_blank" rel="noopener" style="color: #667eea; font-weight: 600;">🔗 CR-1226912</a><br>
+                                    <small>WTS-WWG-Ethernet-Testing - VPK180 to VPK180 connection via QSFP</small><br>
+                                    <span class="badge badge-closed">CLOSED</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>VCK190-13 & VCK190-14</strong></td>
+                                <td><span class="badge badge-sfp">SFP</span></td>
+                                <td><code>SFP0</code></td>
+                                <td>
+                                    <a href="https://jira.xilinx.com/browse/CR-1184041" target="_blank" rel="noopener" style="color: #667eea; font-weight: 600;">🔗 CR-1184041</a><br>
+                                    <small>WTS-WWG-Ethernet-Testing - VCK190 board to board setup</small><br>
+                                    <span class="badge badge-closed">CLOSED</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>VCK190-9 & VCK190-10 (VMK180)</strong></td>
+                                <td><span class="badge badge-sfp">SFP</span></td>
+                                <td><code>SFP0</code></td>
+                                <td>
+                                    <a href="https://jira.xilinx.com/browse/CR-1212175" target="_blank" rel="noopener" style="color: #667eea; font-weight: 600;">🔗 CR-1212175</a><br>
+                                    <small>WTS-WWG-Ethernet-Testing - Need a VMK180 to VMK180 connection via SFP</small><br>
+                                    <span class="badge badge-closed">CLOSED</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>VEK280-10 & VEK280-11</strong></td>
+                                <td><span class="badge badge-sfp">SFP</span></td>
+                                <td><code>SFP0</code></td>
+                                <td>
+                                    <a href="https://jira.xilinx.com/browse/CR-1232780" target="_blank" rel="noopener" style="color: #667eea; font-weight: 600;">🔗 CR-1232780</a><br>
+                                    <small>WTS-WWG-Ethernet-Testing - VEK280 board to board setup</small><br>
+                                    <span class="badge badge-closed">CLOSED</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>ZCU102-5 & ZCU102-6</strong></td>
+                                <td><span class="badge badge-sfp">SFP</span></td>
+                                <td><code>SFP0</code></td>
+                                <td>
+                                    <a href="https://jira.xilinx.com/browse/CR-1202007" target="_blank" rel="noopener" style="color: #667eea; font-weight: 600;">🔗 CR-1202007</a><br>
+                                    <small>WTS-WWG-Ethernet-Testing - Need ZCU102 SFP connection for 10G ethernet testing</small><br>
+                                    <span class="badge badge-closed">CLOSED</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>ZCU111-3 & ZCU111-4</strong></td>
+                                <td><span class="badge badge-sfp">SFP</span></td>
+                                <td><code>SFP2</code></td>
+                                <td>
+                                    <a href="https://jira.xilinx.com/browse/CR-1242683" target="_blank" rel="noopener" style="color: #667eea; font-weight: 600;">🔗 CR-1242683</a><br>
+                                    <small>WTS-WWG-Ethernet-Testing - Need ZCU111 SFP connection for 25G ethernet testing</small><br>
+                                    <span class="badge badge-closed">CLOSED</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>XHD-ZCU670-5 & XHD-ZCU670-6</strong><br>
+                                    <small style="color: #666;">📌 See <a href="#xhd-boards" style="color: #667eea;">XSJ Boardfarm - XHD boards in XSJ Machine</a> to use this setup</small>
+                                </td>
+                                <td><span class="badge badge-sfp">SFP</span></td>
+                                <td><code>SFP0</code></td>
+                                <td>
+                                    <a href="https://jira.xilinx.com/browse/CR-1241140" target="_blank" rel="noopener" style="color: #667eea; font-weight: 600;">🔗 CR-1241140</a><br>
+                                    <small>WTS-WWG-Ethernet-Testing - Need ZCU670 SFP connection for 1G/10G ethernet testing</small><br>
+                                    <span class="badge badge-closed">CLOSED</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    </div>
+                    <div class="table-pagination">
+                        <div class="table-info" id="b2b-info"></div>
+                        <div class="pagination-buttons" id="b2b-pagination"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Board-to-NIC Section -->
+            <section class="card" id="board-to-nic">
+                <h2>🖥️ Board-to-NIC</h2>
+                <div class="warning-box" style="background: linear-gradient(135deg, #FFA500 0%, #FF8C00 100%); color: white; padding: 1rem; border-radius: 12px; margin-bottom: 1.5rem;">
+                    <p style="margin: 0; display: flex; align-items: center; gap: 0.5rem;">
+                        <span style="font-size: 1.5rem;">⚠️</span>
+                        <span><strong>Important:</strong> Only three of these boards can be used at a time with Mellanox. Please comment in the CR to change the connection.</span>
+                    </p>
+                </div>
+
+                <div class="table-container">
+                    <div class="table-controls">
+                        <div class="table-controls-left">
+                            <span style="color: #666;">Show</span>
+                            <select class="table-select" id="b2n-page-size" aria-label="Number of entries per page">
+                                <option value="5" selected>5</option>
+                                <option value="10">10</option>
+                                <option value="25">25</option>
+                                <option value="50">50</option>
+                            </select>
+                            <span style="color: #666;">entries</span>
+                        </div>
+                        <div class="table-controls-right">
+                            <span style="color: #667eea; font-weight: 500;">🔍 Search connections:</span>
+                            <input type="text" class="table-search" id="b2n-search" placeholder="Type to search...">
+                        </div>
+                    </div>
+                    <div style="overflow-x: auto;" tabindex="0">
+                    <table id="board-to-nic-table" class="custom-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 5%;">#</th>
+                                <th style="width: 15%;">Board</th>
+                                <th style="width: 20%;">NIC</th>
+                                <th style="width: 15%;">Host</th>
+                                <th style="width: 45%;">CR</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="text-align: center; font-weight: 700; color: #667eea;">1</td>
+                                <td><strong>VCK190-25</strong></td>
+                                <td><span class="badge badge-mellanox">Mellanox Connect X5</span></td>
+                                <td><code>xsjzebu13 - eth4</code></td>
+                                <td>
+                                    <a href="https://jira.xilinx.com/browse/CR-1222776" target="_blank" rel="noopener" style="color: #667eea; font-weight: 600;">🔗 CR-1222776</a><br>
+                                    <small>WTS-WWG-Ethernet-Testing - VCK190 connection with a Mellanox NIC</small><br>
+                                    <span class="badge badge-closed">CLOSED</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: center; font-weight: 700; color: #667eea;">2</td>
+                                <td><strong>VMK180-?</strong></td>
+                                <td><span class="badge badge-mellanox">Mellanox Connect X5</span></td>
+                                <td><code>-</code></td>
+                                <td>
+                                    <a href="https://jira.xilinx.com/browse/CR-1232357" target="_blank" rel="noopener" style="color: #667eea; font-weight: 600;">🔗 CR-1232357</a><br>
+                                    <small>WTS-WWG-Ethernet-Testing - VCK180 connection with a Mellanox NIC</small><br>
+                                    <span class="badge badge-closed">CLOSED</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: center; font-weight: 700; color: #667eea;">3</td>
+                                <td><strong>VPK180-?</strong></td>
+                                <td><span class="badge badge-mellanox">Mellanox Connect X5</span></td>
+                                <td><code>-</code></td>
+                                <td>
+                                    <a href="https://jira.xilinx.com/browse/CR-1232343" target="_blank" rel="noopener" style="color: #667eea; font-weight: 600;">🔗 CR-1232343</a><br>
+                                    <small>WTS-WWG-Ethernet-Testing - VPK180 connection with a Mellanox NIC</small><br>
+                                    <span class="badge badge-closed">CLOSED</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: center; font-weight: 700; color: #667eea;">4</td>
+                                <td><strong>VPK120-11</strong></td>
+                                <td><span class="badge badge-mellanox">Mellanox Connect X5</span></td>
+                                <td><code>xsjzebu13 - eth5</code></td>
+                                <td>
+                                    <a href="https://jira.xilinx.com/browse/CR-1231428" target="_blank" rel="noopener" style="color: #667eea; font-weight: 600;">🔗 CR-1231428</a><br>
+                                    <small>WTS-WWG-Ethernet-Testing - VPK120 connection with a Mellanox NIC</small><br>
+                                    <span class="badge badge-closed">CLOSED</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: center; font-weight: 700; color: #667eea;">5</td>
+                                <td><strong>VCU118-5</strong></td>
+                                <td><span class="badge badge-mellanox">Mellanox Connect X5</span></td>
+                                <td><code>xsjzebu13 - eth7</code></td>
+                                <td>
+                                    <a href="https://jira.xilinx.com/browse/CR-1237791" target="_blank" rel="noopener" style="color: #667eea; font-weight: 600;">🔗 CR-1237791</a><br>
+                                    <small>WTS-WWG-Ethernet-Testing - VCU118 connection with a Mellanox NIC</small><br>
+                                    <span class="badge badge-closed">CLOSED</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    </div>
+                    <div class="table-pagination">
+                        <div class="table-info" id="b2n-info"></div>
+                        <div class="pagination-buttons" id="b2n-pagination"></div>
+                    </div>
+                </div>
+
+                <!-- Mermaid Diagram -->
+                <div style="margin-top: 2rem;">
+                    <h3 style="text-align: center;">🔌 Connection Diagram - xsjzebu13 Host</h3>
+                    <div class="mermaid" style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); text-align: center;">
+graph TB
+    subgraph Host["🖥️ xsjzebu13 Host Server"]
+        direction LR
+        subgraph Mel0["🔶 Mellanox0"]
+            eth4["eth4"]
+            eth5["eth5"]
+        end
+        subgraph Mel1["🔶 Mellanox1"]
+            eth6["eth6"]
+            eth7["eth7"]
+        end
+    end
+    
+    VCK190["📟 VCK190-25"] --> eth4
+    VMK120["📟 VMK120-11"] --> eth5
+    OPEN["⚠️ OPEN"] -.-> eth6
+    VCU118["📟 VCU118-5"] --> eth7
+    
+    style Host fill:#1e3a8a,stroke:#1e40af,stroke-width:3px,color:#fff
+    style Mel0 fill:#f97316,stroke:#ea580c,stroke-width:2px,color:#fff
+    style Mel1 fill:#f97316,stroke:#ea580c,stroke-width:2px,color:#fff
+    style eth4 fill:#fed7aa,stroke:#fdba74,stroke-width:2px,color:#000
+    style eth5 fill:#fed7aa,stroke:#fdba74,stroke-width:2px,color:#000
+    style eth6 fill:#fed7aa,stroke:#fdba74,stroke-width:2px,color:#000
+    style eth7 fill:#fed7aa,stroke:#fdba74,stroke-width:2px,color:#000
+    style VCK190 fill:#0369a1,stroke:#0284c7,stroke-width:2px,color:#fff
+    style VMK120 fill:#0369a1,stroke:#0284c7,stroke-width:2px,color:#fff
+    style OPEN fill:#64748b,stroke:#94a3b8,stroke-width:2px,stroke-dasharray: 5 5,color:#fff
+    style VCU118 fill:#0369a1,stroke:#0284c7,stroke-width:2px,color:#fff
+                    </div>
+                </div>
+            </section>
+
+            <!-- Setup Details Section -->
+            <section class="card" id="setup-details">
+                <h2>⚙️ Setup details</h2>
+                
+                <h3 style="color: #667eea; font-size: 1.3rem; margin-top: 1.5rem; margin-bottom: 1rem; text-align: center;">🔌 Cable information</h3>
+                <div style="overflow-x: auto; display: flex; justify-content: center;">
+                    <table class="custom-table" style="width: auto; min-width: 400px; margin: 0 auto;">
+                        <thead>
+                            <tr>
+                                <th>Model</th>
+                                <th>Type</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><a href="https://www.amazon.com/Macroreer-Direct-Attach-Passive-SFP-H25G-CU2M/dp/B0792X74DL/ref=sr_1_2_sspa?crid=1EX41MIZK7ZL3&dib=eyJ2IjoiMSJ9.wBYbhKmkT6xLjbtFgiJTALQ2lrzRb_Gc4fFQZBMajSKy-DLFDZXNJMcXo9lolyy07ecs9zWy4uOrRWyQ9jBLiHsF5YDhT80cHM8I2wf1M35aIfQSacRyx0FqAZKXZxiiCHnSulYCOAXnIlup19X_G7MoxLr62JLqLVJaaLP8pG4Lx_SB3TLEPZ7RS4RRrCYPjvdEUdfO6Xh-JXkyjnweFmub0VKFahhyTu5uRcwUUQs.JgC17m-BsBIpVHGwPolY9alDHPorVeNvhYMEIAAxsEs&dib_tag=se&keywords=25g%2Bsfp28%2Bpassive%2Bdirect%2Battach%2Bcopper&qid=1740428784&sprefix=25g%2Bsfp28%2Bpassive%2Bdirect%2Battach%2Bcopper%2Caps%2C378&sr=8-2-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1" target="_blank" rel="noopener" style="color: #667eea; text-decoration: underline;">SFP28-25G</a></td>
+                                <td>SFP</td>
+                            </tr>
+                            <tr>
+                                <td><a href="https://www.te.com/en/product-2336313-2.html" target="_blank" rel="noopener" style="color: #667eea; text-decoration: underline;">2336313-2</a></td>
+                                <td>QSFP</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3 style="color: #667eea; font-size: 1.3rem; margin-top: 2rem; margin-bottom: 1rem; text-align: left;">🔶 Mellanox Setup</h3>
+                <p style="color: #555; margin-bottom: 1rem;">Currently, we have 2 Mellanox in this setup as shown in the diagram above.</p>
+                
+                <div style="background: rgba(40, 40, 60, 0.05); border-radius: 8px; padding: 1rem; margin-bottom: 1rem; overflow-x: auto;" tabindex="0">
+                    <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre;" tabindex="0"><code>1  ajayad@xsjzebu13 ~ - $ lspci | grep Mella
+2  25:00.0 Ethernet controller: Mellanox Technologies MT28800 Family [ConnectX-5 Ex]
+3  25:00.1 Ethernet controller: Mellanox Technologies MT28800 Family [ConnectX-5 Ex]
+4  81:00.0 Ethernet controller: Mellanox Technologies MT28800 Family [ConnectX-5 Ex]
+5  81:00.1 Ethernet controller: Mellanox Technologies MT28800 Family [ConnectX-5 Ex]</code></pre>
+                </div>
+
+                <p style="color: #555; margin-bottom: 1rem;">Below are the interfaces. Each card has 2 ports:</p>
+                
+                <div style="background: rgba(40, 40, 60, 0.05); border-radius: 8px; padding: 1rem; margin-bottom: 1rem; overflow-x: auto;" tabindex="0">
+                    <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85rem; line-height: 1.6; white-space: pre;" tabindex="0"><code>1   ajayad@xsjzebu13 ~ - $ ifconfig
+2   eth6: flags=4099&lt;UP,BROADCAST,MULTICAST&gt;  mtu 1500
+3           ether 6c:b3:11:88:0f:ea  txqueuelen 1000  (Ethernet)
+4           RX packets 0  bytes 0 (0.0 B)
+5           RX errors 0  dropped 0  overruns 0  frame 0
+6           TX packets 0  bytes 0 (0.0 B)
+7           TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+8   eth5: flags=4099&lt;UP,BROADCAST,MULTICAST&gt;  mtu 1500
+9           ether 6c:b3:11:88:0f:eb  txqueuelen 1000  (Ethernet)
+10          RX packets 0  bytes 0 (0.0 B)
+11          RX errors 0  dropped 0  overruns 0  frame 0
+12          TX packets 0  bytes 0 (0.0 B)
+13          TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+14  eth6: flags=4099&lt;UP,BROADCAST,MULTICAST&gt;  mtu 1500
+15          ether 6c:b3:11:88:10:06  txqueuelen 1000  (Ethernet)
+16          RX packets 0  bytes 0 (0.0 B)
+17          RX errors 0  dropped 0  overruns 0  frame 0
+18          TX packets 0  bytes 0 (0.0 B)
+19          TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+20  eth7: flags=4099&lt;UP,BROADCAST,MULTICAST&gt;  mtu 1500
+21          ether 6c:b3:11:88:10:07  txqueuelen 1000  (Ethernet)
+22          RX packets 0  bytes 0 (0.0 B)
+23          RX errors 0  dropped 0  overruns 0  carrier 0  collisions 0</code></pre>
+                </div>
+            </section>
+
+            <!-- GT Ref Clock Section -->
+            <section class="card" id="gt-ref-clock">
+                <h2>⏱️ How to program the GT ref clock</h2>
+                
+                <div style="display: flex; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
+                    <a href="../../assets/pdf/NA%20SME%20Tips%20and%20Tricks%20-%20Setting%20up%20GT%20ref%20clock%20and%20Boardfarm%20setups.pdf" 
+                       download 
+                       style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 8px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 4px 6px rgba(102, 126, 234, 0.3);"
+                       onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 12px rgba(102, 126, 234, 0.4)'"
+                       onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 6px rgba(102, 126, 234, 0.3)'">
+                        📥 Download PDF
+                    </a>
+                </div>
+
+                <!-- Carousel Container -->
+                <div id="slideshow-container" style="margin-top: 1.5rem;">
+                    <div style="position: relative; background: white; border-radius: 12px; padding: 1.5rem; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); max-width: 900px; margin: 0 auto;">
+                        <!-- Slide Counter -->
+                        <div style="text-align: center; margin-bottom: 1rem;">
+                            <span style="color: #4c5fd5; font-weight: 600; font-size: 1.1rem;">
+                                Slide <span id="current-slide">1</span> of 12
+                            </span>
+                        </div>
+                        
+                        <!-- Slides -->
+                        <div style="position: relative; width: 100%; overflow: hidden; border-radius: 8px;">
+                            <img id="slide-image" 
+                                 src="../../assets/pdf/GT-ref-clock/NA%20SME%20Tips%20and%20Tricks%20-%20Setting%20up%20GT%20ref%20clock%20and%20Boardfarm%20setups/Slide1.PNG" 
+                                 alt="Slide 1"
+                                 style="width: 100%; height: auto; display: block; border-radius: 8px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">
+                        </div>
+                        
+                        <!-- Navigation Controls -->
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1.5rem; gap: 1rem;">
+                            <!-- Previous Button -->
+                            <button onclick="changeSlide(-1)" 
+                                    aria-label="Previous slide"
+                                    style="padding: 0.75rem 1.5rem; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; font-family: 'Poppins', sans-serif; font-size: 1rem;"
+                                    onmouseover="this.style.opacity='0.9'"
+                                    onmouseout="this.style.opacity='1'">
+                                ← Previous
+                            </button>
+                            
+                            <!-- Slide Indicators -->
+                            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; justify-content: center;">
+                                <button onclick="goToSlide(1)" class="slide-indicator" data-slide="1" aria-label="Go to slide 1" style="width: 12px; height: 12px; border-radius: 50%; border: 2px solid #667eea; background: #667eea; cursor: pointer; transition: all 0.3s ease; padding: 0;"></button>
+                                <button onclick="goToSlide(2)" class="slide-indicator" data-slide="2" aria-label="Go to slide 2" style="width: 12px; height: 12px; border-radius: 50%; border: 2px solid #667eea; background: transparent; cursor: pointer; transition: all 0.3s ease; padding: 0;"></button>
+                                <button onclick="goToSlide(3)" class="slide-indicator" data-slide="3" aria-label="Go to slide 3" style="width: 12px; height: 12px; border-radius: 50%; border: 2px solid #667eea; background: transparent; cursor: pointer; transition: all 0.3s ease; padding: 0;"></button>
+                                <button onclick="goToSlide(4)" class="slide-indicator" data-slide="4" aria-label="Go to slide 4" style="width: 12px; height: 12px; border-radius: 50%; border: 2px solid #667eea; background: transparent; cursor: pointer; transition: all 0.3s ease; padding: 0;"></button>
+                                <button onclick="goToSlide(5)" class="slide-indicator" data-slide="5" aria-label="Go to slide 5" style="width: 12px; height: 12px; border-radius: 50%; border: 2px solid #667eea; background: transparent; cursor: pointer; transition: all 0.3s ease; padding: 0;"></button>
+                                <button onclick="goToSlide(6)" class="slide-indicator" data-slide="6" aria-label="Go to slide 6" style="width: 12px; height: 12px; border-radius: 50%; border: 2px solid #667eea; background: transparent; cursor: pointer; transition: all 0.3s ease; padding: 0;"></button>
+                                <button onclick="goToSlide(7)" class="slide-indicator" data-slide="7" aria-label="Go to slide 7" style="width: 12px; height: 12px; border-radius: 50%; border: 2px solid #667eea; background: transparent; cursor: pointer; transition: all 0.3s ease; padding: 0;"></button>
+                                <button onclick="goToSlide(8)" class="slide-indicator" data-slide="8" aria-label="Go to slide 8" style="width: 12px; height: 12px; border-radius: 50%; border: 2px solid #667eea; background: transparent; cursor: pointer; transition: all 0.3s ease; padding: 0;"></button>
+                                <button onclick="goToSlide(9)" class="slide-indicator" data-slide="9" aria-label="Go to slide 9" style="width: 12px; height: 12px; border-radius: 50%; border: 2px solid #667eea; background: transparent; cursor: pointer; transition: all 0.3s ease; padding: 0;"></button>
+                                <button onclick="goToSlide(10)" class="slide-indicator" data-slide="10" aria-label="Go to slide 10" style="width: 12px; height: 12px; border-radius: 50%; border: 2px solid #667eea; background: transparent; cursor: pointer; transition: all 0.3s ease; padding: 0;"></button>
+                                <button onclick="goToSlide(11)" class="slide-indicator" data-slide="11" aria-label="Go to slide 11" style="width: 12px; height: 12px; border-radius: 50%; border: 2px solid #667eea; background: transparent; cursor: pointer; transition: all 0.3s ease; padding: 0;"></button>
+                                <button onclick="goToSlide(12)" class="slide-indicator" data-slide="12" aria-label="Go to slide 12" style="width: 12px; height: 12px; border-radius: 50%; border: 2px solid #667eea; background: transparent; cursor: pointer; transition: all 0.3s ease; padding: 0;"></button>
+                            </div>
+                            
+                            <!-- Next Button -->
+                            <button onclick="changeSlide(1)" 
+                                    aria-label="Next slide"
+                                    style="padding: 0.75rem 1.5rem; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; font-family: 'Poppins', sans-serif; font-size: 1rem;"
+                                    onmouseover="this.style.opacity='0.9'"
+                                    onmouseout="this.style.opacity='1'">
+                                Next →
+                            </button>
+                        </div>
+                        
+                        <!-- Keyboard Navigation Hint -->
+                        <div style="text-align: center; margin-top: 1rem; color: #666; font-size: 0.85rem;">
+                            💡 Tip: Use arrow keys (← →) to navigate slides
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- VCK190 Workaround Section -->
+            <section class="card" id="vck190-workaround">
+                <h2>🔧 Workaround to program the GT REF clock in VCK190</h2>
+                
+                <p style="color: #555; line-height: 1.6; margin-bottom: 1rem;">
+                    There have been challenges in programming the GT REF clock on boardfarm boards, particularly since the BEAM tool is not available. Additionally, using the system-controller image app (sc_app) has proven unreliable.
+                </p>
+                
+                <p style="color: #555; line-height: 1.6; margin-bottom: 1rem;">
+                    The clock can be programmed using the PetaLinux IDT driver as a workaround.
+                </p>
+                
+                <div class="warning-box" style="background: linear-gradient(135deg, #FFA500 0%, #FF8C00 100%); color: white; padding: 1rem; border-radius: 12px; margin-bottom: 1.5rem;">
+                    <p style="margin: 0; display: flex; align-items: center; gap: 0.5rem;">
+                        <span style="font-size: 1.5rem;">⚠️</span>
+                        <span><strong>Important:</strong> Before downloading the PetaLinux image via JTAG, ensure the board is disconnected from the Vivado Hardware Manager.</span>
+                    </p>
+                </div>
+
+                <h3 style="color: #667eea; font-size: 1.3rem; margin-top: 2rem; margin-bottom: 1rem; text-align: left;">📊 322.2656MHz</h3>
+                
+                <p style="color: #555; line-height: 1.6; margin-bottom: 1rem;">
+                    Use the provided image (built using the VCK190 BSP to program 322.x MHz) and download it to the board as shown below. The image is located at 
+                    <code style="background: rgba(102, 126, 234, 0.1); padding: 0.2rem 0.5rem; border-radius: 4px; color: #667eea; font-weight: 500;">/public/cases/gt_refclk_program/xilinx-vck190-2024.2</code>
+                </p>
+                
+                <p style="color: #555; line-height: 1.6; margin-bottom: 1rem;">
+                    Aquire the board using <code style="background: rgba(102, 126, 234, 0.1); padding: 0.2rem 0.5rem; border-radius: 4px; color: #667eea;">systest</code>, 
+                    <code style="background: rgba(102, 126, 234, 0.1); padding: 0.2rem 0.5rem; border-radius: 4px; color: #667eea;">start hw_server</code>, and 
+                    <code style="background: rgba(102, 126, 234, 0.1); padding: 0.2rem 0.5rem; border-radius: 4px; color: #667eea;">connect com0</code>. For example, below is vck190-15:
+                </p>
+
+                <h4 style="color: #667eea; font-size: 1.1rem; margin-top: 1.5rem; margin-bottom: 0.75rem; text-align: left;">Terminal 1:</h4>
+                <div style="background: rgba(40, 40, 60, 0.05); border-radius: 8px; padding: 1rem; margin-bottom: 1rem; overflow-x: auto;" tabindex="0">
+                    <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.9rem; line-height: 1.6;" tabindex="0"><code>1  [vck190-15] Systest# loadmodule "2024.2_released"
+2  [vck190-15] Systest# hw_server
+3  Vivado hardware server is running on: chanterelle12:3121
+4
+5  [vck190-15] Systest# connect com0
+6  Connecting to device com0. Use Ctrl-\ to escape.</code></pre>
+                </div>
+
+                <h4 style="color: #667eea; font-size: 1.1rem; margin-top: 1.5rem; margin-bottom: 0.75rem; text-align: left;">Terminal 2:</h4>
+                <p style="color: #555; line-height: 1.6; margin-bottom: 1rem;">On a separate terminal, download the petalinux to the board:</p>
+                
+                <div style="background: rgba(40, 40, 60, 0.05); border-radius: 8px; padding: 1rem; margin-bottom: 1rem; overflow-x: auto;" tabindex="0">
+                    <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.9rem; line-height: 1.6;" tabindex="0"><code>1  ts -petalinux 2024.2
+2  cd /public/cases/gt_refclk_program/xilinx-vck190-2024.2
+3  petalinux-boot --jtag --kernel --rootfs ./images/linux/rootfs.cpio.gz.u-boot --hw_server tcp:chanterelle12:3121</code></pre>
+                </div>
+
+                <h4 id="verify-petalinux" style="color: #667eea; font-size: 1.1rem; margin-top: 1.5rem; margin-bottom: 0.75rem; scroll-margin-top: 90px; text-align: left;">Verify in PetaLinux</h4>
+                <p style="color: #555; line-height: 1.6; margin-bottom: 1rem;">
+                    In Terminal 1, once the image has been fully downloaded, the <a href="#" style="color: #667eea; text-decoration: underline;">PetaLinux login screen</a> will appear. 
+                    It is possible to verify whether the clock is programmed successfully. Login by using username <code style="background: rgba(102, 126, 234, 0.1); padding: 0.2rem 0.5rem; border-radius: 4px; color: #667eea;">petalinux</code> and 
+                    password <code style="background: rgba(102, 126, 234, 0.1); padding: 0.2rem 0.5rem; border-radius: 4px; color: #667eea;">petalinux</code>. 
+                    Type <code style="background: rgba(102, 126, 234, 0.1); padding: 0.2rem 0.5rem; border-radius: 4px; color: #667eea;">dmesg | grep idtcm</code>. You should see the following 
+                    <code style="background: rgba(102, 126, 234, 0.1); padding: 0.2rem 0.5rem; border-radius: 4px; color: #667eea;">[3.864659] 8a3400x-phc 8a3400x-phc.2.auto: requesting firmware 'idtcm.bin'</code>. 
+                    At this point, press <code style="background: rgba(102, 126, 234, 0.1); padding: 0.2rem 0.5rem; border-radius: 4px; color: #667eea;">Ctrl-\</code> to exit back to systest, 
+                    then run <code style="background: rgba(102, 126, 234, 0.1); padding: 0.2rem 0.5rem; border-radius: 4px; color: #667eea;">reset</code>. Your board will now be ready with the 322.x MHz clock.
+                </p>
+                
+                <div style="background: rgba(40, 40, 60, 0.05); border-radius: 8px; padding: 1rem; margin-bottom: 1.5rem; overflow-x: auto; max-height: 500px; overflow-y: auto;" tabindex="0">
+                    <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85rem; line-height: 1.6;" tabindex="0"><code>********************************************************************************
+The PetaLinux source code and images provided/generated are for demonstration pu
+Please refer to https://xilinx-wiki.atlassian.net/wiki/spaces/A/pages/2741928025
+for more details.
+********************************************************************************
+PetaLinux 2024.2+release-S11061705 PetaLinux ttyAMA0
+
+PetaLinux login: petalinux
+********************************************************************************
+The PetaLinux source code and images provided/generated are for demonstration pu
+Please refer to https://xilinx-wiki.atlassian.net/wiki/spaces/A/pages/2741928025
+for more details.
+********************************************************************************
+PetaLinux 2024.2+release-S11061705 PetaLinux ttyAMA0
+
+xilinx-vck190-20242:~$ petalinux
+You are required to change your password immediately (administrator enforced).
+New password:
+Retype new password:
+[   84.545685] audit: type=1006 audit(2150864578.264:2): pid=751 uid=0 old-auid=
+[   84.558284] audit: type=1300 audit(2150864578.264:2): arch=c00000b7 syscall=
+[   84.584996] audit: type=1327 audit(2150864578.264:2): proctitle="(systemd)"
+
+xilinx-vck190-20242:~$
+xilinx-vck190-20242:~$ sudo su
+
+We trust you have received the usual lecture from the local System
+Administrator. It usually boils down to these three things:
+
+    #1) Respect the privacy of others.
+    #2) Think before you type.
+    #3) With great power comes great responsibility.
+
+For security reasons, the password you type will not be visible.
+
+Password:
+xilinx-vck190-20242:/home/petalinux# dmesg | grep idt
+[   3.864659] 8a3400x-phc 8a3400x-phc.2.auto: requesting firmware 'idtcm.bin'
+######THIS is where I pressed CTRL-\######
+PetaLinux:/home/petalinux# [vck190-15] Systest#
+[vck190-15] Systest# reset
+[vck190-15] Systest# connect com0</code></pre>
+                </div>
+
+                <p style="color: #555; line-height: 1.6; margin-bottom: 1rem;">
+                    Now it is ok to connect the board in the HW Manager and download the PDI and ELF file.
+                </p>
+                
+                <p style="color: #555; line-height: 1.6; margin-bottom: 1rem;">
+                    The TCS file was obtained from here: 
+                    <span style="background: rgba(40, 40, 60, 0.05); padding: 0.2rem 0.5rem; border-radius: 4px;">
+                        <a href="https://adaptivesupport.amd.com/s/article/76501?language=en_US" target="_blank" rel="noopener" style="color: #667eea; text-decoration: underline;">📄 AMD Customer Community</a>
+                    </span>
+                </p>
+
+                <h3 style="color: #667eea; font-size: 1.3rem; margin-top: 2rem; margin-bottom: 1rem; text-align: left;">📊 156.25Mhz</h3>
+                
+                <p style="color: #555; line-height: 1.6; margin-bottom: 1rem;">
+                    For any other clock frequency, such as 156.25MHz, the provided PetaLinux project can be modified.
+                </p>
+                
+                <ol style="color: #555; line-height: 1.8; margin-left: 1.5rem;">
+                    <li>Copy the Petalinux project to your workspace: 
+                        <code style="background: rgba(102, 126, 234, 0.1); padding: 0.2rem 0.5rem; border-radius: 4px; color: #667eea;">cp -rf /public/cases/gt_refclk_program/xilinx-vck190-2024.2 &lt;YOUR WORKSPACE&gt;</code>
+                    </li>
+                    <li>Generate a new <code style="background: rgba(102, 126, 234, 0.1); padding: 0.2rem 0.5rem; border-radius: 4px; color: #667eea;">tcs</code> file using 
+                        <a href="https://www.renesas.com/en/software-tool/timing-commander" target="_blank" rel="noopener" style="color: #667eea; text-decoration: underline;"><span style="background: rgba(40, 40, 60, 0.05); padding: 0.2rem 0.5rem; border-radius: 4px;">📝 Timing Commander</span></a>. 
+                        Skip this if you already have <code style="background: rgba(102, 126, 234, 0.1); padding: 0.2rem 0.5rem; border-radius: 4px; color: #667eea;">tcs</code> file; 
+                        for example, the 156.25MHz file is already included in system-controller. It's possible to download the file using 
+                        <code style="background: rgba(102, 126, 234, 0.1); padding: 0.2rem 0.5rem; border-radius: 4px; color: #667eea;">scp</code> to your local workspace.
+                    </li>
+                    <li>Use <code style="background: rgba(102, 126, 234, 0.1); padding: 0.2rem 0.5rem; border-radius: 4px; color: #667eea;">tcs2bin</code> to generate 
+                        <code style="background: rgba(102, 126, 234, 0.1); padding: 0.2rem 0.5rem; border-radius: 4px; color: #667eea;">idtcm.bin</code>
+                    </li>
+                </ol>
+                
+                <div style="background: rgba(40, 40, 60, 0.05); border-radius: 8px; padding: 1rem; margin: 1rem 0; overflow-x: auto;" tabindex="0">
+                    <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.9rem; line-height: 1.6;" tabindex="0"><code>1  chmod +x tcs2bin
+2  ./tcs2bin -i &lt;file_name.tcs&gt; -o idtcm.bin</code></pre>
+                </div>
+                
+                <div style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(118, 75, 162, 0.08) 100%); border: 2px solid rgba(102, 126, 234, 0.3); border-radius: 12px; padding: 1.2rem; margin: 1.5rem 0; display: flex; align-items: center; gap: 1rem;">
+                    <div style="font-size: 2rem;">📥</div>
+                    <div style="flex: 1;">
+                        <p style="margin: 0; color: #333; font-weight: 600; font-size: 1rem;">
+                            Downloadable Resource
+                        </p>
+                        <p style="margin: 0.3rem 0 0 0; color: #666; font-size: 0.9rem;">
+                            Click to download the tcs2bin tool
+                        </p>
+                    </div>
+                    <a href="../../assets/tcs2bin" download="tcs2bin" style="padding: 0.7rem 1.5rem; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(102, 126, 234, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 8px rgba(102, 126, 234, 0.3)'">
+                        Download
+                    </a>
+                </div>
+
+                <ol start="4" style="color: #555; line-height: 1.8; margin-left: 1.5rem;">
+                    <li>Replace the file inside 
+                        <code style="background: rgba(102, 126, 234, 0.1); padding: 0.2rem 0.5rem; border-radius: 4px; color: #667eea;">xilinx-vck190-2024.2/project-spec/meta-user/recipes-apps/idtcm/files/</code>
+                    </li>
+                    <li>Run the following commands:</li>
+                </ol>
+                
+                <div style="background: rgba(40, 40, 60, 0.05); border-radius: 8px; padding: 1rem; margin: 1rem 0; overflow-x: auto;" tabindex="0">
+                    <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.9rem; line-height: 1.6;" tabindex="0"><code>1  petalinux-build -x mrproper && petalinux-build
+2  petalinux-package --boot --plm --psmfw --u-boot --dtb --force
+3  petalinux-boot --jtag --kernel --rootfs ./images/linux/rootfs.cpio.gz.u-boot --hw_server tcp:chanterelle12:3121</code></pre>
+                </div>
+                
+                <p style="color: #555; line-height: 1.6; margin-top: 1rem;">
+                    Now, your board will be programmed with the clock file generated above. Verify as shown in section 
+                    <a href="#verify-petalinux" style="color: #667eea; text-decoration: underline;">📂 XSJ Boardfarm - WTS-WWG - Ethernet Testing Setup | Verify in PetaLinux</a>
+                </p>
+            </section>
+
+            <!-- XHD Boards in XSJ Machine Section -->
+            <section class="card" id="xhd-boards">
+                <h2>🖥️ XHD boards in XSJ Machine</h2>
+                
+                <div style="background: rgba(40, 40, 60, 0.05); border-radius: 8px; padding: 1rem; margin-bottom: 1rem; overflow-x: auto;" tabindex="0">
+                    <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.9rem; line-height: 1.6;" tabindex="0"><code>1   ssh xhdbf1
+2   /proj/systest/bin/systest xhd-zcu670-5
+3   Job &lt;9467010&gt; is submitted to queue &lt;hwboard&gt;.
+4   &lt;&lt;Waiting for dispatch ...&gt;&gt;
+5   &lt;&lt;Starting on xhdbfarmkaa6&gt;&gt;
+6   -- Systest server on host xhdbfarmkaa6 started on May 28, 2025 8:19:04 AM ------
+7   This setup has the following serial ports:
+8       com0, com1, com2
+9   Board Farm Confluence page: https://amd.atlassian.net/wiki/spaces/XPS/pages/603288468
+10  You can see the list of commands by typing "help"
+11  -----------------------------------------------------------------------------
+12  [xhd-zcu670-5] Systest#</code></pre>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Mermaid JS -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    
+    <script>
+        // Initialize Mermaid
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'default',
+            themeVariables: {
+                fontSize: '16px',
+                fontFamily: 'Poppins, sans-serif'
+            }
+        });
+        
+        // TanStack-style Table Implementation
+        class CustomTable {
+            constructor(tableId, searchId, pageSizeId, infoId, paginationId, options = {}) {
+                this.table = document.getElementById(tableId);
+                this.searchInput = document.getElementById(searchId);
+                this.pageSizeSelect = document.getElementById(pageSizeId);
+                this.infoDiv = document.getElementById(infoId);
+                this.paginationDiv = document.getElementById(paginationId);
+                
+                this.tbody = this.table.querySelector('tbody');
+                this.thead = this.table.querySelector('thead');
+                this.rows = Array.from(this.tbody.querySelectorAll('tr'));
+                this.filteredRows = [...this.rows];
+                
+                this.currentPage = 0;
+                this.pageSize = parseInt(this.pageSizeSelect.value);
+                this.sortColumn = -1;
+                this.sortDirection = 'asc';
+                
+                this.init();
+            }
+            
+            init() {
+                // Add sortable indicators
+                this.thead.querySelectorAll('th').forEach((th, index) => {
+                    th.classList.add('sortable');
+                    th.addEventListener('click', () => this.sort(index));
+                });
+                
+                // Search functionality
+                this.searchInput.addEventListener('input', (e) => {
+                    this.filter(e.target.value);
+                });
+                
+                // Page size change
+                this.pageSizeSelect.addEventListener('change', (e) => {
+                    this.pageSize = parseInt(e.target.value);
+                    this.currentPage = 0;
+                    this.render();
+                });
+                
+                this.render();
+            }
+            
+            filter(searchTerm) {
+                searchTerm = searchTerm.toLowerCase();
+                this.filteredRows = this.rows.filter(row => {
+                    const text = row.textContent.toLowerCase();
+                    return text.includes(searchTerm);
+                });
+                this.currentPage = 0;
+                this.render();
+            }
+            
+            sort(columnIndex) {
+                const rows = [...this.filteredRows];
+                
+                if (this.sortColumn === columnIndex) {
+                    this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
+                } else {
+                    this.sortColumn = columnIndex;
+                    this.sortDirection = 'asc';
+                }
+                
+                // Update header indicators
+                this.thead.querySelectorAll('th').forEach((th, idx) => {
+                    th.classList.remove('sort-asc', 'sort-desc');
+                    if (idx === columnIndex) {
+                        th.classList.add(this.sortDirection === 'asc' ? 'sort-asc' : 'sort-desc');
+                    }
+                });
+                
+                rows.sort((a, b) => {
+                    const aText = a.cells[columnIndex]?.textContent.trim() || '';
+                    const bText = b.cells[columnIndex]?.textContent.trim() || '';
+                    
+                    const aNum = parseFloat(aText);
+                    const bNum = parseFloat(bText);
+                    
+                    let comparison = 0;
+                    if (!isNaN(aNum) && !isNaN(bNum)) {
+                        comparison = aNum - bNum;
+                    } else {
+                        comparison = aText.localeCompare(bText);
+                    }
+                    
+                    return this.sortDirection === 'asc' ? comparison : -comparison;
+                });
+                
+                this.filteredRows = rows;
+                this.currentPage = 0;
+                this.render();
+            }
+            
+            render() {
+                // Clear tbody
+                this.tbody.innerHTML = '';
+                
+                // Calculate pagination
+                const start = this.currentPage * this.pageSize;
+                const end = start + this.pageSize;
+                const pageRows = this.filteredRows.slice(start, end);
+                
+                // Add rows to table
+                pageRows.forEach(row => this.tbody.appendChild(row.cloneNode(true)));
+                
+                // Update info
+                const total = this.filteredRows.length;
+                const showing = Math.min(end, total);
+                this.infoDiv.textContent = `Showing ${start + 1} to ${showing} of ${total} entries`;
+                
+                // Update pagination
+                this.renderPagination();
+            }
+            
+            renderPagination() {
+                this.paginationDiv.innerHTML = '';
+                
+                const totalPages = Math.ceil(this.filteredRows.length / this.pageSize);
+                
+                // Previous button
+                const prevBtn = document.createElement('button');
+                prevBtn.textContent = '←';
+                prevBtn.className = 'pagination-btn';
+                prevBtn.disabled = this.currentPage === 0;
+                prevBtn.addEventListener('click', () => {
+                    if (this.currentPage > 0) {
+                        this.currentPage--;
+                        this.render();
+                    }
+                });
+                this.paginationDiv.appendChild(prevBtn);
+                
+                // Page numbers
+                const maxButtons = 5;
+                let startPage = Math.max(0, this.currentPage - Math.floor(maxButtons / 2));
+                let endPage = Math.min(totalPages, startPage + maxButtons);
+                
+                if (endPage - startPage < maxButtons) {
+                    startPage = Math.max(0, endPage - maxButtons);
+                }
+                
+                for (let i = startPage; i < endPage; i++) {
+                    const pageBtn = document.createElement('button');
+                    pageBtn.textContent = i + 1;
+                    pageBtn.className = 'pagination-btn';
+                    if (i === this.currentPage) {
+                        pageBtn.classList.add('active');
+                    }
+                    pageBtn.addEventListener('click', () => {
+                        this.currentPage = i;
+                        this.render();
+                    });
+                    this.paginationDiv.appendChild(pageBtn);
+                }
+                
+                // Next button
+                const nextBtn = document.createElement('button');
+                nextBtn.textContent = '→';
+                nextBtn.className = 'pagination-btn';
+                nextBtn.disabled = this.currentPage >= totalPages - 1;
+                nextBtn.addEventListener('click', () => {
+                    if (this.currentPage < totalPages - 1) {
+                        this.currentPage++;
+                        this.render();
+                    }
+                });
+                this.paginationDiv.appendChild(nextBtn);
+            }
+        }
+        
+        // Initialize tables after DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            new CustomTable(
+                'board-to-board-table',
+                'b2b-search',
+                'b2b-page-size',
+                'b2b-info',
+                'b2b-pagination'
+            );
+            
+            new CustomTable(
+                'board-to-nic-table',
+                'b2n-search',
+                'b2n-page-size',
+                'b2n-info',
+                'b2n-pagination'
+            );
+        });
+    </script>
+
+    <script>
+        // Dark Mode Toggle
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            const isDark = document.body.classList.contains('dark-mode');
+            localStorage.setItem('darkMode', isDark);
+            
+            const icon = document.getElementById('darkModeIcon');
+            const text = document.getElementById('darkModeText');
+            icon.textContent = isDark ? '☀️' : '🌙';
+            text.textContent = isDark ? 'Light Mode' : 'Dark Mode';
+        }
+
+        // Check for saved dark mode preference
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.body.classList.add('dark-mode');
+            document.getElementById('darkModeIcon').textContent = '☀️';
+            document.getElementById('darkModeText').textContent = 'Light Mode';
+        }
+
+        // Scroll to Top with smooth easing animation
+        function scrollToTop() {
+            const targetPosition = 0;
+            const startPosition = window.pageYOffset;
+            const distance = startPosition;
+            
+            // Dynamic duration: min 800ms, max 1500ms, scales with distance
+            const duration = Math.min(1500, Math.max(800, distance * 0.6 + 400));
+            let start = null;
+            
+            function animation(currentTime) {
+                if (start === null) start = currentTime;
+                const timeElapsed = currentTime - start;
+                const run = ease(timeElapsed, startPosition, -distance, duration);
+                window.scrollTo(0, run);
+                if (timeElapsed < duration) requestAnimationFrame(animation);
+            }
+            
+            // Easing function for smooth animation
+            function ease(t, b, c, d) {
+                t /= d / 2;
+                if (t < 1) return c / 2 * t * t + b;
+                t--;
+                return -c / 2 * (t * (t - 2) - 1) + b;
+            }
+            
+            requestAnimationFrame(animation);
+        }
+
+        // Show/hide scroll to top button
+        window.addEventListener('scroll', function() {
+            const scrollButton = document.querySelector('.scroll-to-top');
+            if (window.pageYOffset > 300) {
+                scrollButton.style.display = 'flex';
+            } else {
+                scrollButton.style.display = 'none';
+            }
+        });
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('show');
+        }
+
+        // Smooth scrolling for anchor links with easing animation
+        function initSmoothScroll() {
+            const navLinks = document.querySelectorAll('a[href^="#"]');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const href = this.getAttribute('href');
+                    if (href === '#') return;
+                    
+                    const targetId = href.substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    
+                    if (targetElement) {
+                        const targetPosition = targetElement.offsetTop - 80; // Account for fixed navbar
+                        const startPosition = window.pageYOffset;
+                        const distance = Math.abs(targetPosition - startPosition);
+                        
+                        // Dynamic duration: min 800ms, max 1500ms, scales with distance
+                        const duration = Math.min(1500, Math.max(800, distance * 0.6 + 400));
+                        let start = null;
+                        
+                        function animation(currentTime) {
+                            if (start === null) start = currentTime;
+                            const timeElapsed = currentTime - start;
+                            const run = ease(timeElapsed, startPosition, targetPosition - startPosition, duration);
+                            window.scrollTo(0, run);
+                            if (timeElapsed < duration) requestAnimationFrame(animation);
+                        }
+                        
+                        // Easing function for smooth animation
+                        function ease(t, b, c, d) {
+                            t /= d / 2;
+                            if (t < 1) return c / 2 * t * t + b;
+                            t--;
+                            return -c / 2 * (t * (t - 2) - 1) + b;
+                        }
+                        
+                        requestAnimationFrame(animation);
+                    }
+                });
+            });
+        }
+        
+        // Initialize smooth scroll on page load
+        initSmoothScroll();
+
+        // Highlight active section in navigation
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            const scrollPosition = window.pageYOffset;
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight;
+            
+            // Check if we're at the bottom of the page
+            if (scrollPosition + windowHeight >= documentHeight - 10) {
+                // Highlight the last section
+                const lastSection = sections[sections.length - 1];
+                current = lastSection.getAttribute('id');
+            } else {
+                // Normal scroll highlighting
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (scrollPosition >= (sectionTop - 200)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+            }
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // ========== SLIDESHOW FUNCTIONS ==========
+        let currentSlide = 1;
+        const totalSlides = 12;
+        const slideBasePath = '../../assets/pdf/GT-ref-clock/NA%20SME%20Tips%20and%20Tricks%20-%20Setting%20up%20GT%20ref%20clock%20and%20Boardfarm%20setups/Slide';
+
+        function changeSlide(direction) {
+            currentSlide += direction;
+            if (currentSlide > totalSlides) currentSlide = 1;
+            if (currentSlide < 1) currentSlide = totalSlides;
+            updateSlide();
+        }
+
+        function goToSlide(slideNumber) {
+            currentSlide = slideNumber;
+            updateSlide();
+        }
+
+        function updateSlide() {
+            // Update image
+            const slideImage = document.getElementById('slide-image');
+            slideImage.src = `${slideBasePath}${currentSlide}.PNG`;
+            slideImage.alt = `Slide ${currentSlide}`;
+            
+            // Update counter
+            document.getElementById('current-slide').textContent = currentSlide;
+            
+            // Update indicators
+            const indicators = document.querySelectorAll('.slide-indicator');
+            indicators.forEach((indicator, index) => {
+                if (index + 1 === currentSlide) {
+                    indicator.style.background = '#667eea';
+                    indicator.style.transform = 'scale(1.2)';
+                } else {
+                    indicator.style.background = 'transparent';
+                    indicator.style.transform = 'scale(1)';
+                }
+            });
+        }
+
+        // Keyboard navigation for slides
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowLeft') {
+                changeSlide(-1);
+            } else if (event.key === 'ArrowRight') {
+                changeSlide(1);
+            }
+        });
+
+        // Touch swipe gestures for carousel
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        const slideshowContainer = document.getElementById('slideshow-container');
+        if (slideshowContainer) {
+            slideshowContainer.addEventListener('touchstart', function(e) {
+                touchStartX = e.changedTouches[0].screenX;
+            }, { passive: true });
+
+            slideshowContainer.addEventListener('touchend', function(e) {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            }, { passive: true });
+        }
+
+        function handleSwipe() {
+            const swipeThreshold = 50; // Minimum distance for a swipe
+            const diff = touchStartX - touchEndX;
+            
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    // Swiped left - go to next slide
+                    changeSlide(1);
+                } else {
+                    // Swiped right - go to previous slide
+                    changeSlide(-1);
+                }
+            }
+        }
+
+        // Preload all slide images for smooth experience
+        window.addEventListener('load', function() {
+            for (let i = 1; i <= totalSlides; i++) {
+                const img = new Image();
+                img.src = `${slideBasePath}${i}.PNG`;
+            }
+        });
+    </script>
+</body>
+</html>

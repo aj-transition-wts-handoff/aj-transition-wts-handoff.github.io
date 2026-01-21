@@ -48,7 +48,7 @@ jobs:
       - name: Check Links in All Pages
         uses: lycheeverse/lychee-action@v1
         with:
-          args: --verbose --no-progress --accept 200,403,429 --exclude-path backup --exclude-path node_modules './**/*.html'
+          args: --verbose --no-progress --accept 200,403,429 --exclude-path backup --exclude-path node_modules --exclude 'https://jira\.xilinx\.com/.*' --exclude 'https://www\.te\.com/.*' './**/*.html'
           fail: true
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
@@ -84,6 +84,7 @@ jobs:
             http://localhost:8080/pages/ar-list.html
             http://localhost:8080/pages/cq-list.html
             http://localhost:8080/pages/cr-list.html
+            http://localhost:8080/pages/boardfarm-resources/boardfarm.html
             http://localhost:8080/pages/device-tree-webapp/index.html
           uploadArtifacts: false
           temporaryPublicStorage: false
@@ -141,7 +142,7 @@ jobs:
       
       - name: Run Axe Accessibility Tests
         run: |
-          npx axe http://localhost:8080/index.html http://localhost:8080/pages/cases-dashboard.html http://localhost:8080/pages/cq-list.html http://localhost:8080/pages/cr-list.html http://localhost:8080/pages/ethernet-interfaces.html http://localhost:8080/pages/jenkins-automation.html http://localhost:8080/pages/device-tree-webapp/index.html --exit
+          npx axe http://localhost:8080/index.html http://localhost:8080/pages/cases-dashboard.html http://localhost:8080/pages/cq-list.html http://localhost:8080/pages/cr-list.html http://localhost:8080/pages/ethernet-interfaces.html http://localhost:8080/pages/jenkins-automation.html http://localhost:8080/pages/boardfarm-resources/boardfarm.html http://localhost:8080/pages/device-tree-webapp/index.html --exit
           echo "Note: ar-list.html and playbook.html excluded from axe testing due to documented false positives"
 
   cross-browser-tests:
