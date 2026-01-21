@@ -9,7 +9,8 @@ const pages = [
   '/pages/ar-list.html',
   '/pages/cq-list.html',
   '/pages/cr-list.html',
-  '/pages/device-tree-webapp/index.html'
+  '/pages/device-tree-webapp/index.html',
+  '/pages/boardfarm-resources/boardfarm.html'
 ];
 
 test.describe('Common Features Across All Pages', () => {

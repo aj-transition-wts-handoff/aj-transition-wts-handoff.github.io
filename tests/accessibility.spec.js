@@ -10,7 +10,8 @@ const pages = [
   { url: '/pages/ar-list.html', name: 'AR List' },
   { url: '/pages/cq-list.html', name: 'CQ List' },
   { url: '/pages/cr-list.html', name: 'CR List' },
-  { url: '/pages/device-tree-webapp/index.html', name: 'Device Tree Architect' }
+  { url: '/pages/device-tree-webapp/index.html', name: 'Device Tree Architect' },
+  { url: '/pages/boardfarm-resources/boardfarm.html', name: 'Boardfarm Setup' }
 ];
 
 test.describe('Accessibility Testing', () => {
