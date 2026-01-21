@@ -886,7 +886,7 @@
                     <div class="table-controls">
                         <div class="table-controls-left">
                             <span style="color: #666;">Show</span>
-                            <select class="table-select" id="b2b-page-size">
+                            <select class="table-select" id="b2b-page-size" aria-label="Number of entries per page">
                                 <option value="5">5</option>
                                 <option value="10" selected>10</option>
                                 <option value="25">25</option>
@@ -1036,7 +1036,7 @@
                     <div class="table-controls">
                         <div class="table-controls-left">
                             <span style="color: #666;">Show</span>
-                            <select class="table-select" id="b2n-page-size">
+                            <select class="table-select" id="b2n-page-size" aria-label="Number of entries per page">
                                 <option value="5" selected>5</option>
                                 <option value="10">10</option>
                                 <option value="25">25</option>
@@ -1191,7 +1191,7 @@ graph TB
                 <h3 style="color: #667eea; font-size: 1.3rem; margin-top: 2rem; margin-bottom: 1rem; text-align: left;">🔶 Mellanox Setup</h3>
                 <p style="color: #555; margin-bottom: 1rem;">Currently, we have 2 Mellanox in this setup as shown in the diagram above.</p>
                 
-                <div style="background: rgba(40, 40, 60, 0.05); border-radius: 8px; padding: 1rem; margin-bottom: 1rem; overflow-x: auto;">
+                <div style="background: rgba(40, 40, 60, 0.05); border-radius: 8px; padding: 1rem; margin-bottom: 1rem; overflow-x: auto;" tabindex="0">
                     <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre;"><code>1  ajayad@xsjzebu13 ~ - $ lspci | grep Mella
 2  25:00.0 Ethernet controller: Mellanox Technologies MT28800 Family [ConnectX-5 Ex]
 3  25:00.1 Ethernet controller: Mellanox Technologies MT28800 Family [ConnectX-5 Ex]
@@ -1201,7 +1201,7 @@ graph TB
 
                 <p style="color: #555; margin-bottom: 1rem;">Below are the interfaces. Each card has 2 ports:</p>
                 
-                <div style="background: rgba(40, 40, 60, 0.05); border-radius: 8px; padding: 1rem; margin-bottom: 1rem; overflow-x: auto;">
+                <div style="background: rgba(40, 40, 60, 0.05); border-radius: 8px; padding: 1rem; margin-bottom: 1rem; overflow-x: auto;" tabindex="0">
                     <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85rem; line-height: 1.6; white-space: pre;"><code>1   ajayad@xsjzebu13 ~ - $ ifconfig
 2   eth6: flags=4099&lt;UP,BROADCAST,MULTICAST&gt;  mtu 1500
 3           ether 6c:b3:11:88:0f:ea  txqueuelen 1000  (Ethernet)
@@ -1250,7 +1250,7 @@ graph TB
                     <div style="position: relative; background: white; border-radius: 12px; padding: 1.5rem; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); max-width: 900px; margin: 0 auto;">
                         <!-- Slide Counter -->
                         <div style="text-align: center; margin-bottom: 1rem;">
-                            <span style="color: #667eea; font-weight: 600; font-size: 1.1rem;">
+                            <span style="color: #4c5fd5; font-weight: 600; font-size: 1.1rem;">
                                 Slide <span id="current-slide">1</span> of 12
                             </span>
                         </div>
@@ -1341,7 +1341,7 @@ graph TB
                 </p>
 
                 <h4 style="color: #667eea; font-size: 1.1rem; margin-top: 1.5rem; margin-bottom: 0.75rem; text-align: left;">Terminal 1:</h4>
-                <div style="background: rgba(40, 40, 60, 0.05); border-radius: 8px; padding: 1rem; margin-bottom: 1rem; overflow-x: auto;">
+                <div style="background: rgba(40, 40, 60, 0.05); border-radius: 8px; padding: 1rem; margin-bottom: 1rem; overflow-x: auto;" tabindex="0">
                     <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.9rem; line-height: 1.6;"><code>1  [vck190-15] Systest# loadmodule "2024.2_released"
 2  [vck190-15] Systest# hw_server
 3  Vivado hardware server is running on: chanterelle12:3121
@@ -1353,7 +1353,7 @@ graph TB
                 <h4 style="color: #667eea; font-size: 1.1rem; margin-top: 1.5rem; margin-bottom: 0.75rem; text-align: left;">Terminal 2:</h4>
                 <p style="color: #555; line-height: 1.6; margin-bottom: 1rem;">On a separate terminal, download the petalinux to the board:</p>
                 
-                <div style="background: rgba(40, 40, 60, 0.05); border-radius: 8px; padding: 1rem; margin-bottom: 1rem; overflow-x: auto;">
+                <div style="background: rgba(40, 40, 60, 0.05); border-radius: 8px; padding: 1rem; margin-bottom: 1rem; overflow-x: auto;" tabindex="0">
                     <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.9rem; line-height: 1.6;"><code>1  ts -petalinux 2024.2
 2  cd /public/cases/gt_refclk_program/xilinx-vck190-2024.2
 3  petalinux-boot --jtag --kernel --rootfs ./images/linux/rootfs.cpio.gz.u-boot --hw_server tcp:chanterelle12:3121</code></pre>
@@ -1370,7 +1370,7 @@ graph TB
                     then run <code style="background: rgba(102, 126, 234, 0.1); padding: 0.2rem 0.5rem; border-radius: 4px; color: #667eea;">reset</code>. Your board will now be ready with the 322.x MHz clock.
                 </p>
                 
-                <div style="background: rgba(40, 40, 60, 0.05); border-radius: 8px; padding: 1rem; margin-bottom: 1.5rem; overflow-x: auto; max-height: 500px; overflow-y: auto;">
+                <div style="background: rgba(40, 40, 60, 0.05); border-radius: 8px; padding: 1rem; margin-bottom: 1.5rem; overflow-x: auto; max-height: 500px; overflow-y: auto;" tabindex="0">
                     <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85rem; line-height: 1.6;"><code>********************************************************************************
 The PetaLinux source code and images provided/generated are for demonstration pu
 Please refer to https://xilinx-wiki.atlassian.net/wiki/spaces/A/pages/2741928025
@@ -1447,7 +1447,7 @@ PetaLinux:/home/petalinux# [vck190-15] Systest#
                     </li>
                 </ol>
                 
-                <div style="background: rgba(40, 40, 60, 0.05); border-radius: 8px; padding: 1rem; margin: 1rem 0; overflow-x: auto;">
+                <div style="background: rgba(40, 40, 60, 0.05); border-radius: 8px; padding: 1rem; margin: 1rem 0; overflow-x: auto;" tabindex="0">
                     <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.9rem; line-height: 1.6;"><code>1  chmod +x tcs2bin
 2  ./tcs2bin -i &lt;file_name.tcs&gt; -o idtcm.bin</code></pre>
                 </div>
@@ -1474,7 +1474,7 @@ PetaLinux:/home/petalinux# [vck190-15] Systest#
                     <li>Run the following commands:</li>
                 </ol>
                 
-                <div style="background: rgba(40, 40, 60, 0.05); border-radius: 8px; padding: 1rem; margin: 1rem 0; overflow-x: auto;">
+                <div style="background: rgba(40, 40, 60, 0.05); border-radius: 8px; padding: 1rem; margin: 1rem 0; overflow-x: auto;" tabindex="0">
                     <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.9rem; line-height: 1.6;"><code>1  petalinux-build -x mrproper && petalinux-build
 2  petalinux-package --boot --plm --psmfw --u-boot --dtb --force
 3  petalinux-boot --jtag --kernel --rootfs ./images/linux/rootfs.cpio.gz.u-boot --hw_server tcp:chanterelle12:3121</code></pre>
@@ -1490,7 +1490,7 @@ PetaLinux:/home/petalinux# [vck190-15] Systest#
             <section class="card" id="xhd-boards">
                 <h2>🖥️ XHD boards in XSJ Machine</h2>
                 
-                <div style="background: rgba(40, 40, 60, 0.05); border-radius: 8px; padding: 1rem; margin-bottom: 1rem; overflow-x: auto;">
+                <div style="background: rgba(40, 40, 60, 0.05); border-radius: 8px; padding: 1rem; margin-bottom: 1rem; overflow-x: auto;" tabindex="0">
                     <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.9rem; line-height: 1.6;"><code>1   ssh xhdbf1
 2   /proj/systest/bin/systest xhd-zcu670-5
 3   Job &lt;9467010&gt; is submitted to queue &lt;hwboard&gt;.
