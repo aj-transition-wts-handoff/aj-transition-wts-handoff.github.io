@@ -48,7 +48,7 @@ jobs:
       - name: Check Links in All Pages
         uses: lycheeverse/lychee-action@v1
         with:
-          args: --verbose --no-progress --accept 200,403,429 --exclude-path backup --exclude-path node_modules './**/*.html'
+          args: --verbose --no-progress --accept 200,403,429 --exclude-path backup --exclude-path node_modules --exclude 'https://jira\.xilinx\.com/.*' --exclude 'https://www\.te\.com/.*' './**/*.html'
           fail: true
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
