@@ -1021,6 +1021,36 @@
                             🟢 Driver Issues ▼
                         </div>
                         <div class="accordion-content">
+                            <div class="note-box" style="margin-bottom: 1rem;">
+                                <strong>⚠️ Common <a href="https://github.com/Xilinx/linux-xlnx/blob/master/drivers/net/ethernet/xilinx/xilinx_axienet_main.c" target="_blank" style="color: inherit; text-decoration: underline;">Axienet Driver</a> Errors:</strong>
+                                <p style="margin-top: 0.5rem; margin-bottom: 0.5rem;">At the time of this writing, the axienet driver errors out for 3 main reasons:</p>
+                                <ol style="margin-left: 1.5rem; list-style-type: none;">
+                                    <li style="padding: 0.5rem 0;"><strong>❌ GT Ref Clock Issue:</strong> When the GT ref clock is not available or correct
+                                        <div class="terminal-commands" style="margin-top: 0.5rem;">
+                                            <code>netdev_err(ndev, "MRMAC PLL lock not complete! Cross-check the MAC ref clock configuration\n");</code>
+                                        </div>
+                                    </li>
+                                    <li style="padding: 0.5rem 0;"><strong>❌ Link Partner Missing:</strong> When the link partner is not there
+                                        <div class="terminal-commands" style="margin-top: 0.5rem;">
+                                            <code>netdev_err(ndev, "MRMAC block lock not complete! Cross-check the MAC ref clock configuration\n");</code>
+                                        </div>
+                                    </li>
+                                    <li style="padding: 0.5rem 0;"><strong>❌ No RX Valid Control Code:</strong> When there is no recent RX valid control code
+                                        <div class="terminal-commands" style="margin-top: 0.5rem;">
+                                            <code>netdev_err(ndev, "MRMAC Link is down! No recent RX Valid Control Code\n");</code>
+                                        </div>
+                                    </li>
+                                </ol>
+                                <p style="margin-top: 0.5rem; margin-bottom: 0.5rem;">Then we expect to see this message:</p>
+                                <div class="terminal-commands">
+                                    <code>netdev_err(ndev, "MRMAC Link is down!\n");</code>
+                                </div>
+                                <p style="margin-top: 0.5rem; margin-bottom: 0.5rem;">However, when the driver is happy, we expect to see something like the example shown below. <br> MRMAC setup as &lt;RATE&gt;, for example at 10G:</p>
+                                <div class="terminal-commands">
+                                    <code>
+[ 1307.699546] xilinx_axienet a4000000.mrmac eth0: MRMAC setup at 10000</code>
+                                </div>
+                            </div>
                             <div class="issue-card">
                                 <div class="issue-title">Probe Failures</div>
                                 <div class="issue-desc">Check DT bindings, compatible strings, and resource allocation. Compare with working system-user.dtsi example.</div>
