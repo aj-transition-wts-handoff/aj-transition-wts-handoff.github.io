@@ -1,6 +1,24 @@
 // CR Data - Contributed Change Requests
 const allCRs = [
   {
+    "number": "CR-1257723",
+    "summary": "1G/2.5G Ethernet PCS/PMA IP Core Clock Constraints",
+    "status": "Assigned",
+    "assignee": "pachimak"
+  },
+  {
+    "number": "CR-1237546",
+    "summary": "Versal MRMAC-TFTP does not work in U-boot when connected to a switch",
+    "status": "Assigned",
+    "assignee": "Begari, Padmarao"
+  },
+  {
+    "number": "CR-1213126",
+    "summary": "AXI 1G/2.5G Ethernet Subsystem - 2.5G Versal Recovery Reset Logic - Enhancement request",
+    "status": "New",
+    "assignee": "Unassigned"
+  },
+  {
     "number": "CR-1256112",
     "summary": "WTS-WWG-Ethernet-Testing - Need ZCU670 SFP connection for 100G ethernet testing",
     "status": "Closed",
