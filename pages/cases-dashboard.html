@@ -13,6 +13,7 @@
     <script src="../js/cases-2023.js"></script>
     <script src="../js/cases-2024.js"></script>
     <script src="../js/cases-2025.js"></script>
+    <script src="../js/cases-2026.js"></script>
     
     <style>
         :root {
@@ -545,11 +546,11 @@
 
         <div class="stats-row">
             <div class="stat-card">
-                <div class="stat-number" id="totalCases">328</div>
+                <div class="stat-number" id="totalCases">342</div>
                 <div class="stat-label">Total Cases</div>
             </div>
             <div class="stat-card">
-                <div class="stat-number" id="filteredCases">328</div>
+                <div class="stat-number" id="filteredCases">342</div>
                 <div class="stat-label">Showing</div>
             </div>
             <div class="stat-card">
@@ -574,6 +575,7 @@
                     <button type="button" class="filter-btn" onclick="filterByYear('2023')">2023 (61)</button>
                     <button type="button" class="filter-btn" onclick="filterByYear('2024')">2024 (131)</button>
                     <button type="button" class="filter-btn" onclick="filterByYear('2025')">2025 (136)</button>
+                    <button type="button" class="filter-btn" onclick="filterByYear('2026')">2026 (14)</button>
                 </div>
             </div>
         </div>
@@ -620,7 +622,8 @@
         const casesData = [
             ...(typeof cases2023 !== 'undefined' ? cases2023 : []),
             ...(typeof cases2024 !== 'undefined' ? cases2024 : []),
-            ...(typeof cases2025 !== 'undefined' ? cases2025 : [])
+            ...(typeof cases2025 !== 'undefined' ? cases2025 : []),
+            ...(typeof cases2026 !== 'undefined' ? cases2026 : [])
         ];
 
         let currentFilter = 'all';
@@ -629,7 +632,7 @@
         // Check for year parameter in URL
         const urlParams = new URLSearchParams(window.location.search);
         const yearParam = urlParams.get('year');
-        if (yearParam && ['2023', '2024', '2025'].includes(yearParam)) {
+        if (yearParam && ['2023', '2024', '2025', '2026'].includes(yearParam)) {
             currentFilter = yearParam;
         }
 

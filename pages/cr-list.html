@@ -308,6 +308,10 @@
 
         .cr-summary {
             line-height: 1.6;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            word-break: break-word;
+            max-width: 100%;
         }
 
         .status-badge {
@@ -328,6 +332,26 @@
         body.dark-mode .status-closed {
             background: #1e4620;
             color: #7ed588;
+        }
+
+        .status-assigned {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        body.dark-mode .status-assigned {
+            background: #4a4227;
+            color: #ffd699;
+        }
+
+        .status-new {
+            background: #d1ecf1;
+            color: #0c5460;
+        }
+
+        body.dark-mode .status-new {
+            background: #1e3a40;
+            color: #7dd3e8;
         }
 
         .assignee-cell {
@@ -590,6 +614,8 @@
                 >
                 <div class="filter-buttons">
                     <button type="button" class="filter-btn active" onclick="filterByStatus('all')">All</button>
+                    <button type="button" class="filter-btn" onclick="filterByStatus('Assigned')">Assigned</button>
+                    <button type="button" class="filter-btn" onclick="filterByStatus('New')">New</button>
                     <button type="button" class="filter-btn" onclick="filterByStatus('Closed')">Closed</button>
                 </div>
             </div>

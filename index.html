@@ -536,17 +536,17 @@
                 <h2 style="font-size: 2.5rem; margin: 0 0 0.5rem 0; font-weight: 700;">
                     🏆 Contribution Overview
                 </h2>
-                <p style="opacity: 0.9; font-size: 1.05rem;">Customer cases closed and impact delivered (Jan 2023 - Dec 2025)</p>
+                <p style="opacity: 0.9; font-size: 1.05rem;">Customer cases closed and impact delivered (Jan 2023 - Feb 2026)</p>
             </div>
 
             <!-- Stats Cards -->
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1.2rem; margin-bottom: 2rem;">
                 <div style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); border-radius: 15px; padding: 1.2rem; text-align: center; border: 2px solid rgba(255, 255, 255, 0.2);">
-                    <div style="font-size: 2rem; font-weight: 700; margin-bottom: 0.4rem;">328</div>
+                    <div style="font-size: 2rem; font-weight: 700; margin-bottom: 0.4rem;">342</div>
                     <div style="opacity: 0.9; font-size: 0.85rem;">Total Cases Closed</div>
                 </div>
                 <div style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); border-radius: 15px; padding: 1.2rem; text-align: center; border: 2px solid rgba(255, 255, 255, 0.2);">
-                    <div style="font-size: 2rem; font-weight: 700; margin-bottom: 0.4rem;">81</div>
+                    <div style="font-size: 2rem; font-weight: 700; margin-bottom: 0.4rem;">84</div>
                     <div style="opacity: 0.9; font-size: 0.85rem;">Change Requests</div>
                 </div>
                 <div style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); border-radius: 15px; padding: 1.2rem; text-align: center; border: 2px solid rgba(255, 255, 255, 0.2);">
@@ -579,6 +579,12 @@
                         <div style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem;">136</div>
                         <div style="background: linear-gradient(to top, #51cf66, #37b24d); width: 100%; height: 250px; min-height: 250px; border-radius: 10px 10px 0 0; transition: all 0.3s; position: relative; box-shadow: 0 4px 15px rgba(81, 207, 102, 0.3); cursor: pointer;" onclick="window.location.href='pages/cases-dashboard.html?year=2025'">
                             <div style="position: absolute; bottom: -30px; left: 50%; transform: translateX(-50%); white-space: nowrap; font-weight: 700; font-size: 1.1rem;">2025</div>
+                        </div>
+                    </div>
+                    <div style="display: flex; flex-direction: column; align-items: center; flex: 1; max-width: 150px;">
+                        <div style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem;">14</div>
+                        <div style="background: linear-gradient(to top, #51cf66, #37b24d); width: 100%; height: 26px; min-height: 26px; border-radius: 10px 10px 0 0; transition: all 0.3s; position: relative; box-shadow: 0 4px 15px rgba(81, 207, 102, 0.3); cursor: pointer;" onclick="window.location.href='pages/cases-dashboard.html?year=2026'">
+                            <div style="position: absolute; bottom: -30px; left: 50%; transform: translateX(-50%); white-space: nowrap; font-weight: 700; font-size: 1.1rem;">2026</div>
                         </div>
                     </div>
                 </div>
@@ -616,7 +622,7 @@
                 <h3 style="margin: 0 0 2rem 0; font-size: 1.3rem; text-align: center;">Contributed CRs, ARs &amp; CQs</h3>
                 <div class="cr-ar-chart" style="display: flex; align-items: flex-end; justify-content: space-around; height: 200px; gap: 1.5rem; padding: 0 2rem;">
                     <div style="display: flex; flex-direction: column; align-items: center; flex: 1; max-width: 180px;">
-                        <div style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem;">81</div>
+                        <div style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem;">84</div>
                         <div style="background: linear-gradient(to top, #4fc3f7, #0288d1); width: 100%; height: 200px; min-height: 200px; border-radius: 10px 10px 0 0; transition: all 0.3s; position: relative; box-shadow: 0 4px 15px rgba(79, 195, 247, 0.3); cursor: pointer;" onclick="window.location.href='pages/cr-list.html'">
                             <div style="position: absolute; bottom: -30px; left: 50%; transform: translateX(-50%); white-space: nowrap; font-weight: 700; font-size: 1rem;">Change Requests</div>
                         </div>
@@ -1232,10 +1238,10 @@
             // Initialize default task states if not already set
             const taskStates = JSON.parse(localStorage.getItem('taskStates') || '{}');
             
-            // Set defaults for tasks 1, 2, 4, 5 if they don't exist in localStorage
+            // Set defaults for all tasks as completed if they don't exist in localStorage
             if (!('task-1' in taskStates)) taskStates['task-1'] = true;
             if (!('task-2' in taskStates)) taskStates['task-2'] = true;
-            if (!('task-3' in taskStates)) taskStates['task-3'] = false;
+            if (!('task-3' in taskStates)) taskStates['task-3'] = true;
             if (!('task-4' in taskStates)) taskStates['task-4'] = true;
             if (!('task-5' in taskStates)) taskStates['task-5'] = true;
             
@@ -1534,6 +1540,3 @@
     </script>
 </body>
 </html>
-
-
-
